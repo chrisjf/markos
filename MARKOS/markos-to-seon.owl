@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY top "http://www.markosproject.eu/ontologies/top#" >
+    <!ENTITY markos "http://www.markosproject.eu/ontologies/software#" >
+    <!ENTITY seonmain2 "http://se-on.org/ontologies/general/2012/2/main.owl#" >
+    <!ENTITY seonmain "http://se-on.org/ontologies/general/2012/02/main.owl#" >
+    <!ENTITY seoncode "http://se-on.org/ontologies/domain-specific/2012/02/code.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-to-seon#"
+     xml:base="http://www.markosproject.eu/ontologies/markos-to-seon"
+     xmlns:seonmain="http://se-on.org/ontologies/general/2012/02/main.owl#"
+     xmlns:seonmain2="http://se-on.org/ontologies/general/2012/2/main.owl#"
+     xmlns:top="http://www.markosproject.eu/ontologies/top#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:seoncode="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:markos="http://www.markosproject.eu/ontologies/software#">
+    <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-seon">
+        <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the SEON ontology. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
+        <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>
+        <owl:imports rdf:resource="&markos;2013/03/05"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperClass -->
+
+    <owl:ObjectProperty rdf:about="&seoncode;hasSuperClass">
+        <rdfs:subPropertyOf rdf:resource="&markos;redefinedClassifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#implementsInterface -->
+
+    <rdf:Description rdf:about="&seoncode;implementsInterface">
+        <owl:equivalentProperty rdf:resource="&markos;offeredInterface"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#hasChild -->
+
+    <owl:ObjectProperty rdf:about="&seonmain2;hasChild">
+        <rdfs:subPropertyOf rdf:resource="&markos;ownedEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#hasParent -->
+
+    <owl:ObjectProperty rdf:about="&seonmain2;hasParent">
+        <rdfs:subPropertyOf rdf:resource="&markos;owner"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#offeredInterface -->
+
+    <rdf:Description rdf:about="&markos;offeredInterface"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ownedEntity -->
+
+    <owl:ObjectProperty rdf:about="&markos;ownedEntity"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#owner -->
+
+    <owl:ObjectProperty rdf:about="&markos;owner"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#redefinedClassifier -->
+
+    <owl:ObjectProperty rdf:about="&markos;redefinedClassifier"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AnnotationType -->
+
+    <rdf:Description rdf:about="&seoncode;AnnotationType">
+        <owl:equivalentClass rdf:resource="&markos;AnnotationType"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType -->
+
+    <rdf:Description rdf:about="&seoncode;ClassType">
+        <owl:equivalentClass rdf:resource="&markos;SoftwareClass"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType -->
+
+    <rdf:Description rdf:about="&seoncode;EnumerationType">
+        <owl:equivalentClass rdf:resource="&markos;Enumeration"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ExceptionType -->
+
+    <rdf:Description rdf:about="&seoncode;ExceptionType">
+        <rdfs:subClassOf rdf:resource="&markos;ExceptionType"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field -->
+
+    <rdf:Description rdf:about="&seoncode;Field">
+        <owl:equivalentClass rdf:resource="&markos;Attribute"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType -->
+
+    <rdf:Description rdf:about="&seoncode;InterfaceType">
+        <owl:equivalentClass rdf:resource="&markos;Interface"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Namespace -->
+
+    <rdf:Description rdf:about="&seoncode;Namespace">
+        <owl:equivalentClass rdf:resource="&top;Namespace"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Parameter -->
+
+    <rdf:Description rdf:about="&seoncode;Parameter">
+        <owl:equivalentClass rdf:resource="&markos;Parameter"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#PrimitiveType -->
+
+    <rdf:Description rdf:about="&seoncode;PrimitiveType">
+        <owl:equivalentClass rdf:resource="&markos;PrimitiveType"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#File -->
+
+    <rdf:Description rdf:about="&seonmain2;File">
+        <owl:equivalentClass rdf:resource="&markos;File"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#SeonThing -->
+
+    <rdf:Description rdf:about="&seonmain2;SeonThing">
+        <rdfs:subClassOf rdf:resource="&top;Entity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#AnnotationType -->
+
+    <owl:Class rdf:about="&markos;AnnotationType"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Attribute -->
+
+    <owl:Class rdf:about="&markos;Attribute"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ConstructorMethod -->
+
+    <owl:Class rdf:about="&markos;ConstructorMethod">
+        <rdfs:subClassOf rdf:resource="&seoncode;Constructor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Enumeration -->
+
+    <owl:Class rdf:about="&markos;Enumeration"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ExceptionType -->
+
+    <owl:Class rdf:about="&markos;ExceptionType"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#File -->
+
+    <owl:Class rdf:about="&markos;File"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Interface -->
+
+    <owl:Class rdf:about="&markos;Interface"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Method -->
+
+    <owl:Class rdf:about="&markos;Method">
+        <rdfs:comment>The class seon:Method is not included in this class as seon:Method include also the operations. Depending from the Programming Language seon consider the Costructors also to be methods or not. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Parameter -->
+
+    <owl:Class rdf:about="&markos;Parameter"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#PrimitiveType -->
+
+    <owl:Class rdf:about="&markos;PrimitiveType"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#SoftwareClass -->
+
+    <owl:Class rdf:about="&markos;SoftwareClass"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#SoftwareEntity -->
+
+    <owl:Class rdf:about="&markos;SoftwareEntity">
+        <rdfs:subClassOf rdf:resource="&seoncode;CodeEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Type -->
+
+    <owl:Class rdf:about="&markos;Type">
+        <rdfs:subClassOf rdf:resource="&seoncode;Datatype"/>
+        <rdfs:comment>A Type is included in a seon Datatype. They are distinct as Interfaces are not considered necessarly types.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#Entity -->
+
+    <owl:Class rdf:about="&top;Entity"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#Namespace -->
+
+    <owl:Class rdf:about="&top;Namespace"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
