@@ -28,7 +28,7 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-seon">
         <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the SEON ontology. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>
-        <owl:imports rdf:resource="&markos;2013/03/05"/>
+        <owl:imports rdf:resource="&markos;2013/03/21"/>
     </owl:Ontology>
     
 
@@ -77,7 +77,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#implementsInterface -->
 
     <rdf:Description rdf:about="&seoncode;implementsInterface">
-        <owl:equivalentProperty rdf:resource="&markos;offeredInterface"/>
+        <owl:equivalentProperty rdf:resource="&markos;providedInterface"/>
     </rdf:Description>
     
 
@@ -85,7 +85,7 @@
     <!-- http://se-on.org/ontologies/general/2012/2/main.owl#hasChild -->
 
     <owl:ObjectProperty rdf:about="&seonmain2;hasChild">
-        <rdfs:subPropertyOf rdf:resource="&markos;ownedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&top;subordinateEntity"/>
     </owl:ObjectProperty>
     
 
@@ -98,27 +98,27 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#offeredInterface -->
-
-    <rdf:Description rdf:about="&markos;offeredInterface"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#ownedEntity -->
-
-    <owl:ObjectProperty rdf:about="&markos;ownedEntity"/>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#owner -->
 
     <owl:ObjectProperty rdf:about="&markos;owner"/>
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#providedInterface -->
+
+    <rdf:Description rdf:about="&markos;providedInterface"/>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#redefinedClassifier -->
 
     <owl:ObjectProperty rdf:about="&markos;redefinedClassifier"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#subordinateEntity -->
+
+    <owl:ObjectProperty rdf:about="&top;subordinateEntity"/>
     
 
 
