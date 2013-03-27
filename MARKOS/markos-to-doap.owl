@@ -65,14 +65,14 @@
     <!-- http://usefulinc.com/ns/doap#anon-root -->
 
     <rdf:Description rdf:about="&doap;anon-root">
-        <owl:equivalentProperty rdf:resource="&markos;anonymousAccess."/>
+        <owl:equivalentProperty rdf:resource="&markos;anonymousAccess"/>
     </rdf:Description>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#anonymousAccess. -->
+    <!-- http://www.markosproject.eu/ontologies/software#anonymousAccess -->
 
-    <rdf:Description rdf:about="&markos;anonymousAccess."/>
+    <rdf:Description rdf:about="&markos;anonymousAccess"/>
     
 
 

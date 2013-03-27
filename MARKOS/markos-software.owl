@@ -564,9 +564,9 @@ Note that an implementation relationship is not necessarly a usage relationship 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#anonymousAccess. -->
+    <!-- http://www.markosproject.eu/ontologies/software#anonymousAccess -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#anonymousAccess.">
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#anonymousAccess">
         <rdfs:comment xml:lang="en">URL for anonymous access to the repository.</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
