@@ -611,9 +611,9 @@ Equivalent to doap:location.</rdfs:comment>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#entityName -->
+    <!-- http://www.markosproject.eu/ontologies/software#name -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#entityName">
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#name">
         <rdfs:comment>The name of the NamedElement.</rdfs:comment>
         <rdfs:domain rdf:resource="&top;NamedEntity"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -1266,7 +1266,6 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
 This definition is intended to model what developers usually mean by the term &quot;Project&quot;. Some Project Management standard such as the PMP certification applies the  term &quot;Project&quot; only to temporarly endeavours.
 </rdfs:comment>
-		<rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
     </owl:Class>
     
 
