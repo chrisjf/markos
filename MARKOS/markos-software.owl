@@ -611,9 +611,9 @@ Equivalent to doap:location.</rdfs:comment>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#entityName -->
+    <!-- http://www.markosproject.eu/ontologies/software#name -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#entityName">
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#name">
         <rdfs:comment>The name of the NamedElement.</rdfs:comment>
         <rdfs:domain rdf:resource="&top;NamedEntity"/>
         <rdfs:range rdf:resource="&xsd;string"/>
