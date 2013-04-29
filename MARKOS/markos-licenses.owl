@@ -11,10 +11,10 @@
 
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/licenses#"
      xml:base="http://www.markosproject.eu/ontologies/licenses"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#">
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/licenses"/>
     
 
@@ -52,6 +52,16 @@
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/licenses#assessment -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#assessment">
+        <rdfs:comment xml:lang="en">Assessment of the compliance of the subject license with respect to the licenses of the works used by the work associated to the subject license.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicense"/>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#LicenseAssessment"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/licenses#coveringLicense -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#coveringLicense">
@@ -69,6 +79,39 @@
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicense"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/licenses#argumentation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#argumentation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Description of the reasoning supporting the assessment result (see Data Property :isLicenseCompliant).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#LicenseAssessment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/licenses#isLicenseCompliant -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#isLicenseCompliant">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">The result of the license assessment: it is true if the assessed license is compliant with the other involved licenses, otherwise it is false.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#LicenseAssessment"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -95,6 +138,14 @@
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate">
         <rdfs:comment xml:lang="en">Any software license templates, such as GPL or BSD. A particular copyright  license can be an instance of such a template.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/licenses#LicenseAssessment -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/licenses#LicenseAssessment">
+        <rdfs:comment xml:lang="en">Assessment of the compliance of a licence (see Object Property :assessment).</rdfs:comment>
     </owl:Class>
     
 
