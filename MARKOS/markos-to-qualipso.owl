@@ -66,7 +66,7 @@
     <!-- http://carneades.berlios.de/oss-licenses#compiledBy -->
 
     <rdf:Description rdf:about="&qualipso;compiledBy">
-        <owl:equivalentProperty rdf:resource="&markos;producingCompiler"/>
+        <owl:equivalentProperty rdf:resource="&markos;usedCompiler"/>
     </rdf:Description>
     
 
@@ -82,7 +82,7 @@
     <!-- http://carneades.berlios.de/oss-licenses#instanceOfTemplate -->
 
     <rdf:Description rdf:about="&qualipso;instanceOfTemplate">
-        <owl:equivalentProperty rdf:resource="&licenses;instantiatedTemplate"/>
+        <owl:equivalentProperty rdf:resource="&licenses;template"/>
     </rdf:Description>
     
 
@@ -119,9 +119,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/licenses#instantiatedTemplate -->
+    <!-- http://www.markosproject.eu/ontologies/licenses#template -->
 
-    <rdf:Description rdf:about="&licenses;instantiatedTemplate"/>
+    <rdf:Description rdf:about="&licenses;template"/>
     
 
 
@@ -161,15 +161,15 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#producingCompiler -->
-
-    <rdf:Description rdf:about="&markos;producingCompiler"/>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#staticallyUsedSoftwareEntity -->
 
     <rdf:Description rdf:about="&markos;staticallyUsedSoftwareEntity"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#usedCompiler -->
+
+    <rdf:Description rdf:about="&markos;usedCompiler"/>
     
 
 
