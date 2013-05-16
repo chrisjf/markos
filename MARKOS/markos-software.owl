@@ -722,6 +722,7 @@ The ID of a Statement is an RDF URI reference made from the relative URI referen
     <!-- http://www.markosproject.eu/ontologies/software#API -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#API">
+        <rdfs:label xml:lang="en">API</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Package"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -886,13 +887,13 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&reification;object"/>
+                <owl:onProperty rdf:resource="&reification;subject"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&reification;subject"/>
+                <owl:onProperty rdf:resource="&reification;object"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1026,6 +1027,7 @@ A block of arbitrary information, or resource for storing information, which is 
     <!-- http://www.markosproject.eu/ontologies/software#Interface -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Interface">
+        <rdfs:label xml:lang="en">Interface</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1041,6 +1043,7 @@ A block of arbitrary information, or resource for storing information, which is 
     <!-- http://www.markosproject.eu/ontologies/software#Library -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Library">
+        <rdfs:label xml:lang="en">Library</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&top;Container"/>
         <rdfs:subClassOf>
@@ -1119,6 +1122,7 @@ The class seon:Method is not included in this class as seon:Method include also 
     <!-- http://www.markosproject.eu/ontologies/software#Package -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Package">
+        <rdfs:label xml:lang="en">Package</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&top;Namespace"/>
         <rdfs:subClassOf>
@@ -1225,7 +1229,7 @@ A Program may contain other software entities.</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareClass -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareClass">
-        <rdfs:label>Software Class</rdfs:label>
+        <rdfs:label xml:lang="en">Class</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1262,11 +1266,12 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareProject -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareProject">
+        <rdfs:label xml:lang="en">Software Project</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&top;NamedEntity"/>
         <rdfs:comment xml:lang="en">Any temporary or continuous endeavour undertaken to create or maintain a specific software source code collection. The project may be manifest on different web sites and the source code may be distributed on or replicated in different repositories.
 
 This definition is intended to model what developers usually mean by the term &quot;Project&quot;. Some Project Management standard such as the PMP certification applies the  term &quot;Project&quot; only to temporarly endeavours.
 </rdfs:comment>
-		<rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
     </owl:Class>
     
 
@@ -1274,18 +1279,19 @@ This definition is intended to model what developers usually mean by the term &q
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareRelease -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareRelease">
+        <rdfs:label xml:lang="en">Software Release</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#VersionedEntity"/>
         <rdfs:subClassOf rdf:resource="&top;Container"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;superordinateEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+                <owl:onProperty rdf:resource="&top;containedEntity"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+                <owl:onProperty rdf:resource="&top;superordinateEntity"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
