@@ -750,6 +750,7 @@ The ID of a Statement is an RDF URI reference made from the relative URI referen
     <!-- http://www.markosproject.eu/ontologies/software#API -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#API">
+        <rdfs:label xml:lang="en">API</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Package"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -844,6 +845,7 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
     <!-- http://www.markosproject.eu/ontologies/software#Component -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Component">
+        <rdfs:label xml:lang="en">Component</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
         <rdfs:subClassOf rdf:resource="&top;Classifier"/>
         <rdfs:subClassOf>
@@ -1070,6 +1072,7 @@ A block of arbitrary information, or resource for storing information, which is 
     <!-- http://www.markosproject.eu/ontologies/software#Interface -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Interface">
+        <rdfs:label xml:lang="en">Interface</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1085,6 +1088,7 @@ A block of arbitrary information, or resource for storing information, which is 
     <!-- http://www.markosproject.eu/ontologies/software#Library -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Library">
+        <rdfs:label xml:lang="en">Library</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&top;Container"/>
         <rdfs:subClassOf>
@@ -1163,6 +1167,7 @@ The class seon:Method is not included in this class as seon:Method include also 
     <!-- http://www.markosproject.eu/ontologies/software#Package -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Package">
+        <rdfs:label xml:lang="en">Package</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&top;Namespace"/>
         <rdfs:subClassOf>
@@ -1269,7 +1274,7 @@ A Program may contain other software entities.</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareClass -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareClass">
-        <rdfs:label xml:lang="en">Software Class</rdfs:label>
+        <rdfs:label xml:lang="en">Class</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1312,6 +1317,7 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareProject -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareProject">
+        <rdfs:label xml:lang="en">Software Project</rdfs:label>
         <rdfs:subClassOf rdf:resource="&top;NamedEntity"/>
         <rdfs:comment xml:lang="en">Any temporary or continuous endeavour undertaken to create or maintain a specific software source code collection. The project may be manifest on different web sites and the source code may be distributed on or replicated in different repositories.
 
@@ -1324,8 +1330,15 @@ This definition is intended to model what developers usually mean by the term &q
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareRelease -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareRelease">
+        <rdfs:label xml:lang="en">Software Release</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#VersionedEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#manifestation"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#previousVersion"/>
@@ -1336,12 +1349,6 @@ This definition is intended to model what developers usually mean by the term &q
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&top;superordinateEntity"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#manifestation"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A software (SoftwareRelease) published by a Project and considered sufficiently stable to be used by the final user. This relationship refers to the entire software published by a the project at certain time, i.e. a software that is contained in a released software is not a value of the  releasedSoftware property.</rdfs:comment>
@@ -1451,7 +1458,6 @@ Artifact are concrete entities, i.e. located in time and space.</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/top#Classifier -->
 
     <owl:Class rdf:about="&top;Classifier">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
         <rdfs:comment xml:lang="en">An entity  that can be represented by a UML2 Classifier: &quot;A classifier describes a set of objects [...] A classifier is a classification of instances according to their features [e.g. Properties or Operations]&quot;. Any RDF Class (not to be confused with a software class) corresponds to a UML2 Classifier (more specifically to a UML2 Class having no operations)
 
 Any RDF Class may be represented by a UML2 Classifier or a UML2 Class, but we do not formalize this fact, in order to maintain the ontology simpler.
