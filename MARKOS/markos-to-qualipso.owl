@@ -74,7 +74,7 @@
     <!-- http://carneades.berlios.de/oss-licenses#implementedIn -->
 
     <rdf:Description rdf:about="&qualipso;implementedIn">
-        <owl:equivalentProperty rdf:resource="&markos;implementingLanguage"/>
+        <owl:equivalentProperty rdf:resource="&markos;implementingLanguageVersion"/>
     </rdf:Description>
     
 
@@ -147,9 +147,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#implementingLanguage -->
+    <!-- http://www.markosproject.eu/ontologies/software#implementingLanguageVersion -->
 
-    <rdf:Description rdf:about="&markos;implementingLanguage"/>
+    <rdf:Description rdf:about="&markos;implementingLanguageVersion"/>
     
 
 
@@ -231,7 +231,7 @@
     <!-- http://carneades.berlios.de/oss-licenses#ProgrammingLanguage -->
 
     <rdf:Description rdf:about="&qualipso;ProgrammingLanguage">
-        <owl:equivalentClass rdf:resource="&markos;ProgrammingLanguage"/>
+        <owl:equivalentClass rdf:resource="&markos;ProgrammingLanguageVersion"/>
     </rdf:Description>
     
 
@@ -304,9 +304,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#ProgrammingLanguage -->
+    <!-- http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion -->
 
-    <rdf:Description rdf:about="&markos;ProgrammingLanguage">
+    <rdf:Description rdf:about="&markos;ProgrammingLanguageVersion">
         <rdfs:comment xml:lang="en">A markos:ProgrammingLanguage is assumed to be equivalent to a qualipso:ProgrammingLanguage, assuming that a qualipsoSpecification is not a SpecificationDocument but what the specification defines. </rdfs:comment>
     </rdf:Description>
     
