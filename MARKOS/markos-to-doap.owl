@@ -13,12 +13,12 @@
 
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-to-doap#"
      xml:base="http://www.markosproject.eu/ontologies/markos-to-doap"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:doap="http://usefulinc.com/ns/doap#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:markos="http://www.markosproject.eu/ontologies/software#">
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:markos="http://www.markosproject.eu/ontologies/software#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:doap="http://usefulinc.com/ns/doap#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-doap">
         <owl:imports rdf:resource="http://usefulinc.com/ns/doap#"/>
         <owl:imports rdf:resource="&markos;2013/03/21"/>
