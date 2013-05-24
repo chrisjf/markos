@@ -604,7 +604,6 @@ Note that an implementation relationship is not necessarly a usage relationship 
     <!-- http://www.markosproject.eu/ontologies/top#containerEntity -->
 
     <owl:ObjectProperty rdf:about="&top;containerEntity">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment xml:lang="en">The container (as direct parent) of the subject entity.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&top;superordinateEntity"/>
     </owl:ObjectProperty>
@@ -678,7 +677,6 @@ Note that an implementation relationship is not necessarly a usage relationship 
     <!-- http://www.markosproject.eu/ontologies/top#superordinateEntity -->
 
     <owl:ObjectProperty rdf:about="&top;superordinateEntity">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment xml:lang="en">Inverse of subordinateEntity (see).</rdfs:comment>
         <rdfs:range rdf:resource="&top;Entity"/>
         <rdfs:domain rdf:resource="&top;NamedEntity"/>
@@ -1043,13 +1041,13 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&reification;subject"/>
+                <owl:onProperty rdf:resource="&reification;object"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&reification;object"/>
+                <owl:onProperty rdf:resource="&reification;subject"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
