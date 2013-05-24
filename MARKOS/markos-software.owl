@@ -2,8 +2,10 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY top "http://www.markosproject.eu/ontologies/top#" >
@@ -15,17 +17,20 @@
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/software#"
      xml:base="http://www.markosproject.eu/ontologies/software"
      xmlns:top="http://www.markosproject.eu/ontologies/top#"
+     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:reification="http://www.markosproject.eu/ontologies/reification#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:licenses="http://www.markosproject.eu/ontologies/licenses#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#">
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/software">
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">This ontology describes the domain independent concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/licenses"/>
         <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/software#2013/03/21"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     </owl:Ontology>
     
 
@@ -69,6 +74,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/dc/terms/subject -->
+
+    <owl:ObjectProperty rdf:about="&terms;subject"/>
     
 
 
@@ -521,6 +532,17 @@ A SoftwareEntity X is used at compilation time by a SoftwareEntity Y if the comp
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#topic -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#topic">
+        <rdfs:comment xml:lang="en">A topic of the sucject Work, linking to the appropriate SKOS category. </rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&terms;subject"/>
+        <rdfs:domain rdf:resource="&licenses;Work"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#type -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#type">
@@ -801,17 +823,6 @@ Equivalent to doap:location.</rdfs:comment>
         <rdfs:comment xml:lang="en">Web siste of the subject entity.</rdfs:comment>
         <rdfs:domain rdf:resource="&top;Entity"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/top#tag -->
-
-    <owl:DatatypeProperty rdf:about="&top;tag">
-        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Tag_(metadata)</rdfs:seeAlso>
-        <rdfs:comment xml:lang="en">A  non-hierarchical keyword or term used to classify the subject entity.</rdfs:comment>
-        <rdfs:domain rdf:resource="&top;Entity"/>
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
@@ -1218,14 +1229,14 @@ A block of arbitrary information, or resource for storing information, which is 
         <rdfs:subClassOf rdf:resource="&top;Container"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#provenanceManifestation"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#ArchiveFile"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#provenanceManifestation"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#ArchiveFile"/>
+                <owl:onProperty rdf:resource="&top;containedEntity"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A library is a software entity, manifested by a single ArchiveFile, that aggregates the software entities manifested the files contained in the ArchiveFile.</rdfs:comment>
@@ -1487,14 +1498,14 @@ This definition is intended to model what developers usually mean by the term &q
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;superordinateEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#previousVersion"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareRelease"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#previousVersion"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareRelease"/>
+                <owl:onProperty rdf:resource="&top;superordinateEntity"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A software (SoftwareRelease) published by a Project and considered sufficiently stable to be used by the final user. This relationship refers to the entire software published by a the project at certain time, i.e. a software that is contained in a released software is not a value of the  releasedSoftware property.</rdfs:comment>
