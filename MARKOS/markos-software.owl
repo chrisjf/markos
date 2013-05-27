@@ -566,7 +566,7 @@ A SoftwareEntity X is used at compilation time by a SoftwareEntity Y if the comp
     <!-- http://www.markosproject.eu/ontologies/software#topic -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#topic">
-        <rdfs:comment xml:lang="en">A topic of the sucject Work, linking to the appropriate SKOS category. </rdfs:comment>
+        <rdfs:comment xml:lang="en">A topic of the subject Work, linking to the appropriate SKOS category. </rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&terms;subject"/>
         <rdfs:domain rdf:resource="&licenses;Work"/>
         <rdfs:range rdf:resource="&skos;Concept"/>
