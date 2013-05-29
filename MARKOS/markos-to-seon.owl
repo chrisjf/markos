@@ -16,15 +16,15 @@
 
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-to-seon#"
      xml:base="http://www.markosproject.eu/ontologies/markos-to-seon"
-     xmlns:seonmain="http://se-on.org/ontologies/general/2012/02/main.owl#"
-     xmlns:seonmain2="http://se-on.org/ontologies/general/2012/2/main.owl#"
-     xmlns:top="http://www.markosproject.eu/ontologies/top#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:seoncode="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:seonmain2="http://se-on.org/ontologies/general/2012/2/main.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:markos="http://www.markosproject.eu/ontologies/software#">
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:markos="http://www.markosproject.eu/ontologies/software#"
+     xmlns:seonmain="http://se-on.org/ontologies/general/2012/02/main.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:seoncode="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#"
+     xmlns:top="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-seon">
         <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the SEON ontology. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>

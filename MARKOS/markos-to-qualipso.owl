@@ -15,14 +15,14 @@
 
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-to-qualipso#"
      xml:base="http://www.markosproject.eu/ontologies/markos-to-qualipso"
-     xmlns:top="http://www.markosproject.eu/ontologies/top#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:qualipso="http://carneades.berlios.de/oss-licenses#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:markos="http://www.markosproject.eu/ontologies/software#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:licenses="http://www.markosproject.eu/ontologies/licenses#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:markos="http://www.markosproject.eu/ontologies/software#">
+     xmlns:qualipso="http://carneades.berlios.de/oss-licenses#"
+     xmlns:top="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-qualipso">
         <owl:imports rdf:resource="http://carneades.berlios.de/oss-licenses"/>
         <owl:imports rdf:resource="&markos;2013/03/21"/>
@@ -74,7 +74,7 @@
     <!-- http://carneades.berlios.de/oss-licenses#implementedIn -->
 
     <rdf:Description rdf:about="&qualipso;implementedIn">
-        <owl:equivalentProperty rdf:resource="&markos;implementingLanguageVersion"/>
+        <owl:equivalentProperty rdf:resource="&markos;implementationLanguageVersion"/>
     </rdf:Description>
     
 
@@ -139,17 +139,17 @@
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#implementationLanguageVersion -->
+
+    <rdf:Description rdf:about="&markos;implementationLanguageVersion"/>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#implementedSoftwareEntity -->
 
     <rdf:Description rdf:about="&markos;implementedSoftwareEntity">
         <rdfs:subPropertyOf rdf:resource="&qualipso;implements"/>
     </rdf:Description>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#implementingLanguageVersion -->
-
-    <rdf:Description rdf:about="&markos;implementingLanguageVersion"/>
     
 
 
