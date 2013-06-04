@@ -381,11 +381,11 @@ In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be con
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenance">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Provenance</rdfs:label>
-        <rdfs:comment xml:lang="en">The project that originally released the subject SoftwareEntity. Each SoftwareEntity has exactly one provenance.
+        <rdfs:comment xml:lang="en">The project (if any) that originally released the subject SoftwareWork. Each SoftwareWork has maximum one provenance project.
 
 Note that the fact that a project releases a software entity does not necessarly imply that the project is the provenance of the software entity, as the software entity could have been copied from the provenance project and released again in another project.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
     </owl:ObjectProperty>
     
 
@@ -659,15 +659,6 @@ Note that an implementation relationship is not necessarly a usage relationship 
         <rdfs:label xml:lang="en">Contained entity</rdfs:label>
         <rdfs:comment xml:lang="en">The container (as direct parent) of the subject entity.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&top;superordinateEntity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/top#feature -->
-
-    <owl:ObjectProperty rdf:about="&top;feature">
-        <rdfs:label xml:lang="en">Feature</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="&top;subordinateEntity"/>
     </owl:ObjectProperty>
     
 
@@ -1229,9 +1220,9 @@ In general terms a code dependency is a special case of a UML 2 Dependency: &quo
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
         <rdfs:subClassOf rdf:resource="&top;VersionedEntity"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Computer_file&amp;oldid=531726094</rdfs:seeAlso>
-        <rdfs:seeAlso xml:lang="en">Any file that can be represented by a UML2 Artifact with standard stereotype &lt;&lt;File&gt;&gt; (i.e. A physical file in the context of the system developed.). 
+        <rdfs:comment xml:lang="en">Any file that can be represented by a UML2 Artifact with standard stereotype &lt;&lt;File&gt;&gt; (i.e. A physical file in the context of the system developed.). 
 
-A block of arbitrary information, or resource for storing information, which is available to a computer program and is usually based on some kind of durable storage. (Computer file. (2013, January 7). In Wikipedia, The Free Encyclopedia. Retrieved 12:32, January 23, 2013)</rdfs:seeAlso>
+A block of arbitrary information, or resource for storing information, which is available to a computer program and is usually based on some kind of durable storage. (Computer file. (2013, January 7). In Wikipedia, The Free Encyclopedia. Retrieved 12:32, January 23, 2013)</rdfs:comment>
     </owl:Class>
     
 
@@ -1324,14 +1315,14 @@ A block of arbitrary information, or resource for storing information, which is 
         <rdfs:subClassOf rdf:resource="&top;Container"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#provenanceManifestation"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#ArchiveFile"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#provenanceManifestation"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#ArchiveFile"/>
+                <owl:onProperty rdf:resource="&top;containedEntity"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A library is a software entity, manifested by a single ArchiveFile, that aggregates the software entities manifested the files contained in the ArchiveFile.</rdfs:comment>
