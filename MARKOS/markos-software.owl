@@ -259,15 +259,8 @@ implementationLanguage = implementationsLanguageVersion.unversionedAbstraction
         <rdfs:label xml:lang="en">Implemented API</rdfs:label>
         <rdfs:comment xml:lang="en">API implemented by the subject Component or Library</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#API"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#implementedSoftwareEntity"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#Component"/>
-                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#Library"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -324,6 +317,8 @@ implementationLanguage = implementationsLanguageVersion.unversionedAbstraction
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#includedAPI">
         <rdfs:label xml:lang="en">Contained API</rdfs:label>
         <rdfs:comment xml:lang="en">API included (i.e. which elements are contained) in the subject SoftwareEntity.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#API"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
     </owl:ObjectProperty>
     
 
@@ -373,16 +368,9 @@ A Work is an abstract entity that may have several distinct manifestations. For 
         <rdfs:label xml:lang="en">Owned API</rdfs:label>
         <rdfs:comment xml:lang="en">API originally defined by the subject SoftwareEntity.</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#API"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#includedAPI"/>
         <rdfs:subPropertyOf rdf:resource="&top;subordinateEntity"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#API"/>
-                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#Package"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -1069,6 +1057,7 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A SoftwareEntity that could (potentially) contain an API or an API implementation.</rdfs:comment>
         <top:nameCriteria xml:lang="en">Any SoftwareEntity that may contain an API.</top:nameCriteria>
     </owl:Class>
     
