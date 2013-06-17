@@ -15,14 +15,14 @@
 
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-to-qualipso#"
      xml:base="http://www.markosproject.eu/ontologies/markos-to-qualipso"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:top="http://www.markosproject.eu/ontologies/top#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:markos="http://www.markosproject.eu/ontologies/software#"
+     xmlns:qualipso="http://carneades.berlios.de/oss-licenses#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:licenses="http://www.markosproject.eu/ontologies/licenses#"
-     xmlns:qualipso="http://carneades.berlios.de/oss-licenses#"
-     xmlns:top="http://www.markosproject.eu/ontologies/top#">
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:markos="http://www.markosproject.eu/ontologies/software#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-qualipso">
         <owl:imports rdf:resource="http://carneades.berlios.de/oss-licenses"/>
         <owl:imports rdf:resource="&markos;2013/03/21"/>
@@ -223,7 +223,7 @@
     <!-- http://carneades.berlios.de/oss-licenses#ObjectCode -->
 
     <rdf:Description rdf:about="&qualipso;ObjectCode">
-        <owl:equivalentClass rdf:resource="&markos;ObjectCode"/>
+        <owl:equivalentClass rdf:resource="&markos;ObjectCodeFile"/>
     </rdf:Description>
     
 
@@ -255,7 +255,7 @@
     <!-- http://carneades.berlios.de/oss-licenses#SourceCode -->
 
     <rdf:Description rdf:about="&qualipso;SourceCode">
-        <owl:equivalentClass rdf:resource="&markos;SourceCode"/>
+        <owl:equivalentClass rdf:resource="&markos;SourceCodeFile"/>
     </rdf:Description>
     
 
@@ -298,9 +298,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#ObjectCode -->
+    <!-- http://www.markosproject.eu/ontologies/software#ObjectCodeFile -->
 
-    <rdf:Description rdf:about="&markos;ObjectCode"/>
+    <rdf:Description rdf:about="&markos;ObjectCodeFile"/>
     
 
 
@@ -318,9 +318,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#SourceCode -->
+    <!-- http://www.markosproject.eu/ontologies/software#SourceCodeFile -->
 
-    <rdf:Description rdf:about="&markos;SourceCode"/>
+    <rdf:Description rdf:about="&markos;SourceCodeFile"/>
     
 
 
