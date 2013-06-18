@@ -1874,7 +1874,7 @@ Usually the visibility of a LocalVariable is Private to the Behavior that owns (
         <rdfs:label xml:lang="en">Operator</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Feature"/>
         <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Operation: An operation is a behavioral feature of a classifier that specifies the name, type, parameters, and constraints for invoking an associated behavior. An operation may be specified or implemented in a programming language.</rdfs:comment>
-        <top:canonicalURICriteria xml:lang="en">MARKOS prefix + “Operation” + owning class URI  + operation name + incremental number (needed to distinguish operations having same name)</top:canonicalURICriteria>
+        <top:canonicalURICriteria xml:lang="en">MARKOS prefix + 'Operation' + owning class URI  + operation name + incremental number (needed to distinguish operations having same name)</top:canonicalURICriteria>
         <top:identityCriteria xml:lang="en">Owning class,
 operation name,
 parameter names and types.
@@ -1893,7 +1893,7 @@ parameter names and types.
         <rdfs:label xml:lang="en">Package</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
         <rdfs:subClassOf rdf:resource="&top;Namespace"/>
-        <top:canonicalURICriteria xml:lang="en">MARKOS prefix + “Package” + provenance project URI  + release name + package namespace + package name.</top:canonicalURICriteria>
+        <top:canonicalURICriteria xml:lang="en">MARKOS prefix + 'Package' + provenance project URI  + release name + package namespace + package name.</top:canonicalURICriteria>
         <top:nameCriteria xml:lang="en">The name of the package is the name of the namespace of the contained entities.</top:nameCriteria>
         <top:namespaceCriteria xml:lang="en">The namespace of the package is the namespace of the namespace of the contained entities.</top:namespaceCriteria>
         <rdfs:comment xml:lang="en">The set of all software entities belonging to a same namespace and having a same provenance. Any UML2 package (&quot;A package is a namespace for its members, and may contain other packages&quot;) having all members with the same provenance represent a Package in the sense of the present ontology. 
@@ -2021,7 +2021,7 @@ A Program may contain other software entities.</rdfs:comment>
         </rdfs:subClassOf>
         <top:versionCriteria xml:lang="en"> the version of the provenance manifestation file.</top:versionCriteria>
         <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Class: &quot;A class describes a set of objects that share the same specifications of features, constraints, and semantics. Class is a kind of classifier whose features are attributes and operations.&quot;</rdfs:comment>
-        <top:canonicalURICriteria xml:lang="en">MARKOS prefix + “Class” + name + namespace + incremental number (needed to distinguish classes with the same name and namespace)</top:canonicalURICriteria>
+        <top:canonicalURICriteria xml:lang="en">MARKOS prefix + 'Class' + name + namespace + incremental number (needed to distinguish classes with the same name and namespace)</top:canonicalURICriteria>
         <provenanceManifestationCriteria xml:lang="en">The SourceCode manifestation released by the original author of the &quot;full source code&quot; of the SoftwareClass.
 
 The &quot;full source code&quot; of a software entity is the minimal self-contained set of files (or file portions) that are needed to interpret or compile a software entity manifestation. Self-contained means that no other file is needed to interpret or compile the code without errors. Minimal means that there is no subset of it defining the same software entity. In general the source code may need more than one file. 
@@ -2096,7 +2096,7 @@ the namespace.</top:identityCriteria>
         <rdfs:comment xml:lang="en">Any temporary or continuous endeavour undertaken to create or maintain a specific software source code collection. The project may be manifest on different web sites and the source code may be distributed on or replicated in different repositories.
 
 This definition is intended to model what developers usually mean by the term &quot;Project&quot;. Some Project Management standard such as the PMP certification applies the  term &quot;Project&quot; only to temporarly endeavours.</rdfs:comment>
-        <top:canonicalURICriteria xml:lang="en">MARKOS prefix + “Project” + project name + incremental number (needed to distinguish projects with the same name)</top:canonicalURICriteria>
+        <top:canonicalURICriteria xml:lang="en">MARKOS prefix + 'Project' + project name + incremental number (needed to distinguish projects with the same name)</top:canonicalURICriteria>
         <top:namespaceCriteria xml:lang="en">N.A.</top:namespaceCriteria>
         <top:versionCriteria xml:lang="en">N.A.</top:versionCriteria>
         <provenanceManifestationCriteria xml:lang="en">N.A. (A SoftwareProject is not a Work, i.e. a thing protected by Copyright, but it is an activity that produces a Work, some SoftwareWork. Therefore, strictly speaking, a SoftwareProject has no manifestation. We can speak instead of the manifestation of all resulting software and such a manifestation is roughly the set of all the SoftwareRepositories of the Project. In a more general sense there are things that are not a manifestation of the SoftwareProject but evidences of its existence such as a DOAP file describing the SoftwareProject).</provenanceManifestationCriteria>
