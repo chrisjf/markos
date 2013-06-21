@@ -1,0 +1,180 @@
+V0.6
+====
+MARKOS ontology version 2013/06/21
+
+Removed properties:
+ - markos:PreviousVersion
+
+Added constraints:
+ - superclass to markos:SoftwareWork top:previousVersion only markos:SoftwareWork.
+
+Renamed properties:
+ - markos:topic to top:relatedTopic. 
+
+Other changes:
+ - domain of top:relatedTopic from licenses:Work to top:Entity
+
+
+
+V0.5
+====
+Added classes:
+ - FileSet (needed to represent the manifestation of a software release composed by a set of files)
+ - VisibilityKind (to represent the visibility of operation)
+ - Feature, NestedClass, NestedInterface 
+ - ProgrammingLanguageVersion (distinct from mere ProgrammingLanguage that is used when the version is unknown) 
+ - APIContainer (any entity that may contain an API such as a Package or a Library).
+ - LocalVariable (subclass of TypedEntity): a variable defined within a Behaviour (e.g. a Method).
+ - BKRepository, DarcsRepository, BazaarBranch, HgRepository: classes from DOAP ontology
+
+Added properties:
+ - informationSource: Statement x InformationSource (ontology requirement #639)
+ - ownedMethod: SoftwareObjectType x Method (ontology requirement #652)
+ - referredEntity: Behavior x TypedEntity
+ - invokedBehavior: Behavior x Behavior  
+ - invokedOperation: Behavior x Operation  
+ - importedLibrary: SoftwareEntity x Library  
+ - importedPackage: SoftwareEntity x Package 
+ - visibility: SoftwareEntity x VisibilityKind 
+ - ownedMember: Namespace x NamedEntity (as in UML2)
+ - isStatic: Feature x boolean
+ - isReadOnly: Attribute x boolean
+ - implementationLanguageVersion: SoftwareEntity x ProgrammingLanguageVersion
+ - unversionedAbstraction: VersionedEntity x NamedEntity (used to relate a ProgrammingLanguageVersion to the corresponding ProgrammingLanguage)
+ - topic:Work x skos:Concept (used to describe the topic of a Work)
+ - top#previousVersion: VersionedEntity x VersionedEntity
+ - ownedAPI: APIContainer x API (to relate an API to its defining Package or Library).
+ - includedAPI: APIContainer x API (to relate an API to one of its container Packages or Libraries).
+ - oldWebSiteURL, mailingList, releasedSoftwareLicense, downloadPage, downloadMirror, wiki, bugDatabase, 
+   maintainer, developer, documenter, tester, translator, helper, operatingSystem, platform, serviceEndpoint, 
+   documentationLanguage, audience, blog, vendor: properties from DOAP ontology
+
+ Added Constraints:
+ - provenanceManifestation range Artifact
+ - FileContainer subclassOf FileSystemElement
+ - SoftwareEntity.manifestation allValuesFrom File
+ - SoftwareProject subclassOf namedEntity
+ - SoftwareRelease subclassOf SoftwareWork
+ - SoftwareRelease.manifestation allValuesFrom FileSystemElement
+ - FileContainer.containedEntity allValuesFrom FileSystemElement
+ - FileSet subclassOf FileContainer
+ - Namespace subclassOf ContainerEntity. 
+ - Library must have an ArchileFile as provenanceManifestation and a FileContainer as manifestation.
+ - Changed Domain and Range of nestedClassifier (as in UML2)
+ - SoftwareArtifact subclassOf SoftwareWork
+ - Attribute subclassOf TypedElement
+
+Added Individuals: 
+privateVisibility, publicVisibility, packageVisibility, protectedVisibility (to represent the visibility of operation)
+ 
+Added annotation properties:
+ - top#correspondingSuperProperty (used to map properties of different ontologies when rdfs:subPropertyOf cannot be used due to different representation of property values) 
+ - top#correspondingProperty (used to map properties of different ontologies when owl:equivalentProperty cannot be used due to different representation of property values) 
+ - top#identityCriteria (list the key properties used to identify the instances of a specific class)
+ - top#canonicalURICriteria (describes how the canonical RDF URI for an instance of the subject class should be composed)
+ - markos#provenanceManifestationCriteria (clarifies in a more precise way the semantics of the provenance for a specific type of Work) 
+ - top#nameCriteria (clarify which is the name of a specific type of NamedEntity).
+ - top#namespaceCriteria (clarify which is the namespace of a specific type of NamedEntity).
+ - top#versionCriteria (clarify which is the version of a specific type of VersionedEntity).
+
+Added annotations:
+ - identityCriteria, canonicalURICriteria, provenanceManifestationCriteria, nameCriteria namespaceCriteria and versionCriteria on classes SoftwareEntity, File, SoftwareClass, Operation, Library, API, Package
+
+Removed properties:
+ - tag (substituted with markos:topic)
+ - feature (added for error)
+
+Removed constraints:
+ - forkSoftwareEntity subpropertyOf usedSoftwareWork (wrong)
+ - successiveVersion subpropertyOf usedSoftwareWork (wrong)
+ - Directory subclassOf FileSystemElement (redundant)
+ - SoftwareProject subclassOf Entity (redundant)
+ - SoftwareRelease subclassOf Container (not all SoftwareReleases are Containers)
+ - SoftwareRelease.manifestation allValuesFrom FileContainer (not all SoftwareReleases have a FileContainer as manifestation)
+ - containerEntity is functional (wrong, an entity may belong to two different containers, e.g. a same class may belong to two different SoftwareReleases)
+ - superordinateEntity is functional (wrong, an entity may belong to two different containers and therefore may have more superodinates)
+ - SoftwareArtifact subclassOf SoftwareArtifact (wrong)
+ - API subclassOf Package (with the new definition an API is a portion of a Package or Library) 
+
+Changed textual definitions of:
+ - manifestation (generalized to any work, not just software entities)
+ - provenance (clarified the difference between using project and provenance project)
+ - provenanceManifestation (generalized to any Work)
+ - FileSystemElement (estended: also a set of file elements may be itself a file element)
+ - Operation (corrected typos)
+ - SoftwareObjectType (corrected typos)
+ - SoftwareRelease (now a software release is one SoftwareWork instead of a set of SoftwareWork)
+ - Container (clarified the specificity of a container with respect to an entity having parts)
+ - Improved the definition of releasedSoftware and SoftwareRelease.
+
+Renamed (tried to use more intuitive names):
+ - producingCompiler -> usedCompiler
+ - software#containerEntity -> top#containerEntity
+ - webInterface -> webInterfaceURL
+ - webSite -> webSiteURL
+ - licenses#instantiatedTemplate -> licenses#template
+ - implementingLanguage -> implementationLanguage
+ - declaredImplementingLanguage -> declaredImplementationLanguage
+ - softwareImplementingLanguage -> softwareImplementationLanguage
+ 
+Other changes
+ - Removed ObjectProperty ownedSoftwareEntity (useless)
+ - Removed cardinality constraint on provenanceManifestation of Library (wrong)
+ - Removed Class Property (useless)
+ - rdfs:comment of FileContainer (clarified it is a FileSystemElement)
+ - providedInterface: Component x Interface (previous range, SoftwareEntity, was wrong)
+ - software#previousVersion: SoftwareWork x softwareWork (needed to be a subproperty of usedSoftwareWork)
+ - software#successiveVersion: SoftwareWork x softwareWork (to be inverseOf proviousVersion) 
+ - moved labels of licenses concepts to the licenses ontology (they were in the software ontology)
+ - changed rdfs:label of OwnedMember to rdfs:comment 
+ - provenance: SoftwareWork x SoftwareProject (extended the domain from SoftwareEntity to SoftwareWork to apply it also to a File)
+ - rdfs:seeAlso of File to rdfs:comment (it was rdfs:seeAlso for error)
+ - Definition of class API (the old one was too restrictive for practical usage)
+ - Definition of class Package (the meaning is the same of the old one, but the description is more detailed).
+ - Class top#Feature now is software#Feature and inherits from SoftwareEntity (the old one was more generic without a specific reason)
+ - Property software#location (domain=FileRepository) generalised to top#location(domain=top#Entity) in order to be used for both FileRepository and File
+ - Class FileContainer renamed to FileCollection (old name was misleading because a FileRepository is a Container of Files but, it is not a FileSystemElement then, it is not a FileContainer!)
+ - Class SourceCode renamed to SourceCodeFile (to adopt the same name pattern of the other File subclasses)
+ - Class ObjectCode renamed to ObjectCodeFile (to adopt the same name pattern of the other File subclasses)
+ - Property "name" now is functional (for coherence with corresponding UML property)
+ - All Properties named "owned..." are inverseFunctional (i.e. ownership, differently from containment, cannot be shared)
+ - comment of class Method (removed a comment that is part of markos-to-seon.owl).
+ - added comments on annotation properties nameCriteria, namespaceCriteria, versionCriteria.
+
+
+
+V0.4
+====
+ - Added catalog-v001.xml to the .gitignore file
+
+
+
+V0.3
+====
+MARKOS ontology version 2013/03/21
+
+Changes:
+ - Top License Ontology & mapping with Qualipso
+ - Started mapping with DOAP 
+ - Aligned with WP2 entity model
+ - More SoftwareWork subclasses (Program, ArchiveFile, ExecutableFile,
+ - configuratioFile, ScriptFile, DigitalImage, WebPage ..)
+ - SoftwareRelease distinguished from its manifestation
+ - Generalized the idea of manifestation to any Work (to be improved)
+ - Introduced the not legal “ownership” relationship (superordinate) and distinguished it from part-of (contained)
+ - Introduced InformationSource & a reification model
+ - Added the DependsOn class having any software usage statement as instance. 
+ - Avoided the usage of union as property domain
+ - Added the tag property (to be generalized to Annotation?)
+
+
+
+V0.2
+====
+Second draft version of MARKOS ontology
+
+
+
+V0.1
+====
+MARKOS ontology version 2013-01
