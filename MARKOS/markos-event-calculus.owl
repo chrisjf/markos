@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-event-calculus#"
+     xml:base="http://www.markosproject.eu/ontologies/markos-event-calculus"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus">
+        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#action -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#action">
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Action"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Effect"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#clippedAfter -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#clippedAfter">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Clipping"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#clippedBefore -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#clippedBefore">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Clipping"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#fluent -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#fluent">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Effect"/>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Fluent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#fluentClipped -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#fluentClipped">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Clipping"/>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Fluent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#happens -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#happens">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Action"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#holdsAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#holdsAt">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Fluent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#Action -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#Action"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#Clipping -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#Clipping"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#Effect -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#Effect"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#Fluent -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#Fluent"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#Initiation -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#Initiation">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Effect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-event-calculus#Termination -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-event-calculus#Termination">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Effect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Instant"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
