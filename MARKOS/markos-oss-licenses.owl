@@ -6,6 +6,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY copyright "http://www.markosproject.eu/ontologies/copyright#" >
     <!ENTITY cc "http://www.semanticweb.org/tgo/ontologies/2013/6/creative-commons#" >
 ]>
 
@@ -16,6 +17,7 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:copyright="http://www.markosproject.eu/ontologies/copyright#"
      xmlns:cc="http://www.semanticweb.org/tgo/ontologies/2013/6/creative-commons#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/oss-licenses">
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/copyright"/>
@@ -44,6 +46,33 @@
     <!-- http://www.semanticweb.org/tgo/ontologies/2013/6/creative-commons#requires -->
 
     <owl:AnnotationProperty rdf:about="&cc;requires"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/copyright#governingLaw -->
+
+    <rdf:Description rdf:about="&copyright;governingLaw">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicense"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/copyright#jurisdiction -->
+
+    <rdf:Description rdf:about="&copyright;jurisdiction">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicense"/>
+    </rdf:Description>
     
 
 
@@ -85,7 +114,7 @@
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#OpenSourceLicenseTemplate -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#OpenSourceLicenseTemplate">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/copyright#CopyrightLicenseTemplate"/>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
     </owl:Class>
     
 
@@ -110,14 +139,6 @@
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate">
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#OpenSourceLicenseTemplate"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Revocation -->
-
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Revocation">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/markos-event-calculus#Action"/>
     </owl:Class>
     
 
@@ -197,6 +218,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#EUPL-1.1">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <copyright:isCompatibleWith rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#EPL-1.0"/>
+        <copyright:isCompatibleWith rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#GPL-2.0"/>
     </owl:NamedIndividual>
     
 
@@ -205,6 +228,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <copyright:isCompatibleWith rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#GPL-3.0"/>
         <cc:permits rdf:resource="&cc;DerivativeWorks"/>
         <cc:permits rdf:resource="&cc;Distribution"/>
         <cc:requires rdf:resource="&cc;Notice"/>
@@ -233,6 +257,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-2.1">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <copyright:isCompatibleWith rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#GPL-2.0"/>
+        <copyright:isCompatibleWith rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#GPL-3.0"/>
         <cc:permits rdf:resource="&cc;DerivativeWorks"/>
         <cc:permits rdf:resource="&cc;Distribution"/>
         <cc:requires rdf:resource="&cc;Notice"/>
@@ -247,6 +273,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-3.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <copyright:isCompatibleWith rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#GPL-3.0"/>
         <cc:permits rdf:resource="&cc;DerivativeWorks"/>
         <cc:permits rdf:resource="&cc;Distribution"/>
         <cc:requires rdf:resource="&cc;Notice"/>
