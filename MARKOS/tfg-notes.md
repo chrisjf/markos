@@ -43,7 +43,8 @@ The reciprocity clause of the MPL seems to only apply to textual modifications o
 
 ### Countries Ontology
 
-URL:  http://www.w3.org/Consortium/Offices/Presentations/RDFTutorial/rdfs/Countries.owl
+URL: http://eulersharp.sourceforge.net/2003/03swap/countries.html
+License: W3C Software License
 
-License:  Unknown
+
 
