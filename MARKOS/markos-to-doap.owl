@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 
+<!-- 
+	This document is part of the deliverable 'D2.2.1a MARKOS Ontology (initial)' released by the MARKOS project (http://www.markosproject.eu/).  
+	
+	The MARKOS project is partially funded by the European Commission under the Seventh (FP7 - 2007-2013) Framework Programme for Research and Technological Development
+	
+	Disclaimer: The information and views set out in this publication are those of the author(s) and do not necessarily reflect the official opinion of the European Communities. Neither the European Union institutions and bodies nor any person acting on their behalf may be held responsible for the use which may be made of the information contained therein.
+	© Copyright in this document remains vested with the MARKOS Partners.	
+-->
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY doap "http://usefulinc.com/ns/doap#" >
@@ -22,8 +30,10 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:markos="http://www.markosproject.eu/ontologies/software#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-doap">
+        <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the DOAP ontology. </rdfs:comment>
         <owl:imports rdf:resource="http://usefulinc.com/ns/doap#"/>
-        <owl:imports rdf:resource="&markos;2013/07/05"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-doap#2013/07/16"/>
+        <owl:imports rdf:resource="&markos;2013/07/16"/>
     </owl:Ontology>
     
 

@@ -1,6 +1,85 @@
+MARKOS ontology 
+
+Changes
+
+V1.0
+====
+version date: 2013/07/16
+
+Changed class definition
+- Package (now the elements must have to the same provenance, but must be contained in a same release)
+
+Renamed classes
+- TypedEntity -> Variable 
+- top#Classifier -> (software#) Classifier (also changed the definition to align it to UML2)
+
+Added classes
+- BehaviorParameter (A Parameter of a Behavior, it is both a Parameter and a LocalVariable)
+
+Removed classes
+- reification#Entity (unused)
+- reification#Statement (unused)
+- DependsOn (unused)
+- reification#InformationSource (unused)
+- top#InformationSource (unused)
+- NestedClass (redundant)
+- NestedInterface (redundant)
+
+Renamed properties
+- (software#)name -> top#name (also NamedEntity and namespace are in top)
+- TypedEntity -> Variable (to make explicit the meaning) 
+- top#Classifier -> (software#)Classifier (also changed the definition to align it to UML2)
+- referredEntity -> referredVariable (to make the name more related to actual meaning)
+- implementedOperation -> directImplementedOperation (do make evident that it is not transitive)
+- importedLibrary -> linkedLibrary (to make more explicit the intended semantics)
+- type -> valueType (to make more evident that is a property defined on Variables)
+- ownedVariable -> ownedLocalVariable (to make explicit that it is not a generalisation of ownedAttribute and ownedParameter)
+- licenses#argumentation -> licenses#analyses
+
+Removed properties
+- reification#subject (unused)
+- reification#object (unused)
+- reification#predicate (unused)
+- reification#informationSource (unused)
+- redefinedOperation (substituted by redefinedEntity)
+- top#redefinedClassifier (substituted by redefinedEntity)
+- staticallyUsedSoftwareEntity (redundant, we are going to analyse only static usages, and in any case this should be an attribute as most kind of dependencies may be both static or dynamic)
+- dinamicallyUsedSoftwareEntity (we are not going to analyse dynamic usages, and in any case this should be an attribute as most kind of dependencies may be both static or dynamic)
+
+Added properties
+- redefinedEntity: SoftwareEntity x SoftwareEntity (an entity, e.g. a feature of a Classifier, redefined in a specialised Classifier)
+- directImplementedInterface: Classifier x Interface (interface directly implemented by the subject entity)
+- directSuperType: Classifier x Classifier (e.g. a direct superclass or a directly implemented interface) 
+- directExtendedType: Classifier x Classifier (e.g. a direct superclass)
+
+Removed Constraints
+- ParameterDirectionKind sublcassOf SoftwareEntity (wrong as ParameterDirectionKind is just a meta-data)
+- license#CopyrightLicense subclassOf VisibilityKind (wrong) 
+- DataType subclassOf Type (redundant because it is subclassOf Classifier)
+- ProgrammingLanguage subclassOf SoftwareWork (added constraint on ProgrammingLanguageVersion)
+- AnnotationType -> DataType (not true in Java and C#)
+- Component subclasOf Classifier (redundant)
+- Domain of ownedParameter: Behavior (now it is only Operation; instead the Behavior owns BehaviorParameters as value of ownedLocalVariable) 
+
+Added Constraints
+- ParameterDirectionKind sublcassOf top#Entity
+- license#CopyrightLicense subclassOf top#Entity
+- ExceptionType subclassOf Classifier
+- ProgrammingLanguageVersion subclassOf SoftwareWork
+- ProgrammingLanguage subclassOf top#NamedEntity
+- AnnotationType subclassOf Classifier
+- SoftwareObjectType subclassOf Classifier
+- implementationLanguageVersion subclassOf usedSoftwareWork
+- Operation.redefinedEntity only Operation
+- Attribute.redefinedEntity only Attribute
+- Interface.redefinedEntity only Interface
+- NestedClass.redefinedEntity only NestedClass
+- providedInterface subpropertyOf implementedInterface
+
+
 V0.6
 ====
-MARKOS ontology version 2013/06/21
+version date: 2013/06/21
 
 Removed properties:
  - markos:PreviousVersion
@@ -18,6 +97,8 @@ Other changes:
 
 V0.5
 ====
+version date: 2013/07/18
+
 Added classes:
  - FileSet (needed to represent the manifestation of a software release composed by a set of files)
  - VisibilityKind (to represent the visibility of operation)
@@ -45,6 +126,7 @@ Added properties:
  - top#previousVersion: VersionedEntity x VersionedEntity
  - ownedAPI: APIContainer x API (to relate an API to its defining Package or Library).
  - includedAPI: APIContainer x API (to relate an API to one of its container Packages or Libraries).
+ - includedSoftwareEntity: SoftwareEntity x SoftwareEntity (generalisation of includedAPI)
  - oldWebSiteURL, mailingList, releasedSoftwareLicense, downloadPage, downloadMirror, wiki, bugDatabase, 
    maintainer, developer, documenter, tester, translator, helper, operatingSystem, platform, serviceEndpoint, 
    documentationLanguage, audience, blog, vendor: properties from DOAP ontology
@@ -142,18 +224,16 @@ Other changes
  - added comments on annotation properties nameCriteria, namespaceCriteria, versionCriteria.
 
 
-
 V0.4
 ====
+version date: 2013/05/02
+
  - Added catalog-v001.xml to the .gitignore file
-
-
 
 V0.3
 ====
-MARKOS ontology version 2013/03/21
+version date: 2013/03/21
 
-Changes:
  - Top License Ontology & mapping with Qualipso
  - Started mapping with DOAP 
  - Aligned with WP2 entity model
@@ -168,11 +248,9 @@ Changes:
  - Added the tag property (to be generalized to Annotation?)
 
 
-
 V0.2
 ====
-Second draft version of MARKOS ontology
-
+version date: 2013/03/21
 
 
 V0.1
