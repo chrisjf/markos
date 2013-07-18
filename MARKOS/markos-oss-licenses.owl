@@ -39,6 +39,12 @@
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#name -->
+
+    <owl:AnnotationProperty rdf:about="&software;name"/>
+    
+
+
     <!-- http://www.semanticweb.org/tgo/ontologies/2013/6/creative-commons#permits -->
 
     <owl:AnnotationProperty rdf:about="&creative-commons;permits"/>
@@ -86,6 +92,46 @@
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Adapt -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Adapt">
+        <rdfs:subClassOf rdf:resource="&copyright;Use"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Copy -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Copy">
+        <rdfs:subClassOf rdf:resource="&copyright;Use"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Display -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Display">
+        <rdfs:subClassOf rdf:resource="&copyright;Use"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Distribute -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Distribute">
+        <rdfs:subClassOf rdf:resource="&copyright;Use"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Modify -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Modify">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#Adapt"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#OpenSourceLicense -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#OpenSourceLicense">
@@ -98,6 +144,14 @@
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#OpenSourceLicenseTemplate">
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Perform -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Perform">
+        <rdfs:subClassOf rdf:resource="&copyright;Use"/>
     </owl:Class>
     
 
