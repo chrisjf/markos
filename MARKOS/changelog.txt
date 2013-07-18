@@ -2,6 +2,11 @@ MARKOS ontology
 
 Changes
 
+V1.0.1
+====
+- Removed constraint
+Feature subclassOf NamedEntity (redundant)
+
 V1.0
 ====
 version date: 2013/07/16
