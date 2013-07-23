@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 
+<!-- 
+	This document is part of the deliverable 'D2.2.1a MARKOS Ontology (initial)' released by the MARKOS project (http://www.markosproject.eu/).  
+	
+	The MARKOS project is partially funded by the European Commission under the Seventh (FP7 - 2007-2013) Framework Programme for Research and Technological Development
+	
+	Disclaimer: The information and views set out in this publication are those of the author(s) and do not necessarily reflect the official opinion of the European Communities. Neither the European Union institutions and bodies nor any person acting on their behalf may be held responsible for the use which may be made of the information contained therein.
+	© Copyright in this document remains vested with the MARKOS Partners.	
+-->
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
@@ -31,7 +39,7 @@
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">This ontology describes the domain independent concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/licenses"/>
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/software#2013/07/16"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/software#2013/07/23"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     </owl:Ontology>
@@ -542,9 +550,7 @@ Note that the fact that a project releases a software entity does not necessarly
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenanceManifestation">
         <rdfs:label xml:lang="en">Provenance manifestation</rdfs:label>
-        <rdfs:comment xml:lang="en">The original Artifact that defined the subject Work. 
-
-Each software entity has exactly 2 values of provenanceManifestation. They are the source code and the object code files released by the provenance Project of the subject SoftwareEntity. </rdfs:comment>
+        <rdfs:comment xml:lang="en">The original Artifact that defined the subject Work, i.e. the source code or the object code files released by the provenance Project of the subject SoftwareEntity. </rdfs:comment>
         <rdfs:domain rdf:resource="&licenses;Work"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#manifestation"/>
         <rdfs:range rdf:resource="&top;Artifact"/>
@@ -562,6 +568,19 @@ Each software entity has exactly one provenanceObjectCode. It is a file released
         <rdfs:domain rdf:resource="&licenses;Work"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ObjectCodeFile"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#provenanceManifestation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#provenanceRelease -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenanceRelease">
+        <rdfs:label xml:lang="en">Provenance release</rdfs:label>
+        <rdfs:comment xml:lang="en">The SoftwareRelease (if any) that originally released the subject SoftwareWork. Each SoftwareWork has maximum one provenance release.
+
+Note that the fact that a SoftwareRelease containes a software entity does not necessarly imply that the SoftwareRelease is the provenanceRelease of the software entity, as the software entity could have been copied from the provenanceRelease and released again in another release of the same project or of a different project.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareRelease"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
     </owl:ObjectProperty>
     
 
@@ -657,9 +676,10 @@ This relationship refers to the entire software published by a the project at ce
     <!-- http://www.markosproject.eu/ontologies/software#repository -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#repository">
-        <rdfs:label xml:lang="en">Repository</rdfs:label>
+        <rdfs:comment xml:lang="en">Repository</rdfs:comment>
+        <rdfs:comment xml:lang="en">The FileRepository where the subject FileSystemElement is published.</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
     </owl:ObjectProperty>
     
 
@@ -687,6 +707,17 @@ In UML 2 it is represented by the attribute &quot;required&quot; </rdfs:comment>
 Rule:
 softwareImplementationLanguage=releasedSoftware.implementationLanguage</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#softwareRepository -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#softwareRepository">
+        <rdfs:label xml:lang="en">Software repository</rdfs:label>
+        <rdfs:comment xml:lang="en">The SoftwareRepository where the software released by the subject SoftwareProject is released.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
     </owl:ObjectProperty>
     
@@ -1114,6 +1145,17 @@ Equivalent to &#39;old-homepage&#39; from ontology DOAP</rdfs:comment>
 Equivalent to &#39;os&#39; from ontology DOAP</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#path -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#path">
+        <rdfs:label xml:lang="en">Path</rdfs:label>
+        <rdfs:comment xml:lang="en">The path of the subject FileSystemElement, used to uniquely identify and access it in the system where it is published.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -2069,13 +2111,13 @@ This definition is intended to model what developers usually mean by the term &q
         <rdfs:subClassOf rdf:resource="&licenses;Work"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;previousVersion"/>
+                <owl:onProperty rdf:resource="&top;containedEntity"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;containedEntity"/>
+                <owl:onProperty rdf:resource="&top;previousVersion"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>

@@ -2,10 +2,26 @@ MARKOS ontology
 
 Changes
 
+V1.1
+====
+version date: 2013/07/23
+
+- Changed definitions
+provenanceManifestation (now more than two values are admitted)
+
+- added properties
+provenanceRelease: SoftwareWork x SoftwareRelease (the original release of the subject softwareWork)
+path: File x String (the path of the subject FileSystemElement, used to uniquely identify and access it in the system where it is published) 
+
+- renamed properties
+repository -> softwareRepository
+
+
 V1.0.1
 ====
 - Removed constraint
 Feature subclassOf NamedEntity (redundant)
+
 
 V1.0
 ====
@@ -219,7 +235,7 @@ Other changes
  - Definition of class API (the old one was too restrictive for practical usage)
  - Definition of class Package (the meaning is the same of the old one, but the description is more detailed).
  - Class top#Feature now is software#Feature and inherits from SoftwareEntity (the old one was more generic without a specific reason)
- - Property software#location (domain=FileRepository) generalised to top#location(domain=top#Entity) in order to be used for both FileRepository and File
+ - Property software#location (domain=FileRepository) generalised to top#url(domain=top#Entity) in order to be used for both FileRepository and File
  - Class FileContainer renamed to FileCollection (old name was misleading because a FileRepository is a Container of Files but, it is not a FileSystemElement then, it is not a FileContainer!)
  - Class SourceCode renamed to SourceCodeFile (to adopt the same name pattern of the other File subclasses)
  - Class ObjectCode renamed to ObjectCodeFile (to adopt the same name pattern of the other File subclasses)

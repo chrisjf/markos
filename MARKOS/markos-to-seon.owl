@@ -36,8 +36,8 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-seon">
         <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the SEON ontology. </rdfs:comment>
         <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-seon#2013/07/16"/>
-        <owl:imports rdf:resource="&markos;2013/07/16"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-seon#2013/07/23"/>
+        <owl:imports rdf:resource="&markos;2013/07/23"/>
     </owl:Ontology>
     
 
