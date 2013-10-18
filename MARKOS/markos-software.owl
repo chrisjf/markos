@@ -65,7 +65,7 @@ Such a rule is expressed informally as it is not intended to be used by generic 
         <rdfs:comment xml:lang="en">Specifies which is the provenance manifestation of the instances of the subject class of SoftwareEntities and how it is (ideally) determined.
 
 The provenance manifestation is the Artifact released by the provenance project (i.e. by the project that originally authored it).
-  
+
 The provenance manifestation criteria clarifies in a more precise way the semantics of the provenanceManifestation property when applied to a specific class of entities. The specified criteria is ideal in the sense that it is not requested to be applicable in a practical or efficient way in all circumstances. In other terms the information needed to determine the provenance manifestation of an entity could be difficult or complex to manage or impossible to obtain in an automatic or sure way. Depending from the specific context specific heuristics can be used to guess the provenance manifestation.
 
 The provenance manifestation is described informally as it is not intended to be used by generic OWL resoners but by humans as guideline to implement (heuristical or correct and complete) algorithms that automatically determine the provenance of a SoftwarEntity.
@@ -163,11 +163,12 @@ Equivalent to &#39;developer&#39; from ontology DOAP</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#directExtendedType -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#directExtendedType">
-        <rdfs:label xml:lang="en">A Classifier  that is more general of the subject Classifier and used as a base for the implementation of the subjectType. 
+        <rdfs:label xml:lang="en">Direct extended type</rdfs:label>
+        <rdfs:comment xml:lang="en">A Classifier  that is more general of the subject Classifier and used as a base for the implementation of the subjectType. 
 
 The extension relationship may be subject to different constraints than the implementation relationship (for example, in Java, a SoftwareClass may extend only one SoftwareClass, but can implement several Interfaces).
- 
-An extendedType is a UML2 generalized Classifier (i.e. the general Classifier of a Generalization relationship)</rdfs:label>
+
+An extendedType is a UML2 generalized Classifier (i.e. the general Classifier of a Generalization relationship)</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#directSuperType"/>
@@ -180,10 +181,10 @@ An extendedType is a UML2 generalized Classifier (i.e. the general Classifier of
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#directImplementedInterface">
         <rdfs:label xml:lang="en">Implemented interface</rdfs:label>
-        <owl:priorVersion xml:lang="en">Interface implemented by the subject entity. This implies that the interface is used by the subject entity. 
+        <rdfs:commen xml:lang="en">Interface implemented by the subject entity. This implies that the interface is used by the subject entity. 
 
 An implementedInterface is a UML2 realizedInterface.
-</owl:priorVersion>
+</rdfs:commen>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Interface"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#directSuperType"/>
@@ -260,7 +261,8 @@ Practically speaking this is a successive version of the subject SoftwareEntity 
     <!-- http://www.markosproject.eu/ontologies/software#forkStartedEntity -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#forkStartedEntity">
-        <rdfs:label xml:lang="en">SoftwareEntity which execution is started by the subject SoftwareEntity, but that runs in a process spearated from the one of the subject SoftwareEntity.</rdfs:label>
+        <rdfs:label xml:lang="en">Fork started entity</rdfs:label>
+        <rdfs:comment xml:lang="en">SoftwareEntity which execution is started by the subject SoftwareEntity, but that runs in a process spearated from the one of the subject SoftwareEntity.</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Program"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
@@ -404,9 +406,10 @@ implementationLanguage = implementationsLanguageVersion.unversionedAbstraction
     <!-- http://www.markosproject.eu/ontologies/software#linkedLibrary -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#linkedLibrary">
-        <rdfs:label xml:lang="en">A Library that is linked to the softwareEntity. 
+        <rdfs:label xml:lang="en">Linked library</rdfs:label>
+        <rdfs:comment xml:lang="en">A Library that is linked to the softwareEntity. 
 
-Note that the SoftwareEntities contained in a Library may be linked to a SoftwareEntities without linkeng them as a Library, therefore the linking of a Library is distinct form the linking of all the SoftwareEntities.</rdfs:label>
+Note that the SoftwareEntities contained in a Library may be linked to a SoftwareEntities without linkeng them as a Library, therefore the linking of a Library is distinct form the linking of all the SoftwareEntities.</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Library"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
@@ -417,6 +420,7 @@ Note that the SoftwareEntities contained in a Library may be linked to a Softwar
     <!-- http://www.markosproject.eu/ontologies/software#maintainer -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#maintainer">
+        <rdfs:label xml:lang="en">Mantainer</rdfs:label>
         <rdfs:comment xml:lang="en">Maintainer of a project, a project leader.
 
 Equivalent to &#39;maintainer&#39; from ontology DOAP</rdfs:comment>
@@ -676,7 +680,7 @@ This relationship refers to the entire software published by a the project at ce
     <!-- http://www.markosproject.eu/ontologies/software#repository -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#repository">
-        <rdfs:comment xml:lang="en">Repository</rdfs:comment>
+        <rdfs:label xml:lang="en">Repository</rdfs:label>
         <rdfs:comment xml:lang="en">The FileRepository where the subject FileSystemElement is published.</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
@@ -1063,6 +1067,7 @@ Equivalent to &#39;language&#39; from ontology DOAP</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#downloadMirror -->
 
     <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#downloadMirror">
+        <rdfs:label xml:lang="en">Download mirror</rdfs:label>
         <rdfs:comment xml:lang="en">Download mirror
 
 Equivalent to &#39;download-mirror&#39; from ontology DOAP</rdfs:comment>
