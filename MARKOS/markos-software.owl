@@ -1,13 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- 
-	This document is part of the deliverable 'D2.2.1a MARKOS Ontology (initial)' released by the MARKOS project (http://www.markosproject.eu/).  
-	
-	The MARKOS project is partially funded by the European Commission under the Seventh (FP7 - 2007-2013) Framework Programme for Research and Technological Development
-	
-	Disclaimer: The information and views set out in this publication are those of the author(s) and do not necessarily reflect the official opinion of the European Communities. Neither the European Union institutions and bodies nor any person acting on their behalf may be held responsible for the use which may be made of the information contained therein.
-	© Copyright in this document remains vested with the MARKOS Partners.	
--->
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
@@ -181,10 +173,10 @@ An extendedType is a UML2 generalized Classifier (i.e. the general Classifier of
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#directImplementedInterface">
         <rdfs:label xml:lang="en">Implemented interface</rdfs:label>
-        <rdfs:commen xml:lang="en">Interface implemented by the subject entity. This implies that the interface is used by the subject entity. 
+        <rdfs:comment xml:lang="en">Interface implemented by the subject entity. This implies that the interface is used by the subject entity. 
 
 An implementedInterface is a UML2 realizedInterface.
-</rdfs:commen>
+</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Interface"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#directSuperType"/>
@@ -523,19 +515,6 @@ In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be con
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#previousVersion -->
-
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#previousVersion">
-        <rdfs:label xml:lang="en">Previous version</rdfs:label>
-        <rdfs:comment xml:lang="en">A previous version of the subject SoftwareEntity.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareWork"/>
-        <rdfs:subPropertyOf rdf:resource="&top;previousVersion"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#provenance -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenance">
@@ -723,17 +702,6 @@ softwareImplementationLanguage=releasedSoftware.implementationLanguage</rdfs:com
         <rdfs:comment xml:lang="en">The SoftwareRepository where the software released by the subject SoftwareProject is released.</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#successiveVersion -->
-
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#successiveVersion">
-        <rdfs:label xml:lang="en">Successive version</rdfs:label>
-        <rdfs:comment xml:lang="en">A successive version of the subject SoftwareWork. </rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
     </owl:ObjectProperty>
     
 
@@ -945,6 +913,18 @@ A same entity may be contained in different Containers. </rdfs:comment>
         <rdfs:domain rdf:resource="&top;Entity"/>
         <rdfs:range rdf:resource="&top;NamedEntity"/>
         <owl:inverseOf rdf:resource="&top;superordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#successiveVersion -->
+
+    <owl:ObjectProperty rdf:about="&top;successiveVersion">
+        <rdfs:label xml:lang="en">Successive version</rdfs:label>
+        <rdfs:comment xml:lang="en">A successive version of the subject entity. </rdfs:comment>
+        <rdfs:range rdf:resource="&top;VersionedEntity"/>
+        <rdfs:domain rdf:resource="&top;VersionedEntity"/>
+        <owl:inverseOf rdf:resource="&top;previousVersion"/>
     </owl:ObjectProperty>
     
 
@@ -1323,6 +1303,12 @@ Equivalent to &#39;wiki&#39; from ontology DOAP</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&top;containedEntity"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#Interface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&top;containerEntity"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -1332,12 +1318,6 @@ Equivalent to &#39;wiki&#39; from ontology DOAP</rdfs:comment>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#Interface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <top:identityCriteria xml:lang="en">(The set of identities of) all software entities (i.e. Interfaces) in the API.</top:identityCriteria>
@@ -2116,13 +2096,13 @@ This definition is intended to model what developers usually mean by the term &q
         <rdfs:subClassOf rdf:resource="&licenses;Work"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;containedEntity"/>
+                <owl:onProperty rdf:resource="&top;previousVersion"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&top;previousVersion"/>
+                <owl:onProperty rdf:resource="&top;containedEntity"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>

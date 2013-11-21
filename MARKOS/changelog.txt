@@ -1,6 +1,34 @@
 MARKOS ontology 
 
-Changes
+V1.3
+====
+- Removed annotation properties
+rdfs:commen (typo for comment)
+
+- Removed properties
+markos:previousVersion
+
+- Renamed properties
+markos:successiveVersion -> top:successiveVersion
+
+- Added constraints
+top:successiveVersion inverseOf top:previousVersion
+
+
+V1.2
+====
+version date: 2013/07/23
+
+- Changed definitions
+provenanceManifestation (now more than two values are admitted)
+
+- added properties
+provenanceRelease: SoftwareWork x SoftwareRelease (the original release of the subject softwareWork)
+path: File x String (the path of the subject FileSystemElement, used to uniquely identify and access it in the system where it is published) 
+
+- renamed properties
+repository -> softwareRepository
+
 
 V1.1
 ====
