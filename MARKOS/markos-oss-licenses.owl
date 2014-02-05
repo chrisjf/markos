@@ -79,6 +79,27 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#templateSource -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#templateSource">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/top#url"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -186,6 +207,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
+        <templateSource rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/Apache-2.0</templateSource>
         <software:version>2.0</software:version>
         <software:name>Apache</software:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
