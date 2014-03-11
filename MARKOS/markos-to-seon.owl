@@ -1,13 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- 
-	This document is part of the deliverable 'D2.2.1a MARKOS Ontology (initial)' released by the MARKOS project (http://www.markosproject.eu/).  
-	
-	The MARKOS project is partially funded by the European Commission under the Seventh (FP7 - 2007-2013) Framework Programme for Research and Technological Development
-	
-	Disclaimer: The information and views set out in this publication are those of the author(s) and do not necessarily reflect the official opinion of the European Communities. Neither the European Union institutions and bodies nor any person acting on their behalf may be held responsible for the use which may be made of the information contained therein.
-	© Copyright in this document remains vested with the MARKOS Partners.	
--->
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
@@ -15,7 +7,7 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY top "http://www.markosproject.eu/ontologies/top#" >
-    <!ENTITY markos "http://www.markosproject.eu/ontologies/software#" >
+    <!ENTITY msw "http://www.markosproject.eu/ontologies/software#" >
     <!ENTITY seonmain2 "http://se-on.org/ontologies/general/2012/2/main.owl#" >
     <!ENTITY seonmain "http://se-on.org/ontologies/general/2012/02/main.owl#" >
     <!ENTITY seoncode "http://se-on.org/ontologies/domain-specific/2012/02/code.owl#" >
@@ -24,43 +16,20 @@
 
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-to-seon#"
      xml:base="http://www.markosproject.eu/ontologies/markos-to-seon"
-     xmlns:seonmain="http://se-on.org/ontologies/general/2012/02/main.owl#"
-     xmlns:seonmain2="http://se-on.org/ontologies/general/2012/2/main.owl#"
-     xmlns:top="http://www.markosproject.eu/ontologies/top#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:seoncode="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:seonmain2="http://se-on.org/ontologies/general/2012/2/main.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:markos="http://www.markosproject.eu/ontologies/software#">
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:seonmain="http://se-on.org/ontologies/general/2012/02/main.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:msw="http://www.markosproject.eu/ontologies/software#"
+     xmlns:seoncode="http://se-on.org/ontologies/domain-specific/2012/02/code.owl#"
+     xmlns:top="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-seon">
         <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the SEON ontology. </rdfs:comment>
         <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-seon#2013/07/23"/>
-        <owl:imports rdf:resource="&markos;2013/07/23"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-seon#2014/03/11"/>
     </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
     
 
 
@@ -78,7 +47,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperClass -->
 
     <owl:ObjectProperty rdf:about="&seoncode;hasSuperClass">
-        <rdfs:subPropertyOf rdf:resource="&markos;redefinedClassifier"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;redefinedClassifier"/>
     </owl:ObjectProperty>
     
 
@@ -86,7 +55,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#implementsInterface -->
 
     <rdf:Description rdf:about="&seoncode;implementsInterface">
-        <owl:equivalentProperty rdf:resource="&markos;providedInterface"/>
+        <owl:equivalentProperty rdf:resource="&msw;providedInterface"/>
     </rdf:Description>
     
 
@@ -102,26 +71,26 @@
     <!-- http://se-on.org/ontologies/general/2012/2/main.owl#hasParent -->
 
     <owl:ObjectProperty rdf:about="&seonmain2;hasParent">
-        <rdfs:subPropertyOf rdf:resource="&markos;owner"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;owner"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#owner -->
 
-    <owl:ObjectProperty rdf:about="&markos;owner"/>
+    <owl:ObjectProperty rdf:about="&msw;owner"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#providedInterface -->
 
-    <rdf:Description rdf:about="&markos;providedInterface"/>
+    <owl:ObjectProperty rdf:about="&msw;providedInterface"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#redefinedClassifier -->
 
-    <owl:ObjectProperty rdf:about="&markos;redefinedClassifier"/>
+    <owl:ObjectProperty rdf:about="&msw;redefinedClassifier"/>
     
 
 
@@ -145,7 +114,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AnnotationType -->
 
     <rdf:Description rdf:about="&seoncode;AnnotationType">
-        <owl:equivalentClass rdf:resource="&markos;AnnotationType"/>
+        <owl:equivalentClass rdf:resource="&msw;AnnotationType"/>
     </rdf:Description>
     
 
@@ -153,7 +122,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType -->
 
     <rdf:Description rdf:about="&seoncode;ClassType">
-        <owl:equivalentClass rdf:resource="&markos;SoftwareClass"/>
+        <owl:equivalentClass rdf:resource="&msw;SoftwareClass"/>
     </rdf:Description>
     
 
@@ -161,7 +130,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType -->
 
     <rdf:Description rdf:about="&seoncode;EnumerationType">
-        <owl:equivalentClass rdf:resource="&markos;Enumeration"/>
+        <owl:equivalentClass rdf:resource="&msw;Enumeration"/>
     </rdf:Description>
     
 
@@ -169,7 +138,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ExceptionType -->
 
     <rdf:Description rdf:about="&seoncode;ExceptionType">
-        <rdfs:subClassOf rdf:resource="&markos;ExceptionType"/>
+        <rdfs:subClassOf rdf:resource="&msw;ExceptionType"/>
     </rdf:Description>
     
 
@@ -177,7 +146,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Field -->
 
     <rdf:Description rdf:about="&seoncode;Field">
-        <owl:equivalentClass rdf:resource="&markos;Attribute"/>
+        <owl:equivalentClass rdf:resource="&msw;Attribute"/>
     </rdf:Description>
     
 
@@ -185,7 +154,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#InterfaceType -->
 
     <rdf:Description rdf:about="&seoncode;InterfaceType">
-        <owl:equivalentClass rdf:resource="&markos;Interface"/>
+        <owl:equivalentClass rdf:resource="&msw;Interface"/>
     </rdf:Description>
     
 
@@ -201,7 +170,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Parameter -->
 
     <rdf:Description rdf:about="&seoncode;Parameter">
-        <owl:equivalentClass rdf:resource="&markos;Parameter"/>
+        <owl:equivalentClass rdf:resource="&msw;Parameter"/>
     </rdf:Description>
     
 
@@ -209,7 +178,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#PrimitiveType -->
 
     <rdf:Description rdf:about="&seoncode;PrimitiveType">
-        <owl:equivalentClass rdf:resource="&markos;PrimitiveType"/>
+        <owl:equivalentClass rdf:resource="&msw;PrimitiveType"/>
     </rdf:Description>
     
 
@@ -217,7 +186,7 @@
     <!-- http://se-on.org/ontologies/general/2012/2/main.owl#File -->
 
     <rdf:Description rdf:about="&seonmain2;File">
-        <owl:equivalentClass rdf:resource="&markos;File"/>
+        <owl:equivalentClass rdf:resource="&msw;File"/>
     </rdf:Description>
     
 
@@ -232,19 +201,19 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#AnnotationType -->
 
-    <owl:Class rdf:about="&markos;AnnotationType"/>
+    <owl:Class rdf:about="&msw;AnnotationType"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#Attribute -->
 
-    <owl:Class rdf:about="&markos;Attribute"/>
+    <owl:Class rdf:about="&msw;Attribute"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#ConstructorMethod -->
 
-    <owl:Class rdf:about="&markos;ConstructorMethod">
+    <owl:Class rdf:about="&msw;ConstructorMethod">
         <rdfs:subClassOf rdf:resource="&seoncode;Constructor"/>
     </owl:Class>
     
@@ -252,31 +221,31 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#Enumeration -->
 
-    <owl:Class rdf:about="&markos;Enumeration"/>
+    <owl:Class rdf:about="&msw;Enumeration"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#ExceptionType -->
 
-    <owl:Class rdf:about="&markos;ExceptionType"/>
+    <owl:Class rdf:about="&msw;ExceptionType"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#File -->
 
-    <owl:Class rdf:about="&markos;File"/>
+    <owl:Class rdf:about="&msw;File"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#Interface -->
 
-    <owl:Class rdf:about="&markos;Interface"/>
+    <owl:Class rdf:about="&msw;Interface"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#Method -->
 
-    <owl:Class rdf:about="&markos;Method">
+    <owl:Class rdf:about="&msw;Method">
         <rdfs:comment>The class seon:Method is not included in this class as seon:Method include also the operations. Depending from the Programming Language seon consider the Costructors also to be methods or not. </rdfs:comment>
     </owl:Class>
     
@@ -284,25 +253,25 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#Parameter -->
 
-    <owl:Class rdf:about="&markos;Parameter"/>
+    <owl:Class rdf:about="&msw;Parameter"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#PrimitiveType -->
 
-    <owl:Class rdf:about="&markos;PrimitiveType"/>
+    <owl:Class rdf:about="&msw;PrimitiveType"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareClass -->
 
-    <owl:Class rdf:about="&markos;SoftwareClass"/>
+    <owl:Class rdf:about="&msw;SoftwareClass"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareEntity -->
 
-    <owl:Class rdf:about="&markos;SoftwareEntity">
+    <owl:Class rdf:about="&msw;SoftwareEntity">
         <rdfs:subClassOf rdf:resource="&seoncode;CodeEntity"/>
     </owl:Class>
     
@@ -310,7 +279,7 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#Type -->
 
-    <owl:Class rdf:about="&markos;Type">
+    <owl:Class rdf:about="&msw;Type">
         <rdfs:subClassOf rdf:resource="&seoncode;Datatype"/>
         <rdfs:comment>A Type is included in a seon Datatype. They are distinct as Interfaces are not considered necessarly types.</rdfs:comment>
     </owl:Class>
@@ -330,5 +299,5 @@
 
 
 
-<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 

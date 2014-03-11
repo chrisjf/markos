@@ -1,13 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- 
-	This document is part of the deliverable 'D2.2.1a MARKOS Ontology (initial)' released by the MARKOS project (http://www.markosproject.eu/).  
-	
-	The MARKOS project is partially funded by the European Commission under the Seventh (FP7 - 2007-2013) Framework Programme for Research and Technological Development
-	
-	Disclaimer: The information and views set out in this publication are those of the author(s) and do not necessarily reflect the official opinion of the European Communities. Neither the European Union institutions and bodies nor any person acting on their behalf may be held responsible for the use which may be made of the information contained therein.
-	© Copyright in this document remains vested with the MARKOS Partners.	
--->
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY doap "http://usefulinc.com/ns/doap#" >
@@ -15,25 +7,25 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY top "http://www.markosproject.eu/ontologies/top#" >
-    <!ENTITY markos "http://www.markosproject.eu/ontologies/software#" >
+    <!ENTITY mtop "http://www.markosproject.eu/ontologies/top#" >
+    <!ENTITY msw "http://www.markosproject.eu/ontologies/software#" >
 ]>
 
 
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-to-doap#"
      xml:base="http://www.markosproject.eu/ontologies/markos-to-doap"
-     xmlns:top="http://www.markosproject.eu/ontologies/top#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:doap="http://usefulinc.com/ns/doap#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:markos="http://www.markosproject.eu/ontologies/software#">
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:doap="http://usefulinc.com/ns/doap#"
+     xmlns:msw="http://www.markosproject.eu/ontologies/software#"
+     xmlns:mtop="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-doap">
         <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the DOAP ontology. </rdfs:comment>
         <owl:imports rdf:resource="http://usefulinc.com/ns/doap#"/>
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-doap#2013/07/23"/>
-        <owl:imports rdf:resource="&markos;2013/07/23"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-doap#2014/03/11"/>
+        <owl:imports rdf:resource="&msw;2014/03/11"/>
     </owl:Ontology>
     
 
@@ -46,6 +38,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#correspondingSuperProperty -->
+
+    <owl:AnnotationProperty rdf:about="&mtop;correspondingSuperProperty"/>
     
 
 
@@ -63,14 +61,14 @@
     <!-- http://usefulinc.com/ns/doap#release -->
 
     <rdf:Description rdf:about="&doap;release">
-        <owl:equivalentProperty rdf:resource="&markos;releasedSoftware"/>
+        <owl:equivalentProperty rdf:resource="&msw;releasedSoftware"/>
     </rdf:Description>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#releasedSoftware -->
 
-    <rdf:Description rdf:about="&markos;releasedSoftware"/>
+    <owl:ObjectProperty rdf:about="&msw;releasedSoftware"/>
     
 
 
@@ -88,22 +86,14 @@
     <!-- http://usefulinc.com/ns/doap#anon-root -->
 
     <rdf:Description rdf:about="&doap;anon-root">
-        <owl:equivalentProperty rdf:resource="&markos;anonymousAccess"/>
+        <owl:equivalentProperty rdf:resource="&msw;anonymousAccess"/>
     </rdf:Description>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#anonymousAccess -->
 
-    <rdf:Description rdf:about="&markos;anonymousAccess"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/top#url -->
-
-    <rdf:Description rdf:about="&top;url">
-        <rdfs:domain rdf:resource="&top;Entity"/>
-    </rdf:Description>
+    <owl:DatatypeProperty rdf:about="&msw;anonymousAccess"/>
     
 
 
@@ -121,30 +111,30 @@
     <!-- http://usefulinc.com/ns/doap#Repository -->
 
     <rdf:Description rdf:about="&doap;Repository">
-        <owl:equivalentClass rdf:resource="&markos;FileRepository"/>
+        <owl:equivalentClass rdf:resource="&msw;FileRepository"/>
     </rdf:Description>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#FileRepository -->
 
-    <rdf:Description rdf:about="&markos;FileRepository"/>
+    <owl:Class rdf:about="&msw;FileRepository"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareProject -->
 
-    <rdf:Description rdf:about="&markos;SoftwareProject">
+    <owl:Class rdf:about="&msw;SoftwareProject">
         <rdfs:subClassOf rdf:resource="&doap;Project"/>
-    </rdf:Description>
+    </owl:Class>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareRelease -->
 
-    <rdf:Description rdf:about="&markos;SoftwareRelease">
+    <owl:Class rdf:about="&msw;SoftwareRelease">
         <rdfs:subClassOf rdf:resource="&doap;Version"/>
-    </rdf:Description>
+    </owl:Class>
     
 
 
@@ -157,11 +147,11 @@
      -->
 
     <rdf:Description rdf:about="&doap;location">
-        <top:correspondingSuperProperty rdf:resource="&top;url"/>
+        <mtop:correspondingSuperProperty rdf:resource="&mtop;url"/>
     </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 

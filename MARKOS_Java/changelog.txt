@@ -1,0 +1,85 @@
+CLASSES
+
+JavaClassType
+JavaInterfaceType
+JavaComponentType
+JavaField
+JavaLocalVariable
+JavaParameter
+JavaMethod
+JavaConstructorMethod
+JavaType
+JavaPrimitiveType
+JavaReferenceType
+JavaTypeVariableType
+JavaArrayType
+JavaMember
+JavaAPI
+JavaLibrary
+JavaPackage
+JavaArchiveFile
+JavaObjectFile
+ClassFile
+JavaSourceFile
+JspFile
+JavaFile
+JavaAccessModifier
+JavaMemberModifier
+JavaTopLevelModifier
+JavaProgrammingLanguageVersion
+
+AXIOMAS
+
+JavaMethod
+visibility some JavaAccessModifier
+implementationLanguage value JAVA and Method
+
+JavaComponentType
+implementationLanguage value JAVA and Component
+
+JavaInterfaceType
+implementationLanguage value JAVA and Interface
+visibility some JavaTopLevelModifier
+
+JavaClassType
+implementationLanguage value JAVA and SoftwareClass
+visibility some JavaTopLevelModifier
+
+JavaField
+implementationLanguage value JAVA and Field
+type some JavaType
+
+JavaLocalVariable
+implementationLanguage value JAVA and LocalVariable
+type some JavaType
+
+JavaParameter
+implementationLanguage value JAVA and Parameter
+type some JavaType
+
+JavaType
+implementationLanguage value JAVA
+
+JavaMember
+visibility some JavaAccessModifier
+
+JavaLibrary
+implementationLanguage value JAVA and Library
+
+JavaPackageX
+implementationLanguage value JAVA and Package
+
+
+
+DATAPROPERTIES
+isCore, (Class, Interface, Package, API, Library) x boolean
+isAbstrac, apply to Method, Class X boolean
+
+OBJECTPROERTIES
+ownedPackage: JavaLibrary x JavaPackage
+ownedObjectEntity: JavaPackage x JavaClassType or JavaInterfaceType
+implementedInterface: JavaClassType x JavaInterfaceType
+distributedPackage: JavaArhiveFile x JavaPackage
+isDistributedBy (inverseOf distributedPackage)
+
+

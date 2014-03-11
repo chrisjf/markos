@@ -16,7 +16,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/licenses">
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/licenses#2013/07/16"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/licenses#2014/03/11"/>
     </owl:Ontology>
     
 
@@ -58,7 +58,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#template">
         <rdfs:label xml:lang="en">Template</rdfs:label>
-        <rdfs:comment xml:lang="en">The CopyrightLicenseTemplate the subject CopyrightLicense applies. </rdfs:comment>
+        <rdfs:comment xml:lang="en">The CopyrightLicenseTemplate the sucject CopyrightLicense conforms to. </rdfs:comment>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicense"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
     </owl:ObjectProperty>
@@ -142,7 +142,7 @@
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/licenses#Work">
         <rdfs:label xml:lang="en">Work</rdfs:label>
-        <rdfs:comment xml:lang="en">&quot;Work&quot; means the literary and/or artistic work offered under the terms of this License including without limitation any production in the literary, scientific and artistic domain, whatever may be the mode or form of its expression including digital form, such as a book, pamphlet and other writing; a lecture, address, sermon or other work of the same nature; a dramatic or dramatico-musical work; a choreographic work or entertainment in dumb show; a musical composition with or without words; a cinematographic work to which are assimilated works expressed by a process analogous to cinematography; a work of drawing, painting, architecture, sculpture, engraving or lithography; a photographic work to which are assimilated works expressed by a process analogous to photography; a work of applied art; an illustration, map, plan, sketch or three-dimensional work relative to geography, topography, architecture or science; a performance; a broadcast; a phonogram; a compilation of data to the extent it is protected as a copyrightable work; or a work performed by a variety or circus performer to the extent it is not otherwise considered a literary or artistic work.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any literary and/or artistic work that may be offered under the terms of a License, including without limitation any production in the literary, scientific and artistic domain, whatever may be the mode or form of its expression including digital form, such as a book, pamphlet and other writing; a lecture, address, sermon or other work of the same nature; a dramatic or dramatico-musical work; a choreographic work or entertainment in dumb show; a musical composition with or without words; a cinematographic work to which are assimilated works expressed by a process analogous to cinematography; a work of drawing, painting, architecture, sculpture, engraving or lithography; a photographic work to which are assimilated works expressed by a process analogous to photography; a work of applied art; an illustration, map, plan, sketch or three-dimensional work relative to geography, topography, architecture or science; a performance; a broadcast; a phonogram; a compilation of data to the extent it is protected as a copyrightable work; or a work performed by a variety or circus performer to the extent it is not otherwise considered a literary or artistic work.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 

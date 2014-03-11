@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY schema "http://schema.org/" >
+    <!ENTITY admssw "http://purl.org/adms/sw/" >
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY adms "http://www.w3.org/ns/adms#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY vann "http://purl.org/vocab/vann/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY swrlx "http://www.w3.org/2003/11/swrlx#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY vocab "http://www.w3.org/1999/xhtml/vocab#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY mtop "http://www.markosproject.eu/ontologies/top#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY msw "http://www.markosproject.eu/ontologies/software#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-to-adms.sw#"
+     xml:base="http://www.markosproject.eu/ontologies/markos-to-adms.sw"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:swrlx="http://www.w3.org/2003/11/swrlx#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:mtop="http://www.markosproject.eu/ontologies/top#"
+     xmlns:schema="http://schema.org/"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:msw="http://www.markosproject.eu/ontologies/software#"
+     xmlns:vocab="http://www.w3.org/1999/xhtml/vocab#"
+     xmlns:admssw="http://purl.org/adms/sw/">
+    <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-adms.sw">
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2014/03/11"/>
+        <owl:imports rdf:resource="&msw;2014/03/11"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/adms/sw/includedAsset -->
+
+    <owl:ObjectProperty rdf:about="&admssw;includedAsset"/>
+    
+
+
+    <!-- http://purl.org/adms/sw/intendedAudience -->
+
+    <owl:ObjectProperty rdf:about="&admssw;intendedAudience"/>
+    
+
+
+    <!-- http://purl.org/adms/sw/programmingLanguage -->
+
+    <owl:ObjectProperty rdf:about="&admssw;programmingLanguage">
+        <owl:equivalentProperty rdf:resource="&msw;declaredImplementationLanguage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/adms/sw/project -->
+
+    <owl:ObjectProperty rdf:about="&admssw;project"/>
+    
+
+
+    <!-- http://purl.org/adms/sw/status -->
+
+    <owl:ObjectProperty rdf:about="&admssw;status">
+        <owl:equivalentProperty rdf:resource="&foaf;status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="&terms;isPartOf"/>
+    
+
+
+    <!-- http://schema.org/operatingSystem -->
+
+    <owl:ObjectProperty rdf:about="&schema;operatingSystem"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#declaredImplementationLanguage -->
+
+    <owl:ObjectProperty rdf:about="&msw;declaredImplementationLanguage"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#softwareRepository -->
+
+    <owl:ObjectProperty rdf:about="&msw;softwareRepository">
+        <rdfs:subPropertyOf rdf:resource="&terms;isPartOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#webSiteURL -->
+
+    <owl:ObjectProperty rdf:about="&msw;webSiteURL">
+        <rdfs:comment rdf:resource="&msw;webSiteURL"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#previousVersion -->
+
+    <owl:ObjectProperty rdf:about="&mtop;previousVersion">
+        <owl:equivalentProperty rdf:resource="&vocab;prev"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/1999/xhtml/vocab#prev -->
+
+    <owl:ObjectProperty rdf:about="&vocab;prev"/>
+    
+
+
+    <!-- http://www.w3.org/ns/adms#relatedWebPage -->
+
+    <owl:ObjectProperty rdf:about="&adms;relatedWebPage">
+        <rdfs:subPropertyOf rdf:resource="&msw;webSiteURL"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/status -->
+
+    <owl:ObjectProperty rdf:about="&foaf;status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:DatatypeProperty rdf:about="&terms;description">
+        <owl:equivalentProperty rdf:resource="&msw;description"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:DatatypeProperty rdf:about="&vann;preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#description -->
+
+    <owl:DatatypeProperty rdf:about="&msw;description"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#name -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;name">
+        <owl:equivalentProperty rdf:resource="&foaf;name"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/adms/sw/SoftwarePackage -->
+
+    <owl:Class rdf:about="&admssw;SoftwarePackage">
+        <owl:equivalentClass rdf:resource="&msw;Package"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/adms/sw/SoftwareProject -->
+
+    <owl:Class rdf:about="&admssw;SoftwareProject">
+        <owl:equivalentClass rdf:resource="&msw;SoftwareProject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/adms/sw/SoftwareRelease -->
+
+    <owl:Class rdf:about="&admssw;SoftwareRelease">
+        <owl:equivalentClass rdf:resource="&msw;SoftwareWork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/adms/sw/SoftwareRepository -->
+
+    <owl:Class rdf:about="&admssw;SoftwareRepository">
+        <owl:equivalentClass rdf:resource="&msw;FileRepository"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#FileRepository -->
+
+    <owl:Class rdf:about="&msw;FileRepository"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Package -->
+
+    <owl:Class rdf:about="&msw;Package"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#SoftwareProject -->
+
+    <owl:Class rdf:about="&msw;SoftwareProject"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#SoftwareWork -->
+
+    <owl:Class rdf:about="&msw;SoftwareWork"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

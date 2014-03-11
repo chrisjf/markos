@@ -1,5 +1,55 @@
 MARKOS ontology 
 
+V1.4
+====
+
+Added mapping to ADMS.SW (markos-to-adms.owl)
+
+Changed prefixes:
+- markos -> msw (http://www.markosproject.eu/ontologies/software)
+- software -> msw (http://www.markosproject.eu/ontologies/software)
+- licenses -> mlic (http://www.markosproject.eu/ontologies/licenses)
+- top -> mtop (http://www.markosproject.eu/ontologies/top)
+
+Changed definitions (name, comment and related constraints):
+- Package (changed comment to allow Packages not contained in other Packages regardless of their name, as should be in Java)
+- Work (old comment was not suitable for the class Work, but only for a property relating a license to the related Work) 
+- mtop:url -> msw:url (now restricted to WebDocument x URL to avoid polysemy of old definition Entity x URL).  
+- usedSoftwareWork: removed from comment the expression "legally significative way" as not relevant in a sw ontology
+- importedPackage:  SoftwareEntity x Package -> Package x Package (old def suitable for sourceCode, not for SoftwareEntity)
+- directImplementedinterface: Classifier x Interface -> SoftwareClass x Interface
+- manifestation: Work x Artifact -> SoftwareWork x SoftwareArtifact (to avoid questionable extensions out of sw domain)
+- provenanceMAnifestation: Work x Artifact -> SoftwareWork x SoftwareArtifact (same reason than above)
+- provenanceSourceCode: Work x SourceCodeFile -> SoftwareEntity x SourceCodeFile (same reason than above)
+- provenanceObjectCode: Work x ObjectCodeFile -> SoftwareEntity x ObjectCodeFile (same reason than above)
+- msw:usedSoftwareWork (SoftwareWork x SoftwareWork) -> mtop:usedEntity (Entity x Entity) to generalise to entities that are not necessarily Works , such as a programming language (to include previousVersion)
+- msw:Java* -> mjava:Java* (mjava: = http://www.markosproject.eu/ontologies/java , to be moved to Java ontology)
+
+Added properties:
+- isFinalSpecialization (Classifier x Boolean), corresponding to "is final" for Java classes and interfaces
+- isLeaf (Feature x Boolean), corresponding to "is final" for Java fields and methods
+
+Added axioms:
+- label to mtop:relatedTopic
+- labels to all annotations
+- mtop:name to Java individuals
+
+RemovedProperties:
+- implementedSoftwareEntity (unneeded and inconsistent)
+- includedSoftwareEntity (unused)
+
+Removed constraints:
+- providedInterface subPropertyOf directImplementInterface (wrong)
+- ProgrammingLanguageVersion subclassOf SoftwareWork (now it is just a NamedEntity, only the specification is a Work)
+
+Added constraints:
+- directImplementedInterface subPropertyOf usedSoftwareEntity
+- directImplemetedOperation subPropertyOf usedSoftwareEntity
+- implementedAPI subPropertyOf usedSoftwareEntity
+- providedInterface subPropertyOf usedSoftwareEntity
+- implementationLanguage subPropertyOf mtop:usedEntity 
+- implementationLanguageVersion subPropertyOf mtop:usedEntity 
+
 V1.3
 ====
 - Removed annotation properties
