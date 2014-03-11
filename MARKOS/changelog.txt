@@ -1,6 +1,97 @@
 MARKOS ontology 
 
-Changes
+V1.4 (next version)
+====
+
+Changed definitions (name, comment and related constraints) of:
+- Package (changed comment to allow Packages not contained in other Packages regardless of their name, as should be in Java)
+- licenses:Work (old comment was not suitable for the class Work, but only for a property relating a license to the related Work) 
+- top:url -> software:url (now restricted to WebDocument x URL to avoid polysemy of old definition Entity x URL).  
+- usedSoftwareWork: removed from comment the expression "legally significative way" as not relevant in a sw ontology
+- importedPackage:  SoftwareEntity x Package -> Package x Package (old def suitable for sourceCode, not for SoftwareEntity)
+- directImplementedinterface: Classifier x Interface -> SoftwareClass x Interface
+- manifestation: Work x Artifact -> SoftwareWork x SoftwareArtifact (to avoid questionable extensions out of sw domain)
+- provenanceMAnifestation: Work x Artifact -> SoftwareWork x SoftwareArtifact (same reason than above)
+- provenanceSourceCode: Work x SourceCodeFile -> SoftwareEntity x SourceCodeFile (same reason than above)
+- provenanceObjectCode: Work x ObjectCodeFile -> SoftwareEntity x ObjectCodeFile (same reason than above)
+- software:usedSoftwareWork (SoftwareWork x SoftwareWork) -> top:usedEntity (Entity x Entity) to generalise to entities that are not necessarily Works , such as a programming language (to include previousVersion)
+- software:Java* -> java:Java* (java: = http://www.markosproject.eu/ontologies/java , to be moved to Java ontology)
+
+Added properties:
+- isFinalSpecialization (Classifier x Boolean), corresponding to "is final" for Java classes and interfaces
+- isLeaf (Feature x Boolean), corresponding to "is final" for Java fields and methods
+
+Added:
+- label to top:relatedTopic
+- labels to all annotations
+- top:name to Java individuals
+
+RemovedProperties:
+- implementedSoftwareEntity (unneeded and inconsistent)
+- includedSoftwareEntity (unused)
+
+Removed constraints:
+- providedInterface subcPropertyOf directImplementInterface (wrong)
+- ProgrammingLanguageVersion subclassOf SoftwareWork (now it is just a NamedEntity, only the specification is a Work)
+
+Added constraints:
+- directImplementedInterface subPropertyOf usedSoftwareEntity
+- directImplemetedOperation subPropertyOf usedSoftwareEntity
+- implementedAPI subPropertyOf usedSoftwareEntity
+- providedInterface subPropertyOf usedSoftwareEntity
+- implementationLanguage subPropertyOf top:usedEntity 
+- implementationLanguageVersion subPropertyOf top:usedEntity 
+
+V1.3
+====
+Removed annotation properties
+- rdfs:commen (typo for comment)
+
+Removed properties
+- markos:previousVersion
+
+Renamed properties
+- markos:successiveVersion -> top:successiveVersion
+
+Added constraints
+- top:successiveVersion inverseOf top:previousVersion
+
+
+V1.2
+====
+version date: 2013/07/23
+
+Changed definitions
+- provenanceManifestation (now more than two values are admitted)
+
+Added properties
+- provenanceRelease: SoftwareWork x SoftwareRelease (the original release of the subject softwareWork)
+- path: File x String (the path of the subject FileSystemElement, used to uniquely identify and access it in the system where it is published) 
+
+Renamed properties
+- repository -> softwareRepository
+
+
+V1.1
+====
+version date: 2013/07/23
+
+Changed definitions
+- provenanceManifestation (now more than two values are admitted)
+
+Added properties
+- provenanceRelease: SoftwareWork x SoftwareRelease (the original release of the subject softwareWork)
+- path: File x String (the path of the subject FileSystemElement, used to uniquely identify and access it in the system where it is published) 
+
+Renamed properties
+- repository -> softwareRepository
+
+
+V1.0.1
+====
+Removed constraint
+- Feature subclassOf NamedEntity (redundant)
+
 
 V1.0
 ====
@@ -214,7 +305,7 @@ Other changes
  - Definition of class API (the old one was too restrictive for practical usage)
  - Definition of class Package (the meaning is the same of the old one, but the description is more detailed).
  - Class top#Feature now is software#Feature and inherits from SoftwareEntity (the old one was more generic without a specific reason)
- - Property software#location (domain=FileRepository) generalised to top#location(domain=top#Entity) in order to be used for both FileRepository and File
+ - Property software#location (domain=FileRepository) generalised to top#url(domain=top#Entity) in order to be used for both FileRepository and File
  - Class FileContainer renamed to FileCollection (old name was misleading because a FileRepository is a Container of Files but, it is not a FileSystemElement then, it is not a FileContainer!)
  - Class SourceCode renamed to SourceCodeFile (to adopt the same name pattern of the other File subclasses)
  - Class ObjectCode renamed to ObjectCodeFile (to adopt the same name pattern of the other File subclasses)
