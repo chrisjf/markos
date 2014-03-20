@@ -1,5 +1,14 @@
 MARKOS ontology 
 
+V1.5 (next version)
+====
+
+Changed definitions (name, comment and related constraints):
+- forkSoftwareWork: SoftwareEntity x SoftwareEntity -> SoftwareWork x SoftwareWork (previous was wrong). Also corrected the label.
+- forkedSoftwareWork (corrected the label).
+
+
+
 V1.4
 ====
 
