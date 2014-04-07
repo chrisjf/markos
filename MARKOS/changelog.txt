@@ -3,10 +3,43 @@ MARKOS ontology
 V1.5 (next version)
 ====
 
-Changed definitions (name, comment and related constraints):
+Changed individuals:
+- mjava:JAVA renamed to msw:JAVA_LANGUAGE (for uniformity with other programming language names)
+
+Added individuals:
+- 50 most used programming languages msw:C_LANGUAGE, XML_LANGUAGE, CPP_LANGUAGE, JAVASCRIPT_LANGUAGE...  
+
+Changed classes (name, comment and related constraints):
+- Constructor: clarified that, as it inherits from Classifier, it may be both a constructor declaration, i.e. abstract constructor, or a constructor implementation, i.e. concrete constructor)
+
+Removed classes:
+- Operation: because equivalent to "Method and isAbstract value true"
+- ConstructorMethod (Constructor already represents both abstract and concrete constructors).
+- BehaviorParameter (as now an Operation now is an abstract Behavior, now this should be renamed ConcreteBehaviorParameter, because only when the Behavior is concrete is is also a Local variable; anyway there is no clear requirement for this distinction in MARKOS). 
+- Variable renamed (again) to TypedEntity (as in the case of a formal parameter of an abstract Method a Parameter is not a Variable, i.e. a storage unit, but just a formal name with some constraint). Clarified that may exist TypedElement without an explicit type. 
+
+Changed properties (name, comment and related constraints):
 - forkSoftwareWork: SoftwareEntity x SoftwareEntity -> SoftwareWork x SoftwareWork (previous was wrong). Also corrected the label.
 - forkedSoftwareWork (corrected the label).
+- raisedException: Operation x Type -> Method x Type (because Operation now is an abstract Method)
+- ownedParameter: Operation x Type - > Bahavior x Parameter (because Operation now is a abstract Method and because any Behavior may have parameters)
+- invokedOperation(Behavior x Operation) substituted by invokedMethod:Behavior x Method (because Operation now is a abstract Method and because invokedMethod was missing; moreover the comment now clarify that the behaviour is polymorfic)
+- Method now is subclassOf Feature
+- LocalVariable now is subclassOf Attribute
+- ownedAttribute: SoftwareObjectType x Attribute -> Classifier x Attribute (because a local variable of a Behavior is a )
 
+Added properties:
+- licenseTemplate: Work x CopyrightLicenseTemplate = (coveringLicense o template)
+- mlic:analysesTool: LicenseAssessment x xsd:AnyURI
+
+Added annotation properties:
+- mlic:creationDate: LicenseAssessment x xsd:DateTime (subpropetyOf dcterms:created)
+- mlic:creator: LicenseAssessment x xsd:string (subpropetyOf dcterms:creator)
+- mlic:argumentGraph: LicenseAssessment x xsd:AnyURI (subproperty of dcterms:publisher)
+
+Removed properties:
+- ownedOperation (because now Operation is a Method and there is ownedMethod)
+- directImplementedOperation (because redundant: corresponds to redefinedEntity when value is an Operation)
 
 
 V1.4
@@ -28,7 +61,7 @@ Changed definitions (name, comment and related constraints):
 - importedPackage:  SoftwareEntity x Package -> Package x Package (old def suitable for sourceCode, not for SoftwareEntity)
 - directImplementedinterface: Classifier x Interface -> SoftwareClass x Interface
 - manifestation: Work x Artifact -> SoftwareWork x SoftwareArtifact (to avoid questionable extensions out of sw domain)
-- provenanceMAnifestation: Work x Artifact -> SoftwareWork x SoftwareArtifact (same reason than above)
+- provenanceManifestation: Work x Artifact -> SoftwareWork x SoftwareArtifact (same reason than above)
 - provenanceSourceCode: Work x SourceCodeFile -> SoftwareEntity x SourceCodeFile (same reason than above)
 - provenanceObjectCode: Work x ObjectCodeFile -> SoftwareEntity x ObjectCodeFile (same reason than above)
 - msw:usedSoftwareWork (SoftwareWork x SoftwareWork) -> mtop:usedEntity (Entity x Entity) to generalise to entities that are not necessarily Works , such as a programming language (to include previousVersion)

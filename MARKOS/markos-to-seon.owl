@@ -47,7 +47,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#hasSuperClass -->
 
     <owl:ObjectProperty rdf:about="&seoncode;hasSuperClass">
-        <rdfs:subPropertyOf rdf:resource="&msw;redefinedClassifier"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;redefinedEntity"/>
     </owl:ObjectProperty>
     
 
@@ -88,9 +88,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#redefinedClassifier -->
+    <!-- http://www.markosproject.eu/ontologies/software#redefinedEntity -->
 
-    <owl:ObjectProperty rdf:about="&msw;redefinedClassifier"/>
+    <owl:ObjectProperty rdf:about="&msw;redefinedEntity"/>
     
 
 
@@ -211,9 +211,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#ConstructorMethod -->
+    <!-- http://www.markosproject.eu/ontologies/software#Constructor -->
 
-    <owl:Class rdf:about="&msw;ConstructorMethod">
+    <owl:Class rdf:about="&msw;Constructor">
         <rdfs:subClassOf rdf:resource="&seoncode;Constructor"/>
     </owl:Class>
     

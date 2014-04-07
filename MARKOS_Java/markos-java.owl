@@ -265,7 +265,7 @@ Also is using in method definition. An abstract method is a method that is decla
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Set of all public interfaces implemented in Java of a Java Package or a Java Library.
@@ -324,7 +324,7 @@ If two Packages or two Libraries contains the same public interfaces then they c
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -334,11 +334,11 @@ If two Packages or two Libraries contains the same public interfaces then they c
     <!-- http://www.markosproject.eu/ontologies/java#JavaConstructorMethod -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaConstructorMethod">
-        <rdfs:subClassOf rdf:resource="&msw;ConstructorMethod"/>
+        <rdfs:subClassOf rdf:resource="&msw;Constructor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -361,20 +361,20 @@ If two Packages or two Libraries contains the same public interfaces then they c
         <rdfs:subClassOf rdf:resource="&msw;Attribute"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;valueType"/>
+                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;visibility"/>
                 <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAccessModifier"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;valueType"/>
-                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A data member of a class
@@ -425,7 +425,7 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A library is a software entity, manifested by a single JavaArchiveFile, that aggregates JAVA software entities manifested the files contained in the JavaArchiveFile.</rdfs:comment>
@@ -475,7 +475,7 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -506,7 +506,7 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>The set of all Java software entities contained in a same JavaSoftwareRelease and belonging to a same namespace. </rdfs:comment>
@@ -528,7 +528,7 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>The variable to pass information to one Java method/operation</rdfs:comment>
@@ -614,7 +614,7 @@ A Java class is a tyoe of Software Class whose features are fields and methods (
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A Java type determines the types of values of the Java variables.
@@ -701,9 +701,9 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#ConstructorMethod -->
+    <!-- http://www.markosproject.eu/ontologies/software#Constructor -->
 
-    <owl:Class rdf:about="&msw;ConstructorMethod"/>
+    <owl:Class rdf:about="&msw;Constructor"/>
     
 
 
@@ -828,12 +828,6 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#JAVA -->
-
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA"/>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/java#Java_Database_Connectivity -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#Java_Database_Connectivity">
@@ -927,6 +921,12 @@ All variables must have a type. You can use primitive types such as int, float, 
         <rdfs:label>short</rdfs:label>
         <rdfs:comment>The short data type is a 16-bit signed two&apos;s complement integer. It has a minimum value of -32,768 and a maximum value of 32,767 (inclusive). As with byte, the same guidelines apply: you can use a short to save memory in large arrays, in situations where the memory savings actually matters.</rdfs:comment>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&msw;JAVA_LANGUAGE"/>
     
 
 
