@@ -119,18 +119,18 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#webSiteURL -->
-
-    <owl:ObjectProperty rdf:about="&msw;webSiteURL">
-        <rdfs:comment rdf:resource="&msw;webSiteURL"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/top#previousVersion -->
 
     <owl:ObjectProperty rdf:about="&mtop;previousVersion">
         <owl:equivalentProperty rdf:resource="&vocab;prev"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#webSiteURL -->
+
+    <owl:ObjectProperty rdf:about="&mtop;webSiteURL">
+        <rdfs:comment rdf:resource="&mtop;webSiteURL"/>
     </owl:ObjectProperty>
     
 
@@ -144,7 +144,7 @@
     <!-- http://www.w3.org/ns/adms#relatedWebPage -->
 
     <owl:ObjectProperty rdf:about="&adms;relatedWebPage">
-        <rdfs:subPropertyOf rdf:resource="&msw;webSiteURL"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;webSiteURL"/>
     </owl:ObjectProperty>
     
 

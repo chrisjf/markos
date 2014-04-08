@@ -311,6 +311,17 @@ Practically speaking it is a previous version of the subject SoftwareWork but, a
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#hostingForge -->
+
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#hostingForge">
+        <rdfs:label xml:lang="en">Hosting forge</rdfs:label>
+        <rdfs:comment xml:lang="en">Softwareforge hosting the subject SoftwareProject.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareForge"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#implementationLanguage -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#implementationLanguage">
@@ -808,17 +819,6 @@ Equivalent to &apos;vendor&apos; from ontology DOAP</rdfs:comment>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#webSiteURL -->
-
-    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#webSiteURL">
-        <rdfs:label xml:lang="en">Homepage</rdfs:label>
-        <rdfs:comment xml:lang="en">Web site of the subject entity.
-
-Equivalent to &apos;homepage&apos; from ontology DOAP</rdfs:comment>
-    </rdf:Description>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/top#containedEntity -->
 
     <owl:ObjectProperty rdf:about="&mtop;containedEntity">
@@ -1266,21 +1266,7 @@ Equivalent to &apos;shortdesc&apos; from ontology DOAP</rdfs:comment>
         <rdfs:label xml:lang="en">Web interface URL</rdfs:label>
         <rdfs:comment xml:lang="en">Web browser interface to repository.</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#webSiteURL"/>
-        <rdfs:range rdf:resource="&xsd;anyURI"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#webSiteURL -->
-
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#webSiteURL">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">Homepage</rdfs:label>
-        <rdfs:comment xml:lang="en">Web site of the subject entity.
-
-Equivalent to &apos;homepage&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;webSiteURL"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1307,6 +1293,20 @@ Equivalent to &apos;wiki&apos; from ontology DOAP</rdfs:comment>
         <rdfs:comment xml:lang="en">The name of the NamedElement.</rdfs:comment>
         <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#webSiteURL -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;webSiteURL">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Homepage</rdfs:label>
+        <rdfs:comment xml:lang="en">Web site of the subject entity.
+
+Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
 
@@ -2075,14 +2075,16 @@ the namespace.</mtop:identityCriteria>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#webSiteURL"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:onProperty rdf:resource="&mtop;name"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;name"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A service (offered by a Web Site) to host software projects and to support collaborative software development. </rdfs:comment>
@@ -2136,13 +2138,13 @@ This definition is intended to model what developers usually mean by the term &q
         <rdfs:subClassOf rdf:resource="&mlic;Work"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
                 <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
