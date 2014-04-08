@@ -13,7 +13,7 @@ Changed classes (name, comment and related constraints):
 - Constructor: clarified that, as it inherits from Classifier, it may be both a constructor declaration, i.e. abstract constructor, or a constructor implementation, i.e. concrete constructor)
 
 Added classes (name, comment and related constraints):
-- SoftwareFore (subclassOf NamedEntity) : to represent any forge that host software projects
+- SoftwareForge (subclassOf NamedEntity) : to represent any forge that host software projects
 
 Removed classes:
 - Operation: because equivalent to "Method and isAbstract value true"
@@ -33,14 +33,13 @@ Changed properties (name, comment and related constraints):
 
 Added properties:
 - licenseTemplate: Work x CopyrightLicenseTemplate = (coveringLicense o template)
-- mlic:analysesTool: LicenseAssessment x xsd:AnyURI
-- SoftwareFore (subclassOf NamedEntity): to represent any forge that host software projects
 - hostingForge: SoftwareProject x SoftwareForge (to represent the forge that hosts a softwareproject) 
+- mlic:argumentGraph: LicenseAssessment x xsd:AnyURI 
 
 Added annotation properties:
 - mlic:creationDate: LicenseAssessment x xsd:DateTime (subpropetyOf dcterms:created)
 - mlic:creator: LicenseAssessment x xsd:string (subpropetyOf dcterms:creator)
-- mlic:argumentGraph: LicenseAssessment x xsd:AnyURI (subpropertyOf dcterms:publisher)
+- mlic:publisher: LicenseAssessment x dcterms:Agent (subpropertyOf dcterms:publisher)
 
 Removed properties:
 - ownedOperation (because now Operation is a Method and there is ownedMethod)

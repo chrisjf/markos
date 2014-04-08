@@ -54,18 +54,6 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/licenses#analysesTool -->
-
-    <owl:AnnotationProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#analysesTool">
-        <rdfs:label xml:lang="en">Analyses tool</rdfs:label>
-        <rdfs:comment xml:lang="en">URI of the system used ot publish the subject LicenseAssessment.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&terms;publisher"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#LicenseAssessment"/>
-        <rdfs:range rdf:resource="&xsd;anyURI"/>
-    </owl:AnnotationProperty>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/licenses#creationDate -->
 
     <owl:AnnotationProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#creationDate">
@@ -86,6 +74,18 @@
         <rdfs:subPropertyOf rdf:resource="&terms;creator"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#LicenseAssessment"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/licenses#publisher -->
+
+    <owl:AnnotationProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#publisher">
+        <rdfs:label xml:lang="en">Analyses tool</rdfs:label>
+        <rdfs:comment xml:lang="en">Organization or single agent that publishes the subject LicenseAssessment.</rdfs:comment>
+        <rdfs:range rdf:resource="&terms;Agent"/>
+        <rdfs:subPropertyOf rdf:resource="&terms;publisher"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#LicenseAssessment"/>
     </owl:AnnotationProperty>
     
 
