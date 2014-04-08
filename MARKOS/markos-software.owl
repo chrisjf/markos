@@ -808,6 +808,17 @@ Equivalent to &apos;vendor&apos; from ontology DOAP</rdfs:comment>
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#webSiteURL -->
+
+    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#webSiteURL">
+        <rdfs:label xml:lang="en">Homepage</rdfs:label>
+        <rdfs:comment xml:lang="en">Web site of the subject entity.
+
+Equivalent to &apos;homepage&apos; from ontology DOAP</rdfs:comment>
+    </rdf:Description>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/top#containedEntity -->
 
     <owl:ObjectProperty rdf:about="&mtop;containedEntity">
@@ -2053,6 +2064,28 @@ the name,
 the namespace.</mtop:identityCriteria>
         <mtop:nameCriteria xml:lang="en">the name of the SoftwareEntity defined by its source code according to the programming language specification. </mtop:nameCriteria>
         <mtop:namespaceCriteria xml:lang="en">the namespace of the SoftwareEntity defined by its source code according to the programming language specification.</mtop:namespaceCriteria>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#SoftwareForge -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareForge">
+        <rdfs:label xml:lang="en">Software forge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#webSiteURL"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mtop;name"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A service (offered by a Web Site) to host software projects and to support collaborative software development. </rdfs:comment>
     </owl:Class>
     
 
