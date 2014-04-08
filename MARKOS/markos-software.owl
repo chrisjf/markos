@@ -383,7 +383,7 @@ It represent the same information represented by the homonymous UML2 attribute, 
         <rdfs:label xml:lang="en">Invoked behavior</rdfs:label>
         <rdfs:comment xml:lang="en">Behavior that is invoked by the subject Behavior.
 
-This is different by an invokedOperation, as in the case the executed Behavior is statically determined. </rdfs:comment>
+This is different by an invokedMethod, as in the case the executed Behavior is statically determined. </rdfs:comment>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
@@ -396,7 +396,7 @@ This is different by an invokedOperation, as in the case the executed Behavior i
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#invokedMethod">
         <rdfs:label xml:lang="en">Invoked method</rdfs:label>
         <rdfs:comment xml:lang="en">Method that is invoked by the subject Behavior.  
- An invocation of a Method does not necessarly triggers the execution of the implementation provided by the owner SofwtareClass of that Method. The exact mechanism to determine the executed Behavior depends on the programming language, but in general it depends from the target object that receives the invocation (the target object is determined at runtime and not represented by this ontology).</rdfs:comment>
+ An invocation of a Method does not necessarly triggers the execution of the implementation provided by the owner SoftwareClass of that Method. The exact mechanism to determine the executed Behavior depends on the programming language, but in general it depends from the target object that receives the invocation (the target object is determined at runtime and not represented by this ontology).</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Method"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>

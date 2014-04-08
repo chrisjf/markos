@@ -25,8 +25,7 @@ Changed properties (name, comment and related constraints):
 - ownedParameter: Operation x Type - > Bahavior x Parameter (because Operation now is a abstract Method and because any Behavior may have parameters)
 - invokedOperation(Behavior x Operation) substituted by invokedMethod:Behavior x Method (because Operation now is a abstract Method and because invokedMethod was missing; moreover the comment now clarify that the behaviour is polymorfic)
 - Method now is subclassOf Feature
-- LocalVariable now is subclassOf Attribute
-- ownedAttribute: SoftwareObjectType x Attribute -> Classifier x Attribute (because a local variable of a Behavior is a )
+- ownedAttribute: SoftwareObjectType x Attribute -> Classifier x Attribute 
 
 Added properties:
 - licenseTemplate: Work x CopyrightLicenseTemplate = (coveringLicense o template)
@@ -35,7 +34,7 @@ Added properties:
 Added annotation properties:
 - mlic:creationDate: LicenseAssessment x xsd:DateTime (subpropetyOf dcterms:created)
 - mlic:creator: LicenseAssessment x xsd:string (subpropetyOf dcterms:creator)
-- mlic:argumentGraph: LicenseAssessment x xsd:AnyURI (subproperty of dcterms:publisher)
+- mlic:argumentGraph: LicenseAssessment x xsd:AnyURI (subpropertyOf dcterms:publisher)
 
 Removed properties:
 - ownedOperation (because now Operation is a Method and there is ownedMethod)
