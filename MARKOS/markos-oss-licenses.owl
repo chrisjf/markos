@@ -99,6 +99,12 @@
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/top#url -->
+
+    <owl:DatatypeProperty rdf:about="&top;url"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -190,8 +196,8 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#AGPL-3.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/agpl-3.0.html</templateSource>
-        <software:version>3.0</software:version>
         <top:name>AGPL</top:name>
+        <software:version>3.0</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -206,13 +212,51 @@
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Apache-1.0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-1.0">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
+        <templateSource rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.0</templateSource>
+        <rdfs:comment> For example, the Apache 1.0 license includes this clause:
+
+All advertising materials mentioning features or use of this
+software must display the following acknowledgment:
+ &quot;This product includes software developed by the Apache Group for use in the Apache HTTP server project (http://www.apache.org/).&quot;</rdfs:comment>
+        <software:version>1.0</software:version>
+        <copyright:permits rdf:resource="&copyright;Adaptation"/>
+        <copyright:requires rdf:resource="&copyright;Attribution"/>
+        <copyright:permits rdf:resource="&copyright;Distribution"/>
+        <copyright:prohibits rdf:resource="&copyright;HoldLiable"/>
+        <copyright:permits rdf:resource="&copyright;Reproduction"/>
+        <copyright:prohibits rdf:resource="&copyright;UseTrademark"/>
+        <copyright:requires rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AttributionInAdvertising"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#Apache-1.1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-1.1">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
+        <templateSource rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.1</templateSource>
+        <software:version>1.1</software:version>
+        <copyright:permits rdf:resource="&copyright;Adaptation"/>
+        <copyright:requires rdf:resource="&copyright;Attribution"/>
+        <copyright:permits rdf:resource="&copyright;Distribution"/>
+        <copyright:prohibits rdf:resource="&copyright;HoldLiable"/>
+        <copyright:permits rdf:resource="&copyright;Reproduction"/>
+        <copyright:prohibits rdf:resource="&copyright;UseTrademark"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#Apache-2.0 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-2.0.html</templateSource>
-        <top:name>Apache</top:name>
         <software:version>2.0</software:version>
+        <top:name>Apache</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:requires rdf:resource="&copyright;Attribution"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
@@ -221,7 +265,6 @@
         <copyright:requires rdf:resource="&copyright;Notice"/>
         <copyright:permits rdf:resource="&copyright;PatentGrant"/>
         <copyright:permits rdf:resource="&copyright;Reproduction"/>
-        <copyright:requires rdf:resource="&copyright;SourceCode"/>
         <copyright:requires rdf:resource="&copyright;StateChanges"/>
         <copyright:permits rdf:resource="&copyright;Sublicensing"/>
         <copyright:prohibits rdf:resource="&copyright;UseTrademark"/>
@@ -234,8 +277,8 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Artistic-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/Artistic-2.0</templateSource>
-        <top:name>Artistic</top:name>
         <software:version>2.0</software:version>
+        <top:name>Artistic</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -245,6 +288,18 @@
         <copyright:requires rdf:resource="&copyright;StateChanges"/>
         <copyright:permits rdf:resource="&copyright;Sublicensing"/>
         <copyright:prohibits rdf:resource="&copyright;UseTrademark"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#AttributionInAdvertising -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#AttributionInAdvertising">
+        <rdfs:comment> For example, the Apache 1.0 license includes this clause:
+
+All advertising materials mentioning features or use of this
+software must display the following acknowledgment:
+ &quot;This product includes software developed by the Apache Group for use in the Apache HTTP server project (http://www.apache.org/).&quot;</rdfs:comment>
     </owl:NamedIndividual>
     
 
@@ -289,8 +344,8 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#EPL-1.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.eclipse.org/legal/epl-v10.html</templateSource>
-        <top:name>EPL</top:name>
         <software:version>1.0</software:version>
+        <top:name>EPL</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -311,8 +366,8 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#EUPL-1.1">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://ec.europa.eu/idabc/eupl.html</templateSource>
-        <software:version>1.1</software:version>
         <top:name>EUPL</top:name>
+        <software:version>1.1</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
         <copyright:requires rdf:resource="&copyright;Notice"/>
@@ -376,8 +431,8 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-2.1">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-2.1.html</templateSource>
-        <software:version>2.1</software:version>
         <top:name>LGPL</top:name>
+        <software:version>2.1</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -398,8 +453,8 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-3.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-3.0.html</templateSource>
-        <software:version>3.0</software:version>
         <top:name>LGPL</top:name>
+        <software:version>3.0</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -445,8 +500,8 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#MPL-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.mozilla.org/MPL/2.0/</templateSource>
-        <top:name>MPL</top:name>
         <software:version>2.0</software:version>
+        <top:name>MPL</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
         <copyright:prohibits rdf:resource="&copyright;HoldLiable"/>

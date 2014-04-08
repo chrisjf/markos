@@ -1,0 +1,5065 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dce "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY jur "http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#" >
+    <!ENTITY country "http://eulersharp.sourceforge.net/2003/03swap/countries#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/owl/owlapi/turtle#"
+     xml:base="http://www.semanticweb.org/owl/owlapi/turtle"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dce="http://purl.org/dc/elements/1.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:jur="http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#"
+     xmlns:country="http://eulersharp.sourceforge.net/2003/03swap/countries#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://eulersharp.sourceforge.net/2003/03swap/countries">
+        <dce:publisher xml:lang="en">Agfa Healthcare/Belgium</dce:publisher>
+        <dce:title xml:lang="en">Countries</dce:title>
+        <dce:description xml:lang="en">Formal description of countries and their codes as standardized in ISO 3166-1 version 2006.</dce:description>
+        <dce:contributor xml:lang="en">Hans Cools, MD, Agfa Healthcare/Belgium</dce:contributor>
+        <dce:format xml:lang="en">OWL-Full</dce:format>
+        <dce:creator xml:lang="en">Pieterjan De Potter and Pedro Debevere, Ghent University - IBBT/ELIS - Multimedia Lab/Belgium</dce:creator>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dct;hasVersion"/>
+    <owl:AnnotationProperty rdf:about="&skos;exactMatch"/>
+    <owl:AnnotationProperty rdf:about="&foaf;name"/>
+    <owl:AnnotationProperty rdf:about="&skos;inScheme"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#iso3166-1-alpha-2DT -->
+
+    <rdfs:Datatype rdf:about="&country;iso3166-1-alpha-2DT"/>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#iso3166-1-alpha-3DT -->
+
+    <rdfs:Datatype rdf:about="&country;iso3166-1-alpha-3DT"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#Country -->
+
+    <owl:Class rdf:about="&jur;Country"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="&skos;Concept"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="&skos;ConceptScheme"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ad -->
+
+    <owl:NamedIndividual rdf:about="&country;ad">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Andorra</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ae -->
+
+    <owl:NamedIndividual rdf:about="&country;ae">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">United Arab Emirates</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#af -->
+
+    <owl:NamedIndividual rdf:about="&country;af">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Afghanistan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ag -->
+
+    <owl:NamedIndividual rdf:about="&country;ag">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Antigua and Barbuda</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ai -->
+
+    <owl:NamedIndividual rdf:about="&country;ai">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Anguilla</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#al -->
+
+    <owl:NamedIndividual rdf:about="&country;al">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Albania</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#am -->
+
+    <owl:NamedIndividual rdf:about="&country;am">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Armenia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#an -->
+
+    <owl:NamedIndividual rdf:about="&country;an">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Netherlands Antilles</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ao -->
+
+    <owl:NamedIndividual rdf:about="&country;ao">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Angola</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#aq -->
+
+    <owl:NamedIndividual rdf:about="&country;aq">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Antarctica</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ar -->
+
+    <owl:NamedIndividual rdf:about="&country;ar">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Argentina</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#as -->
+
+    <owl:NamedIndividual rdf:about="&country;as">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">American Samoa</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#at -->
+
+    <owl:NamedIndividual rdf:about="&country;at">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Austria</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#au -->
+
+    <owl:NamedIndividual rdf:about="&country;au">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Australia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#aw -->
+
+    <owl:NamedIndividual rdf:about="&country;aw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Aruba</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ax -->
+
+    <owl:NamedIndividual rdf:about="&country;ax">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Aland Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#az -->
+
+    <owl:NamedIndividual rdf:about="&country;az">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Azerbaijan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ba -->
+
+    <owl:NamedIndividual rdf:about="&country;ba">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bosnia and Herzegovina</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bb -->
+
+    <owl:NamedIndividual rdf:about="&country;bb">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Barbados</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bd -->
+
+    <owl:NamedIndividual rdf:about="&country;bd">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bangladesh</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#be -->
+
+    <owl:NamedIndividual rdf:about="&country;be">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Belgium</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bf -->
+
+    <owl:NamedIndividual rdf:about="&country;bf">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Burkina Faso</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bg -->
+
+    <owl:NamedIndividual rdf:about="&country;bg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bulgaria</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bh -->
+
+    <owl:NamedIndividual rdf:about="&country;bh">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bahrain</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bi -->
+
+    <owl:NamedIndividual rdf:about="&country;bi">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Burundi</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bj -->
+
+    <owl:NamedIndividual rdf:about="&country;bj">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Benin</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bl -->
+
+    <owl:NamedIndividual rdf:about="&country;bl">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Saint Barthélemy</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bm -->
+
+    <owl:NamedIndividual rdf:about="&country;bm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bermuda</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bn -->
+
+    <owl:NamedIndividual rdf:about="&country;bn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Brunei Darussalam</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bo -->
+
+    <owl:NamedIndividual rdf:about="&country;bo">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bolivia, Plurinational State of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#br -->
+
+    <owl:NamedIndividual rdf:about="&country;br">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Brazil</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bs -->
+
+    <owl:NamedIndividual rdf:about="&country;bs">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bahamas</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bt -->
+
+    <owl:NamedIndividual rdf:about="&country;bt">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bhutan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bv -->
+
+    <owl:NamedIndividual rdf:about="&country;bv">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Bouvet Island</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bw -->
+
+    <owl:NamedIndividual rdf:about="&country;bw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Botswana</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#by -->
+
+    <owl:NamedIndividual rdf:about="&country;by">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Belarus</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#bz -->
+
+    <owl:NamedIndividual rdf:about="&country;bz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Belize</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ca -->
+
+    <owl:NamedIndividual rdf:about="&country;ca">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Canada</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cc -->
+
+    <owl:NamedIndividual rdf:about="&country;cc">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cocos (Keeling) Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cd -->
+
+    <owl:NamedIndividual rdf:about="&country;cd">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Congo, the Democratic Republic of the</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cf -->
+
+    <owl:NamedIndividual rdf:about="&country;cf">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Central African Republic</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cg -->
+
+    <owl:NamedIndividual rdf:about="&country;cg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Congo</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ch -->
+
+    <owl:NamedIndividual rdf:about="&country;ch">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Switzerland</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ci -->
+
+    <owl:NamedIndividual rdf:about="&country;ci">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cote d&#39;Ivoire</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ck -->
+
+    <owl:NamedIndividual rdf:about="&country;ck">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cook Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cl -->
+
+    <owl:NamedIndividual rdf:about="&country;cl">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Chile</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cm -->
+
+    <owl:NamedIndividual rdf:about="&country;cm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cameroon</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cn -->
+
+    <owl:NamedIndividual rdf:about="&country;cn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">China</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#co -->
+
+    <owl:NamedIndividual rdf:about="&country;co">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Colombia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cr -->
+
+    <owl:NamedIndividual rdf:about="&country;cr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Costa Rica</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cu -->
+
+    <owl:NamedIndividual rdf:about="&country;cu">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cuba</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cv -->
+
+    <owl:NamedIndividual rdf:about="&country;cv">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cape Verde</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cx -->
+
+    <owl:NamedIndividual rdf:about="&country;cx">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Christmas Island</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cy -->
+
+    <owl:NamedIndividual rdf:about="&country;cy">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cyprus</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#cz -->
+
+    <owl:NamedIndividual rdf:about="&country;cz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Czech Republic</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#de -->
+
+    <owl:NamedIndividual rdf:about="&country;de">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Germany</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#dj -->
+
+    <owl:NamedIndividual rdf:about="&country;dj">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Djibouti</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#dk -->
+
+    <owl:NamedIndividual rdf:about="&country;dk">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Denmark</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#dm -->
+
+    <owl:NamedIndividual rdf:about="&country;dm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Dominica</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#do -->
+
+    <owl:NamedIndividual rdf:about="&country;do">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Dominican Republic</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#dz -->
+
+    <owl:NamedIndividual rdf:about="&country;dz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Algeria</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ec -->
+
+    <owl:NamedIndividual rdf:about="&country;ec">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Ecuador</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ee -->
+
+    <owl:NamedIndividual rdf:about="&country;ee">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Estonia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#eg -->
+
+    <owl:NamedIndividual rdf:about="&country;eg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Egypt</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#eh -->
+
+    <owl:NamedIndividual rdf:about="&country;eh">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Western Sahara</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#er -->
+
+    <owl:NamedIndividual rdf:about="&country;er">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Eritrea</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#es -->
+
+    <owl:NamedIndividual rdf:about="&country;es">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Spain</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#et -->
+
+    <owl:NamedIndividual rdf:about="&country;et">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Ethiopia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#fi -->
+
+    <owl:NamedIndividual rdf:about="&country;fi">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Finland</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#fj -->
+
+    <owl:NamedIndividual rdf:about="&country;fj">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Fiji</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#fk -->
+
+    <owl:NamedIndividual rdf:about="&country;fk">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Falkland Islands (Malvinas)</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#fm -->
+
+    <owl:NamedIndividual rdf:about="&country;fm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Micronesia, Federated States of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#fo -->
+
+    <owl:NamedIndividual rdf:about="&country;fo">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Faroe Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#fr -->
+
+    <owl:NamedIndividual rdf:about="&country;fr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">France</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ga -->
+
+    <owl:NamedIndividual rdf:about="&country;ga">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Gabon</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gb -->
+
+    <owl:NamedIndividual rdf:about="&country;gb">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">United Kingdom</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gd -->
+
+    <owl:NamedIndividual rdf:about="&country;gd">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Grenada</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ge -->
+
+    <owl:NamedIndividual rdf:about="&country;ge">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Georgia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gf -->
+
+    <owl:NamedIndividual rdf:about="&country;gf">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">French Guiana</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gg -->
+
+    <owl:NamedIndividual rdf:about="&country;gg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Guernsey</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gh -->
+
+    <owl:NamedIndividual rdf:about="&country;gh">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Ghana</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gi -->
+
+    <owl:NamedIndividual rdf:about="&country;gi">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Gibraltar</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gl -->
+
+    <owl:NamedIndividual rdf:about="&country;gl">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Greenland</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gm -->
+
+    <owl:NamedIndividual rdf:about="&country;gm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Gambia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gn -->
+
+    <owl:NamedIndividual rdf:about="&country;gn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Guinea</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gp -->
+
+    <owl:NamedIndividual rdf:about="&country;gp">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Guadeloupe</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gq -->
+
+    <owl:NamedIndividual rdf:about="&country;gq">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Equatorial Guinea</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gr -->
+
+    <owl:NamedIndividual rdf:about="&country;gr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Greece</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gs -->
+
+    <owl:NamedIndividual rdf:about="&country;gs">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">South Georgia and the South Sandwich Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gt -->
+
+    <owl:NamedIndividual rdf:about="&country;gt">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Guatemala</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gu -->
+
+    <owl:NamedIndividual rdf:about="&country;gu">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Guam</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gw -->
+
+    <owl:NamedIndividual rdf:about="&country;gw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Guinea-Bissau</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#gy -->
+
+    <owl:NamedIndividual rdf:about="&country;gy">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Guyana</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#hk -->
+
+    <owl:NamedIndividual rdf:about="&country;hk">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Hong Kong</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#hm -->
+
+    <owl:NamedIndividual rdf:about="&country;hm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Heard Island and McDonald Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#hn -->
+
+    <owl:NamedIndividual rdf:about="&country;hn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Honduras</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#hr -->
+
+    <owl:NamedIndividual rdf:about="&country;hr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Croatia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ht -->
+
+    <owl:NamedIndividual rdf:about="&country;ht">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Haiti</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#hu -->
+
+    <owl:NamedIndividual rdf:about="&country;hu">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Hungary</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#id -->
+
+    <owl:NamedIndividual rdf:about="&country;id">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Indonesia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ie -->
+
+    <owl:NamedIndividual rdf:about="&country;ie">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Ireland</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#il -->
+
+    <owl:NamedIndividual rdf:about="&country;il">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Israel</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#im -->
+
+    <owl:NamedIndividual rdf:about="&country;im">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Isle of Man</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#in -->
+
+    <owl:NamedIndividual rdf:about="&country;in">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">India</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#io -->
+
+    <owl:NamedIndividual rdf:about="&country;io">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">British Indian Ocean Territory</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#iq -->
+
+    <owl:NamedIndividual rdf:about="&country;iq">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Iraq</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ir -->
+
+    <owl:NamedIndividual rdf:about="&country;ir">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Iran, Islamic Republic of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#is -->
+
+    <owl:NamedIndividual rdf:about="&country;is">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Iceland</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#iso3166-1-alpha-2 -->
+
+    <skos:ConceptScheme rdf:about="&country;iso3166-1-alpha-2">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>ISO3166-1-alpha-2</rdfs:label>
+        <dct:hasVersion>alpha-2</dct:hasVersion>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+    </skos:ConceptScheme>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#iso3166-1-alpha-3 -->
+
+    <skos:ConceptScheme rdf:about="&country;iso3166-1-alpha-3">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>ISO3166-1-alpha-3</rdfs:label>
+        <dct:hasVersion>alpha-3</dct:hasVersion>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+    </skos:ConceptScheme>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#it -->
+
+    <owl:NamedIndividual rdf:about="&country;it">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Italy</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#je -->
+
+    <owl:NamedIndividual rdf:about="&country;je">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Jersey</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#jm -->
+
+    <owl:NamedIndividual rdf:about="&country;jm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Jamaica</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#jo -->
+
+    <owl:NamedIndividual rdf:about="&country;jo">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Jordan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#jp -->
+
+    <owl:NamedIndividual rdf:about="&country;jp">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Japan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ke -->
+
+    <owl:NamedIndividual rdf:about="&country;ke">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Kenya</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#kg -->
+
+    <owl:NamedIndividual rdf:about="&country;kg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Kyrgyzstan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#kh -->
+
+    <owl:NamedIndividual rdf:about="&country;kh">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cambodia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ki -->
+
+    <owl:NamedIndividual rdf:about="&country;ki">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Kiribati</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#km -->
+
+    <owl:NamedIndividual rdf:about="&country;km">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Comoros</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#kn -->
+
+    <owl:NamedIndividual rdf:about="&country;kn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Saint Kitts and Nevis</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#kp -->
+
+    <owl:NamedIndividual rdf:about="&country;kp">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Korea, Democratic People&#39;s Republic of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#kr -->
+
+    <owl:NamedIndividual rdf:about="&country;kr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Korea, Republic of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#kw -->
+
+    <owl:NamedIndividual rdf:about="&country;kw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Kuwait</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ky -->
+
+    <owl:NamedIndividual rdf:about="&country;ky">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Cayman Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#kz -->
+
+    <owl:NamedIndividual rdf:about="&country;kz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Kazakhstan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#la -->
+
+    <owl:NamedIndividual rdf:about="&country;la">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Lao People&#39;s Democratic Republic</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#lb -->
+
+    <owl:NamedIndividual rdf:about="&country;lb">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Lebanon</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#lc -->
+
+    <owl:NamedIndividual rdf:about="&country;lc">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Saint Lucia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#li -->
+
+    <owl:NamedIndividual rdf:about="&country;li">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Liechtenstein</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#lk -->
+
+    <owl:NamedIndividual rdf:about="&country;lk">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Sri Lanka</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#lr -->
+
+    <owl:NamedIndividual rdf:about="&country;lr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Liberia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ls -->
+
+    <owl:NamedIndividual rdf:about="&country;ls">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Lesotho</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#lt -->
+
+    <owl:NamedIndividual rdf:about="&country;lt">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Lithuania</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#lu -->
+
+    <owl:NamedIndividual rdf:about="&country;lu">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Luxembourg</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#lv -->
+
+    <owl:NamedIndividual rdf:about="&country;lv">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Latvia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ly -->
+
+    <owl:NamedIndividual rdf:about="&country;ly">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Libyan Arab Jamahiriya</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ma -->
+
+    <owl:NamedIndividual rdf:about="&country;ma">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Morocco</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mc -->
+
+    <owl:NamedIndividual rdf:about="&country;mc">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Monaco</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#md -->
+
+    <owl:NamedIndividual rdf:about="&country;md">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Moldova, Republic of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#me -->
+
+    <owl:NamedIndividual rdf:about="&country;me">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Montenegro</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mf -->
+
+    <owl:NamedIndividual rdf:about="&country;mf">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Saint Martin (French part)</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mg -->
+
+    <owl:NamedIndividual rdf:about="&country;mg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Madagascar</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mh -->
+
+    <owl:NamedIndividual rdf:about="&country;mh">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Marshall Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mk -->
+
+    <owl:NamedIndividual rdf:about="&country;mk">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Macedonia, the former Yugoslav Republic of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ml -->
+
+    <owl:NamedIndividual rdf:about="&country;ml">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Mali</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mm -->
+
+    <owl:NamedIndividual rdf:about="&country;mm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Myanmar</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mn -->
+
+    <owl:NamedIndividual rdf:about="&country;mn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Mongolia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mo -->
+
+    <owl:NamedIndividual rdf:about="&country;mo">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Macao</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mp -->
+
+    <owl:NamedIndividual rdf:about="&country;mp">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Northern Mariana Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mq -->
+
+    <owl:NamedIndividual rdf:about="&country;mq">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Martinique</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mr -->
+
+    <owl:NamedIndividual rdf:about="&country;mr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Mauritania</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ms -->
+
+    <owl:NamedIndividual rdf:about="&country;ms">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Montserrat</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mt -->
+
+    <owl:NamedIndividual rdf:about="&country;mt">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Malta</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mu -->
+
+    <owl:NamedIndividual rdf:about="&country;mu">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Mauritius</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mv -->
+
+    <owl:NamedIndividual rdf:about="&country;mv">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Maldives</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mw -->
+
+    <owl:NamedIndividual rdf:about="&country;mw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Malawi</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mx -->
+
+    <owl:NamedIndividual rdf:about="&country;mx">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Mexico</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#my -->
+
+    <owl:NamedIndividual rdf:about="&country;my">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Malaysia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#mz -->
+
+    <owl:NamedIndividual rdf:about="&country;mz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Mozambique</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#na -->
+
+    <owl:NamedIndividual rdf:about="&country;na">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Namibia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#nc -->
+
+    <owl:NamedIndividual rdf:about="&country;nc">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">New Caledonia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ne -->
+
+    <owl:NamedIndividual rdf:about="&country;ne">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Niger</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#nf -->
+
+    <owl:NamedIndividual rdf:about="&country;nf">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Norfolk Island</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ng -->
+
+    <owl:NamedIndividual rdf:about="&country;ng">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Nigeria</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ni -->
+
+    <owl:NamedIndividual rdf:about="&country;ni">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Nicaragua</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#nl -->
+
+    <owl:NamedIndividual rdf:about="&country;nl">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Netherlands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#no -->
+
+    <owl:NamedIndividual rdf:about="&country;no">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Norway</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#np -->
+
+    <owl:NamedIndividual rdf:about="&country;np">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Nepal</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#nr -->
+
+    <owl:NamedIndividual rdf:about="&country;nr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Nauru</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#nu -->
+
+    <owl:NamedIndividual rdf:about="&country;nu">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Niue</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#nz -->
+
+    <owl:NamedIndividual rdf:about="&country;nz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">New Zealand</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#om -->
+
+    <owl:NamedIndividual rdf:about="&country;om">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Oman</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pa -->
+
+    <owl:NamedIndividual rdf:about="&country;pa">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Panama</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pe -->
+
+    <owl:NamedIndividual rdf:about="&country;pe">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Peru</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pf -->
+
+    <owl:NamedIndividual rdf:about="&country;pf">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">French Polynesia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pg -->
+
+    <owl:NamedIndividual rdf:about="&country;pg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Papua New Guinea</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ph -->
+
+    <owl:NamedIndividual rdf:about="&country;ph">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Philippines</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pk -->
+
+    <owl:NamedIndividual rdf:about="&country;pk">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Pakistan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pl -->
+
+    <owl:NamedIndividual rdf:about="&country;pl">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Poland</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pm -->
+
+    <owl:NamedIndividual rdf:about="&country;pm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Saint Pierre and Miquelon</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pn -->
+
+    <owl:NamedIndividual rdf:about="&country;pn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Pitcairn</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pr -->
+
+    <owl:NamedIndividual rdf:about="&country;pr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Puerto Rico</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ps -->
+
+    <owl:NamedIndividual rdf:about="&country;ps">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Palestinian Territory, Occupied</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pt -->
+
+    <owl:NamedIndividual rdf:about="&country;pt">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Portugal</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#pw -->
+
+    <owl:NamedIndividual rdf:about="&country;pw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Palau</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#py -->
+
+    <owl:NamedIndividual rdf:about="&country;py">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Paraguay</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#qa -->
+
+    <owl:NamedIndividual rdf:about="&country;qa">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Qatar</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#re -->
+
+    <owl:NamedIndividual rdf:about="&country;re">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Reunion ﻿ Réunion</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ro -->
+
+    <owl:NamedIndividual rdf:about="&country;ro">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Romania</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#rs -->
+
+    <owl:NamedIndividual rdf:about="&country;rs">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Serbia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ru -->
+
+    <owl:NamedIndividual rdf:about="&country;ru">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Russian Federation</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#rw -->
+
+    <owl:NamedIndividual rdf:about="&country;rw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Rwanda</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sa -->
+
+    <owl:NamedIndividual rdf:about="&country;sa">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Saudi Arabia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sb -->
+
+    <owl:NamedIndividual rdf:about="&country;sb">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Solomon Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sc -->
+
+    <owl:NamedIndividual rdf:about="&country;sc">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Seychelles</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sd -->
+
+    <owl:NamedIndividual rdf:about="&country;sd">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Sudan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#se -->
+
+    <owl:NamedIndividual rdf:about="&country;se">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Sweden</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sg -->
+
+    <owl:NamedIndividual rdf:about="&country;sg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Singapore</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sh -->
+
+    <owl:NamedIndividual rdf:about="&country;sh">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Saint Helena</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#si -->
+
+    <owl:NamedIndividual rdf:about="&country;si">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Slovenia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sj -->
+
+    <owl:NamedIndividual rdf:about="&country;sj">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Svalbard and Jan Mayen</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sk -->
+
+    <owl:NamedIndividual rdf:about="&country;sk">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Slovakia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sl -->
+
+    <owl:NamedIndividual rdf:about="&country;sl">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Sierra Leone</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sm -->
+
+    <owl:NamedIndividual rdf:about="&country;sm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">San Marino</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sn -->
+
+    <owl:NamedIndividual rdf:about="&country;sn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Senegal</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#so -->
+
+    <owl:NamedIndividual rdf:about="&country;so">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Somalia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sr -->
+
+    <owl:NamedIndividual rdf:about="&country;sr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Suriname</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#st -->
+
+    <owl:NamedIndividual rdf:about="&country;st">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Sao Tome and Principe</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sv -->
+
+    <owl:NamedIndividual rdf:about="&country;sv">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">El Salvador</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sy -->
+
+    <owl:NamedIndividual rdf:about="&country;sy">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Syrian Arab Republic</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#sz -->
+
+    <owl:NamedIndividual rdf:about="&country;sz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Swaziland</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tc -->
+
+    <owl:NamedIndividual rdf:about="&country;tc">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Turks and Caicos Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#td -->
+
+    <owl:NamedIndividual rdf:about="&country;td">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Chad</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tf -->
+
+    <owl:NamedIndividual rdf:about="&country;tf">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">French Southern Territories</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tg -->
+
+    <owl:NamedIndividual rdf:about="&country;tg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Togo</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#th -->
+
+    <owl:NamedIndividual rdf:about="&country;th">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Thailand</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tj -->
+
+    <owl:NamedIndividual rdf:about="&country;tj">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Tajikistan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tk -->
+
+    <owl:NamedIndividual rdf:about="&country;tk">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Tokelau</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tl -->
+
+    <owl:NamedIndividual rdf:about="&country;tl">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Timor-Leste</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tm -->
+
+    <owl:NamedIndividual rdf:about="&country;tm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Turkmenistan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tn -->
+
+    <owl:NamedIndividual rdf:about="&country;tn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Tunisia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#to -->
+
+    <owl:NamedIndividual rdf:about="&country;to">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Tonga</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tr -->
+
+    <owl:NamedIndividual rdf:about="&country;tr">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Turkey</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tt -->
+
+    <owl:NamedIndividual rdf:about="&country;tt">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Trinidad and Tobago</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tv -->
+
+    <owl:NamedIndividual rdf:about="&country;tv">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Tuvalu</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tw -->
+
+    <owl:NamedIndividual rdf:about="&country;tw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Taiwan, Province of China</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#tz -->
+
+    <owl:NamedIndividual rdf:about="&country;tz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Tanzania, United Republic of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ua -->
+
+    <owl:NamedIndividual rdf:about="&country;ua">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Ukraine</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ug -->
+
+    <owl:NamedIndividual rdf:about="&country;ug">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Uganda</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#um -->
+
+    <owl:NamedIndividual rdf:about="&country;um">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">United States Minor Outlying Islands</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#us -->
+
+    <owl:NamedIndividual rdf:about="&country;us">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">United States</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#uy -->
+
+    <owl:NamedIndividual rdf:about="&country;uy">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Uruguay</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#uz -->
+
+    <owl:NamedIndividual rdf:about="&country;uz">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Uzbekistan</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#va -->
+
+    <owl:NamedIndividual rdf:about="&country;va">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Holy See (Vatican City State)</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#vc -->
+
+    <owl:NamedIndividual rdf:about="&country;vc">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Saint Vincent and the Grenadines</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ve -->
+
+    <owl:NamedIndividual rdf:about="&country;ve">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Venezuela, Bolivarian Republic of</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#vg -->
+
+    <owl:NamedIndividual rdf:about="&country;vg">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Virgin Islands, British</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#vi -->
+
+    <owl:NamedIndividual rdf:about="&country;vi">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Virgin Islands, U.S.</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#vn -->
+
+    <owl:NamedIndividual rdf:about="&country;vn">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Viet Nam</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#vu -->
+
+    <owl:NamedIndividual rdf:about="&country;vu">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Vanuatu</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#wf -->
+
+    <owl:NamedIndividual rdf:about="&country;wf">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Wallis and Futuna</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ws -->
+
+    <owl:NamedIndividual rdf:about="&country;ws">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Samoa</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#ye -->
+
+    <owl:NamedIndividual rdf:about="&country;ye">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Yemen</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#yt -->
+
+    <owl:NamedIndividual rdf:about="&country;yt">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Mayotte</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#za -->
+
+    <owl:NamedIndividual rdf:about="&country;za">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">South Africa</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#zm -->
+
+    <owl:NamedIndividual rdf:about="&country;zm">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Zambia</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://eulersharp.sourceforge.net/2003/03swap/countries#zw -->
+
+    <owl:NamedIndividual rdf:about="&country;zw">
+        <rdf:type rdf:resource="&jur;Country"/>
+        <foaf:name xml:lang="en">Zimbabwe</foaf:name>
+        <rdfs:isDefinedBy rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries#"/>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-3"/>
+            </skos:Concept>
+        </skos:exactMatch>
+        <skos:exactMatch>
+            <skos:Concept>
+                <skos:inScheme rdf:resource="&country;iso3166-1-alpha-2"/>
+            </skos:Concept>
+        </skos:exactMatch>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

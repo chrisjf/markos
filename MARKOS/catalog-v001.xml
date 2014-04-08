@@ -13,14 +13,13 @@
     <uri id="Imports Wizard Entry" name="http://www.w3.org/2006/time" uri="../W3C/time.owl"/>
     <uri id="Imports Wizard Entry" name="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl" uri="../Protege/protege-dc.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/copyright" uri="markos-copyright.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/licenses" uri="markos-licenses.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/markos-event-calculus" uri="markos-event-calculus.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/markos-to-adms.sw" uri="markos-to-adms%20sw.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/markos-to-doap" uri="markos-to-doap.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/markos-to-seon" uri="markos-to-seon.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/oss-licenses" uri="markos-oss-licenses.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/software" uri="markos-software.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1394566148978" name="http://www.markosproject.eu/ontologies/uncertainty" uri="markos-uncertainty.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1395765465050" name="http://www.markosproject.eu/ontologies/copyright" uri="markos-copyright.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1395765465050" name="http://www.markosproject.eu/ontologies/licenses" uri="markos-licenses.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1395765465050" name="http://www.markosproject.eu/ontologies/markos-event-calculus" uri="markos-event-calculus.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1395765465050" name="http://www.markosproject.eu/ontologies/markos-to-adms.sw" uri="markos-to-adms%20sw.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1395765465050" name="http://www.markosproject.eu/ontologies/markos-to-doap" uri="markos-to-doap.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1395765465050" name="http://www.markosproject.eu/ontologies/markos-to-seon" uri="markos-to-seon.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1395765465050" name="http://www.markosproject.eu/ontologies/oss-licenses" uri="markos-oss-licenses.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1395765465050" name="http://www.markosproject.eu/ontologies/software" uri="markos-software.owl"/>
     </group>
 </catalog>
