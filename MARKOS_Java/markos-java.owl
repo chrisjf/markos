@@ -209,9 +209,7 @@ Also is using in method definition. An abstract method is a method that is decla
 
     <!-- http://www.markosproject.eu/ontologies/java#DeploymentDescriptorFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#DeploymentDescriptorFile">
-        <rdfs:subClassOf rdf:resource="&msw;NonCodeFile"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#DeploymentDescriptorFile"/>
     
 
 
@@ -361,6 +359,12 @@ If two Packages or two Libraries contains the same public interfaces then they c
         <rdfs:subClassOf rdf:resource="&msw;Attribute"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAccessModifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;valueType"/>
                 <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
             </owl:Restriction>
@@ -369,12 +373,6 @@ If two Packages or two Libraries contains the same public interfaces then they c
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
                 <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAccessModifier"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A data member of a class
@@ -740,12 +738,6 @@ All variables must have a type. You can use primitive types such as int, float, 
     <!-- http://www.markosproject.eu/ontologies/software#Method -->
 
     <owl:Class rdf:about="&msw;Method"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#NonCodeFile -->
-
-    <owl:Class rdf:about="&msw;NonCodeFile"/>
     
 
 

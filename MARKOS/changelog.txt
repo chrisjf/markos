@@ -11,15 +11,21 @@ Added individuals:
 
 Changed classes (name, comment and related constraints):
 - Constructor: clarified that, as it inherits from Classifier, it may be both a constructor declaration, i.e. abstract constructor, or a constructor implementation, i.e. concrete constructor)
+- SoftwareWork: the definition now clarifies that this is common superclass of both abstract entities (e.g. SoftwareEntity) and concrete entities (e.g. File) 
+- SoftwareRelease: now it is just the set of files released by a project. The idea that a SoftwareRelease is a SoftwareEntity was already discarded in the past because a release may contain also files that are not a manifestation of any SoftwareEntity, moreover if two projects would release a single SoftwareEntity we would have 2 releases (with two different release dates), but the SoftwareEntity would be one, so they cannot be the same. The idea that a SoftwareRelease contains both the SoftwareEntities and their manifestation would complicate the definition without clear advantages. The previousVersion of a SoftwareRelease must be a SoftwareRelease 
+- ExecutableFile: now is an ObjectCodeFile (to be coherent with the definition of ObjectCodeFile on turn based on the GPL definition of ObjectCode). Moreover now the definition is restricted to OS executable files (the original UML definition was too subjective to be useful for automatic analyses)
+- ConfigurationFile: now is a SourceCodeFile (to be coherent with the definition of SourceCodeFile on turn based on the GPL definition of SourceCode)
 
 Added classes (name, comment and related constraints):
 - SoftwareForge (subclassOf NamedEntity) : to represent any forge that host software projects
+- CodeFile: the disjoint union of SourceCodeFile and ObjectCodeFile	(the most general File type that is coded using a programming language)
 
 Removed classes:
 - Operation: because equivalent to "Method and isAbstract value true"
 - ConstructorMethod (Constructor already represents both abstract and concrete constructors).
 - BehaviorParameter (as now an Operation is an abstract Behavior, now this should be renamed ConcreteBehaviorParameter, because only when the Behavior is concrete is is also a Local variable; anyway there is no clear requirement for this distinction in MARKOS). 
 - Variable renamed (again) to TypedEntity (as in the case of a formal parameter of an abstract Method a Parameter is not a Variable, i.e. a storage unit, but just a formal name with some constraint). Clarified that may exist TypedElement without an explicit type. 
+- NonCodeFile: because the definition was inconsistent (as according to the other definitions a "non SourceCodeFile" is an "ObjectCodeFile" and a "non (SourceCodeFile o ObjectCodeFile)" is Nothing !
 
 Changed properties (name, comment and related constraints):
 - forkSoftwareWork: SoftwareEntity x SoftwareEntity -> SoftwareWork x SoftwareWork (previous was wrong). Also corrected the label.
@@ -35,6 +41,8 @@ Added properties:
 - licenseTemplate: Work x CopyrightLicenseTemplate = (coveringLicense o template)
 - hostingForge: SoftwareProject x SoftwareForge (to represent the forge that hosts a softwareproject) 
 - mlic:argumentGraph: LicenseAssessment x xsd:AnyURI 
+- codingLanguage: CodeFile x ProgrammingLanguage (the programming language that the code file is written in).
+- codingLanguageVersion: CodeFile x ProgrammingLanguageVersion (the programming language version that the code file is written in).
 
 Added annotation properties:
 - mlic:creationDate: LicenseAssessment x xsd:DateTime (subpropetyOf dcterms:created)
