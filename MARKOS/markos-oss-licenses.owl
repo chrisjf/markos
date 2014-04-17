@@ -196,8 +196,9 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#AGPL-3.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/agpl-3.0.html</templateSource>
-        <top:name>AGPL</top:name>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/agpl-3.0.html</rdfs:seeAlso>
         <software:version>3.0</software:version>
+        <top:name>AGPL</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -217,6 +218,7 @@
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-1.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.0</templateSource>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.0</rdfs:seeAlso>
         <rdfs:comment> For example, the Apache 1.0 license includes this clause:
 
 All advertising materials mentioning features or use of this
@@ -238,6 +240,7 @@ software must display the following acknowledgment:
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-1.1">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.1</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.1</templateSource>
         <software:version>1.1</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
@@ -255,8 +258,9 @@ software must display the following acknowledgment:
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-2.0.html</templateSource>
-        <software:version>2.0</software:version>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-2.0.html</rdfs:seeAlso>
         <top:name>Apache</top:name>
+        <software:version>2.0</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:requires rdf:resource="&copyright;Attribution"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
@@ -276,9 +280,10 @@ software must display the following acknowledgment:
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Artistic-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/Artistic-2.0</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/Artistic-2.0</templateSource>
-        <software:version>2.0</software:version>
         <top:name>Artistic</top:name>
+        <software:version>2.0</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -309,6 +314,7 @@ software must display the following acknowledgment:
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#BSD-2-Clause">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/BSD-2-Clause</templateSource>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/BSD-2-Clause</rdfs:seeAlso>
         <top:name>BSD 2 Clause</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
@@ -325,6 +331,7 @@ software must display the following acknowledgment:
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#BSD-3-Clause">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/BSD-3-Clause</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://opensource.org/licenses/BSD-3-Clause</templateSource>
         <top:name>BSD 3 Clause</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
@@ -343,9 +350,10 @@ software must display the following acknowledgment:
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#EPL-1.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.eclipse.org/legal/epl-v10.html</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.eclipse.org/legal/epl-v10.html</templateSource>
-        <software:version>1.0</software:version>
         <top:name>EPL</top:name>
+        <software:version>1.0</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -365,9 +373,10 @@ software must display the following acknowledgment:
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#EUPL-1.1">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://ec.europa.eu/idabc/eupl.html</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://ec.europa.eu/idabc/eupl.html</templateSource>
-        <top:name>EUPL</top:name>
         <software:version>1.1</software:version>
+        <top:name>EUPL</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
         <copyright:requires rdf:resource="&copyright;Notice"/>
@@ -383,8 +392,9 @@ software must display the following acknowledgment:
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl-2.0.html</templateSource>
-        <top:name>GPL</top:name>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl-2.0.html</rdfs:seeAlso>
         <software:version>2.0</software:version>
+        <top:name>GPL</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -406,9 +416,10 @@ software must display the following acknowledgment:
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-3.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl-3.0.html</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl-3.0.html</templateSource>
-        <top:name>GPL</top:name>
         <software:version>3.0</software:version>
+        <top:name>GPL</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -430,9 +441,10 @@ software must display the following acknowledgment:
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-2.1">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-2.1.html</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-2.1.html</templateSource>
-        <top:name>LGPL</top:name>
         <software:version>2.1</software:version>
+        <top:name>LGPL</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -453,8 +465,9 @@ software must display the following acknowledgment:
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-3.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-3.0.html</templateSource>
-        <top:name>LGPL</top:name>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-3.0.html</rdfs:seeAlso>
         <software:version>3.0</software:version>
+        <top:name>LGPL</top:name>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;CommercialUse"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
@@ -499,9 +512,10 @@ software must display the following acknowledgment:
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#MPL-2.0">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.mozilla.org/MPL/2.0/</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.mozilla.org/MPL/2.0/</templateSource>
-        <software:version>2.0</software:version>
         <top:name>MPL</top:name>
+        <software:version>2.0</software:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:permits rdf:resource="&copyright;Distribution"/>
         <copyright:prohibits rdf:resource="&copyright;HoldLiable"/>

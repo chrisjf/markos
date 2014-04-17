@@ -7,6 +7,8 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY mweb "http://www.markosproject.eu/ontologies/web#" >
+    <!ENTITY mtop "http://www.markosproject.eu/ontologies/top#" >
+    <!ENTITY msw "http://www.markosproject.eu/ontologies/software#" >
 ]>
 
 
@@ -16,9 +18,11 @@
      xmlns:mweb="http://www.markosproject.eu/ontologies/web#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:msw="http://www.markosproject.eu/ontologies/software#"
+     xmlns:mtop="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/web">
-        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/software#2014/03/11"/>
+        <owl:imports rdf:resource="&msw;2014/04/17"/>
         <owl:versionIRI rdf:resource="&mweb;2014/04/17"/>
     </owl:Ontology>
     
@@ -57,7 +61,7 @@
     <!-- http://www.markosproject.eu/ontologies/web#ServerProgram -->
 
     <owl:Class rdf:about="&mweb;ServerProgram">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Program"/>
+        <rdfs:subClassOf rdf:resource="&msw;Program"/>
         <rdfs:comment xml:lang="en">A Program to provide specific kind of services to requesters running programs (Clients). A ServerProgram may be extensible by means of specific kind of data/content and components. </rdfs:comment>
     </owl:Class>
     
@@ -66,7 +70,7 @@
     <!-- http://www.markosproject.eu/ontologies/web#ServerSideComponent -->
 
     <owl:Class rdf:about="&mweb;ServerSideComponent">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
+        <rdfs:subClassOf rdf:resource="&msw;Component"/>
         <rdfs:comment xml:lang="en">Any Component that runs under the control of an ApplicationServer and extends its capabilities (e.g. a SCA component).</rdfs:comment>
     </owl:Class>
     
@@ -87,7 +91,7 @@
 
     <owl:Class rdf:about="&mweb;WebApplication">
         <rdfs:label xml:lang="en">Web application</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
+        <rdfs:subClassOf rdf:resource="&msw;Component"/>
         <rdfs:comment xml:lang="en">A Program containing one or more WebComponents, altogheter implementing a coherent set of functionalities accessed by final users by means of a web browser.</rdfs:comment>
     </owl:Class>
     
@@ -97,7 +101,7 @@
 
     <owl:Class rdf:about="&mweb;WebBrowser">
         <rdfs:label xml:lang="en">Web browser</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Program"/>
+        <rdfs:subClassOf rdf:resource="&msw;Program"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Web_browser&amp;oldid=602376902</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A software application (also called web client) for retrieving, presenting and traversing information resources (i.e web documents) on the World Wide Web.</rdfs:comment>
     </owl:Class>
@@ -116,7 +120,7 @@
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
+        <rdfs:subClassOf rdf:resource="&msw;Component"/>
         <rdfs:comment xml:lang="en">A WebClient Component or a WebServerComponent.</rdfs:comment>
     </owl:Class>
     

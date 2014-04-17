@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://www.markosproject.eu/ontologies/copyright" uri="markos-copyright.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/licenses#2014/03/11" uri="markos-licenses.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/software#2014/03/11" uri="markos-software.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/web#2014/03/11" uri="markos-web.owl"/>
@@ -13,15 +14,4 @@
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-event-calculus" uri="markos-event-calculus.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.w3.org/2006/time" uri="../W3C/time.owl"/>
     <uri id="Imports Wizard Entry" name="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl" uri="../Protege/protege-dc.owl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/copyright" uri="markos-copyright.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/licenses" uri="markos-licenses.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/markos-event-calculus" uri="markos-event-calculus.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/markos-to-adms.sw" uri="markos-to-adms%20sw.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/markos-to-doap" uri="markos-to-doap.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/markos-to-seon" uri="markos-to-seon.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/oss-licenses" uri="markos-oss-licenses.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/software" uri="markos-software.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1397747577383" name="http://www.markosproject.eu/ontologies/web" uri="markos-web.owl"/>
-    </group>
 </catalog>

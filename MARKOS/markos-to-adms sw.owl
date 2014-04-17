@@ -43,7 +43,7 @@
      xmlns:admssw="http://purl.org/adms/sw/">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-adms.sw">
         <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2014/04/17"/>
-        <owl:imports rdf:resource="&msw;2014/03/11"/>
+        <owl:imports rdf:resource="&msw;2014/04/17"/>
     </owl:Ontology>
     
 
