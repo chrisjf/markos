@@ -1,6 +1,6 @@
 MARKOS ontology 
 
-V1.5 (next version)
+V1.5
 ====
 
 Created web ontology: http://www.markosproject.eu/ontologies/web (markos-web.owl)
