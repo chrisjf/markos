@@ -53,6 +53,12 @@ Removed properties:
 - ownedOperation (because now Operation is a Method and there is ownedMethod)
 - directImplementedOperation (because redundant: corresponds to redefinedEntity when value is an Operation)
 
+Added definition of msw prefix in software ontology
+
+Added definition of mlic prefix in license ontology
+
+Updated mapping to SEON
+
 
 V1.4
 ====

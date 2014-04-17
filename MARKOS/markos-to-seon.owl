@@ -29,6 +29,7 @@
         <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the SEON ontology. </rdfs:comment>
         <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>
         <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-seon#2014/03/11"/>
+        <owl:imports rdf:resource="&msw;2014/03/11"/>
     </owl:Ontology>
     
 
@@ -114,15 +115,31 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#AnnotationType -->
 
     <rdf:Description rdf:about="&seoncode;AnnotationType">
-        <owl:equivalentClass rdf:resource="&msw;AnnotationType"/>
+        <rdfs:subClassOf rdf:resource="&msw;AnnotationType"/>
     </rdf:Description>
     
 
 
-    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ClassType -->
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#CodeEntity -->
 
-    <rdf:Description rdf:about="&seoncode;ClassType">
-        <owl:equivalentClass rdf:resource="&msw;SoftwareClass"/>
+    <rdf:Description rdf:about="&seoncode;CodeEntity">
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#ComplexType -->
+
+    <rdf:Description rdf:about="&seoncode;ComplexType">
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Constructor -->
+
+    <rdf:Description rdf:about="&seoncode;Constructor">
+        <owl:equivalentClass rdf:resource="&msw;Constructor"/>
     </rdf:Description>
     
 
@@ -130,7 +147,7 @@
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#EnumerationType -->
 
     <rdf:Description rdf:about="&seoncode;EnumerationType">
-        <owl:equivalentClass rdf:resource="&msw;Enumeration"/>
+        <rdfs:subClassOf rdf:resource="&msw;Enumeration"/>
     </rdf:Description>
     
 
@@ -159,10 +176,18 @@
     
 
 
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Method -->
+
+    <rdf:Description rdf:about="&seoncode;Method">
+        <rdfs:subClassOf rdf:resource="&msw;Method"/>
+    </rdf:Description>
+    
+
+
     <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Namespace -->
 
     <rdf:Description rdf:about="&seoncode;Namespace">
-        <owl:equivalentClass rdf:resource="&top;Namespace"/>
+        <rdfs:subClassOf rdf:resource="&top;Namespace"/>
     </rdf:Description>
     
 
@@ -183,10 +208,18 @@
     
 
 
-    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#File -->
+    <!-- http://se-on.org/ontologies/domain-specific/2012/02/code.owl#Variable -->
 
-    <rdf:Description rdf:about="&seonmain2;File">
-        <owl:equivalentClass rdf:resource="&msw;File"/>
+    <rdf:Description rdf:about="&seoncode;Variable">
+        <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://se-on.org/ontologies/general/2012/2/main.owl#Directory -->
+
+    <rdf:Description rdf:about="&seonmain2;Directory">
+        <owl:equivalentClass rdf:resource="&msw;Directory"/>
     </rdf:Description>
     
 
@@ -213,9 +246,21 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#Constructor -->
 
-    <owl:Class rdf:about="&msw;Constructor">
-        <rdfs:subClassOf rdf:resource="&seoncode;Constructor"/>
-    </owl:Class>
+    <owl:Class rdf:about="&msw;Constructor"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#DataType -->
+
+    <rdf:Description rdf:about="&msw;DataType">
+        <rdfs:subClassOf rdf:resource="&seoncode;ComplexType"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Directory -->
+
+    <rdf:Description rdf:about="&msw;Directory"/>
     
 
 
@@ -233,7 +278,9 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#File -->
 
-    <owl:Class rdf:about="&msw;File"/>
+    <owl:Class rdf:about="&msw;File">
+        <rdfs:subClassOf rdf:resource="&seonmain2;File"/>
+    </owl:Class>
     
 
 
@@ -245,9 +292,7 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#Method -->
 
-    <owl:Class rdf:about="&msw;Method">
-        <rdfs:comment>The class seon:Method is not included in this class as seon:Method include also the operations. Depending from the Programming Language seon consider the Costructors also to be methods or not. </rdfs:comment>
-    </owl:Class>
+    <owl:Class rdf:about="&msw;Method"/>
     
 
 
@@ -271,9 +316,7 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareEntity -->
 
-    <owl:Class rdf:about="&msw;SoftwareEntity">
-        <rdfs:subClassOf rdf:resource="&seoncode;CodeEntity"/>
-    </owl:Class>
+    <owl:Class rdf:about="&msw;SoftwareEntity"/>
     
 
 

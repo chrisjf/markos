@@ -11,6 +11,7 @@
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY mtop "http://www.markosproject.eu/ontologies/top#" >
     <!ENTITY mlic "http://www.markosproject.eu/ontologies/licenses#" >
+    <!ENTITY msw "http://www.markosproject.eu/ontologies/software#" >
 ]>
 
 
@@ -22,6 +23,7 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:msw="http://www.markosproject.eu/ontologies/software#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:mtop="http://www.markosproject.eu/ontologies/top#"
      xmlns:mlic="http://www.markosproject.eu/ontologies/licenses#">
@@ -29,7 +31,7 @@
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">This ontology describes the domain independent concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <owl:imports rdf:resource="&mlic;2014/03/11"/>
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/software#2014/03/11"/>
+        <owl:versionIRI rdf:resource="&msw;2014/03/11"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     </owl:Ontology>
@@ -49,7 +51,7 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#correspondingProperty -->
 
-    <owl:AnnotationProperty rdf:about="http://www.markosproject.eu/ontologies/software#correspondingProperty">
+    <owl:AnnotationProperty rdf:about="&msw;correspondingProperty">
         <rdfs:label xml:lang="en">Corresponding property</rdfs:label>
         <rdfs:comment xml:lang="en">An OWL property that &quot;corresponds&quot; to the subject Property, in the sense that there is a corrispondence between the domains of the two properties and the ranges of the two properties and if two entities are related by the subject property then the corresponding entities are related by the superProperty, and viceversa.</rdfs:comment>
     </owl:AnnotationProperty>
@@ -58,7 +60,7 @@
 
     <!-- http://www.markosproject.eu/ontologies/software#provenanceManifestationCriteria -->
 
-    <owl:AnnotationProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenanceManifestationCriteria">
+    <owl:AnnotationProperty rdf:about="&msw;provenanceManifestationCriteria">
         <rdfs:label xml:lang="en">Provenance manifestation</rdfs:label>
         <rdfs:comment xml:lang="en">Specifies which is the provenance manifestation of the instances of the subject class of SoftwareEntities and how it is (ideally) determined.
 
@@ -165,12 +167,12 @@ Depending from the specific type of entity, specific strategies can be found to 
 
     <!-- http://www.markosproject.eu/ontologies/software#codingLanguage -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#codingLanguage">
+    <owl:ObjectProperty rdf:about="&msw;codingLanguage">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Used language</rdfs:label>
         <rdfs:comment xml:lang="en">Programming Language used to write the subject SourceCodeFile or the SourceCodeFile used to produce the subject ObjectCodeFile.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#CodeFile"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+        <rdfs:domain rdf:resource="&msw;CodeFile"/>
+        <rdfs:range rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
@@ -178,12 +180,12 @@ Depending from the specific type of entity, specific strategies can be found to 
 
     <!-- http://www.markosproject.eu/ontologies/software#codingLanguageVersion -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#codingLanguageVersion">
+    <owl:ObjectProperty rdf:about="&msw;codingLanguageVersion">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Programming language version</rdfs:label>
         <rdfs:comment xml:lang="en">ProgramminLanguageVersion used to write the subject SourceCodeFile or the SourceCodeFile used to generate the subject ObjectCodeFile.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#CodeFile"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdfs:domain rdf:resource="&msw;CodeFile"/>
+        <rdfs:range rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
@@ -191,23 +193,23 @@ Depending from the specific type of entity, specific strategies can be found to 
 
     <!-- http://www.markosproject.eu/ontologies/software#declaredImplementationLanguage -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#declaredImplementationLanguage">
+    <owl:ObjectProperty rdf:about="&msw;declaredImplementationLanguage">
         <rdfs:label xml:lang="en">Declared implementation language</rdfs:label>
         <rdfs:comment xml:lang="en">Programming language that is declared (i.e. claimed on the web site of the project) to be used for the implementation of the released software.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:range rdf:resource="&msw;ProgrammingLanguage"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#developer -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#developer">
+    <owl:ObjectProperty rdf:about="&msw;developer">
         <rdfs:label xml:lang="en">Developer</rdfs:label>
         <rdfs:comment xml:lang="en">Developer of software for the project.
 
 Equivalent to &apos;developer&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
@@ -215,72 +217,72 @@ Equivalent to &apos;developer&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#directExtendedType -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#directExtendedType">
+    <owl:ObjectProperty rdf:about="&msw;directExtendedType">
         <rdfs:label xml:lang="en">Direct extended type</rdfs:label>
         <rdfs:comment xml:lang="en">A Classifier  that is more general of the subject Classifier and used as a base for the implementation of the subjectType. 
 
 The extension relationship may be subject to different constraints than the implementation relationship (for example, in Java, a SoftwareClass may extend only one SoftwareClass, but can implement several Interfaces).
 
 A direct ExtendedType is a UML2 generalized Classifier (i.e. the general Classifier of a Generalization relationship)</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#directSuperType"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;Classifier"/>
+        <rdfs:domain rdf:resource="&msw;Classifier"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;directSuperType"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#directImplementedInterface -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#directImplementedInterface">
+    <owl:ObjectProperty rdf:about="&msw;directImplementedInterface">
         <rdfs:label xml:lang="en">Direct implemented interface</rdfs:label>
         <rdfs:comment xml:lang="en">Interface implemented directly (i.e. not inherited) by the subject entity. This implies that the interface is used by the subject entity. 
 
 A directImplementedInterface is a UML2 realizedInterface.
 </rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Interface"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareClass"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#directSuperType"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;Interface"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareClass"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;directSuperType"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#directSuperType -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#directSuperType">
+    <owl:ObjectProperty rdf:about="&msw;directSuperType">
         <rdfs:label xml:lang="en">Direct supertype</rdfs:label>
         <rdfs:comment xml:lang="en">A Classifier  that is more general of the subject Classifier. Each instance of the subject Classifier is also an indirect instance of the superType. Thus, the subject Classifier inherits the features of the superType. Any constraint applying to instances of the superType also applies to instances of the subject Type.
 
 A directSuperType is a UML2 generalized Classifier or a UML2 realized Interface.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <rdfs:domain rdf:resource="&msw;Classifier"/>
+        <rdfs:range rdf:resource="&msw;Classifier"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#direction -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#direction">
+    <owl:ObjectProperty rdf:about="&msw;direction">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Direction</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates whether a parameter is being sent into or out of a behavioral element.
 
 Representable by the homonymous UML2 element.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Parameter"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ParameterDirectionKind"/>
+        <rdfs:domain rdf:resource="&msw;Parameter"/>
+        <rdfs:range rdf:resource="&msw;ParameterDirectionKind"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#documenter -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#documenter">
+    <owl:ObjectProperty rdf:about="&msw;documenter">
         <rdfs:label xml:lang="en">Documenter</rdfs:label>
         <rdfs:comment xml:lang="en">Contributor of documentation to the project.
 
 Equivalent to &apos;documenter&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
@@ -288,39 +290,39 @@ Equivalent to &apos;documenter&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#forkSoftwareWork -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#forkSoftwareWork">
+    <owl:ObjectProperty rdf:about="&msw;forkSoftwareWork">
         <rdfs:label xml:lang="en">Fork software work</rdfs:label>
         <rdfs:comment xml:lang="en">SoftwareWork released by a project that is distinct from the project of the subject SoftwareWork. 
 
 Practically speaking this is a successive version of the subject SoftwareWork but, as the version control system may be different, usually this is not a value of the property successiveVersion.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:range rdf:resource="&msw;SoftwareWork"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareWork"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#forkStartedEntity -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#forkStartedEntity">
+    <owl:ObjectProperty rdf:about="&msw;forkStartedEntity">
         <rdfs:label xml:lang="en">Fork started entity</rdfs:label>
         <rdfs:comment xml:lang="en">SoftwareEntity which execution is started by the subject SoftwareEntity, but that runs in a process spearated from the one of the subject SoftwareEntity.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Program"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;Program"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#forkedSoftwareWork -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#forkedSoftwareWork">
+    <owl:ObjectProperty rdf:about="&msw;forkedSoftwareWork">
         <rdfs:label xml:lang="en">Forked software work</rdfs:label>
         <rdfs:comment xml:lang="en">SoftwareWork released by a project disctinct from the project of the subject SoftwareWork and from which the subject entity is derived.
 
 Practically speaking it is a previous version of the subject SoftwareWork but, as the version control system could be different, usually it is not a value of the property previousVersion.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
-        <owl:inverseOf rdf:resource="http://www.markosproject.eu/ontologies/software#forkSoftwareWork"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareWork"/>
+        <rdfs:range rdf:resource="&msw;SoftwareWork"/>
+        <owl:inverseOf rdf:resource="&msw;forkSoftwareWork"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
@@ -328,10 +330,10 @@ Practically speaking it is a previous version of the subject SoftwareWork but, a
 
     <!-- http://www.markosproject.eu/ontologies/software#helper -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#helper">
+    <owl:ObjectProperty rdf:about="&msw;helper">
         <rdfs:label xml:lang="en">Helper</rdfs:label>
         <rdfs:comment xml:lang="en">Equivalent to helper from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
@@ -339,26 +341,26 @@ Practically speaking it is a previous version of the subject SoftwareWork but, a
 
     <!-- http://www.markosproject.eu/ontologies/software#hostingForge -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#hostingForge">
+    <owl:ObjectProperty rdf:about="&msw;hostingForge">
         <rdfs:label xml:lang="en">Hosting forge</rdfs:label>
         <rdfs:comment xml:lang="en">Softwareforge hosting the subject SoftwareProject.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareForge"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:range rdf:resource="&msw;SoftwareForge"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#implementationLanguage -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#implementationLanguage">
+    <owl:ObjectProperty rdf:about="&msw;implementationLanguage">
         <rdfs:label xml:lang="en">Implementing language</rdfs:label>
         <rdfs:comment xml:lang="en">A ProgrammingLanguage used to implement the subject SoftwareEntity. A SoftwareEntity may be implemented using more than one ProgrammingLanguage.
 
 Rule:
 implementationLanguage = implementationsLanguageVersion.unversionedAbstraction 
 </rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;ProgrammingLanguage"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
@@ -366,11 +368,11 @@ implementationLanguage = implementationsLanguageVersion.unversionedAbstraction
 
     <!-- http://www.markosproject.eu/ontologies/software#implementationLanguageVersion -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#implementationLanguageVersion">
+    <owl:ObjectProperty rdf:about="&msw;implementationLanguageVersion">
         <rdfs:label xml:lang="en">Implementing language version</rdfs:label>
         <rdfs:comment xml:lang="en">A ProgrammingLanguageVersion used to implement the subject SoftwareEntity. A SoftwareEntity may be implemented using more than one ProgrammingLanguage.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;ProgrammingLanguageVersion"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
@@ -378,91 +380,91 @@ implementationLanguage = implementationsLanguageVersion.unversionedAbstraction
 
     <!-- http://www.markosproject.eu/ontologies/software#implementedAPI -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#implementedAPI">
+    <owl:ObjectProperty rdf:about="&msw;implementedAPI">
         <rdfs:label xml:lang="en">Implemented API</rdfs:label>
         <rdfs:comment xml:lang="en">API implemented by the subject Component or Library</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#API"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;API"/>
+        <rdfs:domain rdf:resource="&msw;APIContainer"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#importedPackage -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#importedPackage">
+    <owl:ObjectProperty rdf:about="&msw;importedPackage">
         <rdfs:label xml:lang="en">Imported package</rdfs:label>
         <rdfs:comment xml:lang="en">Package that is imported by the subject SoftwareEntity, i.e. all the entities of the importedPackage are also entities of the subject Package.
 
 It represent the same information represented by the homonymous UML2 attribute, but differently by UML2 in this ontology no class PackageImport is defined.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Package"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Package"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;Package"/>
+        <rdfs:domain rdf:resource="&msw;Package"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#includedAPI -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#includedAPI">
+    <owl:ObjectProperty rdf:about="&msw;includedAPI">
         <rdfs:label xml:lang="en">Included API</rdfs:label>
         <rdfs:comment xml:lang="en">API included (i.e. which elements are contained) in the subject SoftwareEntity.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#API"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;API"/>
+        <rdfs:domain rdf:resource="&msw;APIContainer"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#invokedBehavior -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#invokedBehavior">
+    <owl:ObjectProperty rdf:about="&msw;invokedBehavior">
         <rdfs:label xml:lang="en">Invoked behavior</rdfs:label>
         <rdfs:comment xml:lang="en">Behavior that is invoked by the subject Behavior.
 
 This is different by an invokedMethod, as in the case the executed Behavior is statically determined. </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;Behavior"/>
+        <rdfs:range rdf:resource="&msw;Behavior"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#invokedMethod -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#invokedMethod">
+    <owl:ObjectProperty rdf:about="&msw;invokedMethod">
         <rdfs:label xml:lang="en">Invoked method</rdfs:label>
         <rdfs:comment xml:lang="en">Method that is invoked by the subject Behavior.  
  An invocation of a Method does not necessarly triggers the execution of the implementation provided by the owner SoftwareClass of that Method. The exact mechanism to determine the executed Behavior depends on the programming language, but in general it depends from the target object that receives the invocation (the target object is determined at runtime and not represented by this ontology).</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Method"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;Behavior"/>
+        <rdfs:range rdf:resource="&msw;Method"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#linkedLibrary -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#linkedLibrary">
+    <owl:ObjectProperty rdf:about="&msw;linkedLibrary">
         <rdfs:label xml:lang="en">Linked library</rdfs:label>
         <rdfs:comment xml:lang="en">A Library that is linked to the softwareEntity. 
 
 Note that the SoftwareEntities contained in a Library may be linked to some SoftwareEntities without linking them as a Library, therefore the linking of a Library is distinct form the linking of the SoftwareEntities.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Library"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;Library"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#maintainer -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#maintainer">
+    <owl:ObjectProperty rdf:about="&msw;maintainer">
         <rdfs:label xml:lang="en">Mantainer</rdfs:label>
         <rdfs:comment xml:lang="en">Maintainer of a project, a project leader.
 
 Equivalent to &apos;maintainer&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
@@ -470,27 +472,27 @@ Equivalent to &apos;maintainer&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#manifestation -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#manifestation">
+    <owl:ObjectProperty rdf:about="&msw;manifestation">
         <rdfs:label xml:lang="en">Manifestation</rdfs:label>
         <rdfs:comment xml:lang="en">An object that is the concrete manifestation of the subject SoftwareWork. 
 
 A SoftwareWork may be an abstract entity that may have several distinct manifestations. For instance any copy of the source code of a SoftwareEntity is a manifestation of that entitiy.
 </rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareArtifact"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:range rdf:resource="&msw;SoftwareArtifact"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareWork"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#ownedAPI -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#ownedAPI">
+    <owl:ObjectProperty rdf:about="&msw;ownedAPI">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Owned API</rdfs:label>
         <rdfs:comment xml:lang="en">API originally defined by the subject SoftwareEntity.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#API"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#includedAPI"/>
+        <rdfs:range rdf:resource="&msw;API"/>
+        <rdfs:domain rdf:resource="&msw;APIContainer"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;includedAPI"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -498,12 +500,12 @@ A SoftwareWork may be an abstract entity that may have several distinct manifest
 
     <!-- http://www.markosproject.eu/ontologies/software#ownedAttribute -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#ownedAttribute">
+    <owl:ObjectProperty rdf:about="&msw;ownedAttribute">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Owned attribute</rdfs:label>
         <rdfs:comment xml:lang="en">Attribute owned by the subject Type, i.e. any attribute that can be represented by the UML2 role &quot;ownedAttribute&quot;. Not to be confused with a legal ownership relatioship.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Attribute"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <rdfs:range rdf:resource="&msw;Attribute"/>
+        <rdfs:domain rdf:resource="&msw;Classifier"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -511,11 +513,11 @@ A SoftwareWork may be an abstract entity that may have several distinct manifest
 
     <!-- http://www.markosproject.eu/ontologies/software#ownedLocalVariable -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#ownedLocalVariable">
+    <owl:ObjectProperty rdf:about="&msw;ownedLocalVariable">
         <rdfs:label xml:lang="en">Owned variable</rdfs:label>
         <rdfs:comment xml:lang="en">Any LocalVariable defined by the subject Behavior.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#LocalVariable"/>
+        <rdfs:domain rdf:resource="&msw;Behavior"/>
+        <rdfs:range rdf:resource="&msw;LocalVariable"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -523,14 +525,14 @@ A SoftwareWork may be an abstract entity that may have several distinct manifest
 
     <!-- http://www.markosproject.eu/ontologies/software#ownedMethod -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#ownedMethod">
+    <owl:ObjectProperty rdf:about="&msw;ownedMethod">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Owned method</rdfs:label>
         <rdfs:comment xml:lang="en">Method owned (i.e.directly implemented) by the subject Type.
 
 In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be confused with a legal ownership relatioship.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Method"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
+        <rdfs:range rdf:resource="&msw;Method"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareObjectType"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -538,12 +540,12 @@ In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be con
 
     <!-- http://www.markosproject.eu/ontologies/software#ownedParameter -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#ownedParameter">
+    <owl:ObjectProperty rdf:about="&msw;ownedParameter">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Owned parameter</rdfs:label>
-        <rdfs:comment xml:lang="en">Parameter owned by the subject Operation (represented by the homonymous UML2 element)</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Method"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Parameter"/>
+        <rdfs:comment xml:lang="en">Parameter owned by the subject Method (represented by the homonymous UML2 element)</rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;Method"/>
+        <rdfs:range rdf:resource="&msw;Parameter"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -551,131 +553,131 @@ In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be con
 
     <!-- http://www.markosproject.eu/ontologies/software#provenance -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenance">
+    <owl:ObjectProperty rdf:about="&msw;provenance">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Provenance</rdfs:label>
         <rdfs:comment xml:lang="en">The project (if any) that originally released the subject SoftwareWork. Each SoftwareWork has maximum one provenance project.
 
 Note that the fact that a project releases a software entity does not necessarly imply that the project is the provenance of the software entity, as the software entity could have been copied from the provenance project and released again in another project.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:range rdf:resource="&msw;SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareWork"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#provenanceManifestation -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenanceManifestation">
+    <owl:ObjectProperty rdf:about="&msw;provenanceManifestation">
         <rdfs:label xml:lang="en">Provenance manifestation</rdfs:label>
         <rdfs:comment xml:lang="en">The original Artifact that defined the subject Work, i.e. the source code or the object code files released by the provenance Project of the subject SoftwareEntity. </rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareArtifact"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#manifestation"/>
+        <rdfs:range rdf:resource="&msw;SoftwareArtifact"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareWork"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;manifestation"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#provenanceObjectCode -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenanceObjectCode">
+    <owl:ObjectProperty rdf:about="&msw;provenanceObjectCode">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Provenance object code</rdfs:label>
         <rdfs:comment xml:lang="en">The original copy of the object code file, that defines the subject software entity. 
 Each software entity has exactly one provenanceObjectCode. It is a file released by the provenance Project of the subject SoftwareEntity. </rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ObjectCodeFile"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#provenanceManifestation"/>
+        <rdfs:range rdf:resource="&msw;ObjectCodeFile"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;provenanceManifestation"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#provenanceRelease -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenanceRelease">
+    <owl:ObjectProperty rdf:about="&msw;provenanceRelease">
         <rdfs:label xml:lang="en">Provenance release</rdfs:label>
         <rdfs:comment xml:lang="en">The SoftwareRelease (if any) that originally released the subject SoftwareWork. Each SoftwareWork has maximum one provenance release.
 
 Note that the fact that a SoftwareRelease containes a software entity does not necessarly imply that the SoftwareRelease is the provenanceRelease of the software entity, as the software entity could have been copied from the provenanceRelease and released again in another release of the same project or of a different project.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareRelease"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareWork"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#provenanceSourceCode -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#provenanceSourceCode">
+    <owl:ObjectProperty rdf:about="&msw;provenanceSourceCode">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Provenance source code</rdfs:label>
         <rdfs:comment xml:lang="en">The original copy of the object source code file, that defines the subject software entity.
 Each software entity has exactly one provenanceSourceCode. It is a file released by the provenance Project of the subject SoftwareEntity. </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SourceCodeFile"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#provenanceManifestation"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;SourceCodeFile"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;provenanceManifestation"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#providedInterface -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#providedInterface">
+    <owl:ObjectProperty rdf:about="&msw;providedInterface">
         <rdfs:label xml:lang="en">Provided interface</rdfs:label>
         <rdfs:comment xml:lang="en">Interface implemented and exposed by the subject Class or Component.
 
 In UML2 it is represented by the attribute &quot;provided&quot;.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Interface"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;Component"/>
+        <rdfs:range rdf:resource="&msw;Interface"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#raisedException -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#raisedException">
+    <owl:ObjectProperty rdf:about="&msw;raisedException">
         <rdfs:label xml:lang="en">Raised exception</rdfs:label>
-        <rdfs:comment xml:lang="en">The Types representing exceptions that may be raised during an invocation of this operation. (representable by the homonymous UML2 elment).</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Method"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Type"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:comment xml:lang="en">The Types representing exceptions that may be raised during an invocation of the subject method. (representable by the homonymous UML2 element).</rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;Method"/>
+        <rdfs:range rdf:resource="&msw;Type"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#redefinedEntity -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#redefinedEntity">
+    <owl:ObjectProperty rdf:about="&msw;redefinedEntity">
         <rdfs:label xml:lang="en">Redefined entity</rdfs:label>
         <rdfs:comment xml:lang="en">Any SoftwareEntity that is redefined by the subject one in the context of a generalization (e.g. superclass) relationship. It may be represented by the UML2 association redefinedElement.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#referredVariable -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#referredVariable">
+    <owl:ObjectProperty rdf:about="&msw;referredVariable">
         <rdfs:label xml:lang="en">Referred entity</rdfs:label>
         <rdfs:comment xml:lang="en">TypedEntity that is read or written by the subject SoftwareEntity </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#TypedEntity"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;Behavior"/>
+        <rdfs:range rdf:resource="&msw;TypedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#releasedSoftware -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#releasedSoftware">
+    <owl:ObjectProperty rdf:about="&msw;releasedSoftware">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Released software</rdfs:label>
         <rdfs:comment xml:lang="en">A software (SoftwareRelease) published by a Project and considered sufficiently stable to be used by the final user. 
 
 This relationship refers to the entire software published by a the project at certain time, i.e. a software that is contained in a released software is not a value of the  releasedSoftware property.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareRelease"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
+        <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -683,73 +685,73 @@ This relationship refers to the entire software published by a the project at ce
 
     <!-- http://www.markosproject.eu/ontologies/software#releasedSoftwareLicense -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#releasedSoftwareLicense">
+    <owl:ObjectProperty rdf:about="&msw;releasedSoftwareLicense">
         <rdfs:label xml:lang="en">Relseased software license</rdfs:label>
         <rdfs:comment xml:lang="en">The CopyrightLicense that regulate the usage of the software released by the subject SoftwareProject.</rdfs:comment>
         <rdfs:range rdf:resource="&mlic;CopyrightLicense"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#repository -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#repository">
+    <owl:ObjectProperty rdf:about="&msw;repository">
         <rdfs:label xml:lang="en">Repository</rdfs:label>
         <rdfs:comment xml:lang="en">The FileRepository where the subject FileSystemElement is published.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
+        <rdfs:range rdf:resource="&msw;FileRepository"/>
+        <rdfs:domain rdf:resource="&msw;FileSystemElement"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#requiredInterface -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#requiredInterface">
+    <owl:ObjectProperty rdf:about="&msw;requiredInterface">
         <rdfs:label xml:lang="en">Required interface</rdfs:label>
         <rdfs:comment xml:lang="en">Interface required by the subject Component.
 
 In UML 2 it is represented by the attribute &quot;required&quot; </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Interface"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;Component"/>
+        <rdfs:range rdf:resource="&msw;Interface"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#softwareImplementationLanguage -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#softwareImplementationLanguage">
+    <owl:ObjectProperty rdf:about="&msw;softwareImplementationLanguage">
         <rdfs:label xml:lang="en">Software implementation language</rdfs:label>
         <rdfs:comment xml:lang="en">A ProgrammingLanguage used to implement the a SoftwareEntity released by the subject project. It may happen it is not declared (declaredImplementingLangauge) on the project web site (e.g. in a DOAP file published on the project web site) or it may happen than a cdeclared language is not actually used.
 
 Rule:
 softwareImplementationLanguage=releasedSoftware.implementationLanguage</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:range rdf:resource="&msw;ProgrammingLanguageVersion"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#softwareRepository -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#softwareRepository">
+    <owl:ObjectProperty rdf:about="&msw;softwareRepository">
         <rdfs:label xml:lang="en">Software repository</rdfs:label>
         <rdfs:comment xml:lang="en">The SoftwareRepository where the software released by the subject SoftwareProject is released.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:range rdf:resource="&msw;FileRepository"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#tester -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#tester">
+    <owl:ObjectProperty rdf:about="&msw;tester">
         <rdfs:label xml:lang="en">Tester</rdfs:label>
         <rdfs:comment xml:lang="en">A tester or other quality control contributor.
 
 Equivalet to &apos;tester&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
@@ -757,12 +759,12 @@ Equivalet to &apos;tester&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#translator -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#translator">
+    <owl:ObjectProperty rdf:about="&msw;translator">
         <rdfs:label xml:lang="en">Translator</rdfs:label>
         <rdfs:comment xml:lang="en">Contributor of translations to the project.
 
 Equivalent to &apos;translator&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&foaf;Person"/>
     </owl:ObjectProperty>
     
@@ -770,7 +772,7 @@ Equivalent to &apos;translator&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#unversionedAbstraction -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#unversionedAbstraction">
+    <owl:ObjectProperty rdf:about="&msw;unversionedAbstraction">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Unversioned abstraction</rdfs:label>
         <rdfs:comment xml:lang="en">The more abstract entity the subject entity is a version of.</rdfs:comment>
@@ -782,11 +784,11 @@ Equivalent to &apos;translator&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#usedCompiler -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#usedCompiler">
+    <owl:ObjectProperty rdf:about="&msw;usedCompiler">
         <rdfs:label xml:lang="en">Used compiler</rdfs:label>
         <rdfs:comment xml:lang="en">The SoftwareEntity that is the compiler used to produce the subject object code.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#ObjectCodeFile"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;ObjectCodeFile"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
@@ -794,14 +796,14 @@ Equivalent to &apos;translator&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#usedSoftwareEntity -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity">
+    <owl:ObjectProperty rdf:about="&msw;usedSoftwareEntity">
         <rdfs:label xml:lang="en">Used software entity</rdfs:label>
         <rdfs:comment xml:lang="en">SoftwareEntity used by the subject of this property.
 A SoftwareEntity Y is used by a SoftwareEntity X if the execution or compilation process of X implies the execution, compilation or the lookup of Y (this includes the case where a copy of the source code of Y is present in a copy of the source code of X).
 
-Note that an implementation relationship is not necessarly a usage relationship as in some language an API or an Operation may be implemented without beeing explicitly used by the compiler or executor. </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+Note that an implementation relationship is not necessarly a usage relationship as in some language an API or a Method may be implemented without beeing explicitly used by the compiler or executor. </rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
@@ -809,25 +811,25 @@ Note that an implementation relationship is not necessarly a usage relationship 
 
     <!-- http://www.markosproject.eu/ontologies/software#valueType -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#valueType">
+    <owl:ObjectProperty rdf:about="&msw;valueType">
         <rdfs:label xml:lang="en">Value type</rdfs:label>
         <rdfs:comment xml:lang="en">The range of values that the subject TypedEntity can represent (it corresponds to the UML2 association called &quot;type&quot;).</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Type"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#TypedEntity"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;Type"/>
+        <rdfs:domain rdf:resource="&msw;TypedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#vendor -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#vendor">
+    <owl:ObjectProperty rdf:about="&msw;vendor">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Vendor</rdfs:label>
         <rdfs:comment xml:lang="en">Vendor organization: commercial, free or otherwise.
 
 Equivalent to &apos;vendor&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&foaf;Organization"/>
     </owl:ObjectProperty>
     
@@ -835,12 +837,12 @@ Equivalent to &apos;vendor&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#visibility -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/software#visibility">
+    <owl:ObjectProperty rdf:about="&msw;visibility">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Visibility</rdfs:label>
         <rdfs:comment xml:lang="en">The UML2 visibility of the softwareEntities, i.e. a property that determines where the memebr of a Namespace appears within different Namespaces and there accessibility.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#VisibilityKind"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;VisibilityKind"/>
     </owl:ObjectProperty>
     
 
@@ -888,8 +890,8 @@ A same entity may be contained in different Containers. </rdfs:comment>
     <owl:ObjectProperty rdf:about="&mtop;nestedClassifier">
         <rdfs:label xml:lang="en">Nested classifier</rdfs:label>
         <rdfs:comment xml:lang="en">Any Type that is owner by the subject Type. In UML2 it is represented by the anonymous property.</rdfs:comment>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <rdfs:range rdf:resource="&msw;Classifier"/>
+        <rdfs:domain rdf:resource="&msw;Classifier"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;ownedMember"/>
     </owl:ObjectProperty>
     
@@ -980,6 +982,17 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/top#webSiteURL -->
+
+    <rdf:Description rdf:about="&mtop;webSiteURL">
+        <rdfs:label xml:lang="en">Homepage</rdfs:label>
+        <rdfs:comment xml:lang="en">Web site of the subject entity.
+
+Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
+    </rdf:Description>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -993,10 +1006,10 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
 
     <!-- http://www.markosproject.eu/ontologies/software#anonymousAccess -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#anonymousAccess">
+    <owl:DatatypeProperty rdf:about="&msw;anonymousAccess">
         <rdfs:label xml:lang="en">Anonymous access</rdfs:label>
         <rdfs:comment xml:lang="en">URL for anonymous access to the repository.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:domain rdf:resource="&msw;FileRepository"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1004,13 +1017,13 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
 
     <!-- http://www.markosproject.eu/ontologies/software#audience -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#audience">
+    <owl:DatatypeProperty rdf:about="&msw;audience">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Audience</rdfs:label>
         <rdfs:comment xml:lang="en">Description of target user base.
 
 Equivalent to &apos;audience&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1018,13 +1031,13 @@ Equivalent to &apos;audience&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#blog -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#blog">
+    <owl:DatatypeProperty rdf:about="&msw;blog">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Blog</rdfs:label>
         <rdfs:comment xml:lang="en">URI of a blog related to a project.
 
 Equivalent to &apos;blog&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1032,12 +1045,12 @@ Equivalent to &apos;blog&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#bugDatabase -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#bugDatabase">
+    <owl:DatatypeProperty rdf:about="&msw;bugDatabase">
         <rdfs:label xml:lang="en">Bug database</rdfs:label>
         <rdfs:comment xml:lang="en">Bug tracker for a project.
 
 Equivalent to &apos;bug-database&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1045,7 +1058,7 @@ Equivalent to &apos;bug-database&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#creationDate -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#creationDate">
+    <owl:DatatypeProperty rdf:about="&msw;creationDate">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Creation date</rdfs:label>
         <rdfs:comment xml:lang="en">Date of creation of the subject Entity
@@ -1059,7 +1072,7 @@ Equivalent to &apos;created&apos; from ontology DAOP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#description -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#description">
+    <owl:DatatypeProperty rdf:about="&msw;description">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Description</rdfs:label>
         <rdfs:comment xml:lang="en">Plain text description of an entity, of 2-4 sentences in length. 
@@ -1073,12 +1086,12 @@ When applied to a SoftwareProject  is equivalent to property &apos;description&a
 
     <!-- http://www.markosproject.eu/ontologies/software#documentationLanguage -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#documentationLanguage">
+    <owl:DatatypeProperty rdf:about="&msw;documentationLanguage">
         <rdfs:label xml:lang="en">Language</rdfs:label>
         <rdfs:comment xml:lang="en">ISO language code the documentation of the project is available into.
 
 Equivalent to &apos;language&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1086,13 +1099,13 @@ Equivalent to &apos;language&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#downloadMirror -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#downloadMirror">
+    <owl:DatatypeProperty rdf:about="&msw;downloadMirror">
         <rdfs:label xml:lang="en">Download mirror</rdfs:label>
         <rdfs:comment xml:lang="en">Download mirror
 
 Equivalent to &apos;download-mirror&apos; from ontology DOAP</rdfs:comment>
         <rdfs:comment xml:lang="en">Mirror of software download web page.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1100,13 +1113,13 @@ Equivalent to &apos;download-mirror&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#downloadPage -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#downloadPage">
+    <owl:DatatypeProperty rdf:about="&msw;downloadPage">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Download page</rdfs:label>
         <rdfs:comment xml:lang="en">Web page from which the project software can be downloaded.
 
 Equivalent to &apos;download-page&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1114,9 +1127,9 @@ Equivalent to &apos;download-page&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#isAbstract -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#isAbstract">
+    <owl:DatatypeProperty rdf:about="&msw;isAbstract">
         <rdfs:comment xml:lang="en">If true, the subject Classifier does not provide a complete specification of its features and can typically not be instantiated. </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <rdfs:domain rdf:resource="&msw;Classifier"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -1124,11 +1137,11 @@ Equivalent to &apos;download-page&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#isFinalSpecialization -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#isFinalSpecialization">
+    <owl:DatatypeProperty rdf:about="&msw;isFinalSpecialization">
         <rdfs:comment xml:lang="en">If true means that the subject Classifier cannot be subtypes.  
 
 It corresponds to the homonymous UML2 attribute. </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <rdfs:domain rdf:resource="&msw;Classifier"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -1136,11 +1149,11 @@ It corresponds to the homonymous UML2 attribute. </rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#isLeaf -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#isLeaf">
+    <owl:DatatypeProperty rdf:about="&msw;isLeaf">
         <rdfs:comment xml:lang="en">If true, then it is not possible to redefine the subject Feature.
 
 It corresponds to the homonymous UML2 attribute. </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Feature"/>
+        <rdfs:domain rdf:resource="&msw;Feature"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -1148,10 +1161,10 @@ It corresponds to the homonymous UML2 attribute. </rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#isReadOnly -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#isReadOnly">
+    <owl:DatatypeProperty rdf:about="&msw;isReadOnly">
         <rdfs:label xml:lang="en">Is read only</rdfs:label>
         <rdfs:comment xml:lang="en">If true, the attribute may only be read, and not written. </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Attribute"/>
+        <rdfs:domain rdf:resource="&msw;Attribute"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -1159,10 +1172,10 @@ It corresponds to the homonymous UML2 attribute. </rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#isStatic -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#isStatic">
+    <owl:DatatypeProperty rdf:about="&msw;isStatic">
         <rdfs:label xml:lang="en">Is static</rdfs:label>
         <rdfs:comment xml:lang="en">Specifies if the subject Feature characterizes individual instances of the owning classifier (false) or the classifier itself (true).</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Feature"/>
+        <rdfs:domain rdf:resource="&msw;Feature"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -1170,13 +1183,13 @@ It corresponds to the homonymous UML2 attribute. </rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#mailingList -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#mailingList">
+    <owl:DatatypeProperty rdf:about="&msw;mailingList">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Mailing list</rdfs:label>
         <rdfs:comment xml:lang="en">Mailing list home page or email address.
 
 Equivalent to &apos;mailing-list&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1184,7 +1197,7 @@ Equivalent to &apos;mailing-list&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#oldWebSiteURL -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#oldWebSiteURL">
+    <owl:DatatypeProperty rdf:about="&msw;oldWebSiteURL">
         <rdfs:label xml:lang="en">Old homepage</rdfs:label>
         <rdfs:comment xml:lang="en">URL of an entity past web site.
 
@@ -1197,12 +1210,12 @@ Equivalent to &apos;old-homepage&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#operatingSystem -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#operatingSystem">
+    <owl:DatatypeProperty rdf:about="&msw;operatingSystem">
         <rdfs:label xml:lang="en">Operating system</rdfs:label>
         <rdfs:comment xml:lang="en">Operating system that the software released by a project can be executed on. Omit this property if the released software is not OS-specific.
 
 Equivalent to &apos;os&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1210,10 +1223,10 @@ Equivalent to &apos;os&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#path -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#path">
+    <owl:DatatypeProperty rdf:about="&msw;path">
         <rdfs:label xml:lang="en">Path</rdfs:label>
         <rdfs:comment xml:lang="en">The path of the subject FileSystemElement, used to uniquely identify and access it in the system where it is published.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
+        <rdfs:domain rdf:resource="&msw;FileSystemElement"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -1221,13 +1234,13 @@ Equivalent to &apos;os&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#platform -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#platform">
+    <owl:DatatypeProperty rdf:about="&msw;platform">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Platform</rdfs:label>
         <rdfs:comment xml:lang="en">Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR.
 
 Equivalent to &apos;platform&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -1235,13 +1248,13 @@ Equivalent to &apos;platform&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#serviceEndpoint -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#serviceEndpoint">
+    <owl:DatatypeProperty rdf:about="&msw;serviceEndpoint">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Service endpoint</rdfs:label>
         <rdfs:comment xml:lang="en">The URI of a web service endpoint where (released) software as a service may be accessed.
 
 Equivalent to &apos;service-endpoint&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1249,7 +1262,7 @@ Equivalent to &apos;service-endpoint&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#shortdescr -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#shortdescr">
+    <owl:DatatypeProperty rdf:about="&msw;shortdescr">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Short description</rdfs:label>
         <rdfs:comment xml:lang="en">Short (8 or 9 words) plain text description of an entity.
@@ -1263,13 +1276,13 @@ Equivalent to &apos;shortdesc&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#url -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#url">
+    <owl:DatatypeProperty rdf:about="&msw;url">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Location</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.w3.org/DesignIssues/HTTP-URI2.html</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">The URL (also URI) of the subject Web Document (a client performing an HTTP request at this URL must receive an HTTP response code of 200).
 </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#WebDocument"/>
+        <rdfs:domain rdf:resource="&msw;WebDocument"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1277,7 +1290,7 @@ Equivalent to &apos;shortdesc&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#version -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#version">
+    <owl:DatatypeProperty rdf:about="&msw;version">
         <rdfs:label xml:lang="en">Version</rdfs:label>
         <rdfs:comment xml:lang="en">Version identitifier assigned by the version control system.</rdfs:comment>
         <rdfs:domain rdf:resource="&mtop;VersionedEntity"/>
@@ -1288,10 +1301,10 @@ Equivalent to &apos;shortdesc&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#webInterfaceURL -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#webInterfaceURL">
+    <owl:DatatypeProperty rdf:about="&msw;webInterfaceURL">
         <rdfs:label xml:lang="en">Web interface URL</rdfs:label>
         <rdfs:comment xml:lang="en">Web browser interface to repository.</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:domain rdf:resource="&msw;FileRepository"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;webSiteURL"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
@@ -1300,12 +1313,12 @@ Equivalent to &apos;shortdesc&apos; from ontology DOAP</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#wiki -->
 
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/software#wiki">
+    <owl:DatatypeProperty rdf:about="&msw;wiki">
         <rdfs:label xml:lang="en">Wiki</rdfs:label>
         <rdfs:comment xml:lang="en">URL of Wiki for collaborative discussion of project.
 
 Equivalent to &apos;wiki&apos; from ontology DOAP</rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareProject"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
@@ -1374,17 +1387,17 @@ Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#API -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#API">
+    <owl:Class rdf:about="&msw;API">
         <rdfs:label xml:lang="en">API</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containerEntity"/>
                 <owl:allValuesFrom>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#Library"/>
-                            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#Package"/>
+                            <rdf:Description rdf:about="&msw;Library"/>
+                            <rdf:Description rdf:about="&msw;Package"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
@@ -1393,7 +1406,7 @@ Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#Interface"/>
+                <owl:allValuesFrom rdf:resource="&msw;Interface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <mtop:identityCriteria xml:lang="en">(The set of identities of) all software entities (i.e. Interfaces) in the API.</mtop:identityCriteria>
@@ -1412,14 +1425,14 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
 
     <!-- http://www.markosproject.eu/ontologies/software#APIContainer -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#APIContainer">
+    <owl:Class rdf:about="&msw;APIContainer">
         <rdfs:label xml:lang="en">API container</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&mtop;Container"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+                <owl:allValuesFrom rdf:resource="&msw;SoftwareEntity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A SoftwareEntity that could (potentially) contain an API or an API implementation.</rdfs:comment>
@@ -1430,9 +1443,9 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
 
     <!-- http://www.markosproject.eu/ontologies/software#AnnotationType -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#AnnotationType">
+    <owl:Class rdf:about="&msw;AnnotationType">
         <rdfs:label xml:lang="en">Annotation type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
         <rdfs:comment xml:lang="en">An annotation type is a type of data associated to a software entity.</rdfs:comment>
     </owl:Class>
     
@@ -1440,9 +1453,9 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
 
     <!-- http://www.markosproject.eu/ontologies/software#ApplicationResource -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ApplicationResource">
+    <owl:Class rdf:about="&msw;ApplicationResource">
         <rdfs:label xml:lang="en">Application resource</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareWork"/>
         <rdfs:subClassOf rdf:resource="&mtop;VersionedEntity"/>
         <rdfs:comment xml:lang="en">An abstract entity represented by a piece of data that have to be interpreted by a specific kind of application. It may be embedded in a SoftwareEntity.
 
@@ -1453,9 +1466,9 @@ Examples are Images, Fonts, Web pages.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#ArchRepository -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ArchRepository">
+    <owl:Class rdf:about="&msw;ArchRepository">
         <rdfs:label xml:lang="en">Arch repository</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileRepository"/>
         <rdfs:comment xml:lang="en">GNU Arch file repository.</rdfs:comment>
     </owl:Class>
     
@@ -1463,14 +1476,14 @@ Examples are Images, Fonts, Web pages.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#ArchiveFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ArchiveFile">
+    <owl:Class rdf:about="&msw;ArchiveFile">
         <rdfs:label xml:lang="en">Archive file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#File"/>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileCollection"/>
+        <rdfs:subClassOf rdf:resource="&msw;File"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileCollection"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#File"/>
+                <owl:allValuesFrom rdf:resource="&msw;File"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Archive_file&amp;oldid=540460887</rdfs:seeAlso>
@@ -1481,14 +1494,14 @@ Examples are Images, Fonts, Web pages.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#Attribute -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Attribute">
+    <owl:Class rdf:about="&msw;Attribute">
         <rdfs:label xml:lang="en">Attribute</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Feature"/>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#TypedEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;Feature"/>
+        <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#redefinedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#Attribute"/>
+                <owl:onProperty rdf:resource="&msw;redefinedEntity"/>
+                <owl:allValuesFrom rdf:resource="&msw;Attribute"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Attribute, i.e. a UML2 Property that is &quot;ownedAttribute&quot; of a Classifier (Class, Interface, DataType...). &quot;When a property is an attribute of a classifier, the value or values are related to the instance of the classifier by being held in slots of the instance.&quot;</rdfs:comment>
@@ -1506,9 +1519,9 @@ attribute name.
 
     <!-- http://www.markosproject.eu/ontologies/software#BKRepository -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#BKRepository">
+    <owl:Class rdf:about="&msw;BKRepository">
         <rdfs:label xml:lang="en">BK repository</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileRepository"/>
         <rdfs:comment xml:lang="en">BitKeeper file repository</rdfs:comment>
     </owl:Class>
     
@@ -1516,9 +1529,9 @@ attribute name.
 
     <!-- http://www.markosproject.eu/ontologies/software#BazaarBranch -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#BazaarBranch">
+    <owl:Class rdf:about="&msw;BazaarBranch">
         <rdfs:label xml:lang="en">Bazaar branch</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileRepository"/>
         <rdfs:comment xml:lang="en">Bazaar source code branch.</rdfs:comment>
     </owl:Class>
     
@@ -1526,10 +1539,10 @@ attribute name.
 
     <!-- http://www.markosproject.eu/ontologies/software#Behavior -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Behavior">
+    <owl:Class rdf:about="&msw;Behavior">
         <rdfs:label xml:lang="en">Behavior</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:comment xml:lang="en">A Software Entity that can be represented by a UML2 Behavior: &quot;Behavior is a specification of how its context classifier changes state over time. [...] When a behavior is associated as the method of a behavioral feature, it defines the implementation of that feature (i.e., the computation that generates the effects of the behavioral feature).&quot;
 
 This is an abstract OWL class, i.e. identity criteria are defined by OWL subclasses.</rdfs:comment>
@@ -1539,9 +1552,9 @@ This is an abstract OWL class, i.e. identity criteria are defined by OWL subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#CVSRepository -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#CVSRepository">
+    <owl:Class rdf:about="&msw;CVSRepository">
         <rdfs:label xml:lang="en">CVS repository</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileRepository"/>
         <rdfs:comment xml:lang="en">CVS file repository.</rdfs:comment>
     </owl:Class>
     
@@ -1549,9 +1562,9 @@ This is an abstract OWL class, i.e. identity criteria are defined by OWL subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#Classifier -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Classifier">
+    <owl:Class rdf:about="&msw;Classifier">
         <rdfs:label xml:lang="en">Classifier</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Type"/>
+        <rdfs:subClassOf rdf:resource="&msw;Type"/>
         <rdfs:subClassOf rdf:resource="&mtop;Namespace"/>
         <rdfs:comment xml:lang="en">A SoftwareEntity  that can be represented by a UML2 Classifier: &quot;A classifier is a namespace whose members can include features. [...] A classifier is a type and can own generalizations, thereby making it possible to define generalization relationships to other classifiers. A classifier can specify a generalization hierarchy by referencing its general classifiers. A classifier is a redefinable element, meaning that it is possible to redefine nested [i.e. member] classifiers.&quot;</rdfs:comment>
     </owl:Class>
@@ -1560,13 +1573,13 @@ This is an abstract OWL class, i.e. identity criteria are defined by OWL subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#CodeFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#CodeFile">
+    <owl:Class rdf:about="&msw;CodeFile">
         <rdfs:label xml:lang="en">Code file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#File"/>
+        <rdfs:subClassOf rdf:resource="&msw;File"/>
         <rdfs:comment xml:lang="en">Any File that is part of a software Program. It is a SourceCodeFile or an ObjectCodeFile.</rdfs:comment>
         <owl:disjointUnionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#ObjectCodeFile"/>
-            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/software#SourceCodeFile"/>
+            <rdf:Description rdf:about="&msw;ObjectCodeFile"/>
+            <rdf:Description rdf:about="&msw;SourceCodeFile"/>
         </owl:disjointUnionOf>
     </owl:Class>
     
@@ -1574,9 +1587,9 @@ This is an abstract OWL class, i.e. identity criteria are defined by OWL subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#Component -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Component">
+    <owl:Class rdf:about="&msw;Component">
         <rdfs:label xml:lang="en">Component</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareObjectType"/>
         <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Component: &quot;a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment. A component defines its behaviour in terms of provided and required interfaces. As such, a component serves as a type whose conformance is defined by these provided and required interfaces [â€¦]. One component may therefore be substituted by another only if the two are type conformant. A component may be manifest by one or more artefacts [â€¦]&quot;. 
 
 While in UML each Component is also a Class, here we do not assume that a software component is also a software class, but we assume as in UML 2, that it has an internal structure (i.e. &quot;acts as the namespace for various kinds of classifiers defined within its scope, including classes.&quot;).</rdfs:comment>
@@ -1586,9 +1599,9 @@ While in UML each Component is also a Class, here we do not assume that a softwa
 
     <!-- http://www.markosproject.eu/ontologies/software#ConfigurationFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ConfigurationFile">
+    <owl:Class rdf:about="&msw;ConfigurationFile">
         <rdfs:label xml:lang="en">Configuration file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SourceCodeFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;SourceCodeFile"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Configuration_file&amp;oldid=540356373</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A file used to configure the initial settings for some computer programs.</rdfs:comment>
     </owl:Class>
@@ -1597,9 +1610,9 @@ While in UML each Component is also a Class, here we do not assume that a softwa
 
     <!-- http://www.markosproject.eu/ontologies/software#Constructor -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Constructor">
+    <owl:Class rdf:about="&msw;Constructor">
         <rdfs:label xml:lang="en">Constructor</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Method"/>
+        <rdfs:subClassOf rdf:resource="&msw;Method"/>
         <rdfs:comment xml:lang="en">A Behavior that returns a new SoftwareClass instance.</rdfs:comment>
     </owl:Class>
     
@@ -1607,9 +1620,9 @@ While in UML each Component is also a Class, here we do not assume that a softwa
 
     <!-- http://www.markosproject.eu/ontologies/software#DarcsRepository -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#DarcsRepository">
+    <owl:Class rdf:about="&msw;DarcsRepository">
         <rdfs:label xml:lang="en">Darcs repository</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileRepository"/>
         <rdfs:comment xml:lang="en">darcs source code repository.</rdfs:comment>
     </owl:Class>
     
@@ -1617,9 +1630,9 @@ While in UML each Component is also a Class, here we do not assume that a softwa
 
     <!-- http://www.markosproject.eu/ontologies/software#DataType -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#DataType">
+    <owl:Class rdf:about="&msw;DataType">
         <rdfs:label xml:lang="en">Data type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
         <rdfs:comment xml:lang="en">A software entity  that can be represented by a UML2 DatatTpe: &quot;A data type is a special kind of classifier, similar to a class. It differs from a class in that instances of a data type are identified only by their value.
 
 All copies of an instance of a data type and any instances of that data type with the same value are considered to be equal instances. Instances of a data type that have attributes (i.e., is a structured data type) are considered to be equal if the structure is the same and the values of the corresponding attributes are equal. If a data type has attributes, then instances of that data type will contain attribute values matching the attributes.&quot;
@@ -1631,9 +1644,9 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#DigitalImage -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#DigitalImage">
+    <owl:Class rdf:about="&msw;DigitalImage">
         <rdfs:label xml:lang="en">Digital image</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#ApplicationResource"/>
+        <rdfs:subClassOf rdf:resource="&msw;ApplicationResource"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Digital_image&amp;oldid=539678546</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A numeric representation (normally binary) of a two-dimensional image. Depending on whether the image resolution is fixed, it may be of vector or raster type. Without qualifications, the term &quot;digital image&quot; usually refers to raster images also called bitmap images.</rdfs:comment>
     </owl:Class>
@@ -1642,9 +1655,9 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#Directory -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Directory">
+    <owl:Class rdf:about="&msw;Directory">
         <rdfs:label xml:lang="en">Directory</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileCollection"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileCollection"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Directory_%28file_systems%29</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A file system element that groups other elements of the file system.</rdfs:comment>
     </owl:Class>
@@ -1653,9 +1666,9 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#ElectronicDocument -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ElectronicDocument">
+    <owl:Class rdf:about="&msw;ElectronicDocument">
         <rdfs:label xml:lang="en">Electronic document</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#ApplicationResource"/>
+        <rdfs:subClassOf rdf:resource="&msw;ApplicationResource"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Electronic_document&amp;oldid=540404555</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">Any electronic media content (other than computer programs or system files) that are intended to be used in either an electronic form or as printed output.</rdfs:comment>
     </owl:Class>
@@ -1664,9 +1677,9 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#Enumeration -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Enumeration">
+    <owl:Class rdf:about="&msw;Enumeration">
         <rdfs:label xml:lang="en">Enumeration</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#DataType"/>
+        <rdfs:subClassOf rdf:resource="&msw;DataType"/>
         <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Enumeration: &quot;An enumeration is a data type whose values are enumerated in the model as enumeration literals&quot;.</rdfs:comment>
     </owl:Class>
     
@@ -1674,19 +1687,19 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#ExceptionType -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ExceptionType">
+    <owl:Class rdf:about="&msw;ExceptionType">
         <rdfs:label xml:lang="en">Exception type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
-        <rdfs:comment xml:lang="en">A type which instances represents exception that may be raised during an invocation of an operation (i.e. it can be represented by the type of a &quot;raised exception&quot; in UML2).</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
+        <rdfs:comment xml:lang="en">A type which instances represents exception that may be raised during an invocation of a method (i.e. it can be represented by the type of a &quot;raised exception&quot; in UML2).</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#ExecutableFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ExecutableFile">
+    <owl:Class rdf:about="&msw;ExecutableFile">
         <rdfs:label xml:lang="en">Executable file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#ObjectCodeFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;ObjectCodeFile"/>
         <rdfs:comment xml:lang="en">Any File containing machine code instructions in a format suitable to be loaded and executed by a computer operating system on a specific hardware.</rdfs:comment>
     </owl:Class>
     
@@ -1694,9 +1707,9 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
     <!-- http://www.markosproject.eu/ontologies/software#Feature -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Feature">
+    <owl:Class rdf:about="&msw;Feature">
         <rdfs:label xml:lang="en">Feature</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:comment xml:lang="en">An SoftwareEntity that may be represented by a UML2 Feature: &quot;A feature represents some characteristic for its featuring classifiers; this characteristic may be of the classifier&apos;s instances considered individually (not static), or of the classifier itself (static). A Feature can be a feature of multiple classifiers. 
 The same feature cannot be static in one context but not another.&quot; 
 
@@ -1707,9 +1720,9 @@ A Feature is ownedMeber of a Classifier.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#File -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#File">
+    <owl:Class rdf:about="&msw;File">
         <rdfs:label xml:lang="en">File</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileSystemElement"/>
         <rdfs:subClassOf rdf:resource="&mtop;VersionedEntity"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Computer_file&amp;oldid=531726094</rdfs:seeAlso>
         <mtop:identityCriteria xml:lang="en">- the location of the File,
@@ -1733,15 +1746,15 @@ Usually it does not include the name or the location of the Container (i.e. it i
 
     <!-- http://www.markosproject.eu/ontologies/software#FileCollection -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#FileCollection">
+    <owl:Class rdf:about="&msw;FileCollection">
         <rdfs:label xml:lang="en">File collection</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileSystemElement"/>
         <rdfs:subClassOf rdf:resource="&mtop;Container"/>
         <rdfs:subClassOf rdf:resource="&mtop;Namespace"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#FileSystemElement"/>
+                <owl:allValuesFrom rdf:resource="&msw;FileSystemElement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A FileSystemElement that is a container for files or for other container of files.</rdfs:comment>
@@ -1751,7 +1764,7 @@ Usually it does not include the name or the location of the Container (i.e. it i
 
     <!-- http://www.markosproject.eu/ontologies/software#FileRepository -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#FileRepository">
+    <owl:Class rdf:about="&msw;FileRepository">
         <rdfs:label xml:lang="en">File repository</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;Container"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Repository_(version_control)&amp;oldid=544154477</rdfs:seeAlso>
@@ -1766,9 +1779,9 @@ Usually it does not include the name or the location of the Container (i.e. it i
 
     <!-- http://www.markosproject.eu/ontologies/software#FileSet -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#FileSet">
+    <owl:Class rdf:about="&msw;FileSet">
         <rdfs:label xml:lang="en">File set</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileCollection"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileCollection"/>
         <rdfs:comment xml:lang="en">A set of FileSystemElements. Such a set is not a data structure managed by the FileSystem (such as a Directory) but an abstraction used to manage more than one element as a single entity.</rdfs:comment>
     </owl:Class>
     
@@ -1776,9 +1789,9 @@ Usually it does not include the name or the location of the Container (i.e. it i
 
     <!-- http://www.markosproject.eu/ontologies/software#FileSystemElement -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#FileSystemElement">
+    <owl:Class rdf:about="&msw;FileSystemElement">
         <rdfs:label xml:lang="en">File system element</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareArtifact"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareArtifact"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/File_system</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A data structure (a file or a directory) managed by a file system or a set (FileSet) of such data structures.
 
@@ -1793,9 +1806,9 @@ The location (e.g. the URL) of a File is determined by the location of its FileC
 
     <!-- http://www.markosproject.eu/ontologies/software#GitBranch -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#GitBranch">
+    <owl:Class rdf:about="&msw;GitBranch">
         <rdfs:label xml:lang="en">GIT branch</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileRepository"/>
         <rdfs:comment xml:lang="en">Git file branch.</rdfs:comment>
     </owl:Class>
     
@@ -1803,9 +1816,9 @@ The location (e.g. the URL) of a File is determined by the location of its FileC
 
     <!-- http://www.markosproject.eu/ontologies/software#HgRepository -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#HgRepository">
+    <owl:Class rdf:about="&msw;HgRepository">
         <rdfs:label xml:lang="en">Mercurial repository</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileRepository"/>
         <rdfs:comment xml:lang="en">Mercurial source code repository.</rdfs:comment>
     </owl:Class>
     
@@ -1813,23 +1826,23 @@ The location (e.g. the URL) of a File is determined by the location of its FileC
 
     <!-- http://www.markosproject.eu/ontologies/software#Interface -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Interface">
+    <owl:Class rdf:about="&msw;Interface">
         <rdfs:label xml:lang="en">Interface</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
-        <rdfs:comment xml:lang="en">A software entity that that can be represented by a UML2 Interface: &quot;An interface is a kind of classifier that represents a declaration of a set of coherent public features and obligations. [...] An interface does not specify how it is to be implemented, but merely what needs to be supported by realizing instances. That is, such instances must provide a public facade (attributes, operations, externally observable behavior) that conforms to the interface. The set of interfaces realized by a classifier [e.g. a class] are its provided interfaces, which represent the obligations that instances of that classifier have to their clients. Interfaces may also be used to specify required interfaces [...]. Required interfaces specify services that a classifier needs in order to perform its function and fulfill its own obligations to its clients.&quot;</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareObjectType"/>
+        <rdfs:comment xml:lang="en">A software entity that that can be represented by a UML2 Interface: &quot;An interface is a kind of classifier that represents a declaration of a set of coherent public features and obligations. [...] An interface does not specify how it is to be implemented, but merely what needs to be supported by realizing instances. That is, such instances must provide a public facade (attributes, operations [methods], externally observable behavior) that conforms to the interface. The set of interfaces realized by a classifier [e.g. a class] are its provided interfaces, which represent the obligations that instances of that classifier have to their clients. Interfaces may also be used to specify required interfaces [...]. Required interfaces specify services that a classifier needs in order to perform its function and fulfill its own obligations to its clients.&quot;</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#Library -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Library">
+    <owl:Class rdf:about="&msw;Library">
         <rdfs:label xml:lang="en">Library</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
+        <rdfs:subClassOf rdf:resource="&msw;APIContainer"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#provenanceManifestation"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#ArchiveFile"/>
+                <owl:onProperty rdf:resource="&msw;provenanceManifestation"/>
+                <owl:allValuesFrom rdf:resource="&msw;ArchiveFile"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A library is a software entity, manifested by a single ArchiveFile, that aggregates the software entities manifested by the files contained in the ArchiveFile.</rdfs:comment>
@@ -1844,9 +1857,9 @@ The location (e.g. the URL) of a File is determined by the location of its FileC
 
     <!-- http://www.markosproject.eu/ontologies/software#LocalVariable -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#LocalVariable">
+    <owl:Class rdf:about="&msw;LocalVariable">
         <rdfs:label xml:lang="en">Local variable</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#TypedEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;LocalVariable&apos; + owning Behavior URI  + LocalVariable name</mtop:canonicalURICriteria>
         <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
         <mtop:identityCriteria xml:lang="en">Owning Behavior,
@@ -1864,9 +1877,9 @@ Usually the visibility of a LocalVariable is Private to the Behavior that owns (
 
     <!-- http://www.markosproject.eu/ontologies/software#MakeFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#MakeFile">
+    <owl:Class rdf:about="&msw;MakeFile">
         <rdfs:label xml:lang="en">Make file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#ScriptFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;ScriptFile"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Make_(software)&amp;oldid=540023379</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A file, used by a Make utility, that specifies how to automatically build executable programs and libraries from source code.</rdfs:comment>
     </owl:Class>
@@ -1875,10 +1888,10 @@ Usually the visibility of a LocalVariable is Private to the Behavior that owns (
 
     <!-- http://www.markosproject.eu/ontologies/software#Method -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Method">
+    <owl:Class rdf:about="&msw;Method">
         <rdfs:label xml:lang="en">Method</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Behavior"/>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Feature"/>
+        <rdfs:subClassOf rdf:resource="&msw;Behavior"/>
+        <rdfs:subClassOf rdf:resource="&msw;Feature"/>
         <rdfs:comment xml:lang="en">A Behavior that is owned by a SoftwareClass and having a declaration that may be represented by a UML2 Operation (it is the UML2 &quot;method&quot; of a UML2 Operation). 
 A Method may be constituted just by a declaration, in that case it is an abstract Method. 
 Differently from UML2, a Behavior belonging to a (Software)Class is a Feature of that (Software)Class.
@@ -1889,9 +1902,9 @@ Differently from UML2, a Behavior belonging to a (Software)Class is a Feature of
 
     <!-- http://www.markosproject.eu/ontologies/software#ObjectCodeFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ObjectCodeFile">
+    <owl:Class rdf:about="&msw;ObjectCodeFile">
         <rdfs:label xml:lang="en">Object code</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#CodeFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;CodeFile"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl.html</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">Any manifestation of a software Program that is not a SourceCodeFile (it is also an Object Code in the same sense of GPL v.3)</rdfs:comment>
     </owl:Class>
@@ -1900,9 +1913,9 @@ Differently from UML2, a Behavior belonging to a (Software)Class is a Feature of
 
     <!-- http://www.markosproject.eu/ontologies/software#ObjectFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ObjectFile">
+    <owl:Class rdf:about="&msw;ObjectFile">
         <rdfs:label xml:lang="en">Object file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#ObjectCodeFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;ObjectCodeFile"/>
         <rdfs:comment xml:lang="en">Any ObjectCodeFile that is the output of a compiler and is not an ExecutableFile.</rdfs:comment>
     </owl:Class>
     
@@ -1910,9 +1923,9 @@ Differently from UML2, a Behavior belonging to a (Software)Class is a Feature of
 
     <!-- http://www.markosproject.eu/ontologies/software#Package -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Package">
+    <owl:Class rdf:about="&msw;Package">
         <rdfs:label xml:lang="en">Package</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#APIContainer"/>
+        <rdfs:subClassOf rdf:resource="&msw;APIContainer"/>
         <rdfs:subClassOf rdf:resource="&mtop;Namespace"/>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Package&apos; + provenance project URI  + release name + package namespace + package name.</mtop:canonicalURICriteria>
         <mtop:nameCriteria xml:lang="en">The name of the package is the name of the namespace of the contained entities.</mtop:nameCriteria>
@@ -1939,30 +1952,30 @@ It is possible to have different packages with the same name. If two releases (o
 
     <!-- http://www.markosproject.eu/ontologies/software#Parameter -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Parameter">
+    <owl:Class rdf:about="&msw;Parameter">
         <rdfs:label xml:lang="en">Parameter</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#TypedEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
         <rdfs:comment xml:lang="en">A software element that can be represented by a UML2 Parameter: &quot;A parameter is a specification of an argument used to pass information into or out of an invocation of a behavioral feature [e.g. an openration]. It has a type, and may have a multiplicity and an optional default value.&quot;</rdfs:comment>
-        <rdfs:comment xml:lang="en">MARKOS prefix + &apos;Parameter&apos; + owning Operation URI  + Parameter name</rdfs:comment>
+        <rdfs:comment xml:lang="en">MARKOS prefix + &apos;Parameter&apos; + owning Method URI  + Parameter name</rdfs:comment>
         <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
         <mtop:namespaceCriteria xml:lang="en">N.A.</mtop:namespaceCriteria>
-        <mtop:identityCriteria xml:lang="en">Owning Operation,
+        <mtop:identityCriteria xml:lang="en">Owning Method,
 attribute name.
 </mtop:identityCriteria>
         <mtop:nameCriteria xml:lang="en">The name of the Parameter as defined by the source code. </mtop:nameCriteria>
-        <provenanceManifestationCriteria xml:lang="en">The same of its owning Operation. </provenanceManifestationCriteria>
+        <provenanceManifestationCriteria xml:lang="en">The same of its owning Method. </provenanceManifestationCriteria>
     </owl:Class>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#ParameterDirectionKind -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ParameterDirectionKind">
+    <owl:Class rdf:about="&msw;ParameterDirectionKind">
         <rdfs:label xml:lang="en">Parameter direction kind</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
         <rdfs:comment xml:lang="en">An enumeration of the following literal values:
-- &quot;in&quot; Indicates that parameter values are passed into the Operation by the caller. 
-- &quot;inout&quot; Indicates that parameter values are passed into a Operationt by the caller and then back out to the caller from the behavioral element.
+- &quot;in&quot; Indicates that parameter values are passed into the Method by the caller. 
+- &quot;inout&quot; Indicates that parameter values are passed into a Method by the caller and then back out to the caller from the behavioral element.
 - &quot;out&quot; Indicates that parameter values are passed from a behavioral element out to the caller. 
 - &quot;return&quot; Indicates that parameter values are passed as return values from a behavioral element back to the caller. 
 
@@ -1973,9 +1986,9 @@ Representable by the homonymous UML2 type.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#PrimitiveType -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#PrimitiveType">
+    <owl:Class rdf:about="&msw;PrimitiveType">
         <rdfs:label xml:lang="en">Primitive type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#DataType"/>
+        <rdfs:subClassOf rdf:resource="&msw;DataType"/>
         <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 PrimitiveType: &quot;A primitive type defines a predefined data type, without any relevant substructure (i.e., it has no parts in the context of 
 UML). A primitive datatype may have an algebra and operations defined outside of UML, for example, mathematically.&quot;</rdfs:comment>
     </owl:Class>
@@ -1984,9 +1997,9 @@ UML). A primitive datatype may have an algebra and operations defined outside of
 
     <!-- http://www.markosproject.eu/ontologies/software#Program -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Program">
+    <owl:Class rdf:about="&msw;Program">
         <rdfs:label xml:lang="en">Program</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:comment xml:lang="en">A sequence of instructions that can be executed by a computer. A program manifestation is often a single executable file, that the computer can use directly to execute the instructions.
 A Program may contain other software entities.</rdfs:comment>
     </owl:Class>
@@ -1995,7 +2008,7 @@ A Program may contain other software entities.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#ProgrammingLanguage -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage">
+    <owl:Class rdf:about="&msw;ProgrammingLanguage">
         <rdfs:label xml:lang="en">Programming language</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
     </owl:Class>
@@ -2004,7 +2017,7 @@ A Program may contain other software entities.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion">
+    <owl:Class rdf:about="&msw;ProgrammingLanguageVersion">
         <rdfs:label xml:lang="en">Programming language version</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
         <rdfs:subClassOf rdf:resource="&mtop;VersionedEntity"/>
@@ -2015,9 +2028,9 @@ A Program may contain other software entities.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#SVNRepository -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SVNRepository">
+    <owl:Class rdf:about="&msw;SVNRepository">
         <rdfs:label xml:lang="en">SVN repository</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#FileRepository"/>
+        <rdfs:subClassOf rdf:resource="&msw;FileRepository"/>
         <rdfs:comment xml:lang="en">Subversion file repository.</rdfs:comment>
     </owl:Class>
     
@@ -2025,9 +2038,9 @@ A Program may contain other software entities.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#ScriptFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#ScriptFile">
+    <owl:Class rdf:about="&msw;ScriptFile">
         <rdfs:label xml:lang="en">Script file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SourceCodeFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;SourceCodeFile"/>
         <rdfs:comment xml:lang="en">Any entity that may be represented by a UML2 Artifact with standard stereotype &lt;&lt;Script&gt;&gt; (i.e. a file that can be interpreted by a computer system).</rdfs:comment>
     </owl:Class>
     
@@ -2035,9 +2048,9 @@ A Program may contain other software entities.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareArtifact -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareArtifact">
+    <owl:Class rdf:about="&msw;SoftwareArtifact">
         <rdfs:label xml:lang="en">Software artifact</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareWork"/>
         <rdfs:subClassOf rdf:resource="&mtop;Artifact"/>
         <rdfs:comment xml:lang="en">Any SoftwareWork that is a concrete  (i.e. located in time and space) entity.</rdfs:comment>
     </owl:Class>
@@ -2046,11 +2059,11 @@ A Program may contain other software entities.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareClass -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareClass">
+    <owl:Class rdf:about="&msw;SoftwareClass">
         <rdfs:label xml:lang="en">Software class</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareObjectType"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareObjectType"/>
         <mtop:versionCriteria xml:lang="en"> the version of the provenanceSourceCode.</mtop:versionCriteria>
-        <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Class: &quot;A class describes a set of objects that share the same specifications of features, constraints, and semantics. Class is a kind of classifier whose features are attributes and operations.&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Class: &quot;A class describes a set of objects that share the same specifications of features, constraints, and semantics. Class is a kind of classifier whose features are attributes and operations [methods].&quot;</rdfs:comment>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Class&apos; + name + namespace + incremental number (needed to distinguish classes with the same name and namespace)</mtop:canonicalURICriteria>
         <provenanceManifestationCriteria xml:lang="en">The SourceCode manifestation released by the original author of the &quot;full source code&quot; of the SoftwareClass.
 
@@ -2072,14 +2085,14 @@ the namespace.</mtop:identityCriteria>
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareEntity -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareEntity">
+    <owl:Class rdf:about="&msw;SoftwareEntity">
         <rdfs:label xml:lang="en">Software entity</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareWork"/>
         <rdfs:subClassOf rdf:resource="&mtop;VersionedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#manifestation"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#File"/>
+                <owl:onProperty rdf:resource="&msw;manifestation"/>
+                <owl:allValuesFrom rdf:resource="&msw;File"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <mtop:namespaceCriteria xml:lang="en"> the version of the provenanceSourceCode.</mtop:namespaceCriteria>
@@ -2110,21 +2123,19 @@ the namespace.</mtop:identityCriteria>
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareForge -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareForge">
+    <owl:Class rdf:about="&msw;SoftwareForge">
         <rdfs:label xml:lang="en">Software forge</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
-                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;string"/>
+                <owl:onProperty rdf:resource="&mtop;name"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;name"/>
-                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;string"/>
+                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A service (offered by a Web Site) to host software projects and to support collaborative software development. </rdfs:comment>
@@ -2134,17 +2145,17 @@ the namespace.</mtop:identityCriteria>
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareObjectType -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareObjectType">
+    <owl:Class rdf:about="&msw;SoftwareObjectType">
         <rdfs:label xml:lang="en">Software object type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
-        <rdfs:comment xml:lang="en">Any Type which instances are objects i.e. may have attributes, operations and nested types.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
+        <rdfs:comment xml:lang="en">Any Type which instances are objects i.e. may have attributes, methods and nested types.</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareProject -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareProject">
+    <owl:Class rdf:about="&msw;SoftwareProject">
         <rdfs:label xml:lang="en">Software project</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
         <rdfs:comment xml:lang="en">Any temporary or continuous endeavour undertaken to create or maintain a specific software source code collection. The project may be manifest on different web sites and the source code may be distributed on or replicated in different repositories.
@@ -2162,14 +2173,14 @@ This definition is intended to model what developers usually mean by the term &q
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareRelease -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareRelease">
+    <owl:Class rdf:about="&msw;SoftwareRelease">
         <rdfs:label xml:lang="en">Software release</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareWork"/>
         <rdfs:subClassOf rdf:resource="&mtop;VersionedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;previousVersion"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareRelease"/>
+                <owl:allValuesFrom rdf:resource="&msw;SoftwareRelease"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">One or more  Files published by a Project and considered sufficiently stable to be used by the final user. A SoftwareRelease is the entire set of Files published by a the project at certain time, i.e. a portion of a SoftwareRelease is not a SoftwareRelease.</rdfs:comment>
@@ -2179,19 +2190,19 @@ This definition is intended to model what developers usually mean by the term &q
 
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareWork -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SoftwareWork">
+    <owl:Class rdf:about="&msw;SoftwareWork">
         <rdfs:label xml:lang="en">Software work</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mlic;Work"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+                <owl:allValuesFrom rdf:resource="&msw;SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;previousVersion"/>
-                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+                <owl:allValuesFrom rdf:resource="&msw;SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Any Software. This category include both the concrete manifestations, such as files having a specific location on a specific machines, and 
@@ -2202,9 +2213,9 @@ abstract entities, such as a Program that may have different concrete manifestat
 
     <!-- http://www.markosproject.eu/ontologies/software#SourceCodeFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SourceCodeFile">
+    <owl:Class rdf:about="&msw;SourceCodeFile">
         <rdfs:label xml:lang="en">Source code</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#CodeFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;CodeFile"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl.html</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">Any file that is the preferred form used by humans for making modifications to a software Program (it is a Source Code in the same sense of GPL v.3).</rdfs:comment>
     </owl:Class>
@@ -2213,9 +2224,9 @@ abstract entities, such as a Program that may have different concrete manifestat
 
     <!-- http://www.markosproject.eu/ontologies/software#SourceFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#SourceFile">
+    <owl:Class rdf:about="&msw;SourceFile">
         <rdfs:label xml:lang="en">Source file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SourceCodeFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;SourceCodeFile"/>
         <rdfs:comment xml:lang="en">Any entity that may be represented by a UML2 Artifact with standard stereotype &lt;&lt;Source&gt;&gt; (i.e. A source file that can be compiled into an executable file.).</rdfs:comment>
     </owl:Class>
     
@@ -2223,9 +2234,8 @@ abstract entities, such as a Program that may have different concrete manifestat
 
     <!-- http://www.markosproject.eu/ontologies/software#Type -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#Type">
+    <owl:Class rdf:about="&msw;Type">
         <rdfs:label xml:lang="en">Type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
         <rdfs:comment xml:lang="en">A Software Entity that can be represented by a UML2 Type: &quot;A type represents a set of values. A typed element that has this type is constrained to represent values within this set.&quot;
 
 Note that not any UML2 type is a Software Entity type.</rdfs:comment>
@@ -2235,9 +2245,9 @@ Note that not any UML2 type is a Software Entity type.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#TypedEntity -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#TypedEntity">
+    <owl:Class rdf:about="&msw;TypedEntity">
         <rdfs:label xml:lang="en">Typed entity</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareEntity"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 TypedElement: &quot;A typed element is an element that has a type that serves as a constraint on the range of values the element can represent. Typed element is an abstract metaclass&quot;. The type is represented by the property &quot;valueType&quot;. If this property has no value, then the range of possible values is language dependent. E.g. constant, object fields and variables are typed entities.</rdfs:comment>
     </owl:Class>
     
@@ -2245,7 +2255,7 @@ Note that not any UML2 type is a Software Entity type.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#VisibilityKind -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#VisibilityKind">
+    <owl:Class rdf:about="&msw;VisibilityKind">
         <rdfs:label xml:lang="en">Visibility kind</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
         <rdfs:comment xml:lang="en">The same as UML2 VisibilityKind: determines where the memebr of a Namespace appears within different Namespaces and its accessibility.</rdfs:comment>
@@ -2255,9 +2265,9 @@ Note that not any UML2 type is a Software Entity type.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#WebDocument -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#WebDocument">
+    <owl:Class rdf:about="&msw;WebDocument">
         <rdfs:label xml:lang="en">Web document</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#ElectronicDocument"/>
+        <rdfs:subClassOf rdf:resource="&msw;ElectronicDocument"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.w3.org/TR/cooluris/#oldweb</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">Any document available on the web.
 &quot;Every Web document has its own URI. Note that a Web document is not the same as a file: a single Web document can be available in many different formats and languages, and a single file, for example a PHP script, may be responsible for generating a large number of Web documents with different URIs. A Web document is defined as something that has a URI and can return representations (responses in a format such as HTML or JPEG or RDF) of the identified resource in response to HTTP requests.In technical literature [...] the term Information Resource is used instead of Web document&quot; </rdfs:comment>
@@ -2267,9 +2277,9 @@ Note that not any UML2 type is a Software Entity type.</rdfs:comment>
 
     <!-- http://www.markosproject.eu/ontologies/software#WebPage -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/software#WebPage">
+    <owl:Class rdf:about="&msw;WebPage">
         <rdfs:label xml:lang="en">Web page</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#WebDocument"/>
+        <rdfs:subClassOf rdf:resource="&msw;WebDocument"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Web_page&amp;oldid=544129970</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A web page or webpage is a web document or other web resource that is suitable for the World Wide Web and can be accessed through a web browser and displayed on a monitor or mobile device. </rdfs:comment>
     </owl:Class>
@@ -2281,7 +2291,7 @@ Note that not any UML2 type is a Software Entity type.</rdfs:comment>
     <owl:Class rdf:about="&mtop;Artifact">
         <rdfs:label xml:lang="en">Artifact</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
-        <rdfs:comment xml:lang="en">An Entity that can be represented by a UML2 Artifact i.e. &quot;a physical piece of information that is used or produced by a software development process,  or by deployment and operation of a system. Examples of artifacts include model files, source files, scripts, and binary executable files, a table in a database system, a development deliverable, or a word-processing document, a mail message.&quot;
+        <rdfs:comment xml:lang="en">An Entity that can be represented by a UML2 Artifact i.e. &quot;a physical piece of information that is used or produced by a software development process, or by deployment and operation of a system. Examples of artifacts include model files, source files, scripts, and binary executable files, a table in a database system, a development deliverable, or a word-processing document, a mail message.&quot;
 
 Artifact are concrete entities, i.e. located in time and space.</rdfs:comment>
     </owl:Class>
@@ -2354,10 +2364,10 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
     <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.0 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.0">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdf:type rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:label xml:lang="en">Java 1.0</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">Java 1.0</mtop:name>
-        <unversionedAbstraction rdf:resource="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE"/>
+        <unversionedAbstraction rdf:resource="&msw;JAVA_LANGUAGE"/>
     </owl:NamedIndividual>
     
 
@@ -2365,10 +2375,10 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
     <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.1 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.1">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdf:type rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:label xml:lang="en">Java 1.1</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">Java 1.1</mtop:name>
-        <unversionedAbstraction rdf:resource="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE"/>
+        <unversionedAbstraction rdf:resource="&msw;JAVA_LANGUAGE"/>
     </owl:NamedIndividual>
     
 
@@ -2376,10 +2386,10 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
     <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.2 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.2">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdf:type rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:label xml:lang="en">Java 1.2</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">Java 1.2</mtop:name>
-        <unversionedAbstraction rdf:resource="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE"/>
+        <unversionedAbstraction rdf:resource="&msw;JAVA_LANGUAGE"/>
     </owl:NamedIndividual>
     
 
@@ -2387,10 +2397,10 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
     <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.3 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.3">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdf:type rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:label xml:lang="en">Java 1.3</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">Java 1.3</mtop:name>
-        <unversionedAbstraction rdf:resource="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE"/>
+        <unversionedAbstraction rdf:resource="&msw;JAVA_LANGUAGE"/>
     </owl:NamedIndividual>
     
 
@@ -2398,10 +2408,10 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
     <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.4 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.4">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdf:type rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:label xml:lang="en">Java 1.4</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">Java 1.4</mtop:name>
-        <unversionedAbstraction rdf:resource="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE"/>
+        <unversionedAbstraction rdf:resource="&msw;JAVA_LANGUAGE"/>
     </owl:NamedIndividual>
     
 
@@ -2409,10 +2419,10 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
     <!-- http://www.markosproject.eu/ontologies/java#JAVA_5 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_5">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdf:type rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:label xml:lang="en">Java 5</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">java 5</mtop:name>
-        <unversionedAbstraction rdf:resource="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE"/>
+        <unversionedAbstraction rdf:resource="&msw;JAVA_LANGUAGE"/>
     </owl:NamedIndividual>
     
 
@@ -2420,10 +2430,10 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
     <!-- http://www.markosproject.eu/ontologies/java#JAVA_6 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_6">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdf:type rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:label xml:lang="en">Java 6</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">Java 6</mtop:name>
-        <unversionedAbstraction rdf:resource="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE"/>
+        <unversionedAbstraction rdf:resource="&msw;JAVA_LANGUAGE"/>
     </owl:NamedIndividual>
     
 
@@ -2431,18 +2441,18 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
     <!-- http://www.markosproject.eu/ontologies/java#JAVA_7 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_7">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion"/>
+        <rdf:type rdf:resource="&msw;ProgrammingLanguageVersion"/>
         <rdfs:label xml:lang="en">Java 7</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">Java 7</mtop:name>
-        <unversionedAbstraction rdf:resource="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE"/>
+        <unversionedAbstraction rdf:resource="&msw;JAVA_LANGUAGE"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#ACTION_SCRIPT_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#ACTION_SCRIPT_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;ACTION_SCRIPT_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Action Script</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Action_Script</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2451,8 +2461,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#ADA_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#ADA_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;ADA_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Ada</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Ada_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2461,8 +2471,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#ASSEMBLY_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#ASSEMBLY_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;ASSEMBLY_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Assembly</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Assembly_language</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2471,8 +2481,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#AUTOCONF_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#AUTOCONF_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;AUTOCONF_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Autoconf</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Autoconf</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2481,8 +2491,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#AUTOMAKE_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#AUTOMAKE_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;AUTOMAKE_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Automake</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Automake</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2491,8 +2501,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#CLOJURE_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#CLOJURE_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;CLOJURE_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Clojure</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Clojure</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2501,8 +2511,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#CMAKE_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#CMAKE_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;CMAKE_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">CMake</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Cmake</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2511,8 +2521,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#CPP_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#CPP_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;CPP_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">C++</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C%2B%2B_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2521,8 +2531,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#CSHARP_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#CSHARP_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;CSHARP_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">C#</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2531,8 +2541,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#CSS_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#CSS_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;CSS_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">CSS</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/CSS</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2541,8 +2551,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#C_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#C_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;C_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">C</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2551,8 +2561,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#C_OR_CPP_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#C_OR_CPP_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;C_OR_CPP_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">C/C++</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C%2B%2B_%28programming_language%29</rdfs:seeAlso>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C_%28programming_language%29</rdfs:seeAlso>
@@ -2562,8 +2572,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#D_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#D_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;D_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">D</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/D_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2572,8 +2582,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#EIFFEL_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#EIFFEL_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;EIFFEL_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Eiffel</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Eiffel_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2582,8 +2592,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#EMACS_LISP_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#EMACS_LISP_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;EMACS_LISP_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Emacs Lisp</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/ECMA_Script</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2592,8 +2602,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#ERLANG_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#ERLANG_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;ERLANG_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Erlang</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Erlang_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2602,8 +2612,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#FORTRAN_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#FORTRAN_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;FORTRAN_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Fortran</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Fortran_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2612,8 +2622,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#GO_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#GO_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;GO_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Go</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Go_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2622,8 +2632,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#GROOVY_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#GROOVY_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;GROOVY_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Groovy</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Groovy_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2632,8 +2642,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#HASKEL_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#HASKEL_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;HASKEL_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Haskel</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Haskell_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2642,8 +2652,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#HTML_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#HTML_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;HTML_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">HTML</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/HTML</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2652,8 +2662,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#IN -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#IN">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ParameterDirectionKind"/>
+    <owl:NamedIndividual rdf:about="&msw;IN">
+        <rdf:type rdf:resource="&msw;ParameterDirectionKind"/>
         <rdfs:label xml:lang="en">in</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2661,8 +2671,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#IN_OUT -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#IN_OUT">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ParameterDirectionKind"/>
+    <owl:NamedIndividual rdf:about="&msw;IN_OUT">
+        <rdf:type rdf:resource="&msw;ParameterDirectionKind"/>
         <rdfs:label xml:lang="en">inout</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2670,8 +2680,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#JAVASCRIPT_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#JAVASCRIPT_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;JAVASCRIPT_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">JavaScript</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/JavaScript</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2680,8 +2690,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;JAVA_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Java</rdfs:label>
         <mtop:name rdf:datatype="&xsd;string">Java</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Java_%28programming_language%29</rdfs:seeAlso>
@@ -2691,8 +2701,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#JSP_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#JSP_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;JSP_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">JSP</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/JavaServer_Pages</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2701,8 +2711,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#LISP_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#LISP_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;LISP_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Lisp</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Lisp_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2711,8 +2721,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#LUA_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#LUA_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;LUA_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Lua</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Lua_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2721,8 +2731,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#MAKE_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#MAKE_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;MAKE_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Make</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Make_%28software%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2731,8 +2741,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#MATLAB_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#MATLAB_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;MATLAB_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">MATLAB</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/MATLAB</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2741,8 +2751,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#METAPOST_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#METAPOST_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;METAPOST_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">MetaPost</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/MetaPost</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2751,8 +2761,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#MODULA_2_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#MODULA_2_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;MODULA_2_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Modula-2</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Modula-2</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2761,8 +2771,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#MXML_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#MXML_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;MXML_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">MXML</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/MXML</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2771,8 +2781,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#OBJECTIVE_CAML_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#OBJECTIVE_CAML_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;OBJECTIVE_CAML_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Objective Caml</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Objective_Caml</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2781,8 +2791,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#OBJECTIVE_C_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#OBJECTIVE_C_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;OBJECTIVE_C_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Objective-C</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Objective_c</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2791,8 +2801,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#OUT -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#OUT">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ParameterDirectionKind"/>
+    <owl:NamedIndividual rdf:about="&msw;OUT">
+        <rdf:type rdf:resource="&msw;ParameterDirectionKind"/>
         <rdfs:label xml:lang="en">out</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2800,8 +2810,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#PACKAGE_VISIBILITY -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#PACKAGE_VISIBILITY">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#VisibilityKind"/>
+    <owl:NamedIndividual rdf:about="&msw;PACKAGE_VISIBILITY">
+        <rdf:type rdf:resource="&msw;VisibilityKind"/>
         <rdfs:label xml:lang="en">package</rdfs:label>
         <rdfs:comment xml:lang="en">An entity with package VisibilityKind is visible to entities that are in the same package as its owning namespace. Only named entities that are not owned by packages can be marked as having package visibility. Any namespace member marked as having package visibility is visible to all entities within the nearest enclosing package (given that other owning entities have proper visibility). Outside the nearest enclosing package, a member marked as having package visibility is not visible. </rdfs:comment>
     </owl:NamedIndividual>
@@ -2810,8 +2820,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#PASCAL_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#PASCAL_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;PASCAL_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Pascal</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Pascal_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2820,8 +2830,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#PERL_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#PERL_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;PERL_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Perl</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Perl</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2830,8 +2840,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#PRIVATE_VISIBILITY -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#PRIVATE_VISIBILITY">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#VisibilityKind"/>
+    <owl:NamedIndividual rdf:about="&msw;PRIVATE_VISIBILITY">
+        <rdf:type rdf:resource="&msw;VisibilityKind"/>
         <rdfs:label xml:lang="en">private</rdfs:label>
         <rdfs:comment xml:lang="en">An entity with private VisibilityKind is only visible inside the namespace that owns it.</rdfs:comment>
     </owl:NamedIndividual>
@@ -2840,8 +2850,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#PROLOG_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#PROLOG_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;PROLOG_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Prolog</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Prolog</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2850,8 +2860,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#PROTECTED_VISIBILITY -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#PROTECTED_VISIBILITY">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#VisibilityKind"/>
+    <owl:NamedIndividual rdf:about="&msw;PROTECTED_VISIBILITY">
+        <rdf:type rdf:resource="&msw;VisibilityKind"/>
         <rdfs:label xml:lang="en">protected</rdfs:label>
         <rdfs:comment xml:lang="en">An entity with protected VisibilityKind is visible to elements that have a generalization relationship to the namespace that owns it.</rdfs:comment>
     </owl:NamedIndividual>
@@ -2860,8 +2870,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#PUBLIC_VISIBILITY -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#PUBLIC_VISIBILITY">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#VisibilityKind"/>
+    <owl:NamedIndividual rdf:about="&msw;PUBLIC_VISIBILITY">
+        <rdf:type rdf:resource="&msw;VisibilityKind"/>
         <rdfs:label xml:lang="en">public</rdfs:label>
         <rdfs:comment xml:lang="en">An entity with public VisibilityKind is visible to all entities that can access the contents of the namespace that owns it.</rdfs:comment>
     </owl:NamedIndividual>
@@ -2870,8 +2880,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#PYTHON_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#PYTHON_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;PYTHON_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Phyton</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Python_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2880,8 +2890,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#RETURN -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#RETURN">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ParameterDirectionKind"/>
+    <owl:NamedIndividual rdf:about="&msw;RETURN">
+        <rdf:type rdf:resource="&msw;ParameterDirectionKind"/>
         <rdfs:label xml:lang="en">return</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2889,8 +2899,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#RUBY_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#RUBY_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;RUBY_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Ruby</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Ruby_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2899,8 +2909,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#R_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#R_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;R_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">R</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/R_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2909,8 +2919,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#SCALA_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#SCALA_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;SCALA_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Scala</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Scala_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2919,8 +2929,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#SCHEME_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#SCHEME_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;SCHEME_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Scheme</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Scheme_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2929,8 +2939,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#SHELL_SCRIPT_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#SHELL_SCRIPT_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;SHELL_SCRIPT_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Shell script</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Shell_script</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2939,8 +2949,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#SQL_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#SQL_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;SQL_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">SQL</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/SQL</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2949,8 +2959,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#TCL_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#TCL_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;TCL_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Tcl</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Tcl_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2959,8 +2969,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#TEX_LATEX_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#TEX_LATEX_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;TEX_LATEX_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">TeX/LaTeX</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/LaTeX</rdfs:seeAlso>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/TeX</rdfs:seeAlso>
@@ -2970,8 +2980,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#VIM_SCRIPT_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#VIM_SCRIPT_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;VIM_SCRIPT_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Vim Script</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">en.wikipedia.org/wiki/Vim_script</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2980,8 +2990,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#VISUAL_BASIC_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#VISUAL_BASIC_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;VISUAL_BASIC_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Visual Basic</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Visual_Basic</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2990,8 +3000,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#XAML_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#XAML_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;XAML_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">XAML</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/XAML</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -3000,8 +3010,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#XML_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#XML_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;XML_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">XML</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/XML</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -3010,8 +3020,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#XML_SCHEMA_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#XML_SCHEMA_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;XML_SCHEMA_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">XML Schema</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/XML_Schema_%28W3C%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -3020,8 +3030,8 @@ Note also that &quot;x owns y&quot; does not means that x owns y in a legal sens
 
     <!-- http://www.markosproject.eu/ontologies/software#XSL_TRANSFORMATION_LANGUAGE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/software#XSL_TRANSFORMATION_LANGUAGE">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/software#ProgrammingLanguage"/>
+    <owl:NamedIndividual rdf:about="&msw;XSL_TRANSFORMATION_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">XSLT</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/XSL_Transformations</rdfs:seeAlso>
     </owl:NamedIndividual>
