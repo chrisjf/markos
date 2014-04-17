@@ -20,7 +20,7 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:mlic="http://www.markosproject.eu/ontologies/licenses#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/licenses">
-        <owl:versionIRI rdf:resource="&mlic;2014/03/11"/>
+        <owl:versionIRI rdf:resource="&mlic;2014/04/17"/>
     </owl:Ontology>
     
 

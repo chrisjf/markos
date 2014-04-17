@@ -31,7 +31,7 @@
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">This ontology describes the domain independent concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <owl:imports rdf:resource="&mlic;2014/03/11"/>
-        <owl:versionIRI rdf:resource="&msw;2014/03/11"/>
+        <owl:versionIRI rdf:resource="&msw;2014/04/17"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     </owl:Ontology>
@@ -982,17 +982,6 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/top#webSiteURL -->
-
-    <rdf:Description rdf:about="&mtop;webSiteURL">
-        <rdfs:label xml:lang="en">Homepage</rdfs:label>
-        <rdfs:comment xml:lang="en">Web site of the subject entity.
-
-Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
-    </rdf:Description>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1392,6 +1381,12 @@ Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:allValuesFrom rdf:resource="&msw;Interface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containerEntity"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -1401,12 +1396,6 @@ Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="&msw;Interface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <mtop:identityCriteria xml:lang="en">(The set of identities of) all software entities (i.e. Interfaces) in the API.</mtop:identityCriteria>
@@ -1447,19 +1436,6 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
         <rdfs:label xml:lang="en">Annotation type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
         <rdfs:comment xml:lang="en">An annotation type is a type of data associated to a software entity.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#ApplicationResource -->
-
-    <owl:Class rdf:about="&msw;ApplicationResource">
-        <rdfs:label xml:lang="en">Application resource</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;SoftwareWork"/>
-        <rdfs:subClassOf rdf:resource="&mtop;VersionedEntity"/>
-        <rdfs:comment xml:lang="en">An abstract entity represented by a piece of data that have to be interpreted by a specific kind of application. It may be embedded in a SoftwareEntity.
-
-Examples are Images, Fonts, Web pages.</rdfs:comment>
     </owl:Class>
     
 
@@ -1646,7 +1622,7 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
     <owl:Class rdf:about="&msw;DigitalImage">
         <rdfs:label xml:lang="en">Digital image</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;ApplicationResource"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareWork"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Digital_image&amp;oldid=539678546</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A numeric representation (normally binary) of a two-dimensional image. Depending on whether the image resolution is fixed, it may be of vector or raster type. Without qualifications, the term &quot;digital image&quot; usually refers to raster images also called bitmap images.</rdfs:comment>
     </owl:Class>
@@ -1668,7 +1644,7 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
 
     <owl:Class rdf:about="&msw;ElectronicDocument">
         <rdfs:label xml:lang="en">Electronic document</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;ApplicationResource"/>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareWork"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Electronic_document&amp;oldid=540404555</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">Any electronic media content (other than computer programs or system files) that are intended to be used in either an electronic form or as printed output.</rdfs:comment>
     </owl:Class>
@@ -2195,13 +2171,13 @@ This definition is intended to model what developers usually mean by the term &q
         <rdfs:subClassOf rdf:resource="&mlic;Work"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
                 <owl:allValuesFrom rdf:resource="&msw;SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
                 <owl:allValuesFrom rdf:resource="&msw;SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2269,7 +2245,7 @@ Note that not any UML2 type is a Software Entity type.</rdfs:comment>
         <rdfs:label xml:lang="en">Web document</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;ElectronicDocument"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.w3.org/TR/cooluris/#oldweb</rdfs:seeAlso>
-        <rdfs:comment xml:lang="en">Any document available on the web.
+        <rdfs:comment xml:lang="en">Anything available on the web, identified by its own URI, and that can be conveyed in a message.
 &quot;Every Web document has its own URI. Note that a Web document is not the same as a file: a single Web document can be available in many different formats and languages, and a single file, for example a PHP script, may be responsible for generating a large number of Web documents with different URIs. A Web document is defined as something that has a URI and can return representations (responses in a format such as HTML or JPEG or RDF) of the identified resource in response to HTTP requests.In technical literature [...] the term Information Resource is used instead of Web document&quot; </rdfs:comment>
     </owl:Class>
     

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY mweb "http://www.markosproject.eu/ontologies/web#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.markosproject.eu/ontologies/web#"
+     xml:base="http://www.markosproject.eu/ontologies/web"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:mweb="http://www.markosproject.eu/ontologies/web#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/web">
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/software#2014/03/11"/>
+        <owl:versionIRI rdf:resource="&mweb;2014/04/17"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#ApplicationServer -->
+
+    <owl:Class rdf:about="&mweb;ApplicationServer">
+        <rdfs:subClassOf rdf:resource="&mweb;WebServer"/>
+        <rdfs:comment xml:lang="en">An extensible ServerProgram dedicated to the implementation of specific kind of distributed applications (i.e. programs), including web applications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#ClientSideWebComponent -->
+
+    <owl:Class rdf:about="&mweb;ClientSideWebComponent">
+        <rdfs:label xml:lang="en">Web client component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mweb;WebComponent"/>
+        <rdfs:comment xml:lang="en">Any Component that runs in a web browser (e.g. Java Applets, a SilverLight control).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#ServerProgram -->
+
+    <owl:Class rdf:about="&mweb;ServerProgram">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Program"/>
+        <rdfs:comment xml:lang="en">A Program to provide specific kind of services to requesters running programs (Clients). A ServerProgram may be extensible by means of specific kind of data/content and components. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#ServerSideComponent -->
+
+    <owl:Class rdf:about="&mweb;ServerSideComponent">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
+        <rdfs:comment xml:lang="en">Any Component that runs under the control of an ApplicationServer and extends its capabilities (e.g. a SCA component).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#ServerSideWebComponent -->
+
+    <owl:Class rdf:about="&mweb;ServerSideWebComponent">
+        <rdfs:label xml:lang="en">Web server component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mweb;ServerSideComponent"/>
+        <rdfs:subClassOf rdf:resource="&mweb;WebComponent"/>
+        <rdfs:comment xml:lang="en">Any Component that runs under the control of a WebServer and extends its capabilities (e.g., ASP pages, Java HTTP Servlets, PHP pages). A ServerSideWebComponent may include some ClientSideWebComponent to be sent to web clients.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#WebApplication -->
+
+    <owl:Class rdf:about="&mweb;WebApplication">
+        <rdfs:label xml:lang="en">Web application</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
+        <rdfs:comment xml:lang="en">A Program containing one or more WebComponents, altogheter implementing a coherent set of functionalities accessed by final users by means of a web browser.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#WebBrowser -->
+
+    <owl:Class rdf:about="&mweb;WebBrowser">
+        <rdfs:label xml:lang="en">Web browser</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Program"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Web_browser&amp;oldid=602376902</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">A software application (also called web client) for retrieving, presenting and traversing information resources (i.e web documents) on the World Wide Web.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#WebComponent -->
+
+    <owl:Class rdf:about="&mweb;WebComponent">
+        <rdfs:label xml:lang="en">Web component</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&mweb;ClientSideWebComponent"/>
+                    <rdf:Description rdf:about="&mweb;ServerSideWebComponent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
+        <rdfs:comment xml:lang="en">A WebClient Component or a WebServerComponent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#WebServer -->
+
+    <owl:Class rdf:about="&mweb;WebServer">
+        <rdfs:label xml:lang="en">Web server</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mweb;ServerProgram"/>
+        <rdfs:comment xml:lang="en">A ServerProgram that stores, processes and delivers web pages (e.g. HTML pages) to any client performing requests using the Hypertext Transfer Protocol (HTTP).</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

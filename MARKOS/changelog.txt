@@ -3,6 +3,12 @@ MARKOS ontology
 V1.5 (next version)
 ====
 
+Created web ontology: http://www.markosproject.eu/ontologies/web (markos-web.owl)
+
+Added prefix mweb:http://www.markosproject.eu/ontologies/web#
+
+Updated version IRIs
+
 Changed individuals:
 - mjava:JAVA renamed to msw:JAVA_LANGUAGE (for uniformity with other programming language names)
 
@@ -19,6 +25,15 @@ Changed classes (name, comment and related constraints):
 Added classes (name, comment and related constraints):
 - SoftwareForge (subclassOf NamedEntity) : to represent any forge that host software projects
 - CodeFile: the disjoint union of SourceCodeFile and ObjectCodeFile	(the most general File type that is coded using a programming language)
+- mweb:ServerProgram (to represent any prohram having a server role) 
+- mweb:WebServer (to represent any HTTP server)
+- mweb:WebBrowser (to represent any web client)
+- mweb:ApplicationServer (to represent any HTTP server that is also a framework for specific kind of component based applications)
+- mweb:ClientSideWebComponent (to represent a component running in a web browser) 
+- mweb:ServerSideComponent (to represent a component running in an extensible ServerProgram)
+- mweb:ServerSideWebComponent (to represent a component running in a WebServer)
+- mweb:WebApplication (to represent any application based on web components)
+- mweb:WebComponent (to represent any component running in a WebServer or webBrowser)
 
 Removed classes:
 - Operation: because equivalent to "Method and isAbstract value true"
@@ -26,6 +41,7 @@ Removed classes:
 - BehaviorParameter (as now an Operation is an abstract Behavior, now this should be renamed ConcreteBehaviorParameter, because only when the Behavior is concrete is is also a Local variable; anyway there is no clear requirement for this distinction in MARKOS). 
 - Variable renamed (again) to TypedEntity (as in the case of a formal parameter of an abstract Method a Parameter is not a Variable, i.e. a storage unit, but just a formal name with some constraint). Clarified that may exist TypedElement without an explicit type. 
 - NonCodeFile: because the definition was inconsistent (as according to the other definitions a "non SourceCodeFile" is an "ObjectCodeFile" and a "non (SourceCodeFile o ObjectCodeFile)" is Nothing !
+- ApplicationResourse: because not really a type,  but just a role for data or documents.
 
 Changed properties (name, comment and related constraints):
 - forkSoftwareWork: SoftwareEntity x SoftwareEntity -> SoftwareWork x SoftwareWork (previous was wrong). Also corrected the label.
