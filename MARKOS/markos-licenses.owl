@@ -64,7 +64,19 @@
     </owl:ObjectProperty>
     
 
+    <!-- http://www.markosproject.eu/ontologies/licenses#licenseTemplate -->
 
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/licenses#licenseTemplate">
+        <rdfs:label xml:lang="en">License template </rdfs:label>
+        <rdfs:comment xml:lang="en">The the template of the coveringLicense of the subject Work (the property &quot;licenseTemplate&quot; is equivalent to the chain &quot;coveringLicense o template&quot;).</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#Work"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/licenses#coveringLicense"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/licenses#template"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
