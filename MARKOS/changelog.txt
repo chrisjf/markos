@@ -1,5 +1,15 @@
 MARKOS ontology 
 
+V1.5.1 (nextVersion)
+====
+
+Changed classes:
+- Type (subclass of SoftwareEntity): the constraint was already in previous versions and removed by error) 
+
+Changed properties (name, comment and related constraints):
+- subordinateEntity: Entity x NamedEntity -> Entity x Entity (because range of sub-property containedEntity is Entity) 
+
+
 V1.5
 ====
 
@@ -47,7 +57,7 @@ Changed properties (name, comment and related constraints):
 - forkSoftwareWork: SoftwareEntity x SoftwareEntity -> SoftwareWork x SoftwareWork (previous was wrong). Also corrected the label.
 - forkedSoftwareWork (corrected the label).
 - raisedException: Operation x Type -> Method x Type (because Operation now is an abstract Method)
-- ownedParameter: Operation x Type - > Bahavior x Parameter (because Operation now is a abstract Method and because any Behavior may have parameters)
+- ownedParameter: Operation x Type - > Behavior x Parameter (because Operation now is a abstract Method and because any Behavior may have parameters)
 - invokedOperation(Behavior x Operation) substituted by invokedMethod:Behavior x Method (because Operation now is a abstract Method and because invokedMethod was missing; moreover the comment now clarify that the behaviour is polymorfic)
 - Method now is subclassOf Feature
 - ownedAttribute: SoftwareObjectType x Attribute -> Classifier x Attribute 

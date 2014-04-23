@@ -941,8 +941,8 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
     <owl:ObjectProperty rdf:about="&mtop;subordinateEntity">
         <rdfs:label xml:lang="en">Subordinate entity</rdfs:label>
         <rdfs:comment xml:lang="en">Entity owned or contained by the subject entity. &quot;owned&quot; here does not necessarly imply legal or intellectual ownership but just that the owned entity is in a sense subordinate/secondary to the first entity, for instance that the existence of the owned entity depends on the existence of the first entity or that the status of the ownedEntity is controlled by the first entity.</rdfs:comment>
+        <rdfs:range rdf:resource="&mtop;Entity"/>
         <rdfs:domain rdf:resource="&mtop;Entity"/>
-        <rdfs:range rdf:resource="&mtop;NamedEntity"/>
         <owl:inverseOf rdf:resource="&mtop;superordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -1381,12 +1381,6 @@ Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="&msw;Interface"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containerEntity"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -1396,6 +1390,12 @@ Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:allValuesFrom rdf:resource="&msw;Interface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <mtop:identityCriteria xml:lang="en">(The set of identities of) all software entities (i.e. Interfaces) in the API.</mtop:identityCriteria>
@@ -2104,13 +2104,13 @@ the namespace.</mtop:identityCriteria>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;name"/>
+                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
+                <owl:onProperty rdf:resource="&mtop;name"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2212,6 +2212,7 @@ abstract entities, such as a Program that may have different concrete manifestat
 
     <owl:Class rdf:about="&msw;Type">
         <rdfs:label xml:lang="en">Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:comment xml:lang="en">A Software Entity that can be represented by a UML2 Type: &quot;A type represents a set of values. A typed element that has this type is constrained to represent values within this set.&quot;
 
 Note that not any UML2 type is a Software Entity type.</rdfs:comment>
