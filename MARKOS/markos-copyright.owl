@@ -50,8 +50,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/copyright#compatibleWith">
         <rdf:type rdf:resource="&owl;ReflexiveProperty"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
     </owl:ObjectProperty>
     
 
@@ -68,8 +68,8 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#derivedFrom -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/copyright#derivedFrom">
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#Work"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#Work"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#Work"/>
     </owl:ObjectProperty>
     
 
@@ -106,16 +106,6 @@
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/copyright#licenseGranted">
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/copyright#Grant"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicense"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/copyright#licenseTemplate -->
-
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/copyright#licenseTemplate">
-        <owl:inverseOf rdf:resource="http://www.markosproject.eu/ontologies/copyright#work"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#Work"/>
     </owl:ObjectProperty>
     
 
@@ -199,6 +189,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/copyright#work">
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#Work"/>
+        <owl:inverseOf rdf:resource="http://www.markosproject.eu/ontologies/licenses#licenseTemplate"/>
     </owl:ObjectProperty>
     
 
@@ -218,6 +209,12 @@
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/copyright#Use"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#Work"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/licenses#licenseTemplate -->
+
+    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/licenses#licenseTemplate"/>
     
 
 
