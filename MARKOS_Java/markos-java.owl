@@ -10,6 +10,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY mtop "http://www.markosproject.eu/ontologies/top#" >
     <!ENTITY msw "http://www.markosproject.eu/ontologies/software#" >
 ]>
 
@@ -24,10 +25,18 @@
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl2="http://www.w3.org/2006/12/owl2#"
-     xmlns:msw="http://www.markosproject.eu/ontologies/software#">
+     xmlns:msw="http://www.markosproject.eu/ontologies/software#"
+     xmlns:mtop="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/java">
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/java#2014/04/17"/>
-        <owl:imports rdf:resource="&msw;2014/03/11"/>
+        <rdfs:comment>This ontology describes the Java programing language concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).
+
+Goals: 
+“what a user is expected to finnd after completion of a searching process&quot;.
+
+The ontological model has been introduced for 
+representing Java software entities structure and classification.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/software"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/java#2014/05/05"/>
     </owl:Ontology>
     
 
@@ -43,46 +52,15 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#distributedPackage -->
+    <!-- http://www.markosproject.eu/ontologies/java#applyAnnotation -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#distributedPackage">
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaArchiveFile"/>
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
-        <owl:inverseOf rdf:resource="http://www.markosproject.eu/ontologies/java#isDistributedBy"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/top#containedEntity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/java#implementedInterface -->
-
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#implementedInterface">
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
-        <rdfs:subPropertyOf rdf:resource="&msw;implementedSoftwareEntity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/java#isDistributedBy -->
-
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#isDistributedBy">
-        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/java#JavaArchiveFile"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
-        <rdfs:subPropertyOf rdf:resource="&msw;manifestation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/java#ownedObjectEntity -->
-
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#ownedObjectEntity">
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/top#ownedMember"/>
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#applyAnnotation">
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaMember"/>
                     <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
                 </owl:unionOf>
             </owl:Class>
@@ -91,55 +69,73 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#ownedPackage -->
+    <!-- http://www.markosproject.eu/ontologies/java#distributedPackage -->
 
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#ownedPackage">
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaLibrary"/>
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#distributedPackage">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaArchiveFile"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/top#containedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;containedEntity"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#implementationLanguage -->
+    <!-- http://www.markosproject.eu/ontologies/java#importedClass -->
 
-    <owl:ObjectProperty rdf:about="&msw;implementationLanguage"/>
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#importedClass">
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaReferenceType"/>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#implementedSoftwareEntity -->
+    <!-- http://www.markosproject.eu/ontologies/java#ownedAnnotationTypeElement -->
 
-    <owl:ObjectProperty rdf:about="&msw;implementedSoftwareEntity"/>
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#ownedAnnotationTypeElement">
+        <rdfs:comment>The annotation definition contains annotation type element declarations</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationType"/>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationTypeElement"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+    </owl:ObjectProperty>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#manifestation -->
+    <!-- http://www.markosproject.eu/ontologies/java#ownedTypeArgument -->
 
-    <owl:ObjectProperty rdf:about="&msw;manifestation"/>
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#ownedTypeArgument">
+        <rdfs:label>Owned Type Argument</rdfs:label>
+        <mtop:correspondingSuperProperty>One provides type arguments in order to create a parameterized type.</mtop:correspondingSuperProperty>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/generics/types.html</rdfs:seeAlso>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaParameterizedType"/>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/java#JavaReferenceType"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+    </owl:ObjectProperty>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#valueType -->
+    <!-- http://www.markosproject.eu/ontologies/java#ownedTypeParameter -->
 
-    <owl:ObjectProperty rdf:about="&msw;valueType"/>
+    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/java#ownedTypeParameter">
+        <rdfs:label>Owned Type Parameter</rdfs:label>
+        <rdfs:comment>One provides type parameter in order to create a generic class or interfaces.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/generics/types.html</rdfs:seeAlso>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTypeParameter"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaGenericClass"/>
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaGenericInterface"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#visibility -->
 
     <owl:ObjectProperty rdf:about="&msw;visibility"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/top#containedEntity -->
-
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/top#containedEntity"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/top#ownedMember -->
-
-    <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/top#ownedMember"/>
     
 
 
@@ -154,24 +150,12 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#isAbstract -->
-
-    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/java#isAbstract">
-        <rdfs:label>Is abstract</rdfs:label>
-        <rdfs:comment>used in a class definition to specify that a class is not to be instantiated, but rather inherited by other classes. An abstract class can have abstract methods that are not implemented in the abstract class, but in subclasses.
-
-Also is using in method definition. An abstract method is a method that is declared without an implementation (without braces, and followed by a semicolon), like this: is a method that is declared without an implementation </rdfs:comment>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMethod"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
-        <rdfs:range rdf:resource="&xsd;boolean"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/java#isCore -->
 
     <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/java#isCore">
-        <rdfs:label>To indicate if a class or interface is a standard member of the Java(TM) Platform.</rdfs:label>
+        <rdfs:label>is core</rdfs:label>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/information/glossary.html (core class, core package)</rdfs:seeAlso>
+        <rdfs:comment>To indicate if a class or interface is a standard member of the Java(TM) Platform.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;boolean"/>
         <rdfs:domain>
             <owl:Class>
@@ -185,6 +169,90 @@ Also is using in method definition. An abstract method is a method that is decla
             </owl:Class>
         </rdfs:domain>
     </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#isFinal -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/java#isFinal">
+        <rdfs:label>is final</rdfs:label>
+        <rdfs:comment>FInal is used to define entities which cannot later be changed. The final modifier indicates that the value of this field cannot change.
+
+When applied to a class, the class can not be extended. When applied to a method, the method can not be overwritten.When applied to a variable, the variable can not change.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+                    <rdf:Description rdf:about="&msw;Feature"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#isStrictfp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/java#isStrictfp">
+        <rdfs:label>is strictfp</rdfs:label>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/Strictfp</rdfs:seeAlso>
+        <rdfs:comment>It is a property to restrict floating-point calculations to ensure portability.
+
+It can be used on classes, interfaces and non-abstract methods. When applied to a method, it causes all calculations inside the method to use strict floating-point math. When applied to a class, all calculations inside the class use strict floating-point math.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaNonAbstracMethod"/>
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#isTransient -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/java#isTransient">
+        <rdfs:label>is transient</rdfs:label>
+        <rdfs:comment>It marks a member variable not to be serialized when it is persisted to streams of bytes. When an object is transferred through the network, the object needs to be &apos;serialized&apos;. Serialization converts the object state to serial bytes. Those bytes are sent over the network and the object is recreated from those bytes. Member variables marked by the java transient keyword are not transferred, they are lost intentionally.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaField"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#isVolatile -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/java#isVolatile">
+        <rdfs:label>is volatile</rdfs:label>
+        <rdfs:comment>It changes the runtime behavior in a way that is noticeable when multiple threads access these variable</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/java#JavaField"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#preferredName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.markosproject.eu/ontologies/java#preferredName">
+        <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;name"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#isStatic -->
+
+    <rdf:Description rdf:about="&msw;isStatic">
+        <rdfs:comment>Static attribute, variables that are common to all objects. They are associated with the class, rather than with any object. Every instance of the class shares a class variable, which is in one fixed location in memory. Any object can change the value of a class variable, but class variables can also be manipulated without creating an instance of the class
+
+Static methods, which have the static modifier in their declarations, should be invoked with the class name, without the need for creating an instance of the class</rdfs:comment>
+    </rdf:Description>
     
 
 
@@ -202,14 +270,41 @@ Also is using in method definition. An abstract method is a method that is decla
     <!-- http://www.markosproject.eu/ontologies/java#ApplicationXMLSourceCodeFile -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#ApplicationXMLSourceCodeFile">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#DeploymentDescriptorFile"/>
+        <rdfs:label>Application XML descriptor file </rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaDeploymentDescriptorFile"/>
+        <rdfs:comment>For Java EE applications, the deployment descriptor must be named application.xml and must be placed directly in the META-INF directory at the top level of the application .ear file</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#DeploymentDescriptorFile -->
+    <!-- http://www.markosproject.eu/ontologies/java#BuildAutomationTool -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#DeploymentDescriptorFile"/>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#BuildAutomationTool">
+        <rdfs:label>Build automation tool</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaDevelopmentTool"/>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/List_of_build_automation_software</rdfs:seeAlso>
+        <rdfs:comment>Programs in charge of scripting or automating a wide variety of tasks that software developers do in their day-to-day activities including things like: compiling, packagin, running test, deployment to production systems, creating documentation and/or release notes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#ConsoleApplication -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#ConsoleApplication">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#Stand-AloneApplication"/>
+        <rdfs:comment>Non-visual console application</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#ContinuousIntegrationTool -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#ContinuousIntegrationTool">
+        <rdfs:label>Continuous integration tool</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#BuildAutomationTool"/>
+        <rdfs:comment>Continuous integration (CI) is the practice, in software engineering, of merging all developer working copies with a shared mainline several times a day. It was first named and proposed as part of extreme programming (XP). Its main aim is to prevent integration problems, referred to as &quot;integration hell&quot; in early descriptions of XP. </rdfs:comment>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/Continuous_integration</rdfs:seeAlso>
+    </owl:Class>
     
 
 
@@ -236,7 +331,31 @@ Also is using in method definition. An abstract method is a method that is decla
     <!-- http://www.markosproject.eu/ontologies/java#EjbJarXMLSourceCodeFile -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#EjbJarXMLSourceCodeFile">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#DeploymentDescriptorFile"/>
+        <rdfs:label>EJB XML descriptor file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaDeploymentDescriptorFile"/>
+        <rdfs:comment>EJB deployment descriptor, as defined in the Enterprise JavaBeans Specification</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#GUI -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#GUI">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#Stand-AloneApplication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#IDETool -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#IDETool">
+        <rdfs:label>IDE tool</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaDevelopmentTool"/>
+        <rdfs:seeAlso>http://www.infoworld.com/d/developer-world/infoworld-review-top-java-programming-tools-191</rdfs:seeAlso>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/Category:Java_development_tools</rdfs:seeAlso>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments</rdfs:seeAlso>
+        <rdfs:seeAlso>http://stackoverflow.com/questions/2625398/critical-tools-that-every-java-developer-should-have-in-his-toolbelt</rdfs:seeAlso>
+        <rdfs:comment>Programs to develop Java application</rdfs:comment>
     </owl:Class>
     
 
@@ -263,7 +382,7 @@ Also is using in method definition. An abstract method is a method that is decla
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+                <owl:hasValue rdf:resource="&msw;JAVA"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Set of all public interfaces implemented in Java of a Java Package or a Java Library.
@@ -280,6 +399,67 @@ If two Packages or two Libraries contains the same public interfaces then they c
         <rdfs:label>Java access modifiers</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;VisibilityKind"/>
         <rdfs:comment>Access level modifiers determine whether other classes can use a particular field or invoke a particular method</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaAnnotation -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaAnnotation">
+        <rdfs:label>Java annotation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;valueType"/>
+                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Annotations, a form of metadata, provide data about a program that is not part of the program itself. Annotations have no direct effect on the operation of the code they annotate.</rdfs:comment>
+        <rdfs:comment>They take the name of its annotation type name.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/annotations/index.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaAnnotationType -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaAnnotationType">
+        <rdfs:label>Java annotation type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
+        <rdfs:subClassOf rdf:resource="&msw;AnnotationType"/>
+        <rdfs:comment>An Java annotation type is a type of data associated to a java software entity. The annotation type definition looks similar to an interface definition where the keyword interface is preceded by the at sign (@) (@ = AT, as in annotation type).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaAnnotationTypeElement -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaAnnotationTypeElement">
+        <rdfs:label>Java annotation type element</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/annotations/declaring.html</rdfs:seeAlso>
+        <rdfs:comment>The annotation type contains annotation type element declarations, which look a lot like methods. Note that they can define optional default values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaAnonymousClass -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaAnonymousClass">
+        <rdfs:label>Java anonymous class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaExpresion"/>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTopLevelModifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html</rdfs:seeAlso>
+        <rdfs:comment>They enable you to declare and instantiate a class at the same time. They are like local classes except that they do not have a name. Use them if you need to use a local class only once.
+
+Anonymous classes are expressions, which means that you define the class in another expression</rdfs:comment>
     </owl:Class>
     
 
@@ -299,7 +479,29 @@ If two Packages or two Libraries contains the same public interfaces then they c
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaArrayType">
         <rdfs:label>Java array type</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaReferenceType"/>
-        <rdfs:comment>An array is a container object that holds a fixed number of values of a single type. The length of an array is established when the array is created. After creation, its length is fixed.</rdfs:comment>
+        <rdfs:comment>An array is a container object that holds a fixed number of values of a single type. The length of an array is established when the array is created. After creation, its length is fixed.
+Each item in an array is called an element, and each element is accessed by its numerical index.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaBusinessTier -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaBusinessTier">
+        <rdfs:label>Java business tier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTieredApplication"/>
+        <rdfs:comment>The business tier consists of components that provide the business logic for an application. Business logic is code that provides functionality to a particular business domain, like the financial industry, or an e-commerce site. In a properly designed enterprise application, the core functionality exists in the business tier components.</rdfs:comment>
+        <rdfs:comment>Business Tier Java EE Technologies: Enterprise JavaBeans (enterprise bean) components, JAX-RS RESTful web services, JAX-WS web service endpoints, Java Persistence API entities, Java EE managed beans</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaCheckedException -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaCheckedException">
+        <rdfs:label>Java checked exception</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaExceptionType"/>
+        <rdfs:comment>Represent invalid conditions in areas outside the immediate control of the program (invalid user input, database problems, network outages, absent files</rdfs:comment>
     </owl:Class>
     
 
@@ -308,9 +510,56 @@ If two Packages or two Libraries contains the same public interfaces then they c
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaClassFile">
         <rdfs:label>Java class file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaExecutableFile"/>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaObjectFile"/>
         <rdfs:comment>Java class file is a file (with the .class filename extension) containing a Java bytecode which can be executed on the Java Virtual Machine (JVM). Java class file is produced by Java compiler from Java programming language source files (.java files) containing Java classes. If a source file has more than one class, each class is compiled into a separate class file.</rdfs:comment>
         <rdfs:seeAlso>http://en.wikipedia.org/wiki/Java_class_file</rdfs:seeAlso>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/package/managingfiles.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaClassMethod -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaClassMethod">
+        <rdfs:label>Java class method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMethod"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;isStatic"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The Java programming language supports static methods as well as static variables. Static methods, which have the static modifier in their declarations, should be invoked with the class name, without the need for creating an instance of the class.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaClassVariable -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaClassVariable">
+        <rdfs:label>Java class variable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaField"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;isStatic"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Fields that have the static modifier in their declaration are called static fields or class variables. They are associated with the class, rather than with any object. Every instance of the class shares a class variable, which is in one fixed location in memory. Any object can change the value of a class variable, but class variables can also be manipulated without creating an instance of the class.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaClientTier -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaClientTier">
+        <rdfs:label>Java client tier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTieredApplication"/>
+        <rdfs:comment>Many different types of applications can be Java EE clients, and they are not always, or even often Java applications. Clients can be a web browser, a standalone application, or other servers, and they run on a different machine from the Java EE server</rdfs:comment>
+        <rdfs:comment>The Java client tier consists of application clients that access a Java EE server and that are usually located on a different machine from the server. The server processes the requests and returns a response back to the client.</rdfs:comment>
     </owl:Class>
     
 
@@ -322,23 +571,114 @@ If two Packages or two Libraries contains the same public interfaces then they c
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+                <owl:hasValue rdf:resource="&msw;JAVA"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#JavaConstructorMethod -->
+    <!-- http://www.markosproject.eu/ontologies/java#JavaConfigurationFile -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaConstructorMethod">
-        <rdfs:subClassOf rdf:resource="&msw;Constructor"/>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaConfigurationFile">
+        <rdfs:label>Java configuration file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;ConfigurationFile"/>
+        <rdfs:comment>It is a file that configures the initial settings for some JAVA applications</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaConstant -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaConstant">
+        <rdfs:label>Java constant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaClassVariable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/java#isFinal"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>Java fields whose values never change.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaDeploymentDescriptorFile -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaDeploymentDescriptorFile">
+        <rdfs:label>Java deployment descriptor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaConfigurationFile"/>
+        <rdfs:comment>A JAVA deployment descriptor (DD) refers to a configuration file for an JAVA artifact that is deployed to some container/engine.
+
+Storing deployment configuration properties </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaDevelopmentTool -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaDevelopmentTool">
+        <rdfs:label>Java development tool</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgram"/>
+        <rdfs:comment>A Java development tools is a programming tool for the Java programming language. A programming tool or software development tool is a program or application that software developers use to create, debug, maintain, or otherwise support other programs and applications. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaDistributedApplication -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaDistributedApplication">
+        <rdfs:label>Dsitributed application</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgram"/>
+        <rdfs:comment>A distributed system is a software system in which components located on networked computers communicate and coordinate their actions by passing messages. The components interact with each other in order to achieve a common goal.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaEnterpriseInformationSystemsTier -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaEnterpriseInformationSystemsTier">
+        <rdfs:label>Java enterprise information sustems tier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTieredApplication"/>
+        <rdfs:comment>EIS Tier Java EE Technologies: The Java Database Connectivity API (JDBC), The Java Persistence API, The Java EE Connector Architecture, The Java Transaction API (JTA)...</rdfs:comment>
+        <rdfs:comment>The enterprise information systems (EIS) tier consists of database servers, enterprise resource planning systems, and other legacy data sources, like mainframes. These resources typically are located on a separate machine than the Java EE server, and are accessed by components on the business tier.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaEnumType -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaEnumType">
+        <rdfs:label>Java enum type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaReferenceType"/>
+        <rdfs:subClassOf rdf:resource="&msw;Enumeration"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;directImplementedInterface"/>
+                <owl:allValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An enum type is a special data type that enables for a variable to be a set of predefined constants. The variable must be equal to one of the values that have been predefined for it. Common examples include compass directions (values of NORTH, SOUTH, EAST, and WEST) and the days of the week.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaError -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaError">
+        <rdfs:label>Java error</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaUncheckedException"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaExceptionType -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaExceptionType">
+        <rdfs:label>Java exception type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;ExceptionType"/>
+        <rdfs:comment>A java exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program&apos;s instructions.</rdfs:comment>
     </owl:Class>
     
 
@@ -346,7 +686,20 @@ If two Packages or two Libraries contains the same public interfaces then they c
     <!-- http://www.markosproject.eu/ontologies/java#JavaExecutableFile -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaExecutableFile">
+        <rdfs:label>Java executable file</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;ExecutableFile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaExpresion -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaExpresion">
+        <rdfs:label>Java expresion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaStatement"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html</rdfs:seeAlso>
+        <rdfs:comment>Its natural place would be as parto of Software Entity, but as they do not usually have name, they can not be subclass of NamedEntity. </rdfs:comment>
+        <rdfs:comment>An expression is a construct made up of variables, operators, and method invocations, which are constructed according to the syntax of the language, that evaluates to a single value.</rdfs:comment>
     </owl:Class>
     
 
@@ -359,22 +712,17 @@ If two Packages or two Libraries contains the same public interfaces then they c
         <rdfs:subClassOf rdf:resource="&msw;Attribute"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;valueType"/>
                 <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAccessModifier"/>
+                <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
+                <owl:hasValue rdf:resource="&msw;JAVA"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/variables.html</rdfs:seeAlso>
         <rdfs:comment>A data member of a class
 
 The Java fields store the state of an java object</rdfs:comment>
@@ -388,6 +736,160 @@ The Java fields store the state of an java object</rdfs:comment>
         <rdfs:label>Java file</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSourceFile"/>
         <rdfs:comment>Files that contain the .java file extension are program files that have been written in the Java programming language</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/package/managingfiles.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaFloatingPointType -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaFloatingPointType">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaNumericType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaFunctionalInterface -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaFunctionalInterface">
+        <rdfs:label>Java functional interface</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mtop;nestedClassifier"/>
+                <owl:onClass rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMethod"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html</rdfs:seeAlso>
+        <rdfs:comment> A functional interface is a interface that contains only one abstract method.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach6</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaGenericClass -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaGenericClass">
+        <rdfs:label>Java generic class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/java#ownedTypeParameter"/>
+                <owl:onClass rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTypeParameter"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Is a generic class that is parameterized over types.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/generics/types.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaGenericInterface -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaGenericInterface">
+        <rdfs:label>Java generic interface</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/java#ownedTypeParameter"/>
+                <owl:onClass rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTypeParameter"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/generics/types.html</rdfs:seeAlso>
+        <rdfs:comment>Is a generic interface that is parameterized over types.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaGenericMethod -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaGenericMethod">
+        <rdfs:label>Java generic methods</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMethod"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/java#ownedTypeParameter"/>
+                <owl:onClass rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTypeParameter"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/generics/methods.html</rdfs:seeAlso>
+        <rdfs:comment>Generic methods are methods that introduce their own type parameters. This is similar to declaring a generic type, but the type parameter&apos;s scope is limited to the method where it is declared. Static and non-static generic methods are allowed, as well as generic class constructors.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaIOException -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaIOException">
+        <rdfs:label>Java IO exception</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaCheckedException"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaInnerClass -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaInnerClass">
+        <rdfs:label>Java Inner Class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaNestedClass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;isStatic"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/innerclasses.html</rdfs:seeAlso>
+        <rdfs:comment>They are non-static nested classes. An inner class is associated with an instance of its enclosing class and has direct access to that object&apos;s methods and fields. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaInstanceMethod -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaInstanceMethod">
+        <rdfs:label>Java instance method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMethod"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;isStatic"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>They are associated with objects and is needed creating an instance of the class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaInstanceVariable -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaInstanceVariable">
+        <rdfs:label>Java instance variable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaField"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;isStatic"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>They are associated with objects and is needed creating an instance of the class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaIntegralType -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaIntegralType">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaNumericType"/>
     </owl:Class>
     
 
@@ -405,6 +907,7 @@ The Java fields store the state of an java object</rdfs:comment>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://en.wikipedia.org/wiki/Interface_(Java)</rdfs:seeAlso>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html</rdfs:seeAlso>
         <rdfs:comment>An interface in the Java programming language is an abstract type that is used to specify an interface (in the generic sense of the term) that classes must implement. Interfaces are declared using the interface keyword, and may only contain method signature and constant declarations (variable declarations that are declared to be both static and final). An interface may never contain method definitions.
 
 Interfaces cannot be instantiated, but rather are implemented
@@ -423,7 +926,7 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+                <owl:hasValue rdf:resource="&msw;JAVA"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>A library is a software entity, manifested by a single JavaArchiveFile, that aggregates JAVA software entities manifested the files contained in the JavaArchiveFile.</rdfs:comment>
@@ -431,9 +934,33 @@ A Java class may implement, and an interface may extend, any number of interface
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/java#JavaLocalClass -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaLocalClass">
+        <rdfs:label>Java local class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTopLevelModifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;isStatic"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html</rdfs:seeAlso>
+        <rdfs:comment>Local classes are classes that are defined in a block, which is a group of zero or more statements between balanced braces. You typically find local classes defined in the body of a method.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/java#JavaLocalVariable -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaLocalVariable">
+        <rdfs:label>Java local variable</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;LocalVariable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -441,7 +968,20 @@ A Java class may implement, and an interface may extend, any number of interface
                 <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/variables.html</rdfs:seeAlso>
         <rdfs:comment>Similar to how an object stores its state in fields, a method will often store its temporary state in local variables</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaManifestMFFile -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaManifestMFFile">
+        <rdfs:label>Manifest file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaConfigurationFile"/>
+        <rdfs:comment>JAR files support a wide range of functionality, including electronic signing, version control, package sealing, and others. What gives a JAR file this versatility? The answer is the JAR file&apos;s manifest.
+
+The manifest is a special file that can contain information about the files packaged in a JAR file. By tailoring this &quot;meta&quot; information that the manifest contains, you enable the JAR file to serve a variety of purposes.</rdfs:comment>
     </owl:Class>
     
 
@@ -449,18 +989,26 @@ A Java class may implement, and an interface may extend, any number of interface
     <!-- http://www.markosproject.eu/ontologies/java#JavaMember -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaMember">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
+        <rdfs:label>Java member</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>A field or method of a class. It is an abstrac class.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/information/glossary.html (member)</rdfs:seeAlso>
     </owl:Class>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#JavaMemberModifier -->
+    <!-- http://www.markosproject.eu/ontologies/java#JavaMetaAnnotationType -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaMemberModifier">
-        <rdfs:label>Java member modifier</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAccessModifier"/>
-        <rdfs:comment>At the member level of a class</rdfs:comment>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaMetaAnnotationType">
+        <rdfs:label>Java meta annotation type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationType"/>
+        <rdfs:comment>Annotations that apply to other annotations are called meta-annotations. </rdfs:comment>
     </owl:Class>
     
 
@@ -468,20 +1016,82 @@ A Java class may implement, and an interface may extend, any number of interface
     <!-- http://www.markosproject.eu/ontologies/java#JavaMethod -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaMethod">
+        <rdfs:label>Java method</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMember"/>
         <rdfs:subClassOf rdf:resource="&msw;Method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+                <owl:onProperty rdf:resource="&mtop;nestedClassifier"/>
+                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaLocalClass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAccessModifier"/>
+                <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
+                <owl:hasValue rdf:resource="&msw;JAVA"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>AbstracMethod, FinalMethod in principle are not consdered as a subclasses due to exists a especific properties to model the distintion</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaNativeInterface -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaNativeInterface">
+        <rdfs:label>Java native interface</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <rdfs:comment>Java native methods are to handle those situations when an application cannot be written entirely in Java.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/7/docs/technotes/guides/jni/</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaNativeMethod -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaNativeMethod">
+        <rdfs:label>Java native method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMethod"/>
+        <rdfs:comment>Native methods are implemented in another programming language such as C
+When you write a method in a programming language other than Java, you must include the keyword native as part of the method&apos;s definition within the Java class. The native keyword signals to the Java compiler that the function is a native language function.
+</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/7/docs/technotes/guides/jni/</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaNestedClass -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaNestedClass">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <rdfs:comment>Java nested class</rdfs:comment>
+        <rdfs:comment>The Java programming language allows you to define a class within another class. Such a class is called a nested class</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/nested.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaNonAbstracMethod -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaNonAbstracMethod">
+        <rdfs:label>Java non abstract method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMethod"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;isAbstract"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">false</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The signature of a method</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaNumericType -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaNumericType">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
     </owl:Class>
     
 
@@ -490,7 +1100,7 @@ A Java class may implement, and an interface may extend, any number of interface
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaObjectFile">
         <rdfs:label>Java object file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;ObjectCodeFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;ObjectFile"/>
         <rdfs:comment>An object file format is a computer file format used for the storage of java object code and related data.</rdfs:comment>
     </owl:Class>
     
@@ -503,11 +1113,25 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:subClassOf rdf:resource="&msw;Package"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&mtop;ownedMember"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+                            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+                <owl:hasValue rdf:resource="&msw;JAVA"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>The set of all Java software entities contained in a same JavaSoftwareRelease and belonging to a same namespace. </rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/package/packages.html</rdfs:seeAlso>
     </owl:Class>
     
 
@@ -520,7 +1144,7 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+                <owl:hasValue rdf:resource="&msw;JAVA"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -530,6 +1154,36 @@ A Java class may implement, and an interface may extend, any number of interface
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>The variable to pass information to one Java method/operation</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/variables.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaParameterizedType -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaParameterizedType">
+        <rdfs:label>Java parameterized type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaGenericClass"/>
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/java#JavaGenericInterface"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>A parameterized type is the invocation of a generic type. It is generic type customized with  type arguments.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/generics/types.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaPersistenceXMLFile -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaPersistenceXMLFile">
+        <rdfs:label>Persistence XML file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaConfigurationFile"/>
+        <rdfs:comment>The persistence.xml file is a standard configuration file in JPA. it has to be included in the META-INF directory inside the JAR file that contains the entity beans. The persistence.xml file must define a persistence-unit with a unique name in the current scoped classloader. The provider attribute specifies the underlying implementation of the JPA EntityManager. One persistence.xml file can include definitions for one or more persistence units.</rdfs:comment>
     </owl:Class>
     
 
@@ -540,7 +1194,19 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:label>Java primitive type</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
         <rdfs:subClassOf rdf:resource="&msw;PrimitiveType"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.2</rdfs:seeAlso>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html</rdfs:seeAlso>
         <rdfs:comment>A primitive type is predefined by the language and is named by a reserved keyword. Primitive values do not share state with other primitive values. Java programming language support eight primitive data types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaProgram -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaProgram">
+        <rdfs:label>Java program</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;Program"/>
+        <rdfs:comment>Java program code consists of instructions which will be executed on your computer system to perform a task as an example say arrange given integers in ascending order</rdfs:comment>
     </owl:Class>
     
 
@@ -548,7 +1214,20 @@ A Java class may implement, and an interface may extend, any number of interface
     <!-- http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion">
+        <rdfs:label>Java version</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;ProgrammingLanguageVersion"/>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/Java_(programming_language)</rdfs:seeAlso>
+        <rdfs:comment>Major release versions of Java</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaPropertiesFile -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaPropertiesFile">
+        <rdfs:label>Properties file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaConfigurationFile"/>
+        <rdfs:comment>.properties is a file extension for files mainly used in Java related technologies to store the configurable parameters of an application. They can also be used for storing strings for Internationalization and localization; these are known as Property Resource Bundles</rdfs:comment>
     </owl:Class>
     
 
@@ -558,7 +1237,27 @@ A Java class may implement, and an interface may extend, any number of interface
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaReferenceType">
         <rdfs:label>Java reference type</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaType"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.3</rdfs:seeAlso>
+        <rdfs:seeAlso>http://i2.wp.com/java9s.com/wp-content/uploads/2012/06/Primitive-data-types-in-java.gif</rdfs:seeAlso>
         <rdfs:comment>A reference type is a data type that’s based on a class rather than on one of the primitive types that are built in to the Java language. The class can be a class that’s provided as part of the Java API class library or a class that a programamer can write himself.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaRuntimeException -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaRuntimeException">
+        <rdfs:label>Java runtime exception</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaUncheckedException"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaSQLException -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaSQLException">
+        <rdfs:label>Java SQL exception</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaCheckedException"/>
     </owl:Class>
     
 
@@ -566,13 +1265,13 @@ A Java class may implement, and an interface may extend, any number of interface
     <!-- http://www.markosproject.eu/ontologies/java#JavaSoftwareClass -->
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass">
-        <rdfs:label>Java software class</rdfs:label>
+        <rdfs:label>Java class</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaReferenceType"/>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareClass"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTopLevelModifier"/>
+                <owl:onProperty rdf:resource="&mtop;nestedClassifier"/>
+                <owl:someValuesFrom rdf:resource="http://www.markosproject.eu/ontologies/java#JavaNestedClass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/classes.html</rdfs:seeAlso>
@@ -580,6 +1279,7 @@ A Java class may implement, and an interface may extend, any number of interface
 
 A Java class is a tyoe of Software Class whose features are fields and methods (An entity is some unit of data that can be classified and have stated relationships to other entities)</rdfs:comment>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/concepts/class.html</rdfs:seeAlso>
+        <rdfs:comment>AbstracClass, FinalClass, SuperClass and SubClass in principle are not consdered as a subclasses due to exists a especific properties to model the distintion</rdfs:comment>
     </owl:Class>
     
 
@@ -590,6 +1290,50 @@ A Java class is a tyoe of Software Class whose features are fields and methods (
         <rdfs:label>Java source file</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;SourceFile"/>
         <rdfs:comment>A Java source code file is a file contain instructions (possibly with comments) written Java programing language</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaStatement -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaStatement">
+        <rdfs:label>Java statement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
+        <rdfs:comment>Represents the smallest standalone element of a Java program</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaStaticNestedClass -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaStaticNestedClass">
+        <rdfs:label>Nested Class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaNestedClass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;isStatic"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Nested classes that are declared static. A static nested class is associated with its outer class. And like static class methods, a static nested class cannot refer directly to instance variables or methods defined in its enclosing class: it can use them only through an object reference.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/nested.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaTieredApplication -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaTieredApplication">
+        <rdfs:label>Java tiered application</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaDistributedApplication"/>
+        <rdfs:comment>In a multi-tiered application, the functionality of the application is separated into isolated functional areas, called tiers. Typically, multi-tiered applications have a client tier, a middle tier, and a data tier (often called the enterprise information systems tier). The client tier consists of a client program that makes requests to the middle tier. The middle tier&apos;s business functions handle client requests and process application data, storing it in a permanent datastore in the data tier.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/firstcup/doc/gcrky.html#gcrkr</rdfs:seeAlso>
     </owl:Class>
     
 
@@ -612,9 +1356,10 @@ A Java class is a tyoe of Software Class whose features are fields and methods (
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
-                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+                <owl:hasValue rdf:resource="&msw;JAVA"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html</rdfs:seeAlso>
         <rdfs:comment>A Java type determines the types of values of the Java variables.
 
 All variables must have a type. You can use primitive types such as int, float, boolean, etc. Or you can use reference types, such as strings, arrays, or objects.</rdfs:comment>
@@ -622,12 +1367,38 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#JavaTypeVariableType -->
+    <!-- http://www.markosproject.eu/ontologies/java#JavaTypeParameter -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaTypeVariableType">
-        <rdfs:label>Java type variable type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaReferenceType"/>
-        <rdfs:comment>A type variable is an unqualified identifier used as a type in class, interface, method, and constructor bodies.</rdfs:comment>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaTypeParameter">
+        <rdfs:label>Java type parameter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/generics/types.html</rdfs:seeAlso>
+        <rdfs:comment>Type parameter (also called type variables), are variables to be used in a generic type declaration (the declaration of a generic class or generic interface). 
+
+A type variable can be any non-primitive type you specify: any class type, any interface type, any array type, or even another type variable.
+
+By convention, type parameter names are single, uppercase letters. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaUncheckedException -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaUncheckedException">
+        <rdfs:label>Java unchecked exception</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaExceptionType"/>
+        <rdfs:comment>Unchecked runtime exceptions represent conditions that, generally speaking, reflect errors in your program&apos;s logic and cannot be reasonably recovered from at run time</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaWebTier -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JavaWebTier">
+        <rdfs:label>Java web tier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTieredApplication"/>
+        <rdfs:comment>Web-Tier Java EE Technologies: Servlets, JavaServer Faces, JavaServer Faces Facelets, Expression Language (A set of standard tags used in JSP and Facelets pages to refer to Java EE components), JavaServer Pages (JSP), JavaServer Pages Standard Tag, JavaBeans Components...</rdfs:comment>
+        <rdfs:comment>The web tier consists of components that handle the interaction between clients and the business tier</rdfs:comment>
     </owl:Class>
     
 
@@ -637,15 +1408,40 @@ All variables must have a type. You can use primitive types such as int, float, 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#JspFile">
         <rdfs:label>Jsp file</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSourceFile"/>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/JavaServer_Pages</rdfs:seeAlso>
         <rdfs:comment>JSP is a file extension for Java Server Pages file format.  A JSP is an HTML page containing a reference to Java servlets, or,  java server side applets. In orther words, html with java code.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#PersistenceXMLSourceCodeFile -->
+    <!-- http://www.markosproject.eu/ontologies/java#LambdaExpresion -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#PersistenceXMLSourceCodeFile">
-        <rdfs:subClassOf rdf:resource="&msw;ConfigurationFile"/>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#LambdaExpresion">
+        <rdfs:label>Java lambda expresion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaExpresion"/>
+        <rdfs:comment>Lambda expressions enable to treat functionality as method argument, or code as data. In the cases, you&apos;re  trying to pass functionality as an argument to another method.
+
+They are usually used to define the funcionality to interface that contains only one anstrac method.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#SoftwareDevelopmentKit -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#SoftwareDevelopmentKit">
+        <rdfs:label>Software development kit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaDevelopmentTool"/>
+        <rdfs:comment>A software development kit (SDK or &quot;devkit&quot;) is typically a set of software development tools that allows for the creation of applications for a certain software package, software framework, hardware platform, computer system, video game console, operating system, or similar development platform.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#Stand-AloneApplication -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#Stand-AloneApplication">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgram"/>
+        <rdfs:comment>Computer software that can work offline, i.e. does not necessarily require network connection to function</rdfs:comment>
     </owl:Class>
     
 
@@ -661,23 +1457,32 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#WebXMLSourceCodeFile -->
+    <!-- http://www.markosproject.eu/ontologies/java#WEBApplication -->
 
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#WebXMLSourceCodeFile">
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#DeploymentDescriptorFile"/>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#WEBApplication">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgram"/>
+        <rdfs:comment>Web application</rdfs:comment>
+        <rdfs:comment>A web application or web app is any application software that runs in a web browser or is created in a browser-supported programming language (such as the combination of JavaScript, HTML and CSS) and relies on a common web browser to render the application</rdfs:comment>
+        <rdfs:comment>Web Java EE Technologies: Applet</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#API -->
+    <!-- http://www.markosproject.eu/ontologies/java#WEBService -->
 
-    <owl:Class rdf:about="&msw;API"/>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#WEBService">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaBusinessTier"/>
+    </owl:Class>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#ArchiveFile -->
+    <!-- http://www.markosproject.eu/ontologies/java#WebXMLSourceCodeFile -->
 
-    <owl:Class rdf:about="&msw;ArchiveFile"/>
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/java#WebXMLSourceCodeFile">
+        <rdfs:label>Web XML descriptor file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/java#JavaDeploymentDescriptorFile"/>
+        <rdfs:comment>For web applications, the deployment descriptor must be called web.xml and must reside in the WEB-INF directory in the web application roo</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -687,51 +1492,15 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#Component -->
-
-    <owl:Class rdf:about="&msw;Component"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#ConfigurationFile -->
-
-    <owl:Class rdf:about="&msw;ConfigurationFile"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#Constructor -->
-
-    <owl:Class rdf:about="&msw;Constructor"/>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#ExceptionType -->
 
     <owl:Class rdf:about="&msw;ExceptionType"/>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#ExecutableFile -->
-
-    <owl:Class rdf:about="&msw;ExecutableFile"/>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#Interface -->
 
     <owl:Class rdf:about="&msw;Interface"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#Library -->
-
-    <owl:Class rdf:about="&msw;Library"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#LocalVariable -->
-
-    <owl:Class rdf:about="&msw;LocalVariable"/>
     
 
 
@@ -747,30 +1516,6 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#Package -->
-
-    <owl:Class rdf:about="&msw;Package"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#Parameter -->
-
-    <owl:Class rdf:about="&msw;Parameter"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#PrimitiveType -->
-
-    <owl:Class rdf:about="&msw;PrimitiveType"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#ProgrammingLanguageVersion -->
-
-    <owl:Class rdf:about="&msw;ProgrammingLanguageVersion"/>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareClass -->
 
     <owl:Class rdf:about="&msw;SoftwareClass"/>
@@ -780,12 +1525,6 @@ All variables must have a type. You can use primitive types such as int, float, 
     <!-- http://www.markosproject.eu/ontologies/software#SourceCodeFile -->
 
     <owl:Class rdf:about="&msw;SourceCodeFile"/>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#SourceFile -->
-
-    <owl:Class rdf:about="&msw;SourceFile"/>
     
 
 
@@ -803,12 +1542,6 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/top#Entity -->
-
-    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/top#Entity"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -820,25 +1553,401 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#Java_Database_Connectivity -->
+    <!-- http://www.markosproject.eu/ontologies/java#APPLET -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#Java_Database_Connectivity">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaLibrary"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/java#Nines -->
-
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#Nines">
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#APPLET">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#boolean -->
+    <!-- http://www.markosproject.eu/ontologies/java#ARRAY -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#boolean">
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#ARRAY">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#BUNDLEACTIVATOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#BUNDLEACTIVATOR">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#COM.GOOGLE.GWT -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#COM.GOOGLE.GWT">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#ENTRYPOINT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#ENTRYPOINT -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#ENTRYPOINT">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#GENERICSERVLET -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#GENERICSERVLET">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:directImplementedInterface rdf:resource="http://www.markosproject.eu/ontologies/java#SERIALIZABLE"/>
+        <msw:directImplementedInterface rdf:resource="http://www.markosproject.eu/ontologies/java#SERVLET"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#HTTPSERVLET -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#HTTPSERVLET">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:directExtendedType rdf:resource="http://www.markosproject.eu/ontologies/java#GENERICSERVLET"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#HTTPSERVLETREQUEST -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#HTTPSERVLETREQUEST">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:directExtendedType rdf:resource="http://www.markosproject.eu/ontologies/java#SERVLET"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#HTTPSERVLETRESPONSE -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#HTTPSERVLETRESPONSE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:directExtendedType rdf:resource="http://www.markosproject.eu/ontologies/java#SERVLET"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA.APPLET -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA.APPLET">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <rdfs:comment>Provides the classes necessary to create an applet and the classes an applet uses to communicate with its applet context.</rdfs:comment>
+        <msw:version>7</msw:version>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#APPLET"/>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA.AWT -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA.AWT">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <rdfs:comment>Contains all of the classes for creating user interfaces and for painting graphics and images.</rdfs:comment>
+        <msw:version>7</msw:version>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA.LANG -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA.LANG">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:version>7</msw:version>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7"/>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#STRING"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA.SQL -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA.SQL">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:version>7</msw:version>
+        <rdfs:comment>Provides the API for accessing and processing data stored in a data source (usually a relational database) using the JavaTM programming language.</rdfs:comment>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA.UTIL -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA.UTIL">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:version>7</msw:version>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#ARRAY"/>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVANAMINGANDDIRECTORY -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVANAMINGANDDIRECTORY">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <preferredName>JNDI</preferredName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVAX.EJB -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVAX.EJB">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:version>7</msw:version>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_ENTERPRISE_EDITION_7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVAX.SERVLET -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVAX.SERVLET">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:version>7</msw:version>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#GENERICSERVLET"/>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#HTTPSERVLET"/>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#HTTPSERVLETREQUEST"/>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#HTTPSERVLETRESPONSE"/>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_ENTERPRISE_EDITION_7"/>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#SERVLET"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVAX.SQL -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVAX.SQL">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <rdfs:comment>Provides the API for server side data source access and processing from the JavaTM programming language.</rdfs:comment>
+        <msw:version>7</msw:version>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVAX.SWING -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVAX.SWING">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <rdfs:comment>Provides a set of &quot;lightweight&quot; (all-Java language) components that, to the maximum degree possible, work the same on all platforms.</rdfs:comment>
+        <msw:version>7</msw:version>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.0">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion"/>
+        <rdfs:label>JDK 1.0</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.1">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion"/>
+        <rdfs:label>JDK 1.1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.2">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion"/>
+        <rdfs:label>J2SE 1.2</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.3">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion"/>
+        <rdfs:label>J2SE 1.3</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_1.4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_1.4">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion"/>
+        <rdfs:label>J2SE 1.4</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_5.0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_5.0">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion"/>
+        <rdfs:label>J2SE 5.0</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_6">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion"/>
+        <rdfs:label>Java SE 6</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_7">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaProgrammingLanguageVersion"/>
+        <rdfs:label>Java SE 7</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@DEPRECATED -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@DEPRECATED">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@DOCUMENTED -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@DOCUMENTED">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMetaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@FUNCTIONALINTERFACE -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@FUNCTIONALINTERFACE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@INHERITED -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@INHERITED">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMetaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@OVERRIDE -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@OVERRIDE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@REPETEABLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@REPETEABLE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMetaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@RETENTION -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@RETENTION">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMetaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@SAFEVARARGS -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@SAFEVARARGS">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@SUPPRESSWARNING -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@SUPPRESSWARNING">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_@TARGET -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_@TARGET">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMetaAnnotationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_APACHEANT -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_APACHEANT">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#BuildAutomationTool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_APACHEBUILDR -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_APACHEBUILDR">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#BuildAutomationTool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_APACHEMAVEN -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_APACHEMAVEN">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#BuildAutomationTool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_BLUEJ -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_BLUEJ">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_BOOLEAN -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_BOOLEAN">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
         <rdfs:label>boolean</rdfs:label>
         <rdfs:comment>The boolean data type has only two possible values: true and false. Use this data type for simple flags that track true/false conditions. This data type represents one bit of information, but its &quot;size&quot; isn&apos;t something that&apos;s precisely defined.</rdfs:comment>
@@ -846,111 +1955,344 @@ All variables must have a type. You can use primitive types such as int, float, 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#byte -->
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_BYTE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#byte">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_BYTE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaIntegralType"/>
         <rdfs:label>byte</rdfs:label>
         <rdfs:comment>The byte data type is an 8-bit signed two&apos;s complement integer. It has a minimum value of -128 and a maximum value of 127 (inclusive). The byte data type can be useful for saving memory in large arrays, where the memory savings actually matters. They can also be used in place of int where their limits help to clarify your code; the fact that a variable&apos;s range is limited can serve as a form of documentation</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#char -->
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_CHART -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#char">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_CHART">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaIntegralType"/>
         <rdfs:label>char</rdfs:label>
         <rdfs:comment>The char data type is a single 16-bit Unicode character. It has a minimum value of &apos;\u0000&apos; (or 0) and a maximum value of &apos;\uffff&apos; (or 65,535 inclusive).</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#double -->
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_CODENVY -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#double">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_CODENVY">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_DATABASE_CONNECTIVITY -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_DATABASE_CONNECTIVITY">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAPI"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:version>7</msw:version>
+        <preferredName>JDBC</preferredName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_DATABASE_CONNECTIVITY_LIBRARY -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_DATABASE_CONNECTIVITY_LIBRARY">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaLibrary"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <msw:implementedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#JAVA_DATABASE_CONNECTIVITY"/>
+        <msw:provenanceManifestation rdf:resource="http://www.markosproject.eu/ontologies/java#JDBC.JAR"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_DOUBLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_DOUBLE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaFloatingPointType"/>
         <rdfs:label>double</rdfs:label>
         <rdfs:comment>The double data type is a double-precision 64-bit IEEE 754 floating point. Its range of values is beyond the scope of this discussion, but is specified in the Floating-Point Types, Formats, and Values section of the Java Language Specification. For decimal values, this data type is generally the default choice. As mentioned above, this data type should never be used for precise values, such as currency</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#float -->
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_DRJAVA -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#float">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_DRJAVA">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_ECLIPSE -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_ECLIPSE"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_ECLIPSEJDTIBM -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_ECLIPSEJDTIBM">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_FLOAT -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_FLOAT">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaFloatingPointType"/>
         <rdfs:label>float</rdfs:label>
         <rdfs:comment>The float data type is a single-precision 32-bit IEEE 754 floating point. Its range of values is beyond the scope of this discussion, but is specified in the Floating-Point Types, Formats, and Values section of the Java Language Specification. As with the recommendations for byte and short, use a float (instead of double) if you need to save memory in large arrays of floating point numbers. This data type should never be used for precise values, such as currency. For that, you will need to use the java.math.BigDecimal class instead. Numbers and Strings covers BigDecimal and other useful classes provided by the Java platform.</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#int -->
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_GRADLE -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#int">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_GRADLE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#BuildAutomationTool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_HUDSON -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_HUDSON">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#ContinuousIntegrationTool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_INTEGER -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_INTEGER">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaIntegralType"/>
         <rdfs:label>int</rdfs:label>
         <rdfs:comment>The int data type is a 32-bit signed two&apos;s complement integer. It has a minimum value of -2,147,483,648 and a maximum value of 2,147,483,647 (inclusive). For integral values, this data type is generally the default choice unless there is a reason (like the above) to choose something else. This data type will most likely be large enough for the numbers your program will use, but if you need a wider range of values, use long instead.</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#long -->
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_INTELLIJIDEA -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#long">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_INTELLIJIDEA">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_JAVASEDEVELOPMENTKIT_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_JAVASEDEVELOPMENTKIT_7">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#SoftwareDevelopmentKit"/>
+        <rdfs:label>Java SE development kit</rdfs:label>
+        <rdfs:label>JDK</rdfs:label>
+        <msw:version rdf:datatype="&xsd;string">7</msw:version>
+        <rdfs:comment>The JDK is a development environment for building applications, applets, and components using the Java programming language. The JDK includes tools useful for developing and testing programs written in the Java programming language and running on the Java platform.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_JBUILDER -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_JBUILDER">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_JCREATOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_JCREATOR">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_JDEVELOPER -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_JDEVELOPER">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_JGRASP -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_JGRASP">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_LONG -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_LONG">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaIntegralType"/>
         <rdfs:label>long</rdfs:label>
         <rdfs:comment>The long data type is a 64-bit signed two&apos;s complement integer. It has a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807 (inclusive). Use this data type when you need a range of values wider than those provided by int.</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/java#short -->
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_MAVEN -->
 
-    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#short">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPrimitiveType"/>
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_MAVEN"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_MYECLIPSE -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_MYECLIPSE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_NETBEANS -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_NETBEANS">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_ENTERPRISE_EDITION_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_ENTERPRISE_EDITION_7">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAPI"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <preferredName>Java_EE</preferredName>
+        <msw:version>7</msw:version>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_PLATFORM_STANDAR_EDITION_7">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAPI"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <preferredName>Java_SE</preferredName>
+        <msw:version>7</msw:version>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_RATIONALAPPLICATIONDEVELOPER -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_RATIONALAPPLICATIONDEVELOPER">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#IDETool"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JAVA_SHORT -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JAVA_SHORT">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaIntegralType"/>
         <rdfs:label>short</rdfs:label>
         <rdfs:comment>The short data type is a 16-bit signed two&apos;s complement integer. It has a minimum value of -32,768 and a maximum value of 32,767 (inclusive). As with byte, the same guidelines apply: you can use a short to save memory in large arrays, in situations where the memory savings actually matters.</rdfs:comment>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#JAVA_LANGUAGE -->
+    <!-- http://www.markosproject.eu/ontologies/java#JDBC.JAR -->
 
-    <owl:NamedIndividual rdf:about="&msw;JAVA_LANGUAGE"/>
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#JDBC.JAR">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JARArchiveFile"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#ORG.OGSI.FRAMEWORK -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#ORG.OGSI.FRAMEWORK">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaPackage"/>
+        <msw:version>1.7</msw:version>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#BUNDLEACTIVATOR"/>
+        <msw:includedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#OSGi_CORE_RELEASE_5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#ORG.OSGI.CORE-5.0.0.JAR -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#ORG.OSGI.CORE-5.0.0.JAR">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JARArchiveFile"/>
+        <msw:version>5.0.0</msw:version>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#ORG.OSGI.CORE_LIBRARY -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#ORG.OSGI.CORE_LIBRARY">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaLibrary"/>
+        <msw:version>5.0.0</msw:version>
+        <mtop:ownedMember rdf:resource="http://www.markosproject.eu/ontologies/java#ORG.OGSI.FRAMEWORK"/>
+        <msw:provenanceManifestation rdf:resource="http://www.markosproject.eu/ontologies/java#ORG.OSGI.CORE-5.0.0.JAR"/>
+        <msw:implementedAPI rdf:resource="http://www.markosproject.eu/ontologies/java#OSGi_CORE_RELEASE_5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#OSGi_CORE_RELEASE_5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#OSGi_CORE_RELEASE_5">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaAPI"/>
+        <msw:version>5</msw:version>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#SERIALIZABLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#SERIALIZABLE">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#SERVLET -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#SERVLET">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaInterface"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#STRING -->
+
+    <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/java#STRING">
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaSoftwareClass"/>
+        <isCore rdf:datatype="&xsd;boolean">true</isCore>
+        <rdfs:comment>The String class represents character strings. All string literals in Java programs, such as &quot;abc&quot;, are implemented as instances of this class.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#JAVA -->
+
+    <owl:NamedIndividual rdf:about="&msw;JAVA"/>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#PACKAGE_VISIBILITY -->
 
-    <owl:NamedIndividual rdf:about="&msw;PACKAGE_VISIBILITY">
+    <rdf:Description rdf:about="&msw;PACKAGE_VISIBILITY">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTopLevelModifier"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#PRIVATE_VISIBILITY -->
-
-    <owl:NamedIndividual rdf:about="&msw;PRIVATE_VISIBILITY">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMemberModifier"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#PROTECTED_VISIBILITY -->
-
-    <owl:NamedIndividual rdf:about="&msw;PROTECTED_VISIBILITY">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaMemberModifier"/>
-    </owl:NamedIndividual>
+    </rdf:Description>
     
 
 
     <!-- http://www.markosproject.eu/ontologies/software#PUBLIC_VISIBILITY -->
 
-    <owl:NamedIndividual rdf:about="&msw;PUBLIC_VISIBILITY">
+    <rdf:Description rdf:about="&msw;PUBLIC_VISIBILITY">
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/java#JavaTopLevelModifier"/>
-    </owl:NamedIndividual>
+    </rdf:Description>
 </rdf:RDF>
 
 

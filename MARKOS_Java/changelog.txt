@@ -1,85 +1,113 @@
-CLASSES
+V0.4 ------------------------------------------------------------
 
-JavaClassType
-JavaInterfaceType
-JavaComponentType
-JavaField
-JavaLocalVariable
-JavaParameter
-JavaMethod
-JavaConstructorMethod
-JavaType
-JavaPrimitiveType
-JavaReferenceType
+ADD CLASSES
+JavaNestedClass (sofware entities)
+JavaInnerClass (sofware entities)
+JavaStaticNestedClass (sofware entities)
+JavaLocalClass (sofware entities)
+JavaAnonymousClass (sofware entities)
+JavaConstant (sofware entities)
+JavaNativeMethod (sofware entities)
+JavaExpresion (sofware entities)
+LambdaExpresion (sofware entities)
+JavaFunctionalInterface (sofware entities)
+JavaNativeInterface (sofware entities)
+JavaNonAbstractMethod (sofware entities)
+JavaInstanceMethod software entity
+JavaClassMethod (software entity)
+JavaArrayType (software entity)
+JavaExceptionType (software entity)
+JavaCheckedException (software entity)
+JavaUncheckedException (software entity)
+JavaPropertiesFile (files)
+JavaManifestMFFile (files)
+JavaTypeParameter (generic)
+JavaParameterizedType (generic)
+JavaGenericClass (generic)
+JavaGenericInterface (generic)
+JavaAnnotation (annotations)
+JavaAnnotationType (annotations) with some predefined members
+JavaMetaAnnotationsType (annotation) with some predefined members
+JavaAnnotationTypeElement (annotation)
+
+
+DELETE CLASSES
+JavaOperation (in Java does not exist Operation, and now moreover if does not exist the Operation Class in the common ontology)
+JavaMemberModifier (Same entity than in VisibilityKind)
+
+ADD AXIOMS
+For JavaMember add visibility some JavaMemberModifier
+JavaSoftwareClass: nestedClassifier some JavaNestedClass
+JavaMethod: nestedClassifier some JavaLocalClass
+JavaClass as JavaExecutableFile
+
+DELETE AXIOMS
+Remove the equivalent class between JavaAbstracMethod and JavaOperation
+For JavaMethod and JavaField: remove visibility some JavaAccessModifier
+For JavaSoftwareClass: directImplementedInterface only JavaInterface(in the new version of the common ontology exist the property with the needed resticion directImplementedinterface: Classifier x Interface -> SoftwareClass x Interface)
+For JavaDeploymentDescriptorFile delete the parent class NonCodeFile, because does not exist anymore
+
+UPDATA AXIOMS
+JavaDeploymentDescriptorFile subclassOf JavaConfigurationFile: The deployment files are also considered configuration file. 
+
+ADD PROPERTIES
+Data properties: isStrictfp: JavaNonAbstracMethod or JavaSoftwareClass or JavaInterface x boolean 
+Data properties: isFinal: Feature or JavaSoftwareClass x boolean
+Data properties: isTransient: JavaField x boolean
+Data properties: isVolatile: JavaField x boolean
+Object properties: ownedTypeParameter: JavaGenericInterface or JavaGenericClass x JavaTypeParameter (generic)
+Object properties: ownedTypeArgument: JavaGenericInterface or JavaGenericClass x JavaTypeParameter (generic)
+Object properties: applyAnnotation: ¿? x JavaSoftwareClass or JavaInterface or JavaMember (annotation)
+Object properties: ownedAnnotationTypeElement: JavaAnnotationType x JavaAnnotationTypeElement (annotation)
+
+
+UPDATE PROPERTIES
+preferred_name change to preferredName
+
+
+V0.3 -------------------------------------------------------------
+
+ADD CLASSES
+JavaEnumType
+JavaApplicationType
+
+ADD AXIOMS
+in JavaPackage to constrain the range of ownedMember to JavaSoftwareClass and JavaInterface
+in JavaClass to constraint the range of the directImplementedInterface to JavaInterface 
+JavaEnumType subclass of Enumeration
+
+INDIVIDUALS
+All the JavaVersions.
+Added some core individuals in following clases:
+JavaSoftwareClass (STRING, ARRAY, APPLET, HTTPSERVLET, ...)
+JavaInterface (Servlet, JNDI..)
+JavaPackate (javax.servlet, java.sql, java.awt, java.applet, org.ogsi.framwork)
+JavaAPI (JDBC, Java EE, Java SE..)
+JavaLibrary (Java_database_connectivity_library...)
+JARArhiveFile (jdbc.jar..)
+
+ADD PROPERTIES
+preferred_name (Named_entity x String) 
+importedClass (JavaReferenceType x JavaSofwareClass)
+
+RENAMED CLASSES
+JavaConstructorMethod  --> JavaConstructor
+
+RENAMED properties
+ownedObjectEntity --> ownedObjectType
+
+DELTED CLASSES
 JavaTypeVariableType
 JavaArrayType
-JavaMember
-JavaAPI
-JavaLibrary
-JavaPackage
-JavaArchiveFile
-JavaObjectFile
-ClassFile
-JavaSourceFile
-JspFile
-JavaFile
-JavaAccessModifier
-JavaMemberModifier
-JavaTopLevelModifier
-JavaProgrammingLanguageVersion
 
-AXIOMAS
-
-JavaMethod
-visibility some JavaAccessModifier
-implementationLanguage value JAVA and Method
-
-JavaComponentType
-implementationLanguage value JAVA and Component
-
-JavaInterfaceType
-implementationLanguage value JAVA and Interface
-visibility some JavaTopLevelModifier
-
-JavaClassType
-implementationLanguage value JAVA and SoftwareClass
-visibility some JavaTopLevelModifier
-
-JavaField
-implementationLanguage value JAVA and Field
-type some JavaType
-
-JavaLocalVariable
-implementationLanguage value JAVA and LocalVariable
-type some JavaType
-
-JavaParameter
-implementationLanguage value JAVA and Parameter
-type some JavaType
-
-JavaType
-implementationLanguage value JAVA
-
-JavaMember
-visibility some JavaAccessModifier
-
-JavaLibrary
-implementationLanguage value JAVA and Library
-
-JavaPackageX
-implementationLanguage value JAVA and Package
+DELETE properties
+isAbstrac (javaClass, JavaMethod x bool) --> pasa a top.
+ownedPackage --> pasa a top
+isDistributedBy (JavaPackage x JavaArchiveFile) --> through the “ownedPackage” (Library x Package) and “manifestation” (Library x ArchiveFile) properties, I can have this information
+ownedObjectType --> through the “ownedMember”
+implementedInterface (JavaClass x JavaInterface) -> replace by introducing restrincion in following classes: JavaClassType, JavaEnumType 
 
 
 
-DATAPROPERTIES
-isCore, (Class, Interface, Package, API, Library) x boolean
-isAbstrac, apply to Method, Class X boolean
-
-OBJECTPROERTIES
-ownedPackage: JavaLibrary x JavaPackage
-ownedObjectEntity: JavaPackage x JavaClassType or JavaInterfaceType
-implementedInterface: JavaClassType x JavaInterfaceType
-distributedPackage: JavaArhiveFile x JavaPackage
-isDistributedBy (inverseOf distributedPackage)
 
 
