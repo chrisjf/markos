@@ -1,14 +1,30 @@
 MARKOS ontology 
 
-V1.5.1 (nextVersion)
+V1.6 (nextVersion)
 ====
 
 Changed classes:
-- Type (subclass of SoftwareEntity): the constraint was already in previous versions and removed by error) 
+- Type (is now subclass of SoftwareEntity): the constraint was already in previous versions and removed by error) 
+- SoftwareObjectType renamed to ObjectType: because while in the case of SoftwareClass the qualification was useful to distinguish from an OWLCLass, in this case there is not need of disambiguation
+- TypedEntity (definition in rdfs:comment has been improved): to better clarify the mapping to UML2
+- Attribute (definition in rdfs:comment has been generalised): to capture the case of Object based languages (having no Classifiers)
+- Component (no more an ObjectType, but just a Classifier): to cover languages where a Component instance is not an object.
 
 Changed properties (name, comment and related constraints):
 - subordinateEntity: Entity x NamedEntity -> Entity x Entity (because range of sub-property containedEntity is Entity) 
+- ownedParameter: Method x Parameter -> Behavior x Parameter (to be more general and aligned to UML2)
+- valueType (label changed to "Type"): because it is used also to both represent the type of (values of) variables and the type of values themselves. The property is still called valueType to minimise the risk of clash with rdfs:type due to namespace typos. 
 
+Added classes:
+- Value: Any SoftwareEntity represented in computer memory
+- DataValue: Any Value having no identity distinct from its representation
+- Object: Any value having an identity that is distinct form its representation
+- Slot: to represent a set of values of an Attribute
+
+Added properties:
+- extendedSignature: Behavior x String (summarises the main aspects of a Behavior in a single string)
+- nextParameter: Parameter x Parameter (to represent the order of parameters of a Behavior, when the parameters are ordered)
+- ownedValue: Slot x Value (to represent any value of a Slot)
 
 V1.5
 ====

@@ -161,7 +161,9 @@ Depending from the specific type of entity, specific strategies can be found to 
 
     <!-- http://purl.org/dc/terms/subject -->
 
-    <owl:ObjectProperty rdf:about="&terms;subject"/>
+    <owl:ObjectProperty rdf:about="&terms;subject">
+        <rdfs:comment xml:lang="en">The value owned by the subject Slot. It may be represented by the UML2 association called &quot;value&quot;.</rdfs:comment>
+    </owl:ObjectProperty>
     
 
 
@@ -484,6 +486,18 @@ A SoftwareWork may be an abstract entity that may have several distinct manifest
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#nextParameter -->
+
+    <owl:ObjectProperty rdf:about="&msw;nextParameter">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:comment xml:lang="en">The Parameter that follows the subject Parameter when invoking the owner Behavior. This property is defined only if an order for the parameters is specified for the Behavior invokation.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;Parameter"/>
+        <rdfs:domain rdf:resource="&msw;Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#ownedAPI -->
 
     <owl:ObjectProperty rdf:about="&msw;ownedAPI">
@@ -532,7 +546,7 @@ A SoftwareWork may be an abstract entity that may have several distinct manifest
 
 In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be confused with a legal ownership relatioship.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;Method"/>
-        <rdfs:domain rdf:resource="&msw;SoftwareObjectType"/>
+        <rdfs:domain rdf:resource="&msw;ObjectType"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -543,10 +557,20 @@ In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be con
     <owl:ObjectProperty rdf:about="&msw;ownedParameter">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Owned parameter</rdfs:label>
-        <rdfs:comment xml:lang="en">Parameter owned by the subject Method (represented by the homonymous UML2 element)</rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;Method"/>
+        <rdfs:comment xml:lang="en">Parameter owned by the subject Behavior (represented by the homonymous UML2 element)</rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;Behavior"/>
         <rdfs:range rdf:resource="&msw;Parameter"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ownedValue -->
+
+    <owl:ObjectProperty rdf:about="&msw;ownedValue">
+        <rdfs:comment xml:lang="en">Any Value owned by the subject Slot. It correspondinds to the UML2 porperty called &quot;value&quot;. </rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;Slot"/>
+        <rdfs:range rdf:resource="&msw;Value"/>
     </owl:ObjectProperty>
     
 
@@ -812,8 +836,8 @@ Note that an implementation relationship is not necessarly a usage relationship 
     <!-- http://www.markosproject.eu/ontologies/software#valueType -->
 
     <owl:ObjectProperty rdf:about="&msw;valueType">
-        <rdfs:label xml:lang="en">Value type</rdfs:label>
-        <rdfs:comment xml:lang="en">The range of values that the subject TypedEntity can represent (it corresponds to the UML2 association called &quot;type&quot;).</rdfs:comment>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <rdfs:comment xml:lang="en">A Type that the subject Value or the value represented by the subject TypedEntity must be instance of. This corresponds to the UML2 association &quot;classifier&quot; (in case the subject is a Value) or to the UML2 association called &quot;type&quot; (in case the subject is a placeholder for a value, such as a Variable or a formal parameter).</rdfs:comment>
         <rdfs:range rdf:resource="&msw;Type"/>
         <rdfs:domain rdf:resource="&msw;TypedEntity"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
@@ -1110,6 +1134,28 @@ Equivalent to &apos;download-mirror&apos; from ontology DOAP</rdfs:comment>
 Equivalent to &apos;download-page&apos; from ontology DOAP</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#extendedSignature -->
+
+    <owl:DatatypeProperty rdf:about="&msw;extendedSignature">
+        <rdfs:comment xml:lang="en">String representing the main aspects of the Behavior (that are relevant to the Behavior user) having the following syntax:
+
+[&lt;behavior-visibility&gt;] [‘static‘] [‘abstract‘] [‘final‘] &lt;behavior-name&gt; ‘(‘ [&lt;parameter-list&gt;] ‘)’ [‘:’ [&lt;return-type&gt;] [‘[‘ &lt;multiplicity&gt; ‘]’] ]
+
+where
+
+the string ‘static‘ is present if isStatic=true
+the string ‘abstract‘ is present if isAbstract=true
+the string ‘final‘ is present if isLeaf=true
+
+&lt;parameter-list&gt; ::= &lt;parameter&gt; [‘,’&lt;parameter&gt;]*
+
+&lt;parameter&gt; ::= [&lt;parameter-direction&gt;] &lt;parameter-name&gt; ‘:’ &lt;parameter-type&gt; [‘[‘&lt;multiplicity&gt;’]’] [‘=’ &lt;default&gt;] </rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;Behavior"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -1435,7 +1481,7 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
     <owl:Class rdf:about="&msw;AnnotationType">
         <rdfs:label xml:lang="en">Annotation type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
-        <rdfs:comment xml:lang="en">An annotation type is a type of data associated to a software entity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An annotation type is a type of data associated to a software entity. Depending from the programming language an AnnotationType may be an ObjectType or a DataType.</rdfs:comment>
     </owl:Class>
     
 
@@ -1480,7 +1526,9 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
                 <owl:allValuesFrom rdf:resource="&msw;Attribute"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Attribute, i.e. a UML2 Property that is &quot;ownedAttribute&quot; of a Classifier (Class, Interface, DataType...). &quot;When a property is an attribute of a classifier, the value or values are related to the instance of the classifier by being held in slots of the instance.&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="en">A SoftwareEntity that can be represented by a UML2 Property. It represents a kind of relationship that one or more values may have with an Object.
+
+Note that in UML terminology an attribute is a Property owned by a Classifier, while here Attribute is used to represent also a UML2 Property not owned by any Classifier. The change of name is to minimize the risk of formal mixing with OWL Properties due to namespace typos.</rdfs:comment>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Attribute&apos; + owning class URI  + attribute name</mtop:canonicalURICriteria>
         <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
         <mtop:identityCriteria xml:lang="en">Owning class,
@@ -1565,8 +1613,8 @@ This is an abstract OWL class, i.e. identity criteria are defined by OWL subclas
 
     <owl:Class rdf:about="&msw;Component">
         <rdfs:label xml:lang="en">Component</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;SoftwareObjectType"/>
-        <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Component: &quot;a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment. A component defines its behaviour in terms of provided and required interfaces. As such, a component serves as a type whose conformance is defined by these provided and required interfaces [â€¦]. One component may therefore be substituted by another only if the two are type conformant. A component may be manifest by one or more artefacts [â€¦]&quot;. 
+        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
+        <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Component: &quot;a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment. A component defines its behaviour in terms of provided and required interfaces. As such, a component serves as a type whose conformance is defined by these provided and required interfaces [...]. One component may therefore be substituted by another only if the two are type conformant. A component may be manifest by one or more artefacts [...]&quot;. 
 
 While in UML each Component is also a Class, here we do not assume that a software component is also a software class, but we assume as in UML 2, that it has an internal structure (i.e. &quot;acts as the namespace for various kinds of classifiers defined within its scope, including classes.&quot;).</rdfs:comment>
     </owl:Class>
@@ -1609,11 +1657,21 @@ While in UML each Component is also a Class, here we do not assume that a softwa
     <owl:Class rdf:about="&msw;DataType">
         <rdfs:label xml:lang="en">Data type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
-        <rdfs:comment xml:lang="en">A software entity  that can be represented by a UML2 DatatTpe: &quot;A data type is a special kind of classifier, similar to a class. It differs from a class in that instances of a data type are identified only by their value.
+        <rdfs:comment xml:lang="en">A software entity  that can be represented by a UML2 DataType: &quot;A data type is a special kind of classifier, similar to a class. It differs from a class in that instances of a data type are identified only by their value.
 
 All copies of an instance of a data type and any instances of that data type with the same value are considered to be equal instances. Instances of a data type that have attributes (i.e., is a structured data type) are considered to be equal if the structure is the same and the values of the corresponding attributes are equal. If a data type has attributes, then instances of that data type will contain attribute values matching the attributes.&quot;
 
 This is an abstract RDF class, i.e. identity criteria are defined by RDF subclasses.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#DataValue -->
+
+    <owl:Class rdf:about="&msw;DataValue">
+        <rdfs:subClassOf rdf:resource="&msw;Value"/>
+        <rdfs:comment xml:lang="en">A value having no identity, i.e. if two values have the same representation, then they are indistinguishable. Depending from the programming language DataValue may have or not Attributes, Methods and nested Types.
+In particular any SoftwareEntity that may be represented by a UML2 LiteralValue is a DataValue, but not any DataValue (in particular a structured DataValue) may be represented by a UML2 LiteralValue.    </rdfs:comment>
     </owl:Class>
     
 
@@ -1686,6 +1744,12 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
     <owl:Class rdf:about="&msw;Feature">
         <rdfs:label xml:lang="en">Feature</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;extendedSignature"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An SoftwareEntity that may be represented by a UML2 Feature: &quot;A feature represents some characteristic for its featuring classifiers; this characteristic may be of the classifier&apos;s instances considered individually (not static), or of the classifier itself (static). A Feature can be a feature of multiple classifiers. 
 The same feature cannot be static in one context but not another.&quot; 
 
@@ -1804,7 +1868,7 @@ The location (e.g. the URL) of a File is determined by the location of its FileC
 
     <owl:Class rdf:about="&msw;Interface">
         <rdfs:label xml:lang="en">Interface</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;SoftwareObjectType"/>
+        <rdfs:subClassOf rdf:resource="&msw;ObjectType"/>
         <rdfs:comment xml:lang="en">A software entity that that can be represented by a UML2 Interface: &quot;An interface is a kind of classifier that represents a declaration of a set of coherent public features and obligations. [...] An interface does not specify how it is to be implemented, but merely what needs to be supported by realizing instances. That is, such instances must provide a public facade (attributes, operations [methods], externally observable behavior) that conforms to the interface. The set of interfaces realized by a classifier [e.g. a class] are its provided interfaces, which represent the obligations that instances of that classifier have to their clients. Interfaces may also be used to specify required interfaces [...]. Required interfaces specify services that a classifier needs in order to perform its function and fulfill its own obligations to its clients.&quot;</rdfs:comment>
     </owl:Class>
     
@@ -1876,6 +1940,17 @@ Differently from UML2, a Behavior belonging to a (Software)Class is a Feature of
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#Object -->
+
+    <owl:Class rdf:about="&msw;Object">
+        <rdfs:subClassOf rdf:resource="&msw;Value"/>
+        <rdfs:comment xml:lang="en">A Value which representation is distinguished from its identity. An Object may own Attributes values (i.e. Slots) and/or Methods and/or nested Types, but its identity does not coincides with its Attributes values (i.e. also if two objects are equal, having the same Attributes values, they may be distinguished).
+An Object that is instance of a Classifier may be represented by a UML2 InstanceValue and specified by a UML2 InstanceSpecification (and the types of the Object are specififed by the values of the UML2 property &quot;classifier&quot;).
+</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#ObjectCodeFile -->
 
     <owl:Class rdf:about="&msw;ObjectCodeFile">
@@ -1893,6 +1968,16 @@ Differently from UML2, a Behavior belonging to a (Software)Class is a Feature of
         <rdfs:label xml:lang="en">Object file</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;ObjectCodeFile"/>
         <rdfs:comment xml:lang="en">Any ObjectCodeFile that is the output of a compiler and is not an ExecutableFile.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ObjectType -->
+
+    <owl:Class rdf:about="&msw;ObjectType">
+        <rdfs:label xml:lang="en">Software object type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
+        <rdfs:comment xml:lang="en">Any Type which instances are objects i.e. Values that may have attributes values, methods and nested types but which identity does not coincides with their status (i.e. two distinct objects may have same attributes values).</rdfs:comment>
     </owl:Class>
     
 
@@ -2022,6 +2107,15 @@ A Program may contain other software entities.</rdfs:comment>
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#Slot -->
+
+    <owl:Class rdf:about="&msw;Slot">
+        <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
+        <rdfs:comment xml:lang="en">A SoftwareEntity representing the value or values of a specific Attribute.Depending from the programming language a Slot may be an Object or not and may exist or not without an owning Object. A slot belonging to an Object may be represented by a UML2 Slot. </rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#SoftwareArtifact -->
 
     <owl:Class rdf:about="&msw;SoftwareArtifact">
@@ -2037,7 +2131,7 @@ A Program may contain other software entities.</rdfs:comment>
 
     <owl:Class rdf:about="&msw;SoftwareClass">
         <rdfs:label xml:lang="en">Software class</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;SoftwareObjectType"/>
+        <rdfs:subClassOf rdf:resource="&msw;ObjectType"/>
         <mtop:versionCriteria xml:lang="en"> the version of the provenanceSourceCode.</mtop:versionCriteria>
         <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 Class: &quot;A class describes a set of objects that share the same specifications of features, constraints, and semantics. Class is a kind of classifier whose features are attributes and operations [methods].&quot;</rdfs:comment>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Class&apos; + name + namespace + incremental number (needed to distinguish classes with the same name and namespace)</mtop:canonicalURICriteria>
@@ -2115,16 +2209,6 @@ the namespace.</mtop:identityCriteria>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A service (offered by a Web Site) to host software projects and to support collaborative software development. </rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#SoftwareObjectType -->
-
-    <owl:Class rdf:about="&msw;SoftwareObjectType">
-        <rdfs:label xml:lang="en">Software object type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
-        <rdfs:comment xml:lang="en">Any Type which instances are objects i.e. may have attributes, methods and nested types.</rdfs:comment>
     </owl:Class>
     
 
@@ -2213,9 +2297,9 @@ abstract entities, such as a Program that may have different concrete manifestat
     <owl:Class rdf:about="&msw;Type">
         <rdfs:label xml:lang="en">Type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
-        <rdfs:comment xml:lang="en">A Software Entity that can be represented by a UML2 Type: &quot;A type represents a set of values. A typed element that has this type is constrained to represent values within this set.&quot;
+        <rdfs:comment xml:lang="en">A SoftwareEntity that can be represented by a UML2 Type: &quot;A type represents a set of values. A typed element that has this type is constrained to represent values within this set.&quot;
 
-Note that not any UML2 type is a Software Entity type.</rdfs:comment>
+Note that not any UML2 type is a SoftwareEntity.</rdfs:comment>
     </owl:Class>
     
 
@@ -2225,7 +2309,18 @@ Note that not any UML2 type is a Software Entity type.</rdfs:comment>
     <owl:Class rdf:about="&msw;TypedEntity">
         <rdfs:label xml:lang="en">Typed entity</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
-        <rdfs:comment xml:lang="en">A software entity that can be represented by a UML2 TypedElement: &quot;A typed element is an element that has a type that serves as a constraint on the range of values the element can represent. Typed element is an abstract metaclass&quot;. The type is represented by the property &quot;valueType&quot;. If this property has no value, then the range of possible values is language dependent. E.g. constant, object fields and variables are typed entities.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A SoftwareEntity having come explicit type (represented by the property valueType). It may be a Value or a placeholder for a Value, such as a Slot or a formal Parameter. In case it is a placeholder for a value, then (each) valueType is a constraint (in conjunction) on the range of values that the SoftwareEntity can represent. If such a placeholder has not valueType, then the range of possible values is language dependent. 
+
+A TypedEntity having a single valueType may be represented by a UML2 TypedElement: &quot;A typed element is an element that has a type that serves as a constraint on the range of values the element can represent. Typed element is an abstract metaclass&quot;. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Value -->
+
+    <owl:Class rdf:about="&msw;Value">
+        <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
+        <rdfs:comment xml:lang="en">Any SoftwareEntity existing at runtime and represented in the computer memory. It may be an object or a data value.</rdfs:comment>
     </owl:Class>
     
 
