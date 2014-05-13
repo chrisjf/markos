@@ -16,15 +16,20 @@ Changed properties (name, comment and related constraints):
 - valueType (label changed to "Type"): because it is used also to both represent the type of (values of) variables and the type of values themselves. The property is still called valueType to minimise the risk of clash with rdfs:type due to namespace typos. 
 
 Added classes:
-- Value: Any SoftwareEntity represented in computer memory
+- Value: Any SoftwareEntity that can be assigned to a variable
 - DataValue: Any Value having no identity distinct from its representation
 - Object: Any value having an identity that is distinct form its representation
 - Slot: to represent a set of values of an Attribute
 
 Added properties:
 - extendedSignature: Behavior x String (summarises the main aspects of a Behavior in a single string)
-- nextParameter: Parameter x Parameter (to represent the order of parameters of a Behavior, when the parameters are ordered)
-- ownedValue: Slot x Value (to represent any value of a Slot)
+- assignedValue: Slot x Value (to represent any value of a Slot)
+- ownedSlot: Value x Slot (to represent any Slot owned by a structured Value)
+- isOptionalParameter: Parameter x xsd:boolean (to represent optional Parameters)
+- isNamedParameter: Parameter x xsd:boolean (to represent Parameters that are identified by name)
+- isPositionalParameter: Parameter x xsd:boolean (to represent Parameters that are identified by position)
+- defaultValue: Parameter x Value (to specify the default value of optional parameter)
+- declarationPosition: Parameter x xsd:positiveInteger (position of the Parameter in the declaration)
 
 V1.5
 ====
