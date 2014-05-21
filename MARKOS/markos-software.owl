@@ -167,13 +167,31 @@ Depending from the specific type of entity, specific strategies can be found to 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#assignedValue -->
+    <!-- http://www.markosproject.eu/ontologies/software#boundEntity -->
 
-    <owl:ObjectProperty rdf:about="&msw;assignedValue">
-        <rdfs:comment xml:lang="en">Any Value of the subject Slot. This corresponds to the UML2 property called &quot;value&quot; on the UML2 class Slot. </rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;Slot"/>
-        <rdfs:range rdf:resource="&msw;Value"/>
-        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+    <owl:ObjectProperty rdf:about="&msw;boundEntity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Bound entity</rdfs:label>
+        <rdfs:comment xml:lang="en">The ParametrizedEntity that is bound by the subject ParametrizedEntityBinding. 
+
+This corresponds ot a generalization of the UML2 association &quot;boundElement&quot;.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;ParameterizedEntity"/>
+        <rdfs:domain rdf:resource="&msw;ParameterizedEntityBinding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#boundParameter -->
+
+    <owl:ObjectProperty rdf:about="&msw;boundParameter">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Bound parameter</rdfs:label>
+        <rdfs:comment xml:lang="en">The Parameter receiving a value form the subject ParameterBinding.
+
+This corresponds to a UML2 association &quot;formal&quot;</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;Parameter"/>
+        <rdfs:domain rdf:resource="&msw;ParameterBinding"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -204,6 +222,19 @@ Depending from the specific type of entity, specific strategies can be found to 
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#constrainingClassifier -->
+
+    <owl:ObjectProperty rdf:about="&msw;constrainingClassifier">
+        <rdfs:label xml:lang="en">Constraining classifier</rdfs:label>
+        <rdfs:comment xml:lang="en">A Classifier that constrain the values of the subject Parameter to be this Classifier or one of its subclasses.
+
+When applied to the Parameter of a Template, this corresponds to UML2 association &quot;constrainingClassifier&quot;.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;Classifier"/>
+        <rdfs:domain rdf:resource="&msw;ClassifierValuedParameter"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#declaredImplementationLanguage -->
 
     <owl:ObjectProperty rdf:about="&msw;declaredImplementationLanguage">
@@ -222,7 +253,20 @@ Depending from the specific type of entity, specific strategies can be found to 
 
 This corresponds to UML2 association called &quot;defaultValue&quot;, but differently from UML2 here the ValueSpecification is simply called Value.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Parameter"/>
-        <rdfs:range rdf:resource="&msw;Value"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#definingAttribute -->
+
+    <owl:ObjectProperty rdf:about="&msw;definingAttribute">
+        <rdfs:label xml:lang="en">Defining attribute</rdfs:label>
+        <rdfs:comment xml:lang="en">The Attribute that specifies the values that may be held by the slot.
+
+This corresponds to UML2 association definingFeature but restricted to UML2 Properties.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;Attribute"/>
+        <rdfs:domain rdf:resource="&msw;Slot"/>
     </owl:ObjectProperty>
     
 
@@ -291,10 +335,10 @@ A directSuperType is a UML2 generalized Classifier or a UML2 realized Interface.
     <owl:ObjectProperty rdf:about="&msw;direction">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Direction</rdfs:label>
-        <rdfs:comment xml:lang="en">Indicates whether a parameter is being sent into or out of a behavioral element.
+        <rdfs:comment xml:lang="en">Indicates whether a parameter is being sent into or out of a Behavior.
 
 Representable by the homonymous UML2 element.</rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;Parameter"/>
+        <rdfs:domain rdf:resource="&msw;BehaviorParameter"/>
         <rdfs:range rdf:resource="&msw;ParameterDirectionKind"/>
     </owl:ObjectProperty>
     
@@ -536,6 +580,19 @@ A SoftwareWork may be an abstract entity that may have several distinct manifest
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#ownedBinding -->
+
+    <owl:ObjectProperty rdf:about="&msw;ownedBinding">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">Owned binding</rdfs:label>
+        <rdfs:comment xml:lang="en">ParameterBinding used to generate the subject ParametrizedEntityBinding. </rdfs:comment>
+        <rdfs:range rdf:resource="&msw;ParameterBinding"/>
+        <rdfs:domain rdf:resource="&msw;ParameterizedEntityBinding"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#ownedLocalVariable -->
 
     <owl:ObjectProperty rdf:about="&msw;ownedLocalVariable">
@@ -569,9 +626,11 @@ In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be con
     <owl:ObjectProperty rdf:about="&msw;ownedParameter">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Owned parameter</rdfs:label>
-        <rdfs:comment xml:lang="en">Parameter owned by the subject Behavior (represented by the homonymous UML2 element)</rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;Behavior"/>
+        <rdfs:comment xml:lang="en">Parameter owned by the subject ParameterizedEntity.
+
+This generalize the UML2 associations called &quot;ownedParameter&quot;.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;Parameter"/>
+        <rdfs:domain rdf:resource="&msw;ParameterizedEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -581,12 +640,26 @@ In UML2 it corresponds to the UML2 role &quot;ownedBehavior&quot;. Not to be con
 
     <owl:ObjectProperty rdf:about="&msw;ownedSlot">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">Owned slot</rdfs:label>
         <rdfs:comment xml:lang="en">Any Slot owned by the subject Value. 
 
 When the subject is an Object represented by a UML2 InstanceValue, this corresponds to the association called &quot;slot&quot; of the UML2 InstanceSpecification associated to the InstanceValue. </rdfs:comment>
         <rdfs:range rdf:resource="&msw;Slot"/>
         <rdfs:domain rdf:resource="&msw;Value"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#parameterValue -->
+
+    <owl:ObjectProperty rdf:about="&msw;parameterValue">
+        <rdfs:label xml:lang="en">Parameter value</rdfs:label>
+        <rdfs:comment xml:lang="en">Value of the subject Parameter.</rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;ParameterBinding"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
 
@@ -677,7 +750,7 @@ In UML2 it is represented by the attribute &quot;provided&quot;.</rdfs:comment>
     <owl:ObjectProperty rdf:about="&msw;raisedException">
         <rdfs:label xml:lang="en">Raised exception</rdfs:label>
         <rdfs:comment xml:lang="en">The Types representing exceptions that may be raised during an invocation of the subject method. (representable by the homonymous UML2 element).</rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;Method"/>
+        <rdfs:domain rdf:resource="&msw;Behavior"/>
         <rdfs:range rdf:resource="&msw;Type"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
@@ -755,6 +828,19 @@ In UML 2 it is represented by the attribute &quot;required&quot; </rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Component"/>
         <rdfs:range rdf:resource="&msw;Interface"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#slotValue -->
+
+    <owl:ObjectProperty rdf:about="&msw;slotValue">
+        <rdfs:label xml:lang="en">Assigned value</rdfs:label>
+        <rdfs:comment xml:lang="en">Any Value of the subject Slot. This corresponds to the UML2 property called &quot;value&quot; on the UML2 class Slot. </rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;Slot"/>
+        <rdfs:range rdf:resource="&msw;Value"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
 
@@ -928,6 +1014,7 @@ A same entity may be contained in different Containers. </rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/top#nestedClassifier -->
 
     <owl:ObjectProperty rdf:about="&mtop;nestedClassifier">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Nested classifier</rdfs:label>
         <rdfs:comment xml:lang="en">Any Type that is owner by the subject Type. In UML2 it is represented by the anonymous property.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;Classifier"/>
@@ -940,6 +1027,7 @@ A same entity may be contained in different Containers. </rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/top#ownedMember -->
 
     <owl:ObjectProperty rdf:about="&mtop;ownedMember">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Owned member</rdfs:label>
         <rdfs:comment xml:lang="en">Any NamedEntity owned by the subject Namespace. It corresponds to the homonymous UML2 property.</rdfs:comment>
         <rdfs:range rdf:resource="&mtop;NamedEntity"/>
@@ -1014,6 +1102,7 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
     <!-- http://www.markosproject.eu/ontologies/top#usedEntity -->
 
     <owl:ObjectProperty rdf:about="&mtop;usedEntity">
+        <rdfs:label xml:lang="en">Used entity</rdfs:label>
         <rdfs:comment xml:lang="en">An entity that is used to produce the subject entity.</rdfs:comment>
         <rdfs:comment xml:lang="en">Used entity</rdfs:comment>
         <rdfs:domain rdf:resource="&mtop;Entity"/>
@@ -1102,6 +1191,7 @@ Equivalent to &apos;created&apos; from ontology DAOP</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#declarationPosition -->
 
     <owl:DatatypeProperty rdf:about="&msw;declarationPosition">
+        <rdfs:label xml:lang="en">Declaration position</rdfs:label>
         <rdfs:comment xml:lang="en">Position number of the parameter in the declaration of the subject Behavior as found in the provenanceSourceCode.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Parameter"/>
         <rdfs:range rdf:resource="&xsd;positiveInteger"/>
@@ -1167,6 +1257,7 @@ Equivalent to &apos;download-page&apos; from ontology DOAP</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#extendedSignature -->
 
     <owl:DatatypeProperty rdf:about="&msw;extendedSignature">
+        <rdfs:label xml:lang="en">Extended signature</rdfs:label>
         <rdfs:comment xml:lang="en">String, representing the main aspects of the Behavior, having the following syntax:
 
 [&lt;behavior-visibility&gt;] [‘static‘] [‘abstract‘] [‘final‘] &lt;behavior-name&gt; ‘(‘ [&lt;parameter-list&gt;] ‘)’ [‘:’ [&lt;return-type&gt;] ]
@@ -1193,6 +1284,7 @@ This notation is modelled onto a reduced version of the UML2 notation for Operat
     <!-- http://www.markosproject.eu/ontologies/software#isAbstract -->
 
     <owl:DatatypeProperty rdf:about="&msw;isAbstract">
+        <rdfs:label xml:lang="en">Is abstract</rdfs:label>
         <rdfs:comment xml:lang="en">If true, the subject Classifier does not provide a complete specification of its features and can typically not be instantiated. </rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Classifier"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -1203,6 +1295,7 @@ This notation is modelled onto a reduced version of the UML2 notation for Operat
     <!-- http://www.markosproject.eu/ontologies/software#isFinalSpecialization -->
 
     <owl:DatatypeProperty rdf:about="&msw;isFinalSpecialization">
+        <rdfs:label xml:lang="en">Is final specialization</rdfs:label>
         <rdfs:comment xml:lang="en">If true means that the subject Classifier cannot have subtypes.  
 
 It corresponds to the homonymous UML2 attribute. </rdfs:comment>
@@ -1215,6 +1308,7 @@ It corresponds to the homonymous UML2 attribute. </rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#isLeaf -->
 
     <owl:DatatypeProperty rdf:about="&msw;isLeaf">
+        <rdfs:label xml:lang="en">Is leaf</rdfs:label>
         <rdfs:comment xml:lang="en">If true, then it is not possible to redefine the subject Feature.
 
 It corresponds to the homonymous UML2 attribute. </rdfs:comment>
@@ -1227,6 +1321,7 @@ It corresponds to the homonymous UML2 attribute. </rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#isNamedParameter -->
 
     <owl:DatatypeProperty rdf:about="&msw;isNamedParameter">
+        <rdfs:label xml:lang="en">Is named parameter</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates if it is mandatory to specify the name of the parameter at invocation. </rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Parameter"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -1237,6 +1332,7 @@ It corresponds to the homonymous UML2 attribute. </rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#isOptionalParameter -->
 
     <owl:DatatypeProperty rdf:about="&msw;isOptionalParameter">
+        <rdfs:label xml:lang="en">Is optional parameter</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates if the subject Parameter is optional, i.e. the owning Behavior may be invoked without specifying a value for the Parameter. </rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Parameter"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -1247,6 +1343,7 @@ It corresponds to the homonymous UML2 attribute. </rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#isPositionalParameter -->
 
     <owl:DatatypeProperty rdf:about="&msw;isPositionalParameter">
+        <rdfs:label xml:lang="en">Is positional parameter</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates if the value of the subject parameter must appear in a specific (relative) position in the invocation statement of the owning Behavior. Values of positional parameters must be specified in the invocation of the Behavior in the same order (but possible different positions) of their declarationPositions. </rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Parameter"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -1487,12 +1584,6 @@ Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
-                <owl:allValuesFrom rdf:resource="&msw;Interface"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;containerEntity"/>
                 <owl:allValuesFrom>
                     <owl:Class>
@@ -1502,6 +1593,12 @@ Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:allValuesFrom rdf:resource="&msw;Interface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <mtop:identityCriteria xml:lang="en">(The set of identities of) all software entities (i.e. Interfaces) in the API.</mtop:identityCriteria>
@@ -1539,6 +1636,7 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
     <!-- http://www.markosproject.eu/ontologies/software#Annotation -->
 
     <owl:Class rdf:about="&msw;Annotation">
+        <rdfs:label xml:lang="en">Annotation</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Value"/>
         <rdfs:comment xml:lang="en">A Value associated to a SoftwareEntity (typically to a SoftwareEntity that is not a Value). Depending from the programming language an Annotation may be an Object or a DataValue.</rdfs:comment>
     </owl:Class>
@@ -1635,10 +1733,42 @@ attribute name.
     <owl:Class rdf:about="&msw;Behavior">
         <rdfs:label xml:lang="en">Behavior</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
-        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
-        <rdfs:comment xml:lang="en">A Software Entity that can be represented by a UML2 Behavior: &quot;Behavior is a specification of how its context classifier changes state over time. [...] When a behavior is associated as the method of a behavioral feature, it defines the implementation of that feature (i.e., the computation that generates the effects of the behavioral feature).&quot;
+        <rdfs:subClassOf rdf:resource="&msw;ParameterizedEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;ownedParameter"/>
+                <owl:allValuesFrom rdf:resource="&msw;BehaviorParameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A Software Entity that represents a sequence of program instructions that perform a specific task, packaged as a unit. Depending from the programming language and from the particular termnology a Behavior may be a subroutine, a procedure, a function, a routine, a method, a subprogram.
+
+This corresponds to UML2 class &quot;Behavior&quot;. Note that dispite the UML2 definition (&quot;Behavior is a specification of how its context classifier changes state over time. [...]&quot;) a UML2 Behavior does not necessarly have an associated Classifier.
 
 This is an abstract OWL class, i.e. identity criteria are defined by OWL subclasses.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#BehaviorParameter -->
+
+    <owl:Class rdf:about="&msw;BehaviorParameter">
+        <rdfs:label xml:lang="en">Behavior parameter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;Parameter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;valueType"/>
+                <owl:allValuesFrom rdf:resource="&msw;ValueType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;defaultValue"/>
+                <owl:allValuesFrom rdf:resource="&msw;Value"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Parameter owened by a Behavior.
+
+This corresponds to the UML2 class &quot;Parameter&quot;.</rdfs:comment>
     </owl:Class>
     
 
@@ -1660,6 +1790,24 @@ This is an abstract OWL class, i.e. identity criteria are defined by OWL subclas
         <rdfs:subClassOf rdf:resource="&msw;Type"/>
         <rdfs:subClassOf rdf:resource="&mtop;Namespace"/>
         <rdfs:comment xml:lang="en">A SoftwareEntity  that can be represented by a UML2 Classifier: &quot;A classifier is a namespace whose members can include features. [...] A classifier is a type and can own generalizations, thereby making it possible to define generalization relationships to other classifiers. A classifier can specify a generalization hierarchy by referencing its general classifiers. A classifier is a redefinable element, meaning that it is possible to redefine nested [i.e. member] classifiers.&quot;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ClassifierValuedParameter -->
+
+    <owl:Class rdf:about="&msw;ClassifierValuedParameter">
+        <rdfs:label xml:lang="en">Classifier valued parameter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;Parameter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;defaultValue"/>
+                <owl:allValuesFrom rdf:resource="&msw;Classifier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A Parameter which values can be only Classifiers.
+
+This is a generalization of the UML2 class &quot;ClassifierTemplateParameter&quot;.</rdfs:comment>
     </owl:Class>
     
 
@@ -1705,7 +1853,7 @@ While in UML each Component is also a Class, here we do not assume that a softwa
 
     <owl:Class rdf:about="&msw;Constructor">
         <rdfs:label xml:lang="en">Constructor</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;Method"/>
+        <rdfs:subClassOf rdf:resource="&msw;Behavior"/>
         <rdfs:comment xml:lang="en">A Behavior, that returns a new Object.</rdfs:comment>
     </owl:Class>
     
@@ -1725,7 +1873,7 @@ While in UML each Component is also a Class, here we do not assume that a softwa
 
     <owl:Class rdf:about="&msw;DataType">
         <rdfs:label xml:lang="en">Data type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
+        <rdfs:subClassOf rdf:resource="&msw;ValueType"/>
         <rdfs:comment xml:lang="en">A software entity  that can be represented by a UML2 DataType: &quot;A data type is a special kind of classifier, similar to a class. It differs from a class in that instances of a data type are identified only by their value.
 
 All copies of an instance of a data type and any instances of that data type with the same value are considered to be equal instances. Instances of a data type that have attributes (i.e., is a structured data type) are considered to be equal if the structure is the same and the values of the corresponding attributes are equal. If a data type has attributes, then instances of that data type will contain attribute values matching the attributes.&quot;
@@ -1738,6 +1886,7 @@ This is an abstract RDF class, i.e. identity criteria are defined by RDF subclas
     <!-- http://www.markosproject.eu/ontologies/software#DataValue -->
 
     <owl:Class rdf:about="&msw;DataValue">
+        <rdfs:label xml:lang="en">DataValue</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Value"/>
         <rdfs:comment xml:lang="en">A Value having no identity, i.e. if two values have the same representation, then they are indistinguishable. Depending from the programming language DataValue may have or not Attribute values (i.e. Slots), Methods and nested Types.
 In particular any SoftwareEntity that may be represented by a UML2 LiteralValue is a DataValue, but not any DataValue (in particular a structured DataValue) may be represented by a UML2 LiteralValue.    </rdfs:comment>
@@ -2014,6 +2163,7 @@ Differently from UML2, a Behavior belonging to a (Software)Class is a Feature of
     <!-- http://www.markosproject.eu/ontologies/software#Object -->
 
     <owl:Class rdf:about="&msw;Object">
+        <rdfs:label xml:lang="en">Object</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Value"/>
         <rdfs:comment xml:lang="en">A Value which representation is distinguished from its identity. An Object may own Attributes values (i.e. Slots) and/or Methods and/or nested Types, but its identity does not coincides with its Attributes values (i.e. also if two objects are equal, having the same Attributes values, they may be distinguished).
 An Object that is instance of a Classifier may be represented by a UML2 InstanceValue and specified by a UML2 InstanceSpecification (and the types of the Object are specififed by the values of the UML2 property &quot;classifier&quot;).
@@ -2047,7 +2197,7 @@ An Object that is instance of a Classifier may be represented by a UML2 Instance
 
     <owl:Class rdf:about="&msw;ObjectType">
         <rdfs:label xml:lang="en">Software object type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
+        <rdfs:subClassOf rdf:resource="&msw;ValueType"/>
         <rdfs:comment xml:lang="en">Any Type which instances are objects i.e. Values that may have attributes values, methods and nested types but which identity does not coincides with their status (i.e. two distinct objects may have same attributes values).</rdfs:comment>
     </owl:Class>
     
@@ -2087,7 +2237,9 @@ It is possible to have different packages with the same name. If two releases (o
     <owl:Class rdf:about="&msw;Parameter">
         <rdfs:label xml:lang="en">Parameter</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
-        <rdfs:comment xml:lang="en">A software element that can be represented by a UML2 Parameter: &quot;A parameter is a specification of an argument used to pass information into or out of an invocation of a behavioral feature [e.g. an openration]. It has a type, and may have a multiplicity and an optional default value.&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="en">A parameter of a ParametrizedEntity.
+
+This generalize the UML2 classes Parameter (specification of an argument used to pass information into or out of a Method invocation) and TemplateParameter (formal parameter of a template).</rdfs:comment>
         <rdfs:comment xml:lang="en">MARKOS prefix + &apos;Parameter&apos; + owning Method URI  + Parameter name</rdfs:comment>
         <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
         <mtop:namespaceCriteria xml:lang="en">N.A.</mtop:namespaceCriteria>
@@ -2096,6 +2248,16 @@ attribute name.
 </mtop:identityCriteria>
         <mtop:nameCriteria xml:lang="en">The name of the Parameter as defined by the source code. </mtop:nameCriteria>
         <provenanceManifestationCriteria xml:lang="en">The same of its owning Method. </provenanceManifestationCriteria>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ParameterBinding -->
+
+    <owl:Class rdf:about="&msw;ParameterBinding">
+        <rdfs:label xml:lang="en">Parameter binding</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
+        <rdfs:comment xml:lang="en">Assignment of a value to a parameter.</rdfs:comment>
     </owl:Class>
     
 
@@ -2112,6 +2274,26 @@ attribute name.
 - &quot;return&quot; Indicates that parameter values are passed as return values from a behavioral element back to the caller. 
 
 Representable by the homonymous UML2 type.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ParameterizedEntity -->
+
+    <owl:Class rdf:about="&msw;ParameterizedEntity">
+        <rdfs:label xml:lang="en">Parameterized entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:comment xml:lang="en">A SoftwareEntity that can be used to generate other SoftwareEntities or program statements by assigning a value to its Parameters.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ParameterizedEntityBinding -->
+
+    <owl:Class rdf:about="&msw;ParameterizedEntityBinding">
+        <rdfs:label xml:lang="en">Parameterized entity binding</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:comment xml:lang="en">A SoftwareEntity obtained by binding the parameters of a ParameterizedEntity</rdfs:comment>
     </owl:Class>
     
 
@@ -2181,8 +2363,15 @@ A Program may contain other software entities.</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#Slot -->
 
     <owl:Class rdf:about="&msw;Slot">
+        <rdfs:label xml:lang="en">Slot</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
-        <rdfs:comment xml:lang="en">A SoftwareEntity representing the value or values of a specific Attribute.Depending from the programming language a Slot may be an Object or not and may exist or not without an owning Object. A slot owned by an Object may be represented by a UML2 Slot. A Slot cannot be owned by more than one Object.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A SoftwareEntity representing the value or values of a specific Attribute.
+
+The name of a Slot coincides with the name of the related Attribute.
+Depending form the programming language the related Attribute may have an explicit representantion as a distinct SoftwareEntity or may remain implicit (for example may be impicitly represented by a prototype Slot).
+Depending from the programming language a Slot may be an Object or not and may exist or not without an owning Object. A Slot cannot be owned by more than one Object.
+
+A slot owned by an Object and having an explicit related Atribute may be represented by a UML2 Slot. </rdfs:comment>
     </owl:Class>
     
 
@@ -2326,13 +2515,13 @@ This definition is intended to model what developers usually mean by the term &q
         <rdfs:subClassOf rdf:resource="&mlic;Work"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
                 <owl:allValuesFrom rdf:resource="&msw;SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
                 <owl:allValuesFrom rdf:resource="&msw;SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2359,6 +2548,38 @@ abstract entities, such as a Program that may have different concrete manifestat
         <rdfs:label xml:lang="en">Source file</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;SourceCodeFile"/>
         <rdfs:comment xml:lang="en">Any entity that may be represented by a UML2 Artifact with standard stereotype &lt;&lt;Source&gt;&gt; (i.e. A source file that can be compiled into an executable file.).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#Template -->
+
+    <owl:Class rdf:about="&msw;Template">
+        <rdfs:label xml:lang="en">Template</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;ParameterizedEntity"/>
+        <rdfs:comment xml:lang="en">A parameterized SoftwareEntity that can be used to generate other SofwareEntities (TemplateBinding), optionally by setting corresponding TemplateParameters.
+
+Depending form the specific programming language different kind of SoftwareEntities may be generated by means of aTemplate.
+
+Differently from SoftwareClass, the generated entities, i.e. the  TemplateBindings, are not Values and cannot usually be created at runtime.
+
+Any Template corresponds to an instance of a UML2  TemplateableElement, but not any UML2 TemplateableElement is a template.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#TemplateBinding -->
+
+    <owl:Class rdf:about="&msw;TemplateBinding">
+        <rdfs:label xml:lang="en">Template binding</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;ParameterizedEntityBinding"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;boundEntity"/>
+                <owl:allValuesFrom rdf:resource="&msw;Template"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A SoftwareEntity generated by means of a Template.</rdfs:comment>
     </owl:Class>
     
 
@@ -2390,10 +2611,21 @@ A TypedEntity having a single valueType may be represented by a UML2 TypedElemen
     <!-- http://www.markosproject.eu/ontologies/software#Value -->
 
     <owl:Class rdf:about="&msw;Value">
+        <rdfs:label xml:lang="en">Value</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;TypedEntity"/>
         <rdfs:comment xml:lang="en">Any SoftwareEntity that may be assigned to or referred by a variable (i.e. to a storage location such as a Slot or the LocalVariable of a specific Behavior instance). It may be an object or a data value.
 
 This may be represented by a UML2 &quot;ValueSpecification&quot; for a single value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ValueType -->
+
+    <owl:Class rdf:about="&msw;ValueType">
+        <rdfs:label xml:lang="en">A type which instances are Values.</rdfs:label>
+        <rdfs:label xml:lang="en">Value type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
     </owl:Class>
     
 

@@ -91,7 +91,7 @@
 
     <owl:Class rdf:about="&mweb;WebApplication">
         <rdfs:label xml:lang="en">Web application</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;Component"/>
+        <rdfs:subClassOf rdf:resource="&msw;Program"/>
         <rdfs:comment xml:lang="en">A Program containing one or more WebComponents, altogheter implementing a coherent set of functionalities accessed by final users by means of a web browser.</rdfs:comment>
     </owl:Class>
     
