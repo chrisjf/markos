@@ -7,28 +7,51 @@ JavaStaticNestedClass (sofware entities)
 JavaLocalClass (sofware entities)
 JavaAnonymousClass (sofware entities)
 JavaConstant (sofware entities)
-JavaNativeMethod (sofware entities)
-JavaExpresion (sofware entities)
-LambdaExpresion (sofware entities)
+JavaGenericClass (generic)
 JavaFunctionalInterface (sofware entities)
 JavaNativeInterface (sofware entities)
-JavaNonAbstractMethod (sofware entities)
-JavaInstanceMethod software entity
+JavaGenericInterface (generic)
+JavaInstanceMethod (software entity)
 JavaClassMethod (software entity)
+JavaGenericMethod (software entity)
+JavaNativeMethod (sofware entities)
+JavaNonAbstractMethod (sofware entities)
+JavaInstanceVariable (software entity)
+JavaClassVariable (software entity)
 JavaArrayType (software entity)
 JavaExceptionType (software entity)
 JavaCheckedException (software entity)
 JavaUncheckedException (software entity)
+JavaArrayType (software entities)
+JavaComponent (software entities)
+JavaTieredComponent (software entities)
+JavaBusinessTier (software entities)
+JavaClientTier (software entities)
+JavaEnterpriseInformationSystemsTier (software entities)
+JavaWebTier (software entities)
 JavaPropertiesFile (files)
 JavaManifestMFFile (files)
 JavaTypeParameter (generic)
 JavaParameterizedType (generic)
-JavaGenericClass (generic)
-JavaGenericInterface (generic)
+JavaStatement (sofware entities)
+JavaExpresion (sofware entities)
+LambdaExpresion (sofware entities)
 JavaAnnotation (annotations)
 JavaAnnotationType (annotations) with some predefined members
 JavaMetaAnnotationsType (annotation) with some predefined members
 JavaAnnotationTypeElement (annotation)
+JavaProgram (tools)
+JavaDevelopmentTool (tools)
+BuildAutomationTool (tools) with some predefined members
+ContinuousIntegrationTool (tools) with some predefined members
+IDETool (tools) with some predefined members
+SoftwareDevelopmentKit (tools)
+JavaDistributedApplication (tools)
+JavaTieredApplication (tools)
+Stand-AloneApplication (tools)
+ConsoleApplication (tools)
+GUI (tools)
+WEBApplication (tools)
 
 
 DELETE CLASSES
@@ -56,9 +79,10 @@ Data properties: isFinal: Feature or JavaSoftwareClass x boolean
 Data properties: isTransient: JavaField x boolean
 Data properties: isVolatile: JavaField x boolean
 Object properties: ownedTypeParameter: JavaGenericInterface or JavaGenericClass x JavaTypeParameter (generic)
-Object properties: ownedTypeArgument: JavaGenericInterface or JavaGenericClass x JavaTypeParameter (generic)
+Object properties: ownedTypeArgument: JavaParameterizedInterface or JavaGenericClass x JavaTypeParameter (generic)
 Object properties: applyAnnotation: ¿? x JavaSoftwareClass or JavaInterface or JavaMember (annotation)
 Object properties: ownedAnnotationTypeElement: JavaAnnotationType x JavaAnnotationTypeElement (annotation)
+Object properties: instanciateGenericType: JavaParameterizedType x JavaGenericClass or JavaGenericInterface
 
 
 UPDATE PROPERTIES
