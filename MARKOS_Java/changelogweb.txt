@@ -1,0 +1,71 @@
+V0.4-----------------------------------------------------------------------------------------------------------
+CLASSES
+
+JSPElement
+JSPStandarAction
+JSPDirective
+JSPScripting
+JSPScriptlet
+JSPExpresion
+JSPDeclaration
+JSPTag
+JSTLTag
+CoreTag
+FormattingTag
+SQLTag
+XMLTag
+JSPTagAttribute (not pupulated yet)
+JSPTagLibrary (populated with JSLT)
+HTMLPage 
+JSPPage
+JavaEEComponent
+JavaDistributedComponent
+JavaClientSideComponent
+JavaDatabaseServerSideComponent
+JavaServerSideComponent
+JavaTieredComponent
+JavaBusinessTier
+EnterpriseJavaBean
+MessageDrivenBean
+SessionBean
+WebService
+RESTfullService
+SOAPWebService
+JavaClientTier
+Applet
+JavaAppletClass
+ApplicationClient
+JavaBeansComponent
+WebClient
+JavaEnterpriseInformationSystemTier
+JavaWebTier
+JavaServerFace
+JavaServlet
+JavaServletSubClass
+JavaServletImplementingClass
+JavaEETechnology
+ApplicationServerFramework (some individuals populated)
+BusinessTierTechnology (some individuals populated)
+WebServicesTechnology (some individuals populated)
+EnterpriseApplicationTechnology (some individuals populated)
+WebApplicationTechnology (some individuals populated)
+
+
+
+PROPERTIES
+definedTag: JSPTagLibrary x CustomAction
+tagClass: CustomAction x Class --> to model the relation between a tag and the class which handle it.
+ownedJSPElement: JSPPage x JSPElement --> to model the relationship between a JSP Page and a tag.
+ownedTagAttribute: CustomAction x JSPTagAttribute --> to model the relationship between a tag and its attributes
+importedResource:  JSPPage x --> a superproperty of thing can be included in a JSP page
+importedSoftwareEntity: x JavaSoftwareClass or JavaPackage --> imported Java class
+includedJSPPage: x JSPPage --> including other JSP Page
+usedTagLibrary: x JSP Tag Library --> used tag libraries
+definedJavascriptCode: x JSPScripting --> defined javascript code within the JSP
+DP: shortName: JSPTagLibrary x String
+DP: standardSyntax: JSPTagLibrary x String
+DP: uri: JSPTagLibrary x String
+DP: versionJSPStandar: JSPTagLibrary x string
+
+
+

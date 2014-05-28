@@ -7,6 +7,9 @@ JavaStaticNestedClass (sofware entities)
 JavaLocalClass (sofware entities)
 JavaAnonymousClass (sofware entities)
 JavaConstant (sofware entities)
+JavaImplementingClass (sofware entities)
+JavaSubClass (sofware entities)
+JavaSuperClass (sofware entities)
 JavaGenericClass (generic)
 JavaFunctionalInterface (sofware entities)
 JavaNativeInterface (sofware entities)
@@ -52,11 +55,17 @@ Stand-AloneApplication (tools)
 ConsoleApplication (tools)
 GUI (tools)
 WEBApplication (tools)
-
+Technology
+InformationTechnology
+SoftwareDevelopmentTechnology
+JavaTechnology
+JavaSETechnology
+XMLBinding
 
 DELETE CLASSES
 JavaOperation (in Java does not exist Operation, and now moreover if does not exist the Operation Class in the common ontology)
 JavaMemberModifier (Same entity than in VisibilityKind)
+
 
 ADD AXIOMS
 For JavaMember add visibility some JavaMemberModifier
@@ -87,7 +96,10 @@ Object properties: instanciateGenericType: JavaParameterizedType x JavaGenericCl
 
 UPDATE PROPERTIES
 preferred_name change to preferredName
+importedClass: JavaInterface or JavaSoftwareClass x JavaSoftwareClass
 
+DELETE PROPERTIES
+importedClass (JavaReferenceType x JavaSofwareClass). it was wrong and misleading with other in web ontology
 
 V0.3 -------------------------------------------------------------
 
