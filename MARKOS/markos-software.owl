@@ -167,6 +167,19 @@ Depending from the specific type of entity, specific strategies can be found to 
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#associatedAnnotation -->
+
+    <owl:ObjectProperty rdf:about="&msw;associatedAnnotation">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">Associated annotation</rdfs:label>
+        <rdfs:comment xml:lang="en">An annotation associated to the subject SoftwareEntity.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;Annotation"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#boundEntity -->
 
     <owl:ObjectProperty rdf:about="&msw;boundEntity">
@@ -504,7 +517,7 @@ This is different by an invokedMethod, as in the case the executed Behavior is s
     <owl:ObjectProperty rdf:about="&msw;invokedMethod">
         <rdfs:label xml:lang="en">Invoked method</rdfs:label>
         <rdfs:comment xml:lang="en">Method that is invoked by the subject Behavior.  
- An invocation of a Method does not necessarly triggers the execution of the implementation provided by the owner SoftwareClass of that Method. The exact mechanism to determine the executed Behavior depends on the programming language, but in general it depends from the target object that receives the invocation (the target object is determined at runtime and not represented by this ontology).</rdfs:comment>
+ An invocation of a Method does not necessarly triggers the execution of the implementation provided by the owner SoftwareClass (if any) of that Method. The exact mechanism to determine the executed Behavior depends on the programming language, but in general it depends from the target object that receives the invocation (the target object is determined at runtime and not represented by this ontology).</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Behavior"/>
         <rdfs:range rdf:resource="&msw;Method"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
@@ -832,19 +845,6 @@ In UML 2 it is represented by the attribute &quot;required&quot; </rdfs:comment>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#slotValue -->
-
-    <owl:ObjectProperty rdf:about="&msw;slotValue">
-        <rdfs:label xml:lang="en">Assigned value</rdfs:label>
-        <rdfs:comment xml:lang="en">Any Value of the subject Slot. This corresponds to the UML2 property called &quot;value&quot; on the UML2 class Slot. </rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;Slot"/>
-        <rdfs:range rdf:resource="&msw;Value"/>
-        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
-        <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#softwareImplementationLanguage -->
 
     <owl:ObjectProperty rdf:about="&msw;softwareImplementationLanguage">
@@ -896,6 +896,19 @@ Equivalent to &apos;translator&apos; from ontology DOAP</rdfs:comment>
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#type -->
+
+    <owl:ObjectProperty rdf:about="&msw;type">
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <rdfs:comment xml:lang="en">A Type that the subject Value or the value represented by the subject TypedEntity must be instance of. This corresponds to the UML2 association &quot;classifier&quot; (in case the subject is a Value) or to the UML2 association called &quot;type&quot; (in case the subject is a placeholder for a value, such as a Variable or a formal parameter).
+Depending from the programming language the type may be implicit or explicit,  statically determined or dynamically determined, unmodifiable or modifiable.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;Type"/>
+        <rdfs:domain rdf:resource="&msw;TypedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#unversionedAbstraction -->
 
     <owl:ObjectProperty rdf:about="&msw;unversionedAbstraction">
@@ -935,14 +948,15 @@ Note that an implementation relationship is not necessarly a usage relationship 
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#valueType -->
+    <!-- http://www.markosproject.eu/ontologies/software#value -->
 
-    <owl:ObjectProperty rdf:about="&msw;valueType">
-        <rdfs:label xml:lang="en">Type</rdfs:label>
-        <rdfs:comment xml:lang="en">A Type that the subject Value or the value represented by the subject TypedEntity must be instance of. This corresponds to the UML2 association &quot;classifier&quot; (in case the subject is a Value) or to the UML2 association called &quot;type&quot; (in case the subject is a placeholder for a value, such as a Variable or a formal parameter).</rdfs:comment>
-        <rdfs:range rdf:resource="&msw;Type"/>
-        <rdfs:domain rdf:resource="&msw;TypedEntity"/>
-        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+    <owl:ObjectProperty rdf:about="&msw;value">
+        <rdfs:label xml:lang="en">Value</rdfs:label>
+        <rdfs:comment xml:lang="en">Any Value of the subject Slot. This corresponds to the UML2 property called &quot;value&quot; on the UML2 class Slot. </rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;Slot"/>
+        <rdfs:range rdf:resource="&msw;Value"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
     
 
@@ -1693,9 +1707,11 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
                 <owl:allValuesFrom rdf:resource="&msw;Attribute"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A SoftwareEntity that can be represented by a UML2 Property. It&apos;s  the abstraction of a storage location owned by an Object and may represent a kind of relationship that one or more values may have the an Object.
+        <rdfs:comment xml:lang="en">A SoftwareEntity that can be represented by a UML2 Property. It&apos;s  the abstraction of a storage location owned by an Object (or a SoftwareClass in the case of a Slot described by a static attribute) and may represent a kind of relationship that one or more values may have with the Object.
 
-Note that in UML terminology an attribute is a Property owned by a Classifier, while here Attribute is used to represent also a UML2 Property not owned by any Classifier. The change of name is to minimize the risk of formal mixing with OWL Properties due to namespace typos.</rdfs:comment>
+Note that in UML terminology an attribute is a Property owned by a Classifier, while here Attribute is used to represent also a UML2 Property not owned by any Classifier. 
+
+In most languages a static Attribute coincides with the described Slot.</rdfs:comment>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Attribute&apos; + owning class URI  + attribute name</mtop:canonicalURICriteria>
         <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
         <mtop:identityCriteria xml:lang="en">Owning class,
@@ -1740,7 +1756,8 @@ attribute name.
                 <owl:allValuesFrom rdf:resource="&msw;BehaviorParameter"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A Software Entity that represents a sequence of program instructions that perform a specific task, packaged as a unit. Depending from the programming language and from the particular termnology a Behavior may be a subroutine, a procedure, a function, a routine, a method, a subprogram.
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Subroutine&amp;oldid=602726046</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">A Software Entity that represents a sequence of program instructions that perform a specific task, packaged as a unit. Depending from the characteristics, the programming language and from the particular termnology a Behavior may be called  subroutine, procedure, function, routine, method, subprogram.
 
 This corresponds to UML2 class &quot;Behavior&quot;. Note that dispite the UML2 definition (&quot;Behavior is a specification of how its context classifier changes state over time. [...]&quot;) a UML2 Behavior does not necessarly have an associated Classifier.
 
@@ -1756,14 +1773,14 @@ This is an abstract OWL class, i.e. identity criteria are defined by OWL subclas
         <rdfs:subClassOf rdf:resource="&msw;Parameter"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;valueType"/>
-                <owl:allValuesFrom rdf:resource="&msw;ValueType"/>
+                <owl:onProperty rdf:resource="&msw;defaultValue"/>
+                <owl:allValuesFrom rdf:resource="&msw;Value"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;defaultValue"/>
-                <owl:allValuesFrom rdf:resource="&msw;Value"/>
+                <owl:onProperty rdf:resource="&msw;type"/>
+                <owl:allValuesFrom rdf:resource="&msw;ValueType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Parameter owened by a Behavior.
@@ -1789,7 +1806,8 @@ This corresponds to the UML2 class &quot;Parameter&quot;.</rdfs:comment>
         <rdfs:label xml:lang="en">Classifier</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Type"/>
         <rdfs:subClassOf rdf:resource="&mtop;Namespace"/>
-        <rdfs:comment xml:lang="en">A SoftwareEntity  that can be represented by a UML2 Classifier: &quot;A classifier is a namespace whose members can include features. [...] A classifier is a type and can own generalizations, thereby making it possible to define generalization relationships to other classifiers. A classifier can specify a generalization hierarchy by referencing its general classifiers. A classifier is a redefinable element, meaning that it is possible to redefine nested [i.e. member] classifiers.&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Type that is also a namespace. 
+It can be represented by a UML2 Classifier: &quot;A classifier is a namespace whose members can include features. [...] A classifier is a type and can own generalizations, thereby making it possible to define generalization relationships to other classifiers. A classifier can specify a generalization hierarchy by referencing its general classifiers. A classifier is a redefinable element, meaning that it is possible to redefine nested [i.e. member] classifiers.&quot;</rdfs:comment>
     </owl:Class>
     
 
@@ -1854,7 +1872,7 @@ While in UML each Component is also a Class, here we do not assume that a softwa
     <owl:Class rdf:about="&msw;Constructor">
         <rdfs:label xml:lang="en">Constructor</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Behavior"/>
-        <rdfs:comment xml:lang="en">A Behavior, that returns a new Object.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Behavior, that may be used to create and set the status of a new Object. Depending from the programming language, a constructor may be used only to set the status of a new Object or also to change the status of an already created Object.   </rdfs:comment>
     </owl:Class>
     
 
@@ -2152,9 +2170,12 @@ Depending from the modifiers, the programming language and the context, a LocalV
         <rdfs:label xml:lang="en">Method</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Behavior"/>
         <rdfs:subClassOf rdf:resource="&msw;Feature"/>
-        <rdfs:comment xml:lang="en">A Behavior that is owned by a SoftwareClass and having a declaration that may be represented by a UML2 Operation (it is the UML2 &quot;method&quot; of a UML2 Operation). 
+        <rdfs:comment xml:lang="en">A Behavior that is associated or may be associated to Objects or to SoftwareClasses and which has access to Object or SoftwareClass (private) Slots. A Behavior associated to a specific Object or type of Object is also called an instance Method, while a Behavior associated to a specific SoftwareClass is also called class Method or static Method. 
+A Method represents the implementation of a UML2 Operation (i.e. it may be represented by a UML2 &quot;method&quot; of a UML2 Operation). 
 A Method may be constituted just by a declaration, in that case it is an abstract Method. 
-Differently from UML2, a Behavior belonging to a (Software)Class is a Feature of that (Software)Class.
+Differently from UML2, a Behavior belonging to a (Software)Class is considered to be a Feature of that (Software)Class.
+Depending from the programming language, the (type of) Object or SoftwareClass that the Method is, or may be, associated to is dynamically or statically determined. Similarly, depending from the programming language a Method must be defined within an ObjectType or must be defined within a SoftwareClass or must be defined within an Object or may be defined independently from the Objects or SoftwareClasses it may act on.
+
 </rdfs:comment>
     </owl:Class>
     
@@ -2369,7 +2390,7 @@ A Program may contain other software entities.</rdfs:comment>
 
 The name of a Slot coincides with the name of the related Attribute.
 Depending form the programming language the related Attribute may have an explicit representantion as a distinct SoftwareEntity or may remain implicit (for example may be impicitly represented by a prototype Slot).
-Depending from the programming language a Slot may be an Object or not and may exist or not without an owning Object. A Slot cannot be owned by more than one Object.
+Depending from the programming language a Slot may be an Object or not and may exist or not without an owning Object. A Slot cannot be owned by more than one SoftwareEntity.
 
 A slot owned by an Object and having an explicit related Atribute may be represented by a UML2 Slot. </rdfs:comment>
     </owl:Class>
@@ -2436,9 +2457,11 @@ The &quot;full source code&quot; of a software entity may be defined also as the
 
 For instance the full source code of a Java class named Person is not just the Java file Person.java (the manifestation) but it is composed also by any other files needed to compile the Person.java file (e.g. if Person inherits from the class Animal also the source code of Animal is needed).
 </provenanceManifestationCriteria>
-        <rdfs:comment xml:lang="en">Any abstract entity (e.g. a Java class or a C function) which is defined or implictly assumed by a piece of source code, according to the rules expressed by a programming language specification. 
+        <rdfs:comment xml:lang="en">Any abstract entity (e.g. a Java class or a C function or a Corba Component) which is defined or implictly assumed by a piece of source code, according to the semantics of a program as defined by a programming language specification or by another programming standard or convention.
 
-This is an abstract OWL class, i.e. identity criteria are defined by OWL subclasses.</rdfs:comment>
+Note that while a SoftwareEntity is defined using a programming language, not all the SoftwareEntities are specified by the semantics of a program as defined by a programming language specification. Other software entities may be defined as higher level abstractions on top of the entities identified by the programming language specification. For instance, a certain component standard for a certain Oject Oriented programming language may define a Component as specific kind of graph of related programming language Objects, therefore introducing a kind of entity (i.e. Component) that was not specified by the original programming language specification but is obtained by abstracting on the entities specified by the original programming language specification.
+ 
+SoftwareEntity is an abstract OWL class, i.e. identity criteria are defined by OWL subclasses.</rdfs:comment>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + SoftwareEntity type + name + namespace + incremental number (needed to distinguish SoftwareEntities with the same name and namespace)</mtop:canonicalURICriteria>
         <mtop:versionCriteria xml:lang="en">The version of the provenanceSourceCode.</mtop:versionCriteria>
         <mtop:identityCriteria xml:lang="en">the location of the provenance manifestation,
@@ -2458,13 +2481,13 @@ the namespace.</mtop:identityCriteria>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
+                <owl:onProperty rdf:resource="&mtop;name"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;name"/>
+                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2515,13 +2538,13 @@ This definition is intended to model what developers usually mean by the term &q
         <rdfs:subClassOf rdf:resource="&mlic;Work"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
                 <owl:allValuesFrom rdf:resource="&msw;SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
                 <owl:allValuesFrom rdf:resource="&msw;SoftwareWork"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2591,7 +2614,9 @@ Any Template corresponds to an instance of a UML2  TemplateableElement, but not 
         <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:comment xml:lang="en">A SoftwareEntity that can be represented by a UML2 Type: &quot;A type represents a set of values. A typed element that has this type is constrained to represent values within this set.&quot;
 
-Note that not any UML2 type is a SoftwareEntity.</rdfs:comment>
+Note that as not all SoftwareEntities are entities specififed by a programming language specification, not all the Types are programming language (value) Types, in the sense of a certain programming language specification, but they may be higher level Types, which members are entities obtained by abstraction of entities defined by a programmin language specification.
+
+Note that not any UML2 type is a SoftwareEntity. </rdfs:comment>
     </owl:Class>
     
 

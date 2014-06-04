@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-web-java" uri="../MARKOS_Java/markos-web-java.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/software" uri="markos-software.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/java" uri="../MARKOS_Java/markos-java.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/javascript" uri="markos-javascript.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/javascript#2014/04/17" uri="markos-javascript.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/web" uri="markos-web.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/oss-licenses" uri="markos-oss-licenses.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-seon" uri="markos-to-seon.owl"/>
