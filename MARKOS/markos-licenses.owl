@@ -21,6 +21,7 @@
      xmlns:mlic="http://www.markosproject.eu/ontologies/licenses#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/licenses">
         <owl:versionIRI rdf:resource="&mlic;2014/04/17"/>
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/top#2014/04/17"/>
     </owl:Ontology>
     
 
@@ -103,14 +104,38 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/licenses#assessment -->
+    <!-- http://www.markosproject.eu/ontologies/licenses#LicenseAssessment -->
 
-    <owl:ObjectProperty rdf:about="&mlic;assessment">
+    <owl:ObjectProperty rdf:about="&mlic;LicenseAssessment">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:label xml:lang="en">Assessment</rdfs:label>
-        <rdfs:comment xml:lang="en">Assessment of the compliance of the subject license with respect to the licenses of the works used by the work associated to the subject license.</rdfs:comment>
-        <rdfs:domain rdf:resource="&mlic;CopyrightLicense"/>
+        <rdfs:label xml:lang="en">License assessment</rdfs:label>
+        <rdfs:comment xml:lang="en">Assessment of the compliance of the license of the subject Entity with respect to the licenses of the used (elements of) works.</rdfs:comment>
         <rdfs:range rdf:resource="&mlic;LicenseAssessment"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/licenses#assessedLicense -->
+
+    <owl:ObjectProperty rdf:about="&mlic;assessedLicense">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Assessed license</rdfs:label>
+        <rdfs:comment xml:lang="en">The CopyrightLicense that has been assessed (note that a same Entity may be covered by more than one CopyrightLicense).</rdfs:comment>
+        <rdfs:range rdf:resource="&mlic;CopyrightLicense"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/licenses#assessedLicenseTemplate -->
+
+    <owl:ObjectProperty rdf:about="&mlic;assessedLicenseTemplate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Assessed license template</rdfs:label>
+        <rdfs:comment xml:lang="en">The CopyrightLicenseTemplate that has been assessed (note that a same Entity may be covered by several CopyrightLicenses adopting different LicenseTemplates).</rdfs:comment>
+        <rdfs:range rdf:resource="&mlic;CopyrightLicenseTemplate"/>
+        <rdfs:domain rdf:resource="&mlic;LicenseAssessment"/>
     </owl:ObjectProperty>
     
 
@@ -119,9 +144,9 @@
 
     <owl:ObjectProperty rdf:about="&mlic;coveringLicense">
         <rdfs:label xml:lang="en">Covering license</rdfs:label>
-        <rdfs:comment xml:lang="en">The CopyrightLicense that regulate the usage of the subject Work.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The CopyrightLicense that regulate the usage of the subject Entity.</rdfs:comment>
         <rdfs:range rdf:resource="&mlic;CopyrightLicense"/>
-        <rdfs:domain rdf:resource="&mlic;Work"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
     </owl:ObjectProperty>
     
 
@@ -132,7 +157,7 @@
         <rdfs:label xml:lang="en">License template </rdfs:label>
         <rdfs:comment xml:lang="en">The the template of the coveringLicense of the subject Work (the property &quot;licenseTemplate&quot; is equivalent to the chain &quot;coveringLicense o template&quot;).</rdfs:comment>
         <rdfs:range rdf:resource="&mlic;CopyrightLicenseTemplate"/>
-        <rdfs:domain rdf:resource="&mlic;Work"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="&mlic;coveringLicense"/>
             <rdf:Description rdf:about="&mlic;template"/>
@@ -233,7 +258,7 @@
 
     <owl:Class rdf:about="&mlic;LicenseAssessment">
         <rdfs:label xml:lang="en">License assessment</rdfs:label>
-        <rdfs:comment xml:lang="en">Assessment of the compliance of a licence (see Object Property :assessment).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Assessment of the compliance of the license of the subject Entity with respect to the licenses of the used (elements of) works.</rdfs:comment>
     </owl:Class>
     
 

@@ -230,7 +230,7 @@
     <!-- http://purl.org/adms/sw/SoftwareRelease -->
 
     <owl:Class rdf:about="&admssw;SoftwareRelease">
-        <owl:equivalentClass rdf:resource="&msw;SoftwareWork"/>
+        <owl:equivalentClass rdf:resource="&msw;Software"/>
     </owl:Class>
     
 
@@ -255,15 +255,15 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#SoftwareProject -->
+    <!-- http://www.markosproject.eu/ontologies/software#Software -->
 
-    <owl:Class rdf:about="&msw;SoftwareProject"/>
+    <owl:Class rdf:about="&msw;Software"/>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#SoftwareWork -->
+    <!-- http://www.markosproject.eu/ontologies/software#SoftwareProject -->
 
-    <owl:Class rdf:about="&msw;SoftwareWork"/>
+    <owl:Class rdf:about="&msw;SoftwareProject"/>
 </rdf:RDF>
 
 

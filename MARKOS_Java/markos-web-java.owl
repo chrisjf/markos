@@ -172,7 +172,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/markos-web-java#usedTechnology">
         <rdfs:range rdf:resource="&java;SoftwareDevelopmentTechnology"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#SoftwareWork"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/software#Software"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/top#usedEntity"/>
     </owl:ObjectProperty>
     
@@ -652,11 +652,15 @@ EIS Tier Java EE Technologies: The Java Database Connectivity API (JDBC), The Ja
 
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-web-java#JavaServlet">
         <rdfs:label>Java servlet</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/markos-web-java#JavaServletImplementingClass"/>
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/markos-web-java#JavaServletSubClass"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/markos-web-java#JavaWebTier"/>
-		<owl:unionOf rdf:parseType="Collection">
-			<owl:Class rdf:about="#JavaServletImplementingClass"/>
-			<owl:Class rdf:about="#JavaServletSubClass"/>
-		</owl:unionOf>
         <rdfs:seeAlso>http://www.oracle.com/technetwork/java/overview-137084.html</rdfs:seeAlso>
         <rdfs:comment>The servlet is a Java programming language class used to extend the capabilities of a server. Although servlets can respond to any types of requests, they are commonly used to extend the applications hosted by web servers, so they can be thought of as Java applets that run on servers instead of in web browsers.
 
@@ -670,7 +674,6 @@ Java Servlet technology provides Web developers with a simple, consistent mechan
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-web-java#JavaServletImplementingClass">
         <rdfs:label>Java servlet implementing class</rdfs:label>
         <rdfs:subClassOf rdf:resource="&java;JavaImplementingClass"/>
-
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#directImplementedInterface"/>
@@ -687,7 +690,6 @@ Java Servlet technology provides Web developers with a simple, consistent mechan
     <owl:Class rdf:about="http://www.markosproject.eu/ontologies/markos-web-java#JavaServletSubClass">
         <rdfs:label>Java servlet subclass</rdfs:label>
         <rdfs:subClassOf rdf:resource="&java;JavaSubClass"/>
-
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">

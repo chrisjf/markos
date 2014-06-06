@@ -3,11 +3,14 @@ MARKOS ontology
 V1.6 (nextVersion)
 ====
 
+Created top ontology: http://www.markosproject.eu/ontologies/top (markos-top.owl)
 Created JavaScript ontology: http://www.markosproject.eu/ontologies/javascript (markos-javascript.owl)
 
 Added prefix mjs:http://www.markosproject.eu/ontologies/javascript#
 
-Added javascript classes
+All mtop concepts moved to top ontology.
+
+Added mjs classes
 - mjs:Constructor (any JavaScript Function that may be used with the JavaScript operator "new")
 - mjs:ActualConstructor (any Constructor actually invoked by some Function using the JavaScript operator "new")
 - mjs:Method (any JavaScript Function that is the value of a JavaScript Property.)
@@ -19,18 +22,21 @@ Added javascript classes
 - mjs:Value (any JavaScript value)
 - mjs:Type (Any JavaScript type, i.e. one of 6 built-in types:  Undefined, Null, Boolean, String, Number, Object)
 
-Added JavaScript properties
+Added mjs properties
 - mjs:invokedConstructor: mjs:Function x mjs:ActualConstructor (Function that is invoked using the operator "new" or the built-in Function "Object.create")
 - mjs:invokedFunction: mjs:Function x mjs:Function (JavaScript Function that is called (i.e. invoked without the operator "new" or the built-in Function "Object.create")
 - mjs:ownedProperty: mjs:Object x mjs:Property (A JavaScript Property owned by a JavaScript Object.)
 
-Added JavaScript individuals
+Added mjs individuals
 - UNDEFINED_TYPE, STRING_TYPE, NUMBER_TYPE, BOOLEAN_TYPE, NULL_TYPE (instances of mjs:PrimitiveType)
 - UNDEFINED_VALUE, TRUE_VALUE, FALSE_VALUE, NULL_VALUE, POSITIVE_ZERO_VALUE, NAN_VALUE, NEGATIVE_ZERO_VALUE, NEGATIVE_INFINITY_VALUE, POSITIVE_INFINITY_VALUE (instances of mjs:PrimitiveValue)
 - OBJECT_TYPE (instance of mjs:Type)
 
+Changed mtop properties:
+- mtop:previousVersion (definition in rdfs:comment has been generalized, also an entity belonging to a different project may be previousVersion)
+- mtop:previousVersion (definition in rdfs:comment has been generalized, also an entity belonging to a different project may be successiveVersion)
 
-Changed classes:
+Changed msw classes:
 - Type (is now subclass of SoftwareEntity): the constraint was already in previous versions and removed by error) 
 - SoftwareObjectType renamed to ObjectType: because while in the case of SoftwareClass the qualification was useful to distinguish from an OWLCLass, in this case there is not need of disambiguation
 - TypedEntity (definition in rdfs:comment has been improved): to better clarify the mapping to UML2
@@ -40,12 +46,19 @@ Changed classes:
 - Parameter (now represent both BehaviorParameters and TemplateParameters): to represent common properties of Parameters of Behaviors and Templates.
 - Constructor (definition in rdfs:comment has been generalised to include also JavaScript constructor functions)
 - SoftwareEntity (definition in rdfs:comment has been improved): to clarify that SoftwareEntities are not just entities defined by a programming language specifications, but also from other specification that works on top of a programming language specification. 
+- SoftwareArtifact (definition in rdfs:comment has been improved): to clarify that SoftwareArtifact is not necessarily located in the physical space, but it sufficient to have a location on the Internet. 
+- SoftwareClass label: SoftwareClass -> Class
+- SoftwareWork -> SoftwareThing (it does not inherits from Work anymore)
+- SoftwareRelease (now is subclassOf SoftwareArtifact and direct subclassOf Work, as superclass SoftwareThing is no more subclassOf Work)
 
-Changed properties (name, comment and related constraints):
+Changed msw properties (name, comment and related constraints):
 - subordinateEntity: Entity x NamedEntity -> Entity x Entity (because range of sub-property containedEntity is Entity) 
 - ownedParameter: Method x Parameter -> Behavior x Parameter (to be more aligned to UML2)
 - valueType renamed to type: because it is used also to both represent the type of (values of) variables and the type of values themselves. 
 - ownedParameter renamed to ownedBehaviorParameter (to distinguish it from ownedTemplateParameter and to use the same name pattern; Note that in some language a SoftwareEntity may own both TemplateParaters and BehaviorParameters)
+- mtop:nestedClassifier -> msw:nestedClassifier (for coherence with the namespace of Classifier)
+- msw:forkedSoftwareWork -> msw:forkedSoftware (because Software is no more a Work); no more subclassOf usedEntity (as may represent also an indirect use) 
+- msw:forkSoftwareWork -> msw:forkedSoftware (because Software is no more a Work); 
 
 Added msw classes:
 - Value (subclassOf TypedEntity): Any SoftwareEntity that can be assigned to a variable
@@ -75,6 +88,34 @@ Added msw properties:
 - ownedBinding: ParameterizedEntityBinding x ParameterBinding (specification of the actual parameter of a ParameterizedEntityBinding)
 - boundEntity: ParameterizedEntityBinding x ParameterizedEntity (the ParametrizedEntity that is bound by the subject ParametrizedEntityBinding)
 - associatedAnnotation: SoftwareEntity x Annotation (to associate an Annotation to a SoftwareEntity)
+- hasSameContentOfProvenanceRelease: Library x xsd:boolean (true if the content of the subject Library and of the provenanceRelease coincides)
+- releasedSoftwareLicenseTemplate: SoftwareProject x CopyrightLicenseTemplate (license template that regulates the usage of the software released by the subject SoftwareProject)
+- sourceCode: SoftwareEntity x SourceCodeFile (to allow to represent also not provenance source code)
+- objectCode: SoftwareEntity x ObjectCodeFile (to allow to represent also not provenance object code)
+
+Removed msw Classes:
+- Image (out of scope)
+- ElectronicDocument (out of scope)
+- WebDocument, WebPage (moved to mweb ontology)
+
+Removed msw Properties:
+- url (moved to mweb ontology)
+
+Added mweb Classes
+- WebDocument (moved from sw ontology)
+- HTMLFile (Any ScriptFile written in the HTML language)
+- HTMLPage (Any abstract document implemented using the HTML programming language)
+- WebClient (Any Program that runs on the user side of the Web)
+- ClientProgram (Any Program that uses the services offered by another Program)
+- WebScript (Any Program which source code may be interpreted by a web browser)
+
+Added mweb Property
+- url: WebDocument x xsd:AnyURI (moved from msw ontology)
+- embeddedScript: HTMLPage x Script (A Program embedded in an HTMLPage)
+
+Changed mlic properties
+- mlic:assessment(Work x LicenseAssessment) -> mlic:licenseAssessment(top:Entity x LicenseAssessment): because also part of a Work may be covered by license
+- mlic:assessment(Work x LicenseAssessment) -> mlic:licenseAssessment(top:Entity x LicenseAssessment): because also part of a Work may be covered by license
 
 V1.5
 ====

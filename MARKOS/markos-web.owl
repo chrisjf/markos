@@ -31,6 +31,53 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#embeddedScript -->
+
+    <owl:ObjectProperty rdf:about="&mweb;embeddedScript">
+        <rdfs:label xml:lang="en">Embedded script</rdfs:label>
+        <rdfs:comment xml:lang="en">Script program embedded within the subjct HTMLPage.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;Program"/>
+        <rdfs:domain rdf:resource="&mweb;HTMLPage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#url -->
+
+    <owl:DatatypeProperty rdf:about="&mweb;url">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Location</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.w3.org/DesignIssues/HTTP-URI2.html</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">The URL (also URI) of the subject Web Document (a client performing an HTTP request at this URL must receive an HTTP response code of 200).
+</rdfs:comment>
+        <rdfs:domain rdf:resource="&mweb;WebDocument"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -43,7 +90,17 @@
 
     <owl:Class rdf:about="&mweb;ApplicationServer">
         <rdfs:subClassOf rdf:resource="&mweb;WebServer"/>
-        <rdfs:comment xml:lang="en">An extensible ServerProgram dedicated to the implementation of specific kind of distributed applications (i.e. programs), including web applications.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any extensible ServerProgram dedicated to the implementation of specific kind of distributed applications (i.e. programs), including web applications.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#ClientProgram -->
+
+    <owl:Class rdf:about="&mweb;ClientProgram">
+        <rdfs:label xml:lang="en">Client program</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;Program"/>
+        <rdfs:comment xml:lang="en">Any Program to uses specific services provided by some (Server) Program. A ClientProgram may be extensible by means of specific kind of data/content and components.</rdfs:comment>
     </owl:Class>
     
 
@@ -58,11 +115,52 @@
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/web#HTMLFile -->
+
+    <owl:Class rdf:about="&mweb;HTMLFile">
+        <rdfs:label xml:lang="en">HTML file</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&msw;ScriptFile"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&msw;codingLanguage"/>
+                        <owl:hasValue rdf:resource="&msw;HTML_LANGUAGE"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Any ScriptFile written in the HTML language.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#HTMLPage -->
+
+    <owl:Class rdf:about="&mweb;HTMLPage">
+        <rdfs:label xml:lang="en">HTML page</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&msw;SoftwareEntity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&msw;sourceCode"/>
+                        <owl:allValuesFrom rdf:resource="&mweb;HTMLFile"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&mweb;ClientSideWebComponent"/>
+        <rdfs:comment xml:lang="en">Any abstract document implemented using the HTML programming language.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/web#ServerProgram -->
 
     <owl:Class rdf:about="&mweb;ServerProgram">
         <rdfs:subClassOf rdf:resource="&msw;Program"/>
-        <rdfs:comment xml:lang="en">A Program to provide specific kind of services to requesters running programs (Clients). A ServerProgram may be extensible by means of specific kind of data/content and components. </rdfs:comment>
+        <rdfs:comment xml:lang="en">Any Program to provide specific kind of services to requesters running programs (Clients). A ServerProgram may be extensible by means of specific kind of data/content and components. </rdfs:comment>
     </owl:Class>
     
 
@@ -92,7 +190,7 @@
     <owl:Class rdf:about="&mweb;WebApplication">
         <rdfs:label xml:lang="en">Web application</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Program"/>
-        <rdfs:comment xml:lang="en">A Program containing one or more WebComponents, altogheter implementing a coherent set of functionalities accessed by final users by means of a web browser.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any Program containing one or more WebComponents, altogheter implementing a coherent set of functionalities accessed by final users by means of a web browser.</rdfs:comment>
     </owl:Class>
     
 
@@ -101,9 +199,19 @@
 
     <owl:Class rdf:about="&mweb;WebBrowser">
         <rdfs:label xml:lang="en">Web browser</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;Program"/>
+        <rdfs:subClassOf rdf:resource="&mweb;WebClient"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Web_browser&amp;oldid=602376902</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">A software application (also called web client) for retrieving, presenting and traversing information resources (i.e web documents) on the World Wide Web.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#WebClient -->
+
+    <owl:Class rdf:about="&mweb;WebClient">
+        <rdfs:label xml:lang="en">Web client</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mweb;ClientProgram"/>
+        <rdfs:comment xml:lang="en">Any Program that runs on the user side of the Web. It may be a Web browser or another application accessing the services provided by WebServers.</rdfs:comment>
     </owl:Class>
     
 
@@ -121,7 +229,57 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&msw;Component"/>
+        <owl:disjointWith rdf:resource="&mweb;WebDocument"/>
         <rdfs:comment xml:lang="en">A WebClient Component or a WebServerComponent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#WebDocument -->
+
+    <owl:Class rdf:about="&mweb;WebDocument">
+        <rdfs:label xml:lang="en">Web document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareArtifact"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.w3.org/TR/cooluris/#oldweb</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">Anything available on the web, identified by its own URI, and that can be conveyed in a message.
+&quot;Every Web document has its own URI. Note that a Web document is not the same as a file: a single Web document can be available in many different formats and languages, and a single file, for example a PHP script, may be responsible for generating a large number of Web documents with different URIs. A Web document is defined as something that has a URI and can return representations (responses in a format such as HTML or JPEG or RDF) of the identified resource in response to HTTP requests.In technical literature [...] the term Information Resource is used instead of Web document&quot; 
+
+
+A WebDocument is not a WebComponent, but a WebComponent may produce/implement a WebPage.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#WebPage -->
+
+    <owl:Class rdf:about="&mweb;WebPage">
+        <rdfs:label xml:lang="en">Web page</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mweb;WebDocument"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&msw;manifestation"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="&mweb;HTMLPage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Web_page&amp;oldid=544129970</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">Any web document implemented by an HTMLPage and related tecnlogies. A WebPage have a specific URI. Same content published at two different URI corresponds to two different WebPages. 
+
+Note that an WebPage and an HTMLFile are different kind of manifestations of HTMLPage. Different WebPages (having different URI) may show the same HTMLPage (i.e. may have same content) and different HTMLFiles (having a different fyle system path) may contain the source code of the same HTMLPage .</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#WebScript -->
+
+    <owl:Class rdf:about="&mweb;WebScript">
+        <rdfs:label xml:lang="en">WebScript</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;Program"/>
+        <rdfs:subClassOf rdf:resource="&mweb;ClientSideWebComponent"/>
+        <rdfs:comment xml:lang="en">Any Program that may be emebedded or delivered with an HTML Page and which source code may be interpreted by an web browser.</rdfs:comment>
     </owl:Class>
     
 
@@ -131,7 +289,7 @@
     <owl:Class rdf:about="&mweb;WebServer">
         <rdfs:label xml:lang="en">Web server</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mweb;ServerProgram"/>
-        <rdfs:comment xml:lang="en">A ServerProgram that stores, processes and delivers web pages (e.g. HTML pages) to any client performing requests using the Hypertext Transfer Protocol (HTTP).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any ServerProgram that stores, processes and delivers web pages to any client performing requests using the Hypertext Transfer Protocol (HTTP).</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 

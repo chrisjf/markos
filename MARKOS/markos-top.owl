@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY mtop "http://www.markosproject.eu/ontologies/top#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.markosproject.eu/ontologies/top#"
+     xml:base="http://www.markosproject.eu/ontologies/top"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:mtop="http://www.markosproject.eu/ontologies/top#">
+    <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/top">
+        <rdfs:comment xml:lang="en">This ontology describes the top concepts used by all the MARKOS ontologies. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
+        <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
+        <owl:versionIRI rdf:resource="&mtop;2014/04/17"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#canonicalURICriteria -->
+
+    <owl:AnnotationProperty rdf:about="&mtop;canonicalURICriteria">
+        <rdfs:label xml:lang="en">Canonical URI criteria</rdfs:label>
+        <rdfs:comment xml:lang="en">This annotation specifies how the canonical RDF URI for an instance of the subject class should be composed.
+
+Such a rule is expressed informally as it is not intended to be used by generic OWL resoners but by human agents of by humans that implement automatic agents that, each independently from the others, describe entities and needs to generate URIs for such entities that are guarantied to be unique at global level.
+</rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;PlainLiteral"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#correspondingSuperProperty -->
+
+    <owl:AnnotationProperty rdf:about="&mtop;correspondingSuperProperty">
+        <rdfs:label xml:lang="en">Corresponding super property</rdfs:label>
+        <correspondingSuperProperty xml:lang="en">An OWL property that &quot;corresponds&quot; to a superProperty of the subject Property, in the sense that there is a corrispondence between the domains of the two properties and the ranges of the two properties and if two entities are related by the subject property then the corresponding entities are related by the superProperty.</correspondingSuperProperty>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#identityCriteria -->
+
+    <owl:AnnotationProperty rdf:about="&mtop;identityCriteria">
+        <rdfs:label xml:lang="en">Identity criteria</rdfs:label>
+        <rdfs:comment xml:lang="en">List of key properties (not necessarly OWL properties) of the instances of the subject OWL class, i.e.  no two distinct instances of the subject OWL class can have same values of all listed properties.
+
+If all the listed properties are represented as OWL properties than the identity criteria conceptually implies key axioms (owl:hasKey) on the corresponding properties, anyway differently from the OWL key axioms, the identity criteria applies also to unnamed instances.
+
+The identity criteria clarifies in a more precise way the semantics of the subject class. 
+
+The identity criteria is expressed informally as it is not intended to be used by generic OWL resoners but by humans or to implement automatic agents that automatically recognizes and distingiushes (i.e. compares) entities.
+
+The list of key properties is specified using a comma separated list of names plus optional additional sentences useful to clarify the meaning of the listed properties.
+
+The specified list of key properties is ideal in the sense that it is not requested to be usable in a practical or efficient way in all circumstances. In other terms the values of the key properties could be difficult or complex to manage or impossible to obtain in an automatic or sure way. 
+
+Depending from the specific type of entity, specific strategies can be found to compare entities without the need to determine the key properties. 
+</rdfs:comment>
+        <rdfs:range rdf:resource="&rdf;PlainLiteral"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#nameCriteria -->
+
+    <owl:AnnotationProperty rdf:about="&mtop;nameCriteria">
+        <rdfs:label xml:lang="en">Name criteria</rdfs:label>
+        <rdfs:comment xml:lang="en">Better specify the semantics of the name Property of the instances of the subject Class.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#namespaceCriteria -->
+
+    <owl:AnnotationProperty rdf:about="&mtop;namespaceCriteria">
+        <rdfs:label xml:lang="en">Namespace criteria</rdfs:label>
+        <rdfs:comment xml:lang="en">Better specify the semantics of the namespace Property of the instances of the subject Class.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#versionCriteria -->
+
+    <owl:AnnotationProperty rdf:about="&mtop;versionCriteria">
+        <rdfs:label xml:lang="en">Version criteria</rdfs:label>
+        <rdfs:comment xml:lang="en">Better specify the semantics of the version Property of the instances of the subject Class.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/subject -->
+
+    <owl:ObjectProperty rdf:about="&terms;subject"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#containedEntity -->
+
+    <owl:ObjectProperty rdf:about="&mtop;containedEntity">
+        <rdfs:label xml:lang="en">Contained entity</rdfs:label>
+        <rdfs:comment xml:lang="en">An entity contained (as direct child) in the subject Container.
+
+A same entity may be contained in different Containers. </rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Container"/>
+        <rdfs:range rdf:resource="&mtop;Entity"/>
+        <owl:inverseOf rdf:resource="&mtop;containerEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#containerEntity -->
+
+    <owl:ObjectProperty rdf:about="&mtop;containerEntity">
+        <rdfs:label xml:lang="en">Contained entity</rdfs:label>
+        <rdfs:comment xml:lang="en">The container (as direct parent) of the subject entity.</rdfs:comment>
+        <rdfs:range rdf:resource="&mtop;Entity"/>
+        <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;superordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#namespace -->
+
+    <owl:ObjectProperty rdf:about="&mtop;namespace">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Namespace</rdfs:label>
+        <rdfs:comment xml:lang="en">Specifies the namespace that owns the NamedElement.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:range rdf:resource="&mtop;Namespace"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;containerEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#ownedMember -->
+
+    <owl:ObjectProperty rdf:about="&mtop;ownedMember">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">Owned member</rdfs:label>
+        <rdfs:comment xml:lang="en">Any NamedEntity owned by the subject Namespace. It corresponds to the homonymous UML2 property.</rdfs:comment>
+        <rdfs:range rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:domain rdf:resource="&mtop;Namespace"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;containedEntity"/>
+        <owl:inverseOf rdf:resource="&mtop;namespace"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#previousVersion -->
+
+    <owl:ObjectProperty rdf:about="&mtop;previousVersion">
+        <rdfs:label xml:lang="en">Previous version</rdfs:label>
+        <rdfs:comment xml:lang="en">A previous version of the subject entity (i.e. the entity the subject one is directly derived from).
+
+Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the SoftwareWork.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;VersionedEntity"/>
+        <rdfs:range rdf:resource="&mtop;VersionedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#relatedTopic -->
+
+    <owl:ObjectProperty rdf:about="&mtop;relatedTopic">
+        <rdfs:label xml:lang="en">Related topic</rdfs:label>
+        <rdfs:comment xml:lang="en">A topic of the subject Work, linking to the appropriate SKOS category. </rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&terms;subject"/>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#subordinateEntity -->
+
+    <owl:ObjectProperty rdf:about="&mtop;subordinateEntity">
+        <rdfs:label xml:lang="en">Subordinate entity</rdfs:label>
+        <rdfs:comment xml:lang="en">Entity owned or contained by the subject entity. &quot;owned&quot; here does not necessarly imply legal or intellectual ownership but just that the owned entity is in a sense subordinate/secondary to the first entity, for instance that the existence of the owned entity depends on the existence of the first entity or that the status of the ownedEntity is controlled by the first entity.</rdfs:comment>
+        <rdfs:range rdf:resource="&mtop;Entity"/>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <owl:inverseOf rdf:resource="&mtop;superordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#successiveVersion -->
+
+    <owl:ObjectProperty rdf:about="&mtop;successiveVersion">
+        <rdfs:label xml:lang="en">Successive version</rdfs:label>
+        <rdfs:comment xml:lang="en">A successive version of the subject entity. (i.e. an entity that is directly derived from the subject)</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;VersionedEntity"/>
+        <rdfs:range rdf:resource="&mtop;VersionedEntity"/>
+        <owl:inverseOf rdf:resource="&mtop;previousVersion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#superordinateEntity -->
+
+    <owl:ObjectProperty rdf:about="&mtop;superordinateEntity">
+        <rdfs:label xml:lang="en">Superordinate entity</rdfs:label>
+        <rdfs:comment xml:lang="en">Inverse of subordinateEntity (see).</rdfs:comment>
+        <rdfs:range rdf:resource="&mtop;Entity"/>
+        <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#usedEntity -->
+
+    <owl:ObjectProperty rdf:about="&mtop;usedEntity">
+        <rdfs:label xml:lang="en">Used entity</rdfs:label>
+        <rdfs:comment xml:lang="en">An entity that is used to produce the subject entity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Used entity</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:range rdf:resource="&mtop;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#name -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;name">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Name</rdfs:label>
+        <rdfs:comment xml:lang="en">The name of the NamedElement.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#webSiteURL -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;webSiteURL">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Homepage</rdfs:label>
+        <rdfs:comment xml:lang="en">Web site of the subject entity.
+
+Note: DOAP &apos;homepage&apos; is specialization of webSiteURL</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#Artifact -->
+
+    <owl:Class rdf:about="&mtop;Artifact">
+        <rdfs:label xml:lang="en">Artifact</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:comment xml:lang="en">An Entity that can be represented by a UML2 Artifact i.e. &quot;a physical piece of information that is used or produced by a software development process, or by deployment and operation of a system. Examples of artifacts include model files, source files, scripts, and binary executable files, a table in a database system, a development deliverable, or a word-processing document, a mail message.&quot;
+
+Artifact are concrete entities, i.e. located in time and space.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#Container -->
+
+    <owl:Class rdf:about="&mtop;Container">
+        <rdfs:label xml:lang="en">Container</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:comment xml:lang="en">An entity that may contain other entities (see property containedEntity). A container may be empty. 
+The containement relationship is not just a part-of relationship. An entity X is a container of a set of entities if no one of these entities has a specific relationship with the container. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#Entity -->
+
+    <owl:Class rdf:about="&mtop;Entity">
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
+        <rdfs:comment xml:lang="en">Anything that is modelled by the MARKOS ontology. Similar to UML2 Element (i.e. an element of a model), with the difference that an Entity is what a UML2 Element represents. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#NamedEntity -->
+
+    <owl:Class rdf:about="&mtop;NamedEntity">
+        <rdfs:label xml:lang="en">Named entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
+        <rdfs:comment xml:lang="en">An entity that can be represented by a UML2 NamedElement: &quot;A named element represents elements that may have a name. The name is used for identification of the named element within the namespace in which it is defined. A named element also has a qualified name that allows it to be unambiguously identified within a hierarchy of nested namespaces. NamedElement is an abstract metaclass&quot;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#Namespace -->
+
+    <owl:Class rdf:about="&mtop;Namespace">
+        <rdfs:label xml:lang="en">Namespace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;Container"/>
+        <rdfs:comment xml:lang="en">An entity that can be represented by a UML2 Namespace: &quot;A namespace is a named element that can own other named elements&quot;.
+When the same name is used to refer to different entities, we assign each distinct entity to a distinct namespace. The namespace disambiguate the referent of a name. A namespace is uniquelly identified (in the context of the same formal language) by its name. When we talk of the namespace of a software entity we refer to the one used from the developers of the software entity for referring the software entity and it is distinct from the RDF namespace of the same entity considered as an RDF resource.
+Note also that &quot;x owns y&quot; does not means that x owns y in a legal sense, but just that x contains y in a structural sense explained above.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#VersionedEntity -->
+
+    <owl:Class rdf:about="&mtop;VersionedEntity">
+        <rdfs:label xml:lang="en">Versioned entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:comment xml:lang="en">An entity that may belong to a specific version history ruled by a specific version control system (the version control system may be also a manual process).</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
