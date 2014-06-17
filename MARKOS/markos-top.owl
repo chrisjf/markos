@@ -322,8 +322,7 @@ Artifact are concrete entities, i.e. located in time and space.</rdfs:comment>
     <owl:Class rdf:about="&mtop;Container">
         <rdfs:label xml:lang="en">Container</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
-        <rdfs:comment xml:lang="en">An entity that may contain other entities (see property containedEntity). A container may be empty. 
-The containement relationship is not just a part-of relationship. An entity X is a container of a set of entities if no one of these entities has a specific relationship with the container. </rdfs:comment>
+        <rdfs:comment xml:lang="en">An entity that may contain other entities (see property containedEntity). A container may be empty. </rdfs:comment>
     </owl:Class>
     
 
@@ -353,8 +352,14 @@ The containement relationship is not just a part-of relationship. An entity X is
         <rdfs:label xml:lang="en">Namespace</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mtop;Container"/>
         <rdfs:comment xml:lang="en">An entity that can be represented by a UML2 Namespace: &quot;A namespace is a named element that can own other named elements&quot;.
-When the same name is used to refer to different entities, we assign each distinct entity to a distinct namespace. The namespace disambiguate the referent of a name. A namespace is uniquelly identified (in the context of the same formal language) by its name. When we talk of the namespace of a software entity we refer to the one used from the developers of the software entity for referring the software entity and it is distinct from the RDF namespace of the same entity considered as an RDF resource.
-Note also that &quot;x owns y&quot; does not means that x owns y in a legal sense, but just that x contains y in a structural sense explained above.</rdfs:comment>
+
+The namespace disambiguate the referent of a name in a given context (i.e. when the same name is used to refer to different entities, each distinct entity is assigned to a distinct namespace).
+
+The nature of the context depends from the specific kind of namespace (different formal languages and interpreters may use different kind of namespace contexts).
+
+A namespace has itself a name and it may belong to another namespace. 
+
+A namespace is uniquelly identified (in a same context) by its &quot;fullname&quot; composed by ithe its name and, if any, its namespace fullname.</rdfs:comment>
     </owl:Class>
     
 

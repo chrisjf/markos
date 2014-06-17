@@ -11,16 +11,17 @@ Added prefix mjs:http://www.markosproject.eu/ontologies/javascript#
 All mtop concepts moved to top ontology.
 
 Added mjs classes
-- mjs:Constructor (any JavaScript Function that may be used with the JavaScript operator "new")
-- mjs:ActualConstructor (any Constructor actually invoked by some Function using the JavaScript operator "new")
-- mjs:Method (any JavaScript Function that is the value of a JavaScript Property.)
-- mjs:PrimitiveValue (any JavaScript primitive value) 
-- mjs:Function (any JavaScript function)
-- mjs:Object (any JavaScript Object)
-- mjs:PrimitiveType (any JavaScript primitive type)
-- mjs:Property (any JavaScript property)
-- mjs:Value (any JavaScript value)
-- mjs:Type (Any JavaScript type, i.e. one of 6 built-in types:  Undefined, Null, Boolean, String, Number, Object)
+- Constructor (any JavaScript Function that may be used with the JavaScript operator "new")
+- ActualConstructor (any Constructor actually invoked by some Function using the JavaScript operator "new")
+- Method (any JavaScript Function that is the value of a JavaScript Property.)
+- PrimitiveValue (any JavaScript primitive value) 
+- Function (any JavaScript function)
+- Object (any JavaScript Object)
+- PrimitiveType (any JavaScript primitive type)
+- Property (any JavaScript property)
+- Value (any JavaScript value)
+- Type (Any JavaScript type, i.e. one of 6 built-in types:  Undefined, Null, Boolean, String, Number, Object)
+- JavaScriptClientProgram (any mweb:WebScript coded using the JavaScript programming language.)
 
 Added mjs properties
 - mjs:invokedConstructor: mjs:Function x mjs:ActualConstructor (Function that is invoked using the operator "new" or the built-in Function "Object.create")
@@ -48,7 +49,7 @@ Changed msw classes:
 - SoftwareEntity (definition in rdfs:comment has been improved): to clarify that SoftwareEntities are not just entities defined by a programming language specifications, but also from other specification that works on top of a programming language specification. 
 - SoftwareArtifact (definition in rdfs:comment has been improved): to clarify that SoftwareArtifact is not necessarily located in the physical space, but it sufficient to have a location on the Internet. 
 - SoftwareClass label: SoftwareClass -> Class
-- SoftwareWork -> SoftwareThing (it does not inherits from Work anymore)
+- SoftwareWork -> Software (it does not inherits from Work anymore)
 - SoftwareRelease (now is subclassOf SoftwareArtifact and direct subclassOf Work, as superclass SoftwareThing is no more subclassOf Work)
 
 Changed msw properties (name, comment and related constraints):
@@ -101,24 +102,28 @@ Removed msw Classes:
 Removed msw Properties:
 - url (moved to mweb ontology)
 
-Added mweb Classes
+Added mweb Classes:
 - WebDocument (moved from sw ontology)
 - HTMLFile (Any ScriptFile written in the HTML language)
 - HTMLPage (Any abstract document implemented using the HTML programming language)
 - WebClient (Any Program that runs on the user side of the Web)
 - ClientProgram (Any Program that uses the services offered by another Program)
-- WebScript (Any Program which source code may be interpreted by a web browser)
+
+Changed mweb Classes:
+- WebApplication = msw:Program and (mtop:containedEntity some mweb:WebComponent)
 
 Added mweb Property
 - url: WebDocument x xsd:AnyURI (moved from msw ontology)
 - embeddedScript: HTMLPage x Script (A Program embedded in an HTMLPage)
 
 Changed mlic properties
-- mlic:assessment(Work x LicenseAssessment) -> mlic:licenseAssessment(top:Entity x LicenseAssessment): because also part of a Work may be covered by license
-- mlic:assessment(Work x LicenseAssessment) -> mlic:licenseAssessment(top:Entity x LicenseAssessment): because also part of a Work may be covered by license
+- mlic:coveringLicense(Work x CopyrightLicense) -> mlic:coveringLicense(Entity x CopyrightLicense): because also part of a Work may be covered by license
+- mlic:coveringLicenseTemplate(Work x CopyrightLicense) -> mlic:coveringLicenseTemplate(Entity x CopyrightLicense): because also part of a Work may be covered by license
+- mlic:assessment(CopyrightLicense x LicenseAssessment) -> mlic:coveringLicenseAssessment(top:Entity x LicenseAssessment): because there could be no asserted CopyrightLicense, but just the CopyrightLicenseTemplate 
 
 V1.5
 ====
+version date: 2014/04/17
 
 Created web ontology: http://www.markosproject.eu/ontologies/web (markos-web.owl)
 
@@ -193,8 +198,9 @@ Added definition of mlic prefix in license ontology
 Updated mapping to SEON
 
 
-V1.4
+V1.4 
 ====
+version date: 2014/03/11 
 
 Added mapping to ADMS.SW (markos-to-adms.owl)
 

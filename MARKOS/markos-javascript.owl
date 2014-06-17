@@ -24,6 +24,7 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/javascript">
         <owl:versionIRI rdf:resource="&mjs;2014/04/17"/>
         <owl:imports rdf:resource="&software;2014/04/17"/>
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/web#2014/04/17"/>
     </owl:Ontology>
     
 
@@ -118,6 +119,26 @@ Note that also some Function actually intended to be used as normal instance met
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://developer.mozilla.org/en-US/docs/Web/JavaScript</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">JavaScript function. Any JavaScript Function is also a JavaScript Object. 
 </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram -->
+
+    <owl:Class rdf:about="&mjs;JavaScriptClientProgram">
+        <rdfs:label xml:lang="en">JavaScript client program.</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/web#WebScript"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&software;codingLanguage"/>
+                        <owl:hasValue rdf:resource="&software;JAVASCRIPT_LANGUAGE"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Any WebScript coded using the JavaScript programmin language.</rdfs:comment>
     </owl:Class>
     
 

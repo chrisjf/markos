@@ -2023,22 +2023,20 @@ An Object that is instance of a Classifier may be represented by a UML2 Instance
         <rdfs:label xml:lang="en">Package</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;APIContainer"/>
         <rdfs:subClassOf rdf:resource="&mtop;Namespace"/>
+        <rdfs:comment xml:lang="en">A Namespace such that all its SoftwareEntities belong to (at least) one same SoftwareRelease. A package is identitified just by its members and the containing SoftwareRelease is not part of the identity of the Package, therefore the same Package may be contained in two different SoftwareReleases.
+
+Packages are used to disambiguate names within the context of a same SoftwareRelease. 
+
+Regardless of its name, a Package may have other Packages as ownedMember or not, depending from the programming language.
+
+A Package can be represented by a UML2 package (&quot;A package is a namespace for its members, and may contain other packages&quot;), but UML does not require that the members of the package belong to a same SoftwareRelease.
+
+It is possible to have different packages with the same fullname. If a SoftwareRelease contains a SoftwareEntity of Package P that is not contained in another SoftwareRelease, the two releases contain different packages, also if the rest of the SoftwareEntities of P are contained in both the SoftwareReleases. In this case the Packages have the same fullname but one Package is a (direct or indirect) previousVersion of the other.
+
+</rdfs:comment>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Package&apos; + provenance project URI  + release name + package namespace + package name.</mtop:canonicalURICriteria>
         <mtop:nameCriteria xml:lang="en">The name of the package is the name of the namespace of the contained entities.</mtop:nameCriteria>
         <mtop:namespaceCriteria xml:lang="en">The namespace of the package is the namespace of the namespace of the contained entities.</mtop:namespaceCriteria>
-        <rdfs:comment xml:lang="en">The set of all software entities contained in a same SoftwareRelease and belonging to (i.e. ownedMember of) a same namespace. 
-
-The name of the package is the name of the namespace.
-
-Regardless of its name, a Package may have other Packages as ownedMember or not depending from the programming language.
-
-Note that the release is not part of the identity of the package, but only its members, threfore two distinct releases of the same Project may release the same package.
-
-It can be represented by a UML2 package (&quot;A package is a namespace for its members, and may contain other packages&quot;), but UML doeas not requires that the members of the package comes from a same release.
-
-It is possible to have different packages with the same name. If two releases (of a same project or of different projects) contains the same SoftwareEntities belonging to a same namespace, they conyain (or coincides with) the same package. On the contrary, if a release contains a SoftwareEntity, of a certain namespace, that is not contained in another release, the two releases containes different packages, also if the rest of the SoftwareEntities of that namespace are conytained in both the releases. In this last case one package is a direct or indirect fork or a previousVersion of the other.
-
-</rdfs:comment>
         <mtop:identityCriteria xml:lang="en">The set of identities of all software entities in the package.</mtop:identityCriteria>
         <mtop:versionCriteria xml:lang="en">The version of the set of manifestation souce code files of the project members (it depends forn the Version Control System if the set have a unique version or each file have an independent version). </mtop:versionCriteria>
         <provenanceManifestationCriteria xml:lang="en">the first project (in temporal order) that released the package (i.e that released exactly the souce code manifestations of the set of members of the package, not more and not less).</provenanceManifestationCriteria>

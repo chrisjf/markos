@@ -104,18 +104,6 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/licenses#LicenseAssessment -->
-
-    <owl:ObjectProperty rdf:about="&mlic;LicenseAssessment">
-        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:label xml:lang="en">License assessment</rdfs:label>
-        <rdfs:comment xml:lang="en">Assessment of the compliance of the license of the subject Entity with respect to the licenses of the used (elements of) works.</rdfs:comment>
-        <rdfs:range rdf:resource="&mlic;LicenseAssessment"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/licenses#assessedLicense -->
 
     <owl:ObjectProperty rdf:about="&mlic;assessedLicense">
@@ -146,6 +134,18 @@
         <rdfs:label xml:lang="en">Covering license</rdfs:label>
         <rdfs:comment xml:lang="en">The CopyrightLicense that regulate the usage of the subject Entity.</rdfs:comment>
         <rdfs:range rdf:resource="&mlic;CopyrightLicense"/>
+        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/licenses#coveringLicenseAssessment -->
+
+    <owl:ObjectProperty rdf:about="&mlic;coveringLicenseAssessment">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">License assessment</rdfs:label>
+        <rdfs:comment xml:lang="en">Assessment of the compliance of the license of the subject Entity with respect to the licenses of the used (elements of) works.</rdfs:comment>
+        <rdfs:range rdf:resource="&mlic;LicenseAssessment"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
     </owl:ObjectProperty>
     

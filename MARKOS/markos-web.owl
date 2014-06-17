@@ -189,8 +189,18 @@
 
     <owl:Class rdf:about="&mweb;WebApplication">
         <rdfs:label xml:lang="en">Web application</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;Program"/>
-        <rdfs:comment xml:lang="en">Any Program containing one or more WebComponents, altogheter implementing a coherent set of functionalities accessed by final users by means of a web browser.</rdfs:comment>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&msw;Program"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                        <owl:someValuesFrom rdf:resource="&mweb;WebComponent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Any Program containing one or more WebComponents (altogheter implementing a coherent set of functionalities accessed by final users by means of a web browser).</rdfs:comment>
     </owl:Class>
     
 
@@ -279,7 +289,7 @@ Note that an WebPage and an HTMLFile are different kind of manifestations of HTM
         <rdfs:label xml:lang="en">WebScript</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;Program"/>
         <rdfs:subClassOf rdf:resource="&mweb;ClientSideWebComponent"/>
-        <rdfs:comment xml:lang="en">Any Program that may be emebedded or delivered with an HTML Page and which source code may be interpreted by an web browser.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any Program that may be emebedded or delivered with an HTML Page and which source code may be interpreted by a web browser.</rdfs:comment>
     </owl:Class>
     
 
