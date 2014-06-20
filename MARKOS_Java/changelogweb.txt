@@ -12,6 +12,7 @@ HTMLPage as subclass of WebPage (web)
 JavaServerSideComponent subclass of ServerSideComponent
 In JSPPage we can add restriction to the property that import a SoftwareEntity
 homeInterface and componentInterface became subclass of providedInterface
+ApplicationServerFramework became a subclass of ApplicationServer
 
 NEW PROPERTIES
 urlPattern: x String

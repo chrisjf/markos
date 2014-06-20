@@ -35,10 +35,7 @@
         <rdfs:comment>This ontology describes the Java programing language concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).
 
 Goals: 
-“what a user is expected to finnd after completion of a searching process&quot;.
-
-The ontological model has been introduced for 
-representing Java software entities structure and classification.</rdfs:comment>
+The ontological model has been introduced for representing Java SE software entities structure and classification.</rdfs:comment>
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/software"/>
         <owl:versionIRI rdf:resource="&mjava;2014/06/20"/>
     </owl:Ontology>
@@ -887,14 +884,14 @@ The manifest is a special file that can contain information about the files pack
         <rdfs:subClassOf rdf:resource="&msw;Method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+                <owl:onProperty rdf:resource="&mtop;nestedClassifier"/>
+                <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;nestedClassifier"/>
-                <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html</rdfs:seeAlso>

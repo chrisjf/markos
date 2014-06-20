@@ -26,9 +26,13 @@
      xmlns:mjava="http://www.markosproject.eu/ontologies/java#"
      xmlns:top="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-web-java">
+        <rdfs:comment>This ontology describes the Java Web programing language concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).
+
+Goals: The ontological model has been introduced for representing Java EE software entities structure and classification.</rdfs:comment>
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/java"/>
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/javascript"/>
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/web"/>
+        <owl:versionIRI rdf:resource="&mwjava;2014/06/20"/>
     </owl:Ontology>
     
 
@@ -67,6 +71,7 @@
         <rdfs:label>Component interface</rdfs:label>
         <rdfs:comment>Java interface for the business object. It defines the business logic methods, which are implemented in the bean implementation.</rdfs:comment>
         <skos:altLabel>Remote interface</skos:altLabel>
+        <mjava:relatedTo>EJB</mjava:relatedTo>
         <rdfs:range rdf:resource="&mjava;JavaInterface"/>
         <rdfs:domain rdf:resource="&mwjava;EnterpriseJavaBean"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#providedInterface"/>
@@ -78,6 +83,7 @@
 
     <owl:ObjectProperty rdf:about="&mwjava;definedJSPElement">
         <rdfs:label>Defined JSP element</rdfs:label>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
         <rdfs:comment>Define the relationshipt between a JSP scripting element and the subject JSP Page</rdfs:comment>
         <rdfs:range rdf:resource="&mwjava;JSPElement"/>
         <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
@@ -104,6 +110,7 @@
     <owl:ObjectProperty rdf:about="&mwjava;homeInterface">
         <rdfs:label>Home interface</rdfs:label>
         <rdfs:comment>Java interface for the Home interface.</rdfs:comment>
+        <mjava:relatedTo>EJB</mjava:relatedTo>
         <rdfs:range rdf:resource="&mjava;JavaInterface"/>
         <rdfs:domain rdf:resource="&mwjava;EnterpriseJavaBean"/>
         <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#providedInterface"/>
@@ -135,6 +142,7 @@
 
     <owl:ObjectProperty rdf:about="&mwjava;importedJSPProgram">
         <rdfs:label>Imported JSP program</rdfs:label>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
         <rdfs:comment>The javascript file imported by the subject JSP Page</rdfs:comment>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram"/>
         <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
@@ -242,7 +250,7 @@
 
     <owl:DatatypeProperty rdf:about="&mwjava;isOptionalAttribute">
         <rdfs:label>Is optional attribute</rdfs:label>
-        <rdfs:label> It means the attribute can be optional (true) or mandatory (false).</rdfs:label>
+        <rdfs:comment> It means the attribute can be optional (true) or mandatory (false).</rdfs:comment>
         <rdfs:domain rdf:resource="&mwjava;JSPTagAttribute"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
@@ -395,6 +403,7 @@ Application clients directly access enterprise beans running in the business tie
     <owl:Class rdf:about="&mwjava;ApplicationServerFramework">
         <rdfs:label>Application server framework</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/web#ApplicationServer"/>
         <rdfs:comment>Java EE technologies used in the application server components</rdfs:comment>
     </owl:Class>
     
@@ -415,6 +424,7 @@ Application clients directly access enterprise beans running in the business tie
     <owl:Class rdf:about="&mwjava;BusinessTierTechnology">
         <rdfs:label>Business tier technology</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
+        <top:canonicalURICriteria>&quot;JAVA_TECHNOLOGY_&quot; + technology name</top:canonicalURICriteria>
         <rdfs:comment>Java EE technologies used in the business tier</rdfs:comment>
     </owl:Class>
     
@@ -446,6 +456,7 @@ Application clients directly access enterprise beans running in the business tie
     <owl:Class rdf:about="&mwjava;EnterpriseApplicationTechnology">
         <rdfs:label>EnterpriseApplication technology</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
+        <top:canonicalURICriteria>&quot;JAVA_TECHNOLOGY_&quot; + technology name</top:canonicalURICriteria>
         <rdfs:comment>Java EE technologies used in the enterprise application tier</rdfs:comment>
     </owl:Class>
     
@@ -605,7 +616,7 @@ A JSP is an HTML page containing a reference to Java servlets, or,  java server 
         <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
         <rdfs:comment>JSP specification provides Standard(Action) tags for use within your JSP pages. These tags are used to remove or eliminate scriptlet code from your JSP page because scriplet code are technically not recommended nowadays</rdfs:comment>
         <rdfs:seeAlso>http://www.studytonight.com/jsp/jsp-action-element.php</rdfs:seeAlso>
-        <top:canonicalURICriteria>&quot;JAVA_STANDARDACTION&quot; + Standar action name</top:canonicalURICriteria>
+        <top:canonicalURICriteria>&quot;JAVA_STANDARDACTION_&quot; + Standar action name</top:canonicalURICriteria>
         <skos:altLabel>Action tag</skos:altLabel>
     </owl:Class>
     
@@ -793,6 +804,7 @@ The Java client tier consists of application clients that access a Java EE serve
     <owl:Class rdf:about="&mwjava;JavaEETechnology">
         <rdfs:label>Java EE technology</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaTechnology"/>
+        <rdfs:comment>Java technologies used to build Java EE applications</rdfs:comment>
     </owl:Class>
     
 
@@ -1023,9 +1035,8 @@ J2EE Web components can be either servlets or JSP pages.</rdfs:comment>
     <owl:Class rdf:about="&mwjava;WebApplicationTechnology">
         <rdfs:label>WebApplication technology</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
-        <rdfs:comment>Java EE technologies used in the web tier.
-
-Java Servlet technology provides Web developers with a simple, consistent mechanism for extending the functionality of a Web server and for accessing existing business systems. A servlet can almost be thought of as an applet that runs on the server side--without a face. Java servlets make many Web applications possible.</rdfs:comment>
+        <top:canonicalURICriteria>&quot;JAVA_TECHNOLOGY_&quot; + technology name</top:canonicalURICriteria>
+        <rdfs:comment>Java EE technologies used in the web tier.</rdfs:comment>
     </owl:Class>
     
 
@@ -1095,6 +1106,17 @@ A web client is sometimes called a thin client. Thin clients usually do not quer
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_APACHETOMCAT -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_APACHETOMCAT">
+        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdfs:label>Tomcat</rdfs:label>
+        <rdfs:comment>Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. The Java Servlet and JavaServer Pages specifications are developed under the Java Community Process</rdfs:comment>
+        <rdfs:seeAlso>http://tomcat.apache.org/</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_APPLET -->
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_APPLET">
@@ -1129,26 +1151,6 @@ A web client is sometimes called a thin client. Thin clients usually do not quer
         <rdf:type rdf:resource="&mwjava;JSPDirective"/>
         <rdfs:label>Java taglib directive</rdfs:label>
         <rdfs:comment>Declares a tag library, containing custom actions, used in the page</rdfs:comment>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_ENTERPRISEJAVABEANS -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_ENTERPRISEJAVABEANS">
-        <rdf:type rdf:resource="&mwjava;BusinessTierTechnology"/>
-        <rdfs:label>Enterprise javaBeans technology</rdfs:label>
-        <skos:altLabel>EJB</skos:altLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_EXPRESSIONLANGUAGETECHNOLOGY -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_EXPRESSIONLANGUAGETECHNOLOGY">
-        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
-        <rdfs:label>Expression language technology</rdfs:label>
-        <rdfs:comment> A set of standard tags used in JSP and Facelets pages to refer to Java EE components</rdfs:comment>
     </owl:NamedIndividual>
     
 
@@ -1188,57 +1190,6 @@ A web client is sometimes called a thin client. Thin clients usually do not quer
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JAVAEECONNECTORARCHITECTURE -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JAVAEECONNECTORARCHITECTURE">
-        <rdf:type rdf:resource="&mwjava;EnterpriseApplicationTechnology"/>
-        <rdfs:label>The Java EE Connector Architecture</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JAVASERVLETTECHNOLOGY -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JAVASERVLETTECHNOLOGY">
-        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
-        <rdfs:label>Java servlet technology</rdfs:label>
-        <rdfs:comment>Servlets are the Java platform technology of choice for extending and enhancing Web servers. Servlets provide a component-based, platform-independent method for building Web-based applications, without the performance limitations of CGI programs. And unlike proprietary server extension mechanisms (such as the Netscape Server API or Apache modules), servlets are server- and platform-independent. This leaves you free to select a &quot;best of breed&quot; strategy for your servers, platforms, and tools.</rdfs:comment>
-        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/tutorial/doc/bnafd.html</rdfs:seeAlso>
-        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/overview-137084.html</rdfs:seeAlso>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JAX-RPC -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JAX-RPC">
-        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
-        <rdfs:label>JAX-RPC</rdfs:label>
-        <skos:altLabel>Java API for XML-Based RPC</skos:altLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JAX-RS -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JAX-RS">
-        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
-        <rdfs:label>JAX-RS</rdfs:label>
-        <skos:altLabel>Java API for RESTful Web Services</skos:altLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JAX-WS -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JAX-WS">
-        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
-        <rdfs:label>JAX-WS</rdfs:label>
-        <skos:altLabel>Java API for XML Web Services</skos:altLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JAXR -->
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_JAXR">
@@ -1248,52 +1199,13 @@ A web client is sometimes called a thin client. Thin clients usually do not quer
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JBOSS -->
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JBOSSAS -->
 
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JBOSS">
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JBOSSAS">
         <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
-        <rdfs:label>JBOSS</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JDBC -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JDBC">
-        <rdf:type rdf:resource="&mwjava;EnterpriseApplicationTechnology"/>
-        <rdfs:label>JDBC</rdfs:label>
-        <skos:altLabel>The Java Database Connectivity API</skos:altLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JPA -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JPA">
-        <rdf:type rdf:resource="&mwjava;EnterpriseApplicationTechnology"/>
-        <rdfs:label>JPA</rdfs:label>
-        <skos:altLabel>Java Persistence API</skos:altLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSFFACELETSTECHNOLOGY -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSFFACELETSTECHNOLOGY">
-        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
-        <rdfs:label>JSF facelets technology</rdfs:label>
-        <rdfs:label>JavaServer faces facelets technology</rdfs:label>
-        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/tutorial/doc/giepx.html</rdfs:seeAlso>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSFTECHNOLOGY -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSFTECHNOLOGY">
-        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
-        <rdfs:label>JSF technology</rdfs:label>
-        <rdfs:label>JavaServer faces technology</rdfs:label>
+        <rdfs:label>JBoss application server</rdfs:label>
+        <rdfs:comment>JBOSS AS is an application server authored by JBoss, now developed by Red Hat. WildFly is written in Java, and implements the Java Platform, Enterprise Edition (Java EE) specification. It runs on multiple platformsJBoss Application Server 7, is a fast, powerful, implementation of the Java Enterprise Edition 6 specification</rdfs:comment>
+        <rdfs:seeAlso>http://jbossas.jboss.org/</rdfs:seeAlso>
     </owl:NamedIndividual>
     
 
@@ -1718,26 +1630,6 @@ A web client is sometimes called a thin client. Thin clients usually do not quer
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTECHNOLOGY -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTECHNOLOGY">
-        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
-        <rdfs:label>JSP technology</rdfs:label>
-        <rdfs:label>JavaServer pages technology</rdfs:label>
-        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/jsp-138432.html</rdfs:seeAlso>
-        <rdfs:comment>JavaServer Pages (JSP) technology enables Web developers and designers to rapidly develop and easily maintain, information-rich, dynamic Web pages based on HTML, XML, or other document types that leverage existing business systems. As part of the Java technology family, JSP technology enables rapid development of Web-based applications that are platform independent. JSP technology separates the user interface from content generation, enabling designers to change the overall page layout without altering the underlying dynamic content.
-
-The main features of JSP technology are as follows:
-
-- A language for developing JSP pages, which are text-based documents that describe how to process a request and construct a response
-- An expression language for accessing server-side objects
-- Mechanisms for defining extensions to the JSP language
-
-JSP technology also contains an API that is used by developers of web containers</rdfs:comment>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSTLLIBRARY_CORELIBRARY -->
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSTLLIBRARY_CORELIBRARY">
@@ -1854,26 +1746,6 @@ JSP technology also contains an API that is used by developers of web containers
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSTLTECHNOLOGY -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSTLTECHNOLOGY">
-        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
-        <rdfs:label>JavaServer pages standard tag technology</rdfs:label>
-        <rdfs:label>JSTL technology</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JTA -->
-
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JTA">
-        <rdf:type rdf:resource="&mwjava;EnterpriseApplicationTechnology"/>
-        <rdfs:label>JTA</rdfs:label>
-        <skos:altLabel>Java Transaction API </skos:altLabel>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_SEAMFRAMEWORK -->
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_SEAMFRAMEWORK"/>
@@ -1964,11 +1836,124 @@ JSP technology also contains an API that is used by developers of web containers
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TOMCAT -->
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_EJB -->
 
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TOMCAT">
-        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
-        <rdfs:label>Tomcat</rdfs:label>
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_EJB">
+        <rdf:type rdf:resource="&mwjava;BusinessTierTechnology"/>
+        <rdfs:label>Enterprise javaBeans technology</rdfs:label>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/javaee/ejb/index.html</rdfs:seeAlso>
+        <rdfs:comment>Enterprise JavaBeans (EJB) technology is the server-side component architecture for Java Platform, Enterprise Edition (Java EE). EJB technology enables rapid and simplified development of distributed, transactional, secure and portable applications based on Java technology.</rdfs:comment>
+        <skos:altLabel>EJB</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_EXPRESSIONLANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_EXPRESSIONLANGUAGE">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>Expression language technology</rdfs:label>
+        <rdfs:comment> A set of standard tags used in JSP and Facelets pages to refer to Java EE components</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAVAEECONNECTORARCHITECTURE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAVAEECONNECTORARCHITECTURE">
+        <rdf:type rdf:resource="&mwjava;EnterpriseApplicationTechnology"/>
+        <rdfs:label>Java EE connector architecture</rdfs:label>
+        <rdfs:comment>The Connector architecture technology enables Java EE components to interact with enterprise information systems (EISs) and EISs to interact with Java EE components</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAVASERVLET -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAVASERVLET">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>Java servlet technology</rdfs:label>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/overview-137084.html</rdfs:seeAlso>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/tutorial/doc/bnafd.html</rdfs:seeAlso>
+        <rdfs:comment>Servlets are the Java platform technology of choice for extending and enhancing Web servers. Servlets provide a component-based, platform-independent method for building Web-based applications, without the performance limitations of CGI programs. And unlike proprietary server extension mechanisms (such as the Netscape Server API or Apache modules), servlets are server- and platform-independent. This leaves you free to select a &quot;best of breed&quot; strategy for your servers, platforms, and tools.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAX-RPC -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAX-RPC">
+        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
+        <rdfs:label>JAX-RPC</rdfs:label>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/1.4/tutorial/doc/JAXRPC.html</rdfs:seeAlso>
+        <rdfs:comment>JAX-RPC is a technology for building web services and clients that use remote procedure calls (RPC) and XML</rdfs:comment>
+        <skos:altLabel>Java API for XML-Based RPC</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAX-RS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAX-RS">
+        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
+        <rdfs:label>JAX-RS</rdfs:label>
+        <skos:altLabel>Java API for RESTful Web Services</skos:altLabel>
+        <rdfs:comment>A technology for providing for RESTful services capability in a Java EE environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAX-WS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAX-WS">
+        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
+        <rdfs:label>JAX-WS</rdfs:label>
+        <rdfs:comment>A technology that helps to build client server Web Services</rdfs:comment>
+        <skos:altLabel>Java API for XML Web Services</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JSF -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JSF">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>JSF technology</rdfs:label>
+        <rdfs:label>JavaServer faces technology</rdfs:label>
+        <rdfs:comment>JavaServer Faces technology is a server-side component framework for building Java technology-based web applications.</rdfs:comment>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/javaee/javaserverfaces-139869.html</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JSFFACELETS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JSFFACELETS">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>JavaServer faces facelets technology</rdfs:label>
+        <rdfs:label>JSF facelets technology</rdfs:label>
+        <rdfs:comment>Facelets is an open source Web template system under the Apache license and the default view handler technology (aka view declaration language) for JavaServer Faces (JSF)</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/tutorial/doc/giepx.html</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JSP -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JSP">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>JSP technology</rdfs:label>
+        <rdfs:label>JavaServer pages technology</rdfs:label>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/jsp-138432.html</rdfs:seeAlso>
+        <rdfs:comment>JavaServer Pages (JSP) technology enables Web developers and designers to rapidly develop and easily maintain, information-rich, dynamic Web pages based on HTML, XML, or other document types that leverage existing business systems. As part of the Java technology family, JSP technology enables rapid development of Web-based applications that are platform independent. JSP technology separates the user interface from content generation, enabling designers to change the overall page layout without altering the underlying dynamic content.
+
+The main features of JSP technology are as follows:
+
+- A language for developing JSP pages, which are text-based documents that describe how to process a request and construct a response
+- An expression language for accessing server-side objects
+- Mechanisms for defining extensions to the JSP language
+
+JSP technology also contains an API that is used by developers of web containers</rdfs:comment>
     </owl:NamedIndividual>
     
 
@@ -1977,16 +1962,20 @@ JSP technology also contains an API that is used by developers of web containers
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_WEBLOGIC">
         <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
-        <rdfs:label>WebLogic</rdfs:label>
+        <rdfs:label>Oracle WebLogic Server</rdfs:label>
+        <rdfs:comment>Oracle WebLogic Server 12c is the industry&apos;s best application server for building and deploying enterprise Java EE applications with support for new features for lowering cost of operations, improving performance, enhancing scalability and supporting the Oracle Applications portfolio</rdfs:comment>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/middleware/weblogic/overview/index.html</rdfs:seeAlso>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_WEBSPHERE -->
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_WEBSPHEREAS -->
 
-    <owl:NamedIndividual rdf:about="&mwjava;JAVA_WEBSPHERE">
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_WEBSPHEREAS">
         <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
-        <rdfs:label>WebSphere</rdfs:label>
+        <rdfs:label>WebSphere Application Server</rdfs:label>
+        <rdfs:comment>WebSphere Application Server (WAS) is a software product that performs the role of a web application server. More specifically, it is a software framework and middleware that hosts Java based web applications.</rdfs:comment>
+        <rdfs:seeAlso>http://www-03.ibm.com/software/products/en/appserv-was</rdfs:seeAlso>
     </owl:NamedIndividual>
     
 
