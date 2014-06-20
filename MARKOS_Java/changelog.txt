@@ -1,3 +1,78 @@
+V0.5--------------------------------------------------------------
+
+- Remove the class JavaMemeber (not useful, the restriction that force to have a modifier it is put in JavaMethod and JavaField)
+- JavaLocalClass become subclass of JavaInnerClass
+- visibility some VisibilityKind put a level of NestedClass
+- It was be changed the prefix: java to mjava
+
+NEW CLASSES
+JavaGenericType
+JavaParameterizedGenericClass
+JavaParameterizedGenericInterface
+JavaParameterizedGenericMethod
+
+RENAMED
+JavaParameterizedType --> JavaParameterizedGenericType
+isCore --> isJavaStandar
+
+NEW AXIOM
+
+JavaParameterizedGenericType became a subclass of TemplateBinding.
+JavaTypeParameter become a subclass of ClassifierValuedParameter
+JavaTypeParameter: valueType some JavaReferenceType
+
+JavaGenericType: ownedParameter min 1 JavaTypeParameter
+JavaParameterizedGenericInterface: subclass of JavaInterface
+JavaParameterizedGenericClass: subclass of JavaSoftwareClass
+JavaParameterizedGenericMethod: subclass of JavaMethod
+
+JavaAnnotationType subclass of a ObjectType
+JavaAnnoattion subclass of Annotation
+JavaSubClass: directExtendedType some JavaSoftwareClass
+JavaImplementingClass: directImplementedInterface some JavaInterface
+JavaException: implementationLanguage value JAVA
+JavaTypeParameter: implementationLanguage value JAVA
+JavaAnnotation: implementationLanguage value JAVA
+JavaGenericType:implementationLanguage value JAVA
+JavaAnnotationTypeElement: implementationLanguage value JAVA
+JavaProgram: implementationLanguage value JAVA
+JavaArchiveFile: implementationLanguage value JAVA
+JavaObjectFile: implementationLanguage value JAVA
+JavaSourceFile: implementationLanguage value JAVA
+JavaConfigurationFIle: implementationLanguage value JAVA
+
+REMOVE AXIOM
+From JavaGenericInterface and JavaGenericClass: ownedTypeParameter min 1 JavaTypeParameter
+
+REMOVED CLASS
+WebXMLSourceCodeFile -> Move to web-java module
+EjbJarXMLSourceCodeFile -> Move to web-java module
+JSPPage -> Move to web-java module
+JavaStatement (sofware entities) -> Move to statement module
+JavaExpresion (sofware entities) -> Move to statement module
+LambdaExpresion (sofware entities)-> Move to statement module
+JavaAnonymousClass (sofware entities) -> Move to statement module
+JavaParameter: is removed. It is not considered necesary
+JavaGenericClass:  is removed because it's not necessary make the distinction at this level.
+JavaGenericInterface: is removed because it's not necessary make the distinction at this level.
+JavaDistributedApplication --> Move to the web module
+JavaDistributedMultitieredApplication -> Move to the web module
+WebApplicaton -> Remove because exist the same concept in the web general ontology
+EJBArchiveFile --> Remove because does not exist.
+JavaPersistenceXMLFile --> Move to the web java module
+ApplicationXMLDescriptorFile --> Move to web java module
+JavaNativeInterface (sofware entities) --> Put as dataproperties for the interface
+JavaNativeMethod (sofware entities) --> put as a dataproperty for the method
+
+NEW_OBJECTPROPERTIES
+usedTechnology --> moved from the web Java module
+isNative: JavaMethod x JavaInterface --> boolean
+
+REMOVED PROPERTIES
+ownedTypeParameter: is removed. A new and generic property has been include "ownedParameter"
+instanciateGenericType: is removed. A new and generic property is included "boundEntity" make same function.
+ownedTypedArgument: is removed. A new and generic entity/property is include ParameterBinding/parameterValue make the same function. 
+
 V0.4 ------------------------------------------------------------
 
 ADD CLASSES
@@ -10,10 +85,12 @@ JavaConstant (sofware entities)
 JavaImplementingClass (sofware entities)
 JavaSubClass (sofware entities)
 JavaSuperClass (sofware entities)
-JavaGenericClass (generic)
+
+
 JavaFunctionalInterface (sofware entities)
 JavaNativeInterface (sofware entities)
-JavaGenericInterface (generic)
+
+
 JavaInstanceMethod (software entity)
 JavaClassMethod (software entity)
 JavaGenericMethod (software entity)
@@ -34,15 +111,22 @@ JavaEnterpriseInformationSystemsTier (software entities)
 JavaWebTier (software entities)
 JavaPropertiesFile (files)
 JavaManifestMFFile (files)
+
+JavaGenericInterface (generic)
+JavaGenericClass (generic)
 JavaTypeParameter (generic)
 JavaParameterizedType (generic)
+
+
 JavaStatement (sofware entities)
 JavaExpresion (sofware entities)
 LambdaExpresion (sofware entities)
+
 JavaAnnotation (annotations)
 JavaAnnotationType (annotations) with some predefined members
 JavaMetaAnnotationsType (annotation) with some predefined members
 JavaAnnotationTypeElement (annotation)
+
 JavaProgram (tools)
 JavaDevelopmentTool (tools)
 BuildAutomationTool (tools) with some predefined members
@@ -55,6 +139,7 @@ Stand-AloneApplication (tools)
 ConsoleApplication (tools)
 GUI (tools)
 WEBApplication (tools)
+
 Technology
 InformationTechnology
 SoftwareDevelopmentTechnology

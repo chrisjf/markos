@@ -1,3 +1,52 @@
+V0.2-----------------------------------------------------------------------------------------------------------
+
+JSPTagLibrary became a subclass of Library.
+JSPTagAttribute became a subclass of Attribute
+JSPElement became a subclass of Classifier
+JavaServlet (component) is not an aggregation of a JavaServletClass. We distinguis the class from the component, they are distint elements.
+EJB XML descriptor file
+importedSoftwareEntity, usedTagLibrary, importedSoftwareEntity, defineJavaScriptCode as now subclass of includedSoftwareEntity and no subclass of importedResource
+
+NEW AXIOM
+HTMLPage as subclass of WebPage (web)
+JavaServerSideComponent subclass of ServerSideComponent
+In JSPPage we can add restriction to the property that import a SoftwareEntity
+homeInterface and componentInterface became subclass of providedInterface
+
+NEW PROPERTIES
+urlPattern: x String
+implementationClass: (EnterpriseJavaBean  or JavaServlet or WebService) x JavaSoftwareClass
+componentInterface: EnterpriseJavaBean x JavaInterface
+homeInterface: EnterpriseJavaBean x JavaInterface
+definedSoftwareEntity: Component x SoftwareEntity.
+jndiLoockupName:
+....
+
+
+RENAMED PROPERTIES
+ownedJSPElement --> definedJSPElement
+
+
+REMOVE PROPERTIES
+importedResource
+usedTechnology --> move to the Java module
+ownedJSPElement --> remove because it is redundant.
+importedSoftwareClass --> remove because it is redundant
+
+ADDED CLASSES
+WebXMLSourceCodeFile --> Move form the java module
+EjbJarXMLSourceCodeFile --> Move form the java module
+JSPFile --> Move form the java module
+JavaPersistenceXMLFile --> Move form the java module
+ApplicationXMLDescriptorFile --> Move from java module
+J2EEApplication
+JavaDistributedApplication --> Move from java module
+JavaDistributedMultitieredApplication -> Move from the java module
+
+REMOVED CLASSES
+HTMLPage: is removed because appears HTMLPage in the web ontology.
+JavaExpresion
+
 V0.1-----------------------------------------------------------------------------------------------------------
 CLASSES
 
