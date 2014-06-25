@@ -1,7 +1,8 @@
 MARKOS ontology
 
-V1.6 (nextVersion)
+V1.6
 ====
+version date: 2014/06/25
 
 Created top ontology: http://www.markosproject.eu/ontologies/top (markos-top.owl)
 Created JavaScript ontology: http://www.markosproject.eu/ontologies/javascript (markos-javascript.owl)

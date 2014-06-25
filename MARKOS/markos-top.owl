@@ -24,7 +24,7 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/top">
         <rdfs:comment xml:lang="en">This ontology describes the top concepts used by all the MARKOS ontologies. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
-        <owl:versionIRI rdf:resource="&mtop;2014/04/17"/>
+        <owl:versionIRI rdf:resource="&mtop;2014/06/25"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     </owl:Ontology>
     

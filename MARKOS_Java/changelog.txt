@@ -1,3 +1,7 @@
+V0.6--------------------------------------------------------------
+version date: 2014/06/25
+import version 1.6 of common ontology
+
 V0.5--------------------------------------------------------------
 
 - Remove the class JavaMemeber (not useful, the restriction that force to have a modifier it is put in JavaMethod and JavaField)

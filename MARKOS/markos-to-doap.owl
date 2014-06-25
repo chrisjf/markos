@@ -24,8 +24,8 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-doap">
         <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the DOAP ontology. </rdfs:comment>
         <owl:imports rdf:resource="http://usefulinc.com/ns/doap#"/>
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-doap#2014/04/17"/>
-        <owl:imports rdf:resource="&msw;2014/04/17"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-doap#2014/06/25"/>
+        <owl:imports rdf:resource="&msw;2014/06/25"/>
     </owl:Ontology>
     
 

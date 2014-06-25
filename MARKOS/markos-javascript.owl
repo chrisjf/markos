@@ -22,9 +22,9 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:top="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/javascript">
-        <owl:versionIRI rdf:resource="&mjs;2014/04/17"/>
-        <owl:imports rdf:resource="&software;2014/04/17"/>
-        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/web#2014/04/17"/>
+        <owl:versionIRI rdf:resource="&mjs;2014/06/25"/>
+        <owl:imports rdf:resource="&software;2014/06/25"/>
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/web#2014/06/25"/>
     </owl:Ontology>
     
 

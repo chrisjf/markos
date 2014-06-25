@@ -42,8 +42,8 @@
      xmlns:vocab="http://www.w3.org/1999/xhtml/vocab#"
      xmlns:admssw="http://purl.org/adms/sw/">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-adms.sw">
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2014/04/17"/>
-        <owl:imports rdf:resource="&msw;2014/04/17"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2014/06/25"/>
+        <owl:imports rdf:resource="&msw;2014/06/25"/>
     </owl:Ontology>
     
 
