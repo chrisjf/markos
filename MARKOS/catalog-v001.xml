@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://www.markosproject.eu/ontologies/software" uri="markos-software.owl"/>
+    <uri id="User Entered Import Resolution" name="http://www.markosproject.eu/ontologies/licenses" uri="markos-licenses.owl"/>
     <uri id="User Entered Import Resolution" name="http://www.markosproject.eu/ontologies/copyright" uri="markos-copyright.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/licenses#2014/03/11" uri="markos-licenses.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/software#2014/03/11" uri="markos-software.owl"/>
