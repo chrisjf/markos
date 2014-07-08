@@ -1,7 +1,130 @@
-MARKOS ontology 
+MARKOS ontology
+
+V1.6
+====
+version date: 2014/06/25
+
+Created top ontology: http://www.markosproject.eu/ontologies/top (markos-top.owl)
+Created JavaScript ontology: http://www.markosproject.eu/ontologies/javascript (markos-javascript.owl)
+
+Added prefix mjs:http://www.markosproject.eu/ontologies/javascript#
+
+All mtop concepts moved to top ontology.
+
+Added mjs classes
+- Constructor (any JavaScript Function that may be used with the JavaScript operator "new")
+- ActualConstructor (any Constructor actually invoked by some Function using the JavaScript operator "new")
+- Method (any JavaScript Function that is the value of a JavaScript Property.)
+- PrimitiveValue (any JavaScript primitive value) 
+- Function (any JavaScript function)
+- Object (any JavaScript Object)
+- PrimitiveType (any JavaScript primitive type)
+- Property (any JavaScript property)
+- Value (any JavaScript value)
+- Type (Any JavaScript type, i.e. one of 6 built-in types:  Undefined, Null, Boolean, String, Number, Object)
+- JavaScriptClientProgram (any mweb:WebScript coded using the JavaScript programming language.)
+
+Added mjs properties
+- mjs:invokedConstructor: mjs:Function x mjs:ActualConstructor (Function that is invoked using the operator "new" or the built-in Function "Object.create")
+- mjs:invokedFunction: mjs:Function x mjs:Function (JavaScript Function that is called (i.e. invoked without the operator "new" or the built-in Function "Object.create")
+- mjs:ownedProperty: mjs:Object x mjs:Property (A JavaScript Property owned by a JavaScript Object.)
+
+Added mjs individuals
+- UNDEFINED_TYPE, STRING_TYPE, NUMBER_TYPE, BOOLEAN_TYPE, NULL_TYPE (instances of mjs:PrimitiveType)
+- UNDEFINED_VALUE, TRUE_VALUE, FALSE_VALUE, NULL_VALUE, POSITIVE_ZERO_VALUE, NAN_VALUE, NEGATIVE_ZERO_VALUE, NEGATIVE_INFINITY_VALUE, POSITIVE_INFINITY_VALUE (instances of mjs:PrimitiveValue)
+- OBJECT_TYPE (instance of mjs:Type)
+
+Changed mtop properties:
+- mtop:previousVersion (definition in rdfs:comment has been generalized, also an entity belonging to a different project may be previousVersion)
+- mtop:previousVersion (definition in rdfs:comment has been generalized, also an entity belonging to a different project may be successiveVersion)
+
+Changed msw classes:
+- Type (is now subclass of SoftwareEntity): the constraint was already in previous versions and removed by error) 
+- SoftwareObjectType renamed to ObjectType: because while in the case of SoftwareClass the qualification was useful to distinguish from an OWLCLass, in this case there is not need of disambiguation
+- TypedEntity (definition in rdfs:comment has been improved): to better clarify the mapping to UML2
+- Attribute (definition in rdfs:comment has been generalised): to capture the case of Object based languages (having no Classifiers)
+- Component (no more an ObjectType, but just a Classifier): to cover languages where a Component instance is not an object.
+- mweb:WebApplication subclassOf msw:Program (to be coherent with the rdfs:comment)
+- Parameter (now represent both BehaviorParameters and TemplateParameters): to represent common properties of Parameters of Behaviors and Templates.
+- Constructor (definition in rdfs:comment has been generalised to include also JavaScript constructor functions)
+- SoftwareEntity (definition in rdfs:comment has been improved): to clarify that SoftwareEntities are not just entities defined by a programming language specifications, but also from other specification that works on top of a programming language specification. 
+- SoftwareArtifact (definition in rdfs:comment has been improved): to clarify that SoftwareArtifact is not necessarily located in the physical space, but it sufficient to have a location on the Internet. 
+- SoftwareClass label: SoftwareClass -> Class
+- SoftwareWork -> Software (it does not inherits from Work anymore)
+- SoftwareRelease (now is subclassOf SoftwareArtifact and direct subclassOf Work, as superclass SoftwareThing is no more subclassOf Work)
+
+Changed msw properties (name, comment and related constraints):
+- subordinateEntity: Entity x NamedEntity -> Entity x Entity (because range of sub-property containedEntity is Entity) 
+- ownedParameter: Method x Parameter -> Behavior x Parameter (to be more aligned to UML2)
+- valueType renamed to type: because it is used also to both represent the type of (values of) variables and the type of values themselves. 
+- ownedParameter renamed to ownedBehaviorParameter (to distinguish it from ownedTemplateParameter and to use the same name pattern; Note that in some language a SoftwareEntity may own both TemplateParaters and BehaviorParameters)
+- mtop:nestedClassifier -> msw:nestedClassifier (for coherence with the namespace of Classifier)
+- msw:forkedSoftwareWork -> msw:forkedSoftware (because Software is no more a Work); no more subclassOf usedEntity (as may represent also an indirect use) 
+- msw:forkSoftwareWork -> msw:forkedSoftware (because Software is no more a Work); 
+
+Added msw classes:
+- Value (subclassOf TypedEntity): Any SoftwareEntity that can be assigned to a variable
+- DataValue (subclassOf Value): Any Value having no identity distinct from its representation
+- Object (subclassOf Value): Any value having an identity that is distinct form its representation
+- Slot (subclassOf TypedEntity): to represent a set of values of an Attribute
+- Template (subclassOf SoftwareEntity): Any SoftwareEntity used to generate other SoftwareEntities, usually types at compile time.
+- Parameter (subclass of SoftwareEntity): Any formal parameter.
+- ParameterBinding (subclass of top:Entity): Assignment of value to a formal parameter (i.e. specification of an actual parameter).
+- ValueType (subclassOf SoftwareEntity): Any Type which instances are Values.
+- ParameterizedEntity (subclassOf SoftwareEntity): Any SoftwareEntity having parameters.
+- ParameterizedEntityBinding (subclassOf SoftwareEntity): Any SoftwareEntity generated by assigning a value to the parameters of a ParameterizedEntity.
+- TemplateBinding (subclassOf ParameterizedEntityBinding): Any SoftwareEntity generated by assigning a value to the parameters of a Template.
+- ClassifierValuedParameter (subclassOf Parameter): A Parameter which values can be only Classifiers.
+- BehaviorParameter (subclassOf Parameter): A Parameter owned by a Behavior.
+
+Added msw properties:
+- extendedSignature: Behavior x String (summarises the main aspects of a Behavior in a single string)
+- value: Slot x Value (to represent any value of a Slot)
+- ownedSlot: Value x Slot (to represent any Slot owned by a structured Value)
+- isOptionalParameter: Parameter x xsd:boolean (to represent optional Parameters)
+- isNamedParameter: Parameter x xsd:boolean (to represent Parameters that are identified by name)
+- isPositionalParameter: Parameter x xsd:boolean (to represent Parameters that are identified by position)
+- defaultValue: Parameter x Value (to specify the default value of optional parameter)
+- declarationPosition: Parameter x xsd:positiveInteger (position of the Parameter in the declaration)
+- parameterValue: Parameter x SoftwareEntity (value assigned to a Parameter)
+- ownedBinding: ParameterizedEntityBinding x ParameterBinding (specification of the actual parameter of a ParameterizedEntityBinding)
+- boundEntity: ParameterizedEntityBinding x ParameterizedEntity (the ParametrizedEntity that is bound by the subject ParametrizedEntityBinding)
+- associatedAnnotation: SoftwareEntity x Annotation (to associate an Annotation to a SoftwareEntity)
+- hasSameContentOfProvenanceRelease: Library x xsd:boolean (true if the content of the subject Library and of the provenanceRelease coincides)
+- releasedSoftwareLicenseTemplate: SoftwareProject x CopyrightLicenseTemplate (license template that regulates the usage of the software released by the subject SoftwareProject)
+- sourceCode: SoftwareEntity x SourceCodeFile (to allow to represent also not provenance source code)
+- objectCode: SoftwareEntity x ObjectCodeFile (to allow to represent also not provenance object code)
+
+Removed msw Classes:
+- Image (out of scope)
+- ElectronicDocument (out of scope)
+- WebDocument, WebPage (moved to mweb ontology)
+
+Removed msw Properties:
+- url (moved to mweb ontology)
+
+Added mweb Classes:
+- WebDocument (moved from sw ontology)
+- HTMLFile (Any ScriptFile written in the HTML language)
+- HTMLPage (Any abstract document implemented using the HTML programming language)
+- WebClient (Any Program that runs on the user side of the Web)
+- ClientProgram (Any Program that uses the services offered by another Program)
+
+Changed mweb Classes:
+- WebApplication = msw:Program and (mtop:containedEntity some mweb:WebComponent)
+
+Added mweb Property
+- url: WebDocument x xsd:AnyURI (moved from msw ontology)
+- embeddedScript: HTMLPage x Script (A Program embedded in an HTMLPage)
+
+Changed mlic properties
+- mlic:coveringLicense(Work x CopyrightLicense) -> mlic:coveringLicense(Entity x CopyrightLicense): because also part of a Work may be covered by license
+- mlic:coveringLicenseTemplate(Work x CopyrightLicense) -> mlic:coveringLicenseTemplate(Entity x CopyrightLicense): because also part of a Work may be covered by license
+- mlic:assessment(CopyrightLicense x LicenseAssessment) -> mlic:coveringLicenseAssessment(top:Entity x LicenseAssessment): because there could be no asserted CopyrightLicense, but just the CopyrightLicenseTemplate 
 
 V1.5
 ====
+version date: 2014/04/17
 
 Created web ontology: http://www.markosproject.eu/ontologies/web (markos-web.owl)
 
@@ -38,7 +161,7 @@ Added classes (name, comment and related constraints):
 Removed classes:
 - Operation: because equivalent to "Method and isAbstract value true"
 - ConstructorMethod (Constructor already represents both abstract and concrete constructors).
-- BehaviorParameter (as now an Operation is an abstract Behavior, now this should be renamed ConcreteBehaviorParameter, because only when the Behavior is concrete is is also a Local variable; anyway there is no clear requirement for this distinction in MARKOS). 
+- BehaviorParameter (as now an Operation is an abstract Behavior, this should be renamed ConcreteBehaviorParameter, because only when the Behavior is concrete it is also a Local variable; anyway there is no clear requirement for this distinction in MARKOS). 
 - Variable renamed (again) to TypedEntity (as in the case of a formal parameter of an abstract Method a Parameter is not a Variable, i.e. a storage unit, but just a formal name with some constraint). Clarified that may exist TypedElement without an explicit type. 
 - NonCodeFile: because the definition was inconsistent (as according to the other definitions a "non SourceCodeFile" is an "ObjectCodeFile" and a "non (SourceCodeFile o ObjectCodeFile)" is Nothing !
 - ApplicationResourse: because not really a type,  but just a role for data or documents.
@@ -47,7 +170,7 @@ Changed properties (name, comment and related constraints):
 - forkSoftwareWork: SoftwareEntity x SoftwareEntity -> SoftwareWork x SoftwareWork (previous was wrong). Also corrected the label.
 - forkedSoftwareWork (corrected the label).
 - raisedException: Operation x Type -> Method x Type (because Operation now is an abstract Method)
-- ownedParameter: Operation x Type - > Bahavior x Parameter (because Operation now is a abstract Method and because any Behavior may have parameters)
+- ownedParameter: Operation x Type - > Behavior x Parameter (because Operation now is a abstract Method and because any Behavior may have parameters)
 - invokedOperation(Behavior x Operation) substituted by invokedMethod:Behavior x Method (because Operation now is a abstract Method and because invokedMethod was missing; moreover the comment now clarify that the behaviour is polymorfic)
 - Method now is subclassOf Feature
 - ownedAttribute: SoftwareObjectType x Attribute -> Classifier x Attribute 
@@ -76,8 +199,9 @@ Added definition of mlic prefix in license ontology
 Updated mapping to SEON
 
 
-V1.4
+V1.4 
 ====
+version date: 2014/03/11 
 
 Added mapping to ADMS.SW (markos-to-adms.owl)
 

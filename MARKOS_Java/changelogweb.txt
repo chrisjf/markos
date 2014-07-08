@@ -1,0 +1,125 @@
+V0.3--------------------------------------------------------------
+version date: 2014/06/25 
+import version 1.6 of common ontology
+
+V0.2-----------------------------------------------------------------------------------------------------------
+
+JSPTagLibrary became a subclass of Library.
+JSPTagAttribute became a subclass of Attribute
+JSPElement became a subclass of Classifier
+JavaServlet (component) is not an aggregation of a JavaServletClass. We distinguis the class from the component, they are distint elements.
+EJB XML descriptor file
+importedSoftwareEntity, usedTagLibrary, importedSoftwareEntity, defineJavaScriptCode as now subclass of includedSoftwareEntity and no subclass of importedResource
+
+NEW AXIOM
+HTMLPage as subclass of WebPage (web)
+JavaServerSideComponent subclass of ServerSideComponent
+In JSPPage we can add restriction to the property that import a SoftwareEntity
+homeInterface and componentInterface became subclass of providedInterface
+ApplicationServerFramework became a subclass of ApplicationServer
+
+NEW PROPERTIES
+urlPattern: x String
+implementationClass: (EnterpriseJavaBean  or JavaServlet or WebService) x JavaSoftwareClass
+componentInterface: EnterpriseJavaBean x JavaInterface
+homeInterface: EnterpriseJavaBean x JavaInterface
+definedSoftwareEntity: Component x SoftwareEntity.
+jndiLoockupName:
+....
+
+
+RENAMED PROPERTIES
+ownedJSPElement --> definedJSPElement
+
+
+REMOVE PROPERTIES
+importedResource
+usedTechnology --> move to the Java module
+ownedJSPElement --> remove because it is redundant.
+importedSoftwareClass --> remove because it is redundant
+
+ADDED CLASSES
+WebXMLSourceCodeFile --> Move form the java module
+EjbJarXMLSourceCodeFile --> Move form the java module
+JSPFile --> Move form the java module
+JavaPersistenceXMLFile --> Move form the java module
+ApplicationXMLDescriptorFile --> Move from java module
+J2EEApplication
+JavaDistributedApplication --> Move from java module
+JavaDistributedMultitieredApplication -> Move from the java module
+
+REMOVED CLASSES
+HTMLPage: is removed because appears HTMLPage in the web ontology.
+JavaExpresion
+
+V0.1-----------------------------------------------------------------------------------------------------------
+CLASSES
+
+JSPElement
+JSPStandarAction
+JSPDirective
+JSPScripting
+JSPScriptlet
+JSPExpresion
+JSPDeclaration
+JSPTag
+JSTLTag
+CoreTag
+FormattingTag
+SQLTag
+XMLTag
+JSPTagAttribute (not pupulated yet)
+JSPTagLibrary (populated with JSLT)
+HTMLPage 
+JSPPage
+JavaEEComponent
+JavaDistributedComponent
+JavaClientSideComponent
+JavaDatabaseServerSideComponent
+JavaServerSideComponent
+JavaTieredComponent
+JavaBusinessTier
+EnterpriseJavaBean
+MessageDrivenBean
+SessionBean
+WebService
+RESTfullService
+SOAPWebService
+JavaClientTier
+Applet
+JavaAppletClass
+ApplicationClient
+JavaBeansComponent
+WebClient
+JavaEnterpriseInformationSystemTier
+JavaWebTier
+JavaServerFace
+JavaServlet
+JavaServletSubClass
+JavaServletImplementingClass
+JavaEETechnology
+ApplicationServerFramework (some individuals populated)
+BusinessTierTechnology (some individuals populated)
+WebServicesTechnology (some individuals populated)
+EnterpriseApplicationTechnology (some individuals populated)
+WebApplicationTechnology (some individuals populated)
+
+
+
+PROPERTIES
+definedTag: JSPTagLibrary x CustomAction
+tagClass: CustomAction x Class --> to model the relation between a tag and the class which handle it.
+ownedJSPElement: JSPPage x JSPElement --> to model the relationship between a JSP Page and a tag.
+ownedTagAttribute: CustomAction x JSPTagAttribute --> to model the relationship between a tag and its attributes
+importedResource:  JSPPage x --> a superproperty of thing can be included in a JSP page
+importedSoftwareEntity: x JavaSoftwareClass or JavaPackage --> imported Java class
+includedJSPPage: x JSPPage --> including other JSP Page
+usedTagLibrary: x JSP Tag Library --> used tag libraries
+definedJavascriptCode: x JSPScripting --> defined javascript code within the JSP
+DP: shortName: JSPTagLibrary x String
+DP: standardSyntax: JSPTagLibrary x String
+DP: uri: JSPTagLibrary x String
+DP: versionJSPStandar: JSPTagLibrary x string
+
+
+

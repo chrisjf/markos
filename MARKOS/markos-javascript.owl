@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY top "http://www.markosproject.eu/ontologies/top#" >
+    <!ENTITY software "http://www.markosproject.eu/ontologies/software#" >
+    <!ENTITY mjs "http://www.markosproject.eu/ontologies/javascript#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.markosproject.eu/ontologies/javascript#"
+     xml:base="http://www.markosproject.eu/ontologies/javascript"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:software="http://www.markosproject.eu/ontologies/software#"
+     xmlns:mjs="http://www.markosproject.eu/ontologies/javascript#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:top="http://www.markosproject.eu/ontologies/top#">
+    <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/javascript">
+        <owl:versionIRI rdf:resource="&mjs;2014/06/25"/>
+        <owl:imports rdf:resource="&software;2014/06/25"/>
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/web#2014/06/25"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#invokedConstructor -->
+
+    <owl:ObjectProperty rdf:about="&mjs;invokedConstructor">
+        <rdfs:label xml:lang="en">Invoked constructor</rdfs:label>
+        <rdfs:comment xml:lang="en">Function that is invoked as a constructor (i.e. by using the JavaScript operator &quot;new&quot; or the built-in Function &quot;Object.create&quot;) by the subject Function.</rdfs:comment>
+        <rdfs:range rdf:resource="&mjs;ActualConstructor"/>
+        <rdfs:domain rdf:resource="&mjs;Function"/>
+        <rdfs:subPropertyOf rdf:resource="&software;invokedMethod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#invokedFunction -->
+
+    <owl:ObjectProperty rdf:about="&mjs;invokedFunction">
+        <rdfs:label xml:lang="en">Invoked function</rdfs:label>
+        <rdfs:comment xml:lang="en">JavaScript Function that is called (i.e. invoked without the new operator) by the subject Function.</rdfs:comment>
+        <rdfs:range rdf:resource="&mjs;Function"/>
+        <rdfs:domain rdf:resource="&mjs;Function"/>
+        <rdfs:subPropertyOf rdf:resource="&software;invokedMethod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#ownedProperty -->
+
+    <owl:ObjectProperty rdf:about="&mjs;ownedProperty">
+        <rdfs:label xml:lang="en">OwnedProperty</rdfs:label>
+        <rdfs:comment xml:lang="en">A JavaScript Property owned by a JavaScript Object.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mjs;Object"/>
+        <rdfs:range rdf:resource="&mjs;Property"/>
+        <rdfs:subPropertyOf rdf:resource="&software;ownedSlot"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#ActualConstructor -->
+
+    <owl:Class rdf:about="&mjs;ActualConstructor">
+        <rdfs:label xml:lang="en">Actual constructor</rdfs:label>
+        <rdfs:label xml:lang="en">Any Constructor actually invoked by some Function using the JavaScript operator &quot;new&quot;.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjs;Constructor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#Constructor -->
+
+    <owl:Class rdf:about="&mjs;Constructor">
+        <rdfs:label xml:lang="en">Constructor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjs;Function"/>
+        <rdfs:subClassOf rdf:resource="&software;Constructor"/>
+        <rdfs:comment xml:lang="en">Any JavaScript Function that may be used with the JavaScript operator &quot;new&quot; (to create a new Object and to set its status). Any user defined JavaScript function and several built-in functions are Constructors. 
+
+Note that also some Function actually intended to be used as normal instance method is formally a Constructor. A functions that is actually invoked using the  operator &quot;new&quot; is called ActualConstructor.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#Function -->
+
+    <owl:Class rdf:about="&mjs;Function">
+        <rdfs:label xml:lang="en">Function</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjs;Object"/>
+        <rdfs:subClassOf rdf:resource="&software;Method"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://developer.mozilla.org/en-US/docs/Web/JavaScript</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">JavaScript function. Any JavaScript Function is also a JavaScript Object. 
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram -->
+
+    <owl:Class rdf:about="&mjs;JavaScriptClientProgram">
+        <rdfs:label xml:lang="en">JavaScript client program.</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/web#WebScript"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&software;codingLanguage"/>
+                        <owl:hasValue rdf:resource="&software;JAVASCRIPT_LANGUAGE"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">Any WebScript coded using the JavaScript programmin language.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#Method -->
+
+    <owl:Class rdf:about="&mjs;Method">
+        <rdfs:label xml:lang="en">Method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjs;Function"/>
+        <rdfs:comment xml:lang="en">A JavaScript Function that is the value of a JavaScript Property.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#Object -->
+
+    <owl:Class rdf:about="&mjs;Object">
+        <rdfs:label xml:lang="en">Object</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjs;Value"/>
+        <rdfs:subClassOf rdf:resource="&software;Object"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://developer.mozilla.org/en-US/docs/Web/JavaScript</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">Any JavaScript Object</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#PrimitiveType -->
+
+    <owl:Class rdf:about="&mjs;PrimitiveType">
+        <rdfs:label xml:lang="en">JavaScript primitive type</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&mjs;UNDEFINED_TYPE"/>
+                    <rdf:Description rdf:about="&mjs;STRING_TYPE"/>
+                    <rdf:Description rdf:about="&mjs;NUMBER_TYPE"/>
+                    <rdf:Description rdf:about="&mjs;BOOLEAN_TYPE"/>
+                    <rdf:Description rdf:about="&mjs;NULL_TYPE"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&software;PrimitiveType"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">Any JavaScript primitive type.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#PrimitiveValue -->
+
+    <owl:Class rdf:about="&mjs;PrimitiveValue">
+        <rdfs:label xml:lang="en">JavaScript primitive value</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&software;DataValue"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&software;type"/>
+                        <owl:allValuesFrom rdf:resource="&mjs;PrimitiveType"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&mjs;Value"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://developer.mozilla.org/en-US/docs/Web/JavaScript</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">Any JavaScript primitive value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#Property -->
+
+    <owl:Class rdf:about="&mjs;Property">
+        <rdfs:subClassOf rdf:resource="&software;Slot"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&software;value"/>
+                <owl:allValuesFrom rdf:resource="&mjs;Value"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Any JavaScript property (association between a name and a value that is a part of an object).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#Type -->
+
+    <owl:Class rdf:about="&mjs;Type">
+        <rdfs:label xml:lang="en">Any JavaScript type. 
+JavaScript values may be only of one of 6 built-in types:  Undefined, Null, Boolean, String, Number, and Object. 
+Depending from the way an Object is created it may have a further internal classification (e.g. Array or Date or RegExp) exploited by the interpreter, but such a classification is not a type.</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&mjs;PrimitiveType"/>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&mjs;OBJECT_TYPE"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&software;ValueType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#Value -->
+
+    <owl:Class rdf:about="&mjs;Value">
+        <rdfs:label xml:lang="en">JavaScript value</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&mjs;Object"/>
+                    <rdf:Description rdf:about="&mjs;PrimitiveValue"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&software;Value"/>
+        <rdfs:comment xml:lang="en">Any JavaScript value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#BOOLEAN_TYPE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;BOOLEAN_TYPE">
+        <rdf:type rdf:resource="&mjs;PrimitiveType"/>
+        <rdfs:label rdf:datatype="&xsd;string">Boolean</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">The type of JavaScript built-in values true and false.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#FALSE_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;FALSE_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <rdfs:label xml:lang="en">false</rdfs:label>
+        <top:name rdf:datatype="&xsd;string">false</top:name>
+        <rdfs:comment xml:lang="en">The JavaScript boolean false value. </rdfs:comment>
+        <software:type rdf:resource="&mjs;BOOLEAN_TYPE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#NAN_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;NAN_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <top:name rdf:datatype="&xsd;string">NaN</top:name>
+        <rdfs:comment xml:lang="en"> Not-a-Number value. </rdfs:comment>
+        <software:type rdf:resource="&mjs;NUMBER_TYPE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#NEGATIVE_INFINITY_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;NEGATIVE_INFINITY_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <rdfs:label xml:lang="en">Negative infinity</rdfs:label>
+        <top:name rdf:datatype="&xsd;string">-Infinity</top:name>
+        <rdfs:comment xml:lang="en">Negative infinity value.</rdfs:comment>
+        <software:type rdf:resource="&mjs;NUMBER_TYPE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#NEGATIVE_ZERO_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;NEGATIVE_ZERO_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <rdfs:label xml:lang="en">Negative zero</rdfs:label>
+        <top:name rdf:datatype="&xsd;string">-0</top:name>
+        <rdfs:comment xml:lang="en">Negative zero.</rdfs:comment>
+        <software:type rdf:resource="&mjs;NUMBER_TYPE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#NULL_TYPE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;NULL_TYPE">
+        <rdf:type rdf:resource="&mjs;PrimitiveType"/>
+        <rdfs:label rdf:datatype="&xsd;string">The type of the JavaScript built-in value null.</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#NULL_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;NULL_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <rdfs:label xml:lang="en">null</rdfs:label>
+        <top:name rdf:datatype="&xsd;string">null</top:name>
+        <rdfs:comment xml:lang="en">The JavaScript primitive value that represents the intentional absence of any object value.</rdfs:comment>
+        <software:type rdf:resource="&mjs;NULL_TYPE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#NUMBER_TYPE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;NUMBER_TYPE">
+        <rdf:type rdf:resource="&mjs;PrimitiveType"/>
+        <rdfs:label rdf:datatype="&xsd;string">Number</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">The type of any JavaScript number.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#OBJECT_TYPE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;OBJECT_TYPE">
+        <rdf:type rdf:resource="&mjs;Type"/>
+        <rdfs:label xml:lang="en">Object type</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">The type of any JavaScript object.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#POSITIVE_INFINITY_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;POSITIVE_INFINITY_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <rdfs:label xml:lang="en">Positive infinity</rdfs:label>
+        <top:name rdf:datatype="&xsd;string">+Infinity</top:name>
+        <rdfs:comment xml:lang="en">Positive Infinity value.</rdfs:comment>
+        <software:type rdf:resource="&mjs;NUMBER_TYPE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#POSITIVE_ZERO_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;POSITIVE_ZERO_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <rdfs:label xml:lang="en">Positive zero</rdfs:label>
+        <top:name rdf:datatype="&xsd;string">0</top:name>
+        <rdfs:comment xml:lang="en">Positive zero.</rdfs:comment>
+        <software:type rdf:resource="&mjs;NUMBER_TYPE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#STRING_TYPE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;STRING_TYPE">
+        <rdf:type rdf:resource="&mjs;PrimitiveType"/>
+        <rdfs:label rdf:datatype="&xsd;string">String</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">The type of any JavaScript string.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#TRUE_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;TRUE_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <rdfs:label xml:lang="en">true</rdfs:label>
+        <top:name rdf:datatype="&xsd;string">true</top:name>
+        <rdfs:comment xml:lang="en">The JavaScript boolean true value. </rdfs:comment>
+        <software:type rdf:resource="&mjs;BOOLEAN_TYPE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#UNDEFINED_TYPE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;UNDEFINED_TYPE">
+        <rdf:type rdf:resource="&mjs;PrimitiveType"/>
+        <rdfs:label rdf:datatype="&xsd;string">Undefined</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">The type of the JavaScript buil-in value undefined.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#UNDEFINED_VALUE -->
+
+    <owl:NamedIndividual rdf:about="&mjs;UNDEFINED_VALUE">
+        <rdf:type rdf:resource="&mjs;PrimitiveValue"/>
+        <rdfs:label xml:lang="en">undefined</rdfs:label>
+        <top:name rdf:datatype="&xsd;string">undefined</top:name>
+        <rdfs:comment xml:lang="en">The JavaScript primitive value that specifies an undefined value.</rdfs:comment>
+        <software:type rdf:resource="&mjs;UNDEFINED_TYPE"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

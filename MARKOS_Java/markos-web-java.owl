@@ -1,0 +1,1999 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY top "http://www.markosproject.eu/ontologies/top#" >
+    <!ENTITY mjava "http://www.markosproject.eu/ontologies/java#" >
+    <!ENTITY mwjava "http://www.markosproject.eu/ontologies/markos-web-java#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.markosproject.eu/ontologies/markos-web-java#"
+     xml:base="http://www.markosproject.eu/ontologies/markos-web-java"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:mwjava="http://www.markosproject.eu/ontologies/markos-web-java#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:mjava="http://www.markosproject.eu/ontologies/java#"
+     xmlns:top="http://www.markosproject.eu/ontologies/top#">
+    <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-web-java">
+        <rdfs:comment>This ontology describes the Java Web programing language concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).
+
+Goals: The ontological model has been introduced for representing Java EE software entities structure and classification.</rdfs:comment>
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/java"/>
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/javascript"/>
+        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/web"/>
+        <owl:versionIRI rdf:resource="&mwjava;2014/06/25"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="&terms;contributor"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#componentInterface -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;componentInterface">
+        <rdfs:label>Component interface</rdfs:label>
+        <rdfs:comment>Java interface for the business object. It defines the business logic methods, which are implemented in the bean implementation.</rdfs:comment>
+        <skos:altLabel>Remote interface</skos:altLabel>
+        <mjava:relatedTo>EJB</mjava:relatedTo>
+        <rdfs:range rdf:resource="&mjava;JavaInterface"/>
+        <rdfs:domain rdf:resource="&mwjava;EnterpriseJavaBean"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#providedInterface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#definedJSPElement -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;definedJSPElement">
+        <rdfs:label>Defined JSP element</rdfs:label>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
+        <rdfs:comment>Define the relationshipt between a JSP scripting element and the subject JSP Page</rdfs:comment>
+        <rdfs:range rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
+        <rdfs:subPropertyOf rdf:resource="&top;subordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#definedTag -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;definedTag">
+        <rdfs:label>Defined tag</rdfs:label>
+        <rdfs:comment>Tag defined by the subject tag library</rdfs:comment>
+        <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
+        <rdfs:range rdf:resource="&mwjava;JSPTag"/>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
+        <rdfs:subPropertyOf rdf:resource="&top;subordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#homeInterface -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;homeInterface">
+        <rdfs:label>Home interface</rdfs:label>
+        <rdfs:comment>Java interface for the Home interface.</rdfs:comment>
+        <mjava:relatedTo>EJB</mjava:relatedTo>
+        <rdfs:range rdf:resource="&mjava;JavaInterface"/>
+        <rdfs:domain rdf:resource="&mwjava;EnterpriseJavaBean"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#providedInterface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#implementationClass -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;implementationClass">
+        <rdfs:label>Implementation class</rdfs:label>
+        <rdfs:comment>Java class providing the implementation for the subject component.</rdfs:comment>
+        <rdfs:range rdf:resource="&mjava;JavaSoftwareClass"/>
+        <rdfs:subPropertyOf rdf:resource="&top;containedEntity"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&mwjava;EnterpriseJavaBean"/>
+                    <rdf:Description rdf:about="&mwjava;JavaServlet"/>
+                    <rdf:Description rdf:about="&mwjava;WebService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#importedJSPProgram -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;importedJSPProgram">
+        <rdfs:label>Imported JSP program</rdfs:label>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
+        <rdfs:comment>The javascript file imported by the subject JSP Page</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram"/>
+        <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#includedJSPPage -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;includedJSPPage">
+        <rdfs:label>Included JSP page</rdfs:label>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
+        <rdfs:comment>JSP Page impoted by the subject JSP Page</rdfs:comment>
+        <rdfs:range rdf:resource="&mwjava;JSPPage"/>
+        <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#ownedTagAttribute -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;ownedTagAttribute">
+        <rdfs:label>Owned tag attribute</rdfs:label>
+        <rdfs:comment>Attribute owned by the tag subject</rdfs:comment>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+        <rdfs:domain rdf:resource="&mwjava;JSPTag"/>
+        <rdfs:range rdf:resource="&mwjava;JSPTagAttribute"/>
+        <rdfs:subPropertyOf rdf:resource="&top;subordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#tagClass -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;tagClass">
+        <rdfs:label>Tag class</rdfs:label>
+        <rdfs:comment>Class handle directly by the subject tag.</rdfs:comment>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+        <rdfs:range rdf:resource="&mjava;JavaSoftwareClass"/>
+        <rdfs:domain rdf:resource="&mwjava;JSPTag"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#usedTagLibrary -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;usedTagLibrary">
+        <rdfs:label>Used tag library</rdfs:label>
+        <rdfs:comment>Tag library used by the subject JSP Page</rdfs:comment>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
+        <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
+        <rdfs:range rdf:resource="&mwjava;JSPTagLibrary"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#aplication-name -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;aplication-name">
+        <rdfs:label>aplication-name</rdfs:label>
+        <rdfs:comment>By defaults is the bundle name (.ear file name) without the bundle extension. This can be overridden in application.xml. Also,  &lt;application-name&gt; is applicable only if the bean is packaged inside a  .ear file.</rdfs:comment>
+        <mjava:relatedTo>EJB Component</mjava:relatedTo>
+        <rdfs:subPropertyOf rdf:resource="&mwjava;jndiLookupName"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#bean-name -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;bean-name">
+        <rdfs:label>bean-name</rdfs:label>
+        <rdfs:comment>By defaults is the unqualified class name of the bean. However, if @Stateful or @Stateless or @Singleton uses the name attribute, then the value specified there will be used as the bean name.</rdfs:comment>
+        <mjava:relatedTo>EJB Componet</mjava:relatedTo>
+        <rdfs:subPropertyOf rdf:resource="&mwjava;jndiLookupName"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#fully-qualified-interface-name -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;fully-qualified-interface-name">
+        <rdfs:label>fully-qualified-interface-name</rdfs:label>
+        <rdfs:comment>Used to indicate the remote interface name</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&mwjava;jndiLookupName"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#isOptionalAttribute -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;isOptionalAttribute">
+        <rdfs:label>Is optional attribute</rdfs:label>
+        <rdfs:comment> It means the attribute can be optional (true) or mandatory (false).</rdfs:comment>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagAttribute"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#jndiLookupName -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;jndiLookupName">
+        <rdfs:label>Jndi lookup name</rdfs:label>
+        <rdfs:comment>Used to specify the JNDI name of the referenced bean</rdfs:comment>
+        <rdfs:domain rdf:resource="&mwjava;EnterpriseJavaBean"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#module-name -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;module-name">
+        <rdfs:label>module-name</rdfs:label>
+        <mjava:relatedTo>EJB Component</mjava:relatedTo>
+        <rdfs:comment>defaults to bundle name (.war or .jar) without the bundle extension. Again, this can be overridden in ejb-jar.xml</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&mwjava;jndiLookupName"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#rtexprvalue -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;rtexprvalue">
+        <rdfs:label>Runtime expression value</rdfs:label>
+        <rdfs:comment> It means the attribute can support scriptlet values.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagAttribute"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#shortName -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;shortName">
+        <rdfs:label>Short name</rdfs:label>
+        <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
+        <skos:altLabel>prefix</skos:altLabel>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
+        <rdfs:subPropertyOf rdf:resource="&top;name"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#standardSyntax -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;standardSyntax">
+        <rdfs:label>Standard syntax</rdfs:label>
+        <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
+        <rdfs:comment>The expresion to include the library in a JSP file.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#uri -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;uri">
+        <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
+        <mjava:relatedTo>Uri</mjava:relatedTo>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#urlPattern -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;urlPattern">
+        <rdfs:label>urlPattern</rdfs:label>
+        <rdfs:comment>Describes a pattern used to resolve URLs. The portion of the URL after the http://host:port + WebAppName is compared to the &lt;url-pattern&gt; by WebLogic Server. If the patterns match, the servlet mapped in this element will be called.
+
+Example patterns:
+
+/soda/grape/*
+/foo/* 
+/contents
+*.foo</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#versionJSPStandard -->
+
+    <owl:DatatypeProperty rdf:about="&mwjava;versionJSPStandard">
+        <rdfs:label>Version JSP standard</rdfs:label>
+        <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#version"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram -->
+
+    <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram">
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#Applet -->
+
+    <owl:Class rdf:about="&mwjava;Applet">
+        <rdfs:label>Applet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaClientTier"/>
+        <rdfs:comment>A web page received from the web tier can include an embedded applet. An applet is a small client application written in the Java programming language that executes in the Java virtual machine installed in the web browser. However, client systems will likely need the Java Plug-in and possibly a security policy file for the applet to successfully execute in the web browser.
+
+Web components are the preferred API for creating a web client program because no plug-ins or security policy files are needed on the client systems. Also, web components enable cleaner and more modular application design because they provide a way to separate applications programming from web page design. Personnel involved in web page design thus do not need to understand Java programming language syntax to do their jobs.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#ApplicationClient -->
+
+    <owl:Class rdf:about="&mwjava;ApplicationClient">
+        <rdfs:label>Application client</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaClientTier"/>
+        <rdfs:comment>An application client runs on a client machine and provides a way for users to handle tasks that require a richer user interface than can be provided by a markup language. It typically has a graphical user interface (GUI) created from the Swing or the Abstract Window Toolkit (AWT) API, but a command-line interface is certainly possible.
+
+Application clients directly access enterprise beans running in the business tier. However, if application requirements warrant it, an application client can open an HTTP connection to establish communication with a servlet running in the web tier. Application clients written in languages other than Java can interact with Java EE 5 servers, enabling the Java EE 5 platform to interoperate with legacy systems, clients, and non-Java languages.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#ApplicationServerFramework -->
+
+    <owl:Class rdf:about="&mwjava;ApplicationServerFramework">
+        <rdfs:label>Application server framework</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/web#ApplicationServer"/>
+        <rdfs:comment>Java EE technologies used in the application server components</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#ApplicationXMLSourceCodeFile -->
+
+    <owl:Class rdf:about="&mwjava;ApplicationXMLSourceCodeFile">
+        <rdfs:label>Application XML descriptor file </rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaDeploymentDescriptorFile"/>
+        <rdfs:comment>For Java EE applications, the deployment descriptor must be named application.xml and must be placed directly in the META-INF directory at the top level of the application .ear file</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#BusinessTierTechnology -->
+
+    <owl:Class rdf:about="&mwjava;BusinessTierTechnology">
+        <rdfs:label>Business tier technology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
+        <top:canonicalURICriteria>&quot;JAVA_TECHNOLOGY_&quot; + technology name</top:canonicalURICriteria>
+        <rdfs:comment>Java EE technologies used in the business tier</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#CoreTag -->
+
+    <owl:Class rdf:about="&mwjava;CoreTag">
+        <rdfs:label>Core tag</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSTLTag"/>
+        <rdfs:comment>The group of JSTL core tags.</rdfs:comment>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#EjbJarXMLSourceCodeFile -->
+
+    <owl:Class rdf:about="&mwjava;EjbJarXMLSourceCodeFile">
+        <rdfs:label>EJB XML descriptor file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaDeploymentDescriptorFile"/>
+        <rdfs:comment>EJB deployment descriptor, as defined in the Enterprise JavaBeans Specification</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#EnterpriseApplicationTechnology -->
+
+    <owl:Class rdf:about="&mwjava;EnterpriseApplicationTechnology">
+        <rdfs:label>EnterpriseApplication technology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
+        <top:canonicalURICriteria>&quot;JAVA_TECHNOLOGY_&quot; + technology name</top:canonicalURICriteria>
+        <rdfs:comment>Java EE technologies used in the enterprise application tier</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#EnterpriseJavaBean -->
+
+    <owl:Class rdf:about="&mwjava;EnterpriseJavaBean">
+        <rdfs:label>Enterprise java bean</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaBusinessTier"/>
+        <rdfs:comment>Enterprise JavaBeans (EJB) is a managed, server-side component architecture for modular construction of enterprise applications.</rdfs:comment>
+        <skos:altLabel>EJB</skos:altLabel>
+        <rdfs:seeAlso>https://jcp.org/aboutJava/communityprocess/final/jsr318/</rdfs:seeAlso>
+        <top:nameCriteria>The EJB name which by default is the simple class name of the bean implementation class but can be overridden via the ejb-jar.xml</top:nameCriteria>
+        <owl:versionInfo>Version 3.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#EntityObject -->
+
+    <owl:Class rdf:about="&mwjava;EntityObject">
+        <rdfs:label>Entity object</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;EnterpriseJavaBean"/>
+        <rdfs:comment>An entity bean is a remote object that manages persistent data, performs complex business logic, potentially uses several dependent Java objects, and can be uniquely identified by a primary key. Entity beans are normally coarse-grained persistent objects, in that they utilize persistent data stored within several fine-grained persistent Java objects.
+
+A typical entity object has the following characteristics:
+• Is part of a domain model, providing an object view of data in the database.
+• Can be long-lived (lives as long as the data in the database).
+• The entity and its primary key survive the crash of the EJB container. If the state of an entity 
+was being updated by a transaction at the time the container crashed, the entity’s state is 
+restored to the state of the last committed transaction when the entity is next retrieved.</rdfs:comment>
+        <skos:altLabel>Entity bean</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#FormattingTag -->
+
+    <owl:Class rdf:about="&mwjava;FormattingTag">
+        <rdfs:label>Formating tag</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSTLTag"/>
+        <rdfs:comment>The group of JSTL formatting tags.</rdfs:comment>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAXWSComponent -->
+
+    <owl:Class rdf:about="&mwjava;JAXWSComponent">
+        <rdfs:label>JAXWS component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;SOAPWebService"/>
+        <rdfs:comment>A web service component created by the JAX-WS technology</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPDeclaration -->
+
+    <owl:Class rdf:about="&mwjava;JSPDeclaration">
+        <rdfs:label>JSP declaration</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPScripting"/>
+        <rdfs:comment>A declaration can consist of either methods or variables, static constants are a good example of what to put in a declaration.</rdfs:comment>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPDirective -->
+
+    <owl:Class rdf:about="&mwjava;JSPDirective">
+        <rdfs:label>JSP directive</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:comment>JSP directives provide directions and instructions to the container, telling it how to handle certain aspects of JSP processing.
+
+A JSP directive affects the overall structure of the servlet class</rdfs:comment>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+        <top:canonicalURICriteria>&quot;JAVA_DIRECTIVE_&quot; + directive name</top:canonicalURICriteria>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPElement -->
+
+    <owl:Class rdf:about="&mwjava;JSPElement">
+        <rdfs:label>JSP Element</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+        <rdfs:comment>Type of JSP elements which are not static data in a JSP page. JSP element that is written with a start tag and an end tag, with the content in between. Can not be considered a value type because it is not a type.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPExpresion -->
+
+    <owl:Class rdf:about="&mwjava;JSPExpresion">
+        <rdfs:label>JSP expresion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPScripting"/>
+        <rdfs:comment>The Expression element contains a Java expression that returns a value. This value is then written to the HTML page. The Expression tag can contain any expression that is valid according to the Java Language Specification. This includes variables, method calls than return values or any object that contains a toString() method</rdfs:comment>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPFile -->
+
+    <owl:Class rdf:about="&mwjava;JSPFile">
+        <rdfs:label>Jsp file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSourceFile"/>
+        <rdfs:comment>JSP is a file extension for Java Server Pages file format.  A JSP is an HTML page containing a reference to Java servlets, or,  java server side applets. In orther words, html with java code.</rdfs:comment>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/JavaServer_Pages</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPPage -->
+
+    <owl:Class rdf:about="&mwjava;JSPPage">
+        <rdfs:label>JSP page</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaWebTier"/>
+        <mjava:relatedTo>HTML/JSP Page</mjava:relatedTo>
+        <rdfs:comment>A JSP page consists of HTML tags and JSP tags. The jsp pages are easier to maintain than servlet because we can separate designing and development. It provides some additional features such as Expression Language, Custom Tag etc.
+
+A JSP is an HTML page containing a reference to Java servlets, or,  java server side applets
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPScripting -->
+
+    <owl:Class rdf:about="&mwjava;JSPScripting">
+        <rdfs:label>JSP scripting</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:comment>JSP scripting elements allow you to use Java programming language statements in your JSP pages. Scripting elements are typically used to create and access objects, define methods, and manage the flow of control. Many tasks that require the use of scripts can be eliminated by using custom tag libraries, in particular the JSP Standard Tag Library</rdfs:comment>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPScriptlet -->
+
+    <owl:Class rdf:about="&mwjava;JSPScriptlet">
+        <rdfs:label>JSP scriptlet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPScripting"/>
+        <rdfs:comment>The scripting elements provides the ability to insert java code inside the jsp</rdfs:comment>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPStandardAction -->
+
+    <owl:Class rdf:about="&mwjava;JSPStandardAction">
+        <rdfs:label>JSP Standard action</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:comment>JSP specification provides Standard(Action) tags for use within your JSP pages. These tags are used to remove or eliminate scriptlet code from your JSP page because scriplet code are technically not recommended nowadays</rdfs:comment>
+        <rdfs:seeAlso>http://www.studytonight.com/jsp/jsp-action-element.php</rdfs:seeAlso>
+        <top:canonicalURICriteria>&quot;JAVA_STANDARDACTION_&quot; + Standar action name</top:canonicalURICriteria>
+        <skos:altLabel>Action tag</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPTag -->
+
+    <owl:Class rdf:about="&mwjava;JSPTag">
+        <rdfs:label>JSP tag</rdfs:label>
+        <rdfs:label>Custom action</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:comment>In addition to the standard actions, the JSP specification includes a Java API a programmer can use to develop custom actions to extend the JSP language</rdfs:comment>
+        <top:canonicalURICriteria>&quot;JAVA_JSPTAG_&quot; + JSP tag name</top:canonicalURICriteria>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPTagAttribute -->
+
+    <owl:Class rdf:about="&mwjava;JSPTagAttribute">
+        <rdfs:label>JSP tag attribute</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Attribute"/>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+        <rdfs:comment>JSP Tag Attributes provide additional information about JSP Tag. It can not be considered a Attribute because is not owned by a classifier.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSPTagLibrary -->
+
+    <owl:Class rdf:about="&mwjava;JSPTagLibrary">
+        <rdfs:label>JSP tag library</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaLibrary"/>
+        <top:canonicalURICriteria>&quot;JAVA_JSTLLIBRARY_&quot; + JSTL Library name</top:canonicalURICriteria>
+        <mjava:relatedTo>JSP Tag library</mjava:relatedTo>
+        <rdfs:comment> Set of JSP tags which encapsulates functionality for JSP applications.
+
+
+An implementation of an JSP Tag Library is any software entity X (e.g. Package or Library) containing, for example, a handler class providing the funcionaity for a tag.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSTLLibrary -->
+
+    <owl:Class rdf:about="&mwjava;JSTLLibrary">
+        <rdfs:label>JSLT library</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPTagLibrary"/>
+        <rdfs:comment>The JavaServer Pages Standard Tag Library (JSTL) is a collection of useful JSP tags which encapsulates core functionality common to many JSP applications.</rdfs:comment>
+        <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JSTLTag -->
+
+    <owl:Class rdf:about="&mwjava;JSTLTag">
+        <rdfs:label>JSTL tag</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPTag"/>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+        <rdfs:comment>A JSLT tag is a tag which belongs to the JavaServer Pages Standard Tag Library (JSTL) collection.  JSTL tags provide us with a number of standard functions with support for common tasks such as iteration and conditionals..
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaBeansComponent -->
+
+    <owl:Class rdf:about="&mwjava;JavaBeansComponent">
+        <rdfs:label>JavaBeans component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaClientTier"/>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaWebTier"/>
+        <rdfs:comment>The server and client tiers might also include components based on the JavaBeans component architecture (JavaBeans components) to manage the data flow between an application client or applet and components running on the Java EE server, or between server components and a database. JavaBeans components are not considered Java EE components by the Java EE specification.
+
+JavaBeans components have properties and have get and set methods for accessing the properties. JavaBeans components used in this way are typically simple in design and implementation but should conform to the naming and design conventions outlined in the JavaBeans component architecture.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaBusinessTier -->
+
+    <owl:Class rdf:about="&mwjava;JavaBusinessTier">
+        <rdfs:label>Java business tier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaServerSideComponent"/>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaTieredComponent"/>
+        <rdfs:comment>The business tier consists of components that provide the business logic for an application. Business logic is code that provides functionality to a particular business domain, like the financial industry, or an e-commerce site. In a properly designed enterprise application, the core functionality exists in the business tier components.
+
+Business Tier Java EE Technologies: Enterprise JavaBeans (enterprise bean) components, JAX-RS RESTful web services, JAX-WS web service endpoints, Java Persistence API entities, Java EE managed beans.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/firstcup/doc/gcrky.html#gcrkr</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaClientSideComponent -->
+
+    <owl:Class rdf:about="&mwjava;JavaClientSideComponent">
+        <rdfs:label>Java client side component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaDistributedMultitieredComponent"/>
+        <rdfs:comment>Components run on the client machine in computer networking.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaClientTier -->
+
+    <owl:Class rdf:about="&mwjava;JavaClientTier">
+        <rdfs:label>Java client tier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaClientSideComponent"/>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaTieredComponent"/>
+        <rdfs:comment>Many different types of applications can be Java EE clients, and they are not always, or even often Java applications. Clients can be a web browser, a standalone application, or other servers, and they run on a different machine from the Java EE server.
+
+The Java client tier consists of application clients that access a Java EE server and that are usually located on a different machine from the server. The server processes the requests and returns a response back to the client.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/firstcup/doc/gcrky.html#gcrkr</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaDatabaseServerSideComponent -->
+
+    <owl:Class rdf:about="&mwjava;JavaDatabaseServerSideComponent">
+        <rdfs:label>Java database server side component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaDistributedMultitieredComponent"/>
+        <rdfs:comment>Component that run on a database server</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaDistributedApplication -->
+
+    <owl:Class rdf:about="&mwjava;JavaDistributedApplication">
+        <rdfs:label>Java distributed application</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaTieredApplication"/>
+        <rdfs:comment>A distributed appliaction is a software system in which components located on networked computers communicate and coordinate their actions by passing messages. The components interact with each other in order to achieve a common goal.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaDistributedComponent -->
+
+    <owl:Class rdf:about="&mwjava;JavaDistributedComponent">
+        <rdfs:label>Java distributed component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaEEComponent"/>
+        <rdfs:comment>A distributed application provides a convenient way to interconnect programs that are distributed efficiently across different locations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaDistributedMultitieredComponent -->
+
+    <owl:Class rdf:about="&mwjava;JavaDistributedMultitieredComponent">
+        <rdfs:label>Java distributed multitiered component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaDistributedComponent"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/5/tutorial/doc/bnaay.html#bnabj</rdfs:seeAlso>
+        <rdfs:comment>Application logic is divided into components:
+- Multitiered, according to its function, 
+- Distributed, the various application components that make up a Java EE application are installed on different machines depending on the tier in the multitiered Java EE environment to which the application component belongs.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaEEApplication -->
+
+    <owl:Class rdf:about="&mwjava;JavaEEApplication">
+        <rdfs:label>JavaEE application</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaDistributedApplication"/>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/web#WebApplication"/>
+        <rdfs:comment>The Java EE platform uses a distributed multitiered application model for enterprise applications. Application logic is divided into components according to function, and the various application components that make up a Java EE application are installed on different machines depending on the tier in the multitiered Java EE environment to which the application component belongs.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/5/tutorial/doc/bnaay.html#bnabj</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaEEComponent -->
+
+    <owl:Class rdf:about="&mwjava;JavaEEComponent">
+        <rdfs:label>Java EE component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
+        <rdfs:comment>A Java EE component is a self-contained functional software unit that is assembled into a Java EE application with its related classes and files and that communicates with other components.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaEETechnology -->
+
+    <owl:Class rdf:about="&mwjava;JavaEETechnology">
+        <rdfs:label>Java EE technology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaTechnology"/>
+        <rdfs:comment>Java technologies used to build Java EE applications</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaEnterpriseInformationSystemsTier -->
+
+    <owl:Class rdf:about="&mwjava;JavaEnterpriseInformationSystemsTier">
+        <rdfs:label>Java enterprise information systems tier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaDatabaseServerSideComponent"/>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaTieredComponent"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/firstcup/doc/gcrky.html#gcrkr</rdfs:seeAlso>
+        <rdfs:comment>The enterprise information systems (EIS) tier consists of database servers, enterprise resource planning systems, and other legacy data sources, like mainframes. These resources typically are located on a separate machine than the Java EE server, and are accessed by components on the business tier.
+
+EIS Tier Java EE Technologies: The Java Database Connectivity API (JDBC), The Java Persistence API, The Java EE Connector Architecture, The Java Transaction API (JTA)...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaPersistenceXMLFile -->
+
+    <owl:Class rdf:about="&mwjava;JavaPersistenceXMLFile">
+        <rdfs:label>Persistence XML file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaConfigurationFile"/>
+        <rdfs:comment>The persistence.xml file is a standard configuration file in JPA. it has to be included in the META-INF directory inside the JAR file that contains the entity beans. The persistence.xml file must define a persistence-unit with a unique name in the current scoped classloader. The provider attribute specifies the underlying implementation of the JPA EntityManager. One persistence.xml file can include definitions for one or more persistence units.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaServerFace -->
+
+    <owl:Class rdf:about="&mwjava;JavaServerFace">
+        <rdfs:label>Java server face</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaWebTier"/>
+        <skos:altLabel>JSF</skos:altLabel>
+        <rdfs:comment>JavaServer Faces (JSF) is a Java specification for building component-based user interfaces for web applications</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaServerSideComponent -->
+
+    <owl:Class rdf:about="&mwjava;JavaServerSideComponent">
+        <rdfs:label>Java server side component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaDistributedMultitieredComponent"/>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/web#ServerSideWebComponent"/>
+        <rdfs:comment>Components run in the Java EE server in computer networking.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaServlet -->
+
+    <owl:Class rdf:about="&mwjava;JavaServlet">
+        <rdfs:label>Java servlet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaWebTier"/>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/overview-137084.html</rdfs:seeAlso>
+        <rdfs:comment>The JavaServlet component represents the element that agregates files and configuration to compose a Servlet.
+
+
+Mostly it will be composed of Servlet classes ( used to extend the capabilities of a server). Although servlets can respond to any types of requests, they are commonly used to extend the applications hosted by web servers, so they can be thought of as Java applets that run on servers instead of in web browsers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaServletImplementingClass -->
+
+    <owl:Class rdf:about="&mwjava;JavaServletImplementingClass">
+        <rdfs:label>Java servlet implementing class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaImplementingClass"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#directImplementedInterface"/>
+                <owl:hasValue rdf:resource="&mwjava;JAVA_SERVLET"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The Java Servlet Implementing Class represents all the class that implements the Servlet interface</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaServletSubClass -->
+
+    <owl:Class rdf:about="&mwjava;JavaServletSubClass">
+        <rdfs:label>Java servlet subclass</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSubClass"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#directExtendedType"/>
+                        <owl:hasValue rdf:resource="&mwjava;JAVA_GENERICSERVLET"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#directExtendedType"/>
+                        <owl:hasValue rdf:resource="&mwjava;JAVA_HTTPSERVLET"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>The Java Servlet  Subclass represents all the class that extend GenericServlet or HTTPServlet class.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaTagLibraryDescriptorFile -->
+
+    <owl:Class rdf:about="&mwjava;JavaTagLibraryDescriptorFile">
+        <rdfs:label>Java tag library descriptor file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaConfigurationFile"/>
+        <rdfs:comment>A Tag library descriptor is an XML document that contains information about a library as a whole and about each tag contained in the library. TLDs are used by a web container to validate the tags and by JSP page development tools.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaTieredComponent -->
+
+    <owl:Class rdf:about="&mwjava;JavaTieredComponent">
+        <rdfs:label>Java tiered component</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaEEComponent"/>
+        <rdfs:comment>A java tiered component is the isolated functional area confirming a multi-tiered application.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaWebTier -->
+
+    <owl:Class rdf:about="&mwjava;JavaWebTier">
+        <rdfs:label>Java web tier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaServerSideComponent"/>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaTieredComponent"/>
+        <rdfs:comment>The web tier consists of components that handle the interaction between clients and the business tier.
+
+Web-Tier Java EE Technologies: Servlets, JavaServer Faces, JavaServer Faces Facelets, Expression Language (A set of standard tags used in JSP and Facelets pages to refer to Java EE components), JavaServer Pages (JSP), JavaServer Pages Standard Tag, JavaBeans Components.
+
+J2EE Web components can be either servlets or JSP pages.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/5/tutorial/doc/bnaay.html#bnabj</rdfs:seeAlso>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/firstcup/doc/gcrky.html#gcrkr</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#Message-DrivenObject -->
+
+    <owl:Class rdf:about="&mwjava;Message-DrivenObject">
+        <rdfs:label>Message-driven object</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;EnterpriseJavaBean"/>
+        <rdfs:comment>Message Driven Beans (MDBs, also known as Message Beans). MDBs also support asynchronous execution, but via a messaging paradigm.</rdfs:comment>
+        <skos:altLabel>Message-driven bean</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#RESTfulService -->
+
+    <owl:Class rdf:about="&mwjava;RESTfulService">
+        <rdfs:label>REST full service</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;WebService"/>
+        <rdfs:comment>REpresentational State Transfer (REST) is a key design idiom that embraces a stateless client-server architecture in which the web services are viewed as resources and can be identified by their URLs.  RESTful web services, often better integrated with HTTP than SOAP-based services are, do not require XML messages or WSDL service–API definitions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#SOAPWebService -->
+
+    <owl:Class rdf:about="&mwjava;SOAPWebService">
+        <rdfs:label>SOAP web service</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;WebService"/>
+        <rdfs:comment>Big web services use XML messages that follow the Simple Object Access Protocol (SOAP) standard, an XML language defining a message architecture and message formats. Such systems often contain a machine-readable description of the operations offered by the service, written in the Web Services Description Language (WSDL), an XML language for defining interfaces syntactically.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#SQLTag -->
+
+    <owl:Class rdf:about="&mwjava;SQLTag">
+        <rdfs:label>SQL tag</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSTLTag"/>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+        <rdfs:comment>The group of JSTL SQL tags.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#SessionObject -->
+
+    <owl:Class rdf:about="&mwjava;SessionObject">
+        <rdfs:label>Session object</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;EnterpriseJavaBean"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/tutorial/doc/gipjg.html</rdfs:seeAlso>
+        <skos:altLabel>Session bean</skos:altLabel>
+        <rdfs:comment>Session Beans that can be either &quot;Stateful&quot;, &quot;Stateless&quot; or &quot;Singleton&quot; and can be accessed via either a Local (same JVM) or Remote (different JVM) interface or directly without an interface, in which case local semantics apply. All session beans support asynchronous execution for all views (local/remote/no-interface).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#SingletonSessionBean -->
+
+    <owl:Class rdf:about="&mwjava;SingletonSessionBean">
+        <rdfs:label>Singleton session bean</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;SessionObject"/>
+        <rdfs:comment>A singleton session bean is instantiated once per application and exists for the lifecycle of the application. Singleton session beans are designed for circumstances in which a single enterprise bean instance is shared across and concurrently accessed by clients</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#StatefulSessionBean -->
+
+    <owl:Class rdf:about="&mwjava;StatefulSessionBean">
+        <rdfs:label>Stateful session bean</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;SessionObject"/>
+        <rdfs:comment>The state of an object consists of the values of its instance variables. In a stateful session bean, the instance variables represent the state of a unique client/bean session. Because the client interacts (“talks”) with its bean, this state is often called the conversational state.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#StatelessSessionBean -->
+
+    <owl:Class rdf:about="&mwjava;StatelessSessionBean">
+        <rdfs:label>Stateless session bean</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;SessionObject"/>
+        <rdfs:comment>A stateless session bean does not maintain a conversational state with the client. When a client invokes the methods of a stateless bean, the bean’s instance variables may contain a state specific to that client but only for the duration of the invocation. When the method is finished, the client-specific state should not be retained. Clients may, however, change the state of instance variables in pooled stateless beans, and this state is held over to the next invocation of the pooled stateless bean. Except during method invocation, all instances of a stateless bean are equivalent, allowing the EJB container to assign an instance to any client. That is, the state of a stateless session bean should apply across all clients.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#WebApplicationTechnology -->
+
+    <owl:Class rdf:about="&mwjava;WebApplicationTechnology">
+        <rdfs:label>WebApplication technology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
+        <top:canonicalURICriteria>&quot;JAVA_TECHNOLOGY_&quot; + technology name</top:canonicalURICriteria>
+        <rdfs:comment>Java EE technologies used in the web tier.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#WebClient -->
+
+    <owl:Class rdf:about="&mwjava;WebClient">
+        <rdfs:label>Web client</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaClientTier"/>
+        <rdfs:comment>A web client consists of two parts: (1) dynamic web pages containing various types of markup language (HTML, XML, and so on), which are generated by web components running in the web tier, and (2) a web browser, which renders the pages received from the server.
+
+A web client is sometimes called a thin client. Thin clients usually do not query databases, execute complex business rules, or connect to legacy applications. When you use a thin client, such heavyweight operations are off-loaded to enterprise beans executing on the Java EE server, where they can leverage the security, speed, services, and reliability of Java EE server-side technologies</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#WebService -->
+
+    <owl:Class rdf:about="&mwjava;WebService">
+        <rdfs:label>Web service</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaBusinessTier"/>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/tutorial/doc/bnayk.html</rdfs:seeAlso>
+        <rdfs:comment>A Web service is a method of communication between two electronic devices over a network. It is a software function provided at a network address over the web with the service always on as in the concept of utility computing.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#WebServicesTechnology -->
+
+    <owl:Class rdf:about="&mwjava;WebServicesTechnology">
+        <rdfs:label>WebServices technology</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;BusinessTierTechnology"/>
+        <rdfs:comment>Java EE technologies used for build web services</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#WebXMLSourceCodeFile -->
+
+    <owl:Class rdf:about="&mwjava;WebXMLSourceCodeFile">
+        <rdfs:label>Web XML descriptor file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaDeploymentDescriptorFile"/>
+        <rdfs:comment>For web applications, the deployment descriptor must be called web.xml and must reside in the WEB-INF directory in the web application roo</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#XMLTag -->
+
+    <owl:Class rdf:about="&mwjava;XMLTag">
+        <rdfs:label>XML tag</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSTLTag"/>
+        <rdfs:comment>The group of JSTL XML tags.</rdfs:comment>
+        <mjava:relatedTo>JSP Tag</mjava:relatedTo>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_APACHETOMCAT -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_APACHETOMCAT">
+        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdfs:label>Tomcat</rdfs:label>
+        <rdfs:comment>Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. The Java Servlet and JavaServer Pages specifications are developed under the Java Community Process</rdfs:comment>
+        <rdfs:seeAlso>http://tomcat.apache.org/</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_APPLET -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_APPLET">
+        <rdf:type rdf:resource="&mjava;JavaSoftwareClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_DIRECTIVE_INCLUDE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_DIRECTIVE_INCLUDE">
+        <rdf:type rdf:resource="&mwjava;JSPDirective"/>
+        <rdfs:comment>Includes a file during the translation phase</rdfs:comment>
+        <rdfs:comment>Java include directive</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_DIRECTIVE_PAGE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_DIRECTIVE_PAGE">
+        <rdf:type rdf:resource="&mwjava;JSPDirective"/>
+        <rdfs:label>Java page directive</rdfs:label>
+        <rdfs:comment>Defines page-dependent attributes, such as scripting language, error page, and buffering requirements.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_DIRECTIVE_TAGLIB -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_DIRECTIVE_TAGLIB">
+        <rdf:type rdf:resource="&mwjava;JSPDirective"/>
+        <rdfs:label>Java taglib directive</rdfs:label>
+        <rdfs:comment>Declares a tag library, containing custom actions, used in the page</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_GENERICSERVLET -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_GENERICSERVLET">
+        <rdf:type rdf:resource="&mjava;JavaSoftwareClass"/>
+        <rdfs:label>GenericServlet class</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_HTTPSERVLET -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_HTTPSERVLET">
+        <rdf:type rdf:resource="&mjava;JavaSoftwareClass"/>
+        <rdfs:label>HttpServlet class</rdfs:label>
+        <rdfs:comment>Provides an abstract class to be subclassed to create an HTTP servlet suitable for a Web site</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_HTTPSERVLETREQUEST -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_HTTPSERVLETREQUEST">
+        <rdf:type rdf:resource="&mjava;JavaInterface"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_HTTPSERVLETRESPONSE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_HTTPSERVLETRESPONSE">
+        <rdf:type rdf:resource="&mjava;JavaInterface"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JAXR -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JAXR">
+        <rdfs:label>JAXR</rdfs:label>
+        <skos:altLabel>Java API for XML Registries</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JBOSSAS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JBOSSAS">
+        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdfs:label>JBoss application server</rdfs:label>
+        <rdfs:comment>JBOSS AS is an application server authored by JBoss, now developed by Red Hat. WildFly is written in Java, and implements the Java Platform, Enterprise Edition (Java EE) specification. It runs on multiple platformsJBoss Application Server 7, is a fast, powerful, implementation of the Java Enterprise Edition 6 specification</rdfs:comment>
+        <rdfs:seeAlso>http://jbossas.jboss.org/</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_BUNDLE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_BUNDLE">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting bundle tag</rdfs:label>
+        <rdfs:comment>Loads a resource bundle to be used by its tag body</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_CATCH -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_CATCH">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core catch tag</rdfs:label>
+        <rdfs:comment>Catches any Throwable that occurs in its body and optionally exposes it.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_CORECHOOSE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_CORECHOOSE">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core choose tag</rdfs:label>
+        <rdfs:comment>Simple conditional tag that establishes a context for mutually exclusive conditional operations, marked by &lt;when&gt; and &lt;otherwise&gt;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_COREFOREACH -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_COREFOREACH">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core forEach tag</rdfs:label>
+        <rdfs:comment>The basic iteration tag, accepting many different collection types and supporting subsetting and other functionality</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_COREIF -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_COREIF">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core if tag</rdfs:label>
+        <rdfs:comment>Simple conditional tag, which evalutes its body if the supplied condition is true and optionally exposes a Boolean scripting variable representing the evaluation of this condition</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_COREOTHERWISE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_COREOTHERWISE">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core otherwise tag</rdfs:label>
+        <rdfs:comment>Subtag of &lt;choose&gt; that follows &lt;when&gt; tags and runs only if all of the prior conditions evaluated to &apos;false&apos;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_COREOUT -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_COREOUT">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core out tag</rdfs:label>
+        <rdfs:comment>Like &lt;%= ... &gt;, but for expressions.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_COREPARAM -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_COREPARAM">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core param tag</rdfs:label>
+        <rdfs:comment>Adds a parameter to a containing &apos;import&apos; tag&apos;s URL.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_CORESET -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_CORESET">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core set tag</rdfs:label>
+        <rdfs:comment>Sets the result of an expression evaluation in a &apos;scope&apos;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_COREWHEN -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_COREWHEN">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core when tag</rdfs:label>
+        <rdfs:comment>Subtag of &lt;choose&gt; that includes its body if its condition evalutes to &apos;true&apos;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_DATEPARAM -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_DATEPARAM">
+        <rdf:type rdf:resource="&mwjava;SQLTag"/>
+        <rdfs:label>SQL dateParam tag</rdfs:label>
+        <rdfs:comment>Sets a parameter in an SQL statement to the specified java.util.Date value.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_FORMATDATE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_FORMATDATE">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting formatDate tag</rdfs:label>
+        <rdfs:comment>Formats a date and/or time using the supplied styles and pattern</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_FORMATNUMBER -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_FORMATNUMBER">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting formatNumber tag</rdfs:label>
+        <rdfs:comment>Formats a numeric value as a number, currency, or percentage</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_FORMATTINGPARAM -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_FORMATTINGPARAM">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting param tag</rdfs:label>
+        <rdfs:comment>Supplies an argument for parametric replacement to a containing &lt;message&gt; tag</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_FORTOKENS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_FORTOKENS">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core forTokens tag</rdfs:label>
+        <rdfs:comment>Iterates over tokens, separated by the supplied delimeters</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_IMPORT -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_IMPORT">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core import tag</rdfs:label>
+        <rdfs:comment>Retrieves an absolute or relative URL and exposes its contents to either the page, a String in &apos;var&apos;, or a Reader in &apos;varReader&apos;.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_MESSAGE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_MESSAGE">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting message tag</rdfs:label>
+        <rdfs:comment>Maps key to localized message and performs parametric replacement</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_PARSE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_PARSE">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML parse tag</rdfs:label>
+        <rdfs:comment>Parses XML content from &apos;source&apos; attribute or &apos;body&apos;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_PARSEDATE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_PARSEDATE">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting parseDate tag</rdfs:label>
+        <rdfs:comment>Parses the string representation of a date and/or time</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_PARSENUMBER -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_PARSENUMBER">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting parseNumber tag</rdfs:label>
+        <rdfs:comment>Parses the string representation of a number, currency, or percentage</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_QUERY -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_QUERY">
+        <rdf:type rdf:resource="&mwjava;SQLTag"/>
+        <rdfs:label>SQL query tag</rdfs:label>
+        <rdfs:comment>Executes the SQL query defined in its body or through the sql attribute</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_REDIRECT -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_REDIRECT">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core redirect tag</rdfs:label>
+        <rdfs:comment>Redirects to a new URL.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_REMOVE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_REMOVE">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core remove tag</rdfs:label>
+        <rdfs:comment>Removes a scoped variable (from a particular scope, if specified).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_REQUESTENCODING -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_REQUESTENCODING">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting requestEncoding tag</rdfs:label>
+        <rdfs:comment>Sets the request character encoding</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_SETBUNDLE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_SETBUNDLE">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting setBundle tag</rdfs:label>
+        <rdfs:comment>Loads a resource bundle and stores it in the named scoped variable or the bundle configuration variable</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_SETDATASOURCE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_SETDATASOURCE">
+        <rdf:type rdf:resource="&mwjava;SQLTag"/>
+        <rdfs:label>SQL setDataSource tag</rdfs:label>
+        <rdfs:comment>Creates a simple DataSource suitable only for prototyping</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_SETLOCALE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_SETLOCALE">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting setLocale tag</rdfs:label>
+        <rdfs:comment>Stores the given locale in the locale configuration variable</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_SETTIMEZONE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_SETTIMEZONE">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting setTimeZone tag</rdfs:label>
+        <rdfs:comment>Stores the given time zone in the time zone configuration variable</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_SQLPARAM -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_SQLPARAM">
+        <rdf:type rdf:resource="&mwjava;SQLTag"/>
+        <rdfs:label>SQL param tag</rdfs:label>
+        <rdfs:comment>Sets a parameter in an SQL statement to the specified value.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_TIMEZONE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_TIMEZONE">
+        <rdf:type rdf:resource="&mwjava;FormattingTag"/>
+        <rdfs:label>Formatting timeZone tag</rdfs:label>
+        <rdfs:comment>Specifies the time zone for any time formatting or parsing actions nested in its body</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_TRANSACTION -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_TRANSACTION">
+        <rdf:type rdf:resource="&mwjava;SQLTag"/>
+        <rdfs:label>SQL transaction tag</rdfs:label>
+        <rdfs:comment>Provides nested database action elements with a shared Connection, set up to execute all statements as one transaction.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_UPDATE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_UPDATE">
+        <rdf:type rdf:resource="&mwjava;SQLTag"/>
+        <rdfs:label>SQL update tag</rdfs:label>
+        <rdfs:comment>Executes the SQL update defined in its body or through the sql attribute</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_URL -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_URL">
+        <rdf:type rdf:resource="&mwjava;CoreTag"/>
+        <rdfs:label>Core url tag</rdfs:label>
+        <rdfs:comment>Creates a URL with optional query parameters</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLCHOOSE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLCHOOSE">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML choose tag</rdfs:label>
+        <rdfs:comment>Simple conditional tag that establishes a context for mutually exclusive conditional operations, marked by &lt;when&gt; and &lt;otherwise&gt;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLFOREACH -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLFOREACH">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML forEach tag</rdfs:label>
+        <rdfs:comment>XML iteration tag.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLIF -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLIF">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML if tag</rdfs:label>
+        <rdfs:comment>XML conditional tag, which evalutes its body if the supplied XPath expression evalutes to &apos;true&apos; as a boolean</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLOTHERWISE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLOTHERWISE">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML otherwise tag</rdfs:label>
+        <rdfs:comment>Subtag of &lt;choose&gt; that follows &lt;when&gt; tags and runs only if all of the prior conditions evaluated to &apos;false&apos;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLOUT -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLOUT">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML out tag</rdfs:label>
+        <rdfs:comment>Like &lt;%= ... &gt;, but for XPath expressions.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLPARAM -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLPARAM">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML param tag</rdfs:label>
+        <rdfs:comment>Adds a parameter to a containing &apos;transform&apos; tag&apos;s Transformer</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLSET -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLSET">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML set tag</rdfs:label>
+        <rdfs:comment>Saves the result of an XPath expression evaluation in a &apos;scope&apos;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLTRANSFORM -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLTRANSFORM">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML transform tag</rdfs:label>
+        <rdfs:comment>Conducts a transformation given a source XML document and an XSLT stylesheet</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSPTAG_XMLWHEN -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSPTAG_XMLWHEN">
+        <rdf:type rdf:resource="&mwjava;XMLTag"/>
+        <rdfs:label>XML when tag</rdfs:label>
+        <rdfs:comment>Subtag of &lt;choose&gt; that includes its body if its expression evalutes to &apos;true&apos;</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSTLLIBRARY_CORELIBRARY -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSTLLIBRARY_CORELIBRARY">
+        <rdf:type rdf:resource="&mwjava;JSTLLibrary"/>
+        <rdfs:label>JSTL core library</rdfs:label>
+        <standardSyntax rdf:datatype="&xsd;string">&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;</standardSyntax>
+        <shortName rdf:datatype="&xsd;string">c</shortName>
+        <uri rdf:datatype="&xsd;anyURI">http://java.sun.com/jsp/jstl/core</uri>
+        <skos:altLabel>JSTL core</skos:altLabel>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/</rdfs:seeAlso>
+        <rdfs:comment>The core group of tags are the most frequently used JSTL tags</rdfs:comment>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_CATCH"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_CORECHOOSE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_COREFOREACH"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_COREIF"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_COREOTHERWISE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_COREOUT"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_COREPARAM"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_CORESET"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_COREWHEN"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_FORTOKENS"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_IMPORT"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_REDIRECT"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_REMOVE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_URL"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSTLLIBRARY_FORMATTINGLIBRARY -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSTLLIBRARY_FORMATTINGLIBRARY">
+        <rdf:type rdf:resource="&mwjava;JSTLLibrary"/>
+        <rdfs:label>JSTL formatting library</rdfs:label>
+        <standardSyntax rdf:datatype="&xsd;string">&lt;%@ taglib prefix=&quot;fmt&quot; uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot; %&gt;</standardSyntax>
+        <shortName rdf:datatype="&xsd;string">fmt</shortName>
+        <uri rdf:datatype="&xsd;anyURI">http://java.sun.com/jsp/jstl/fmt</uri>
+        <skos:altLabel>JSTL fmt</skos:altLabel>
+        <rdfs:comment>The JSTL formatting tags are used to format and display text, the date, the time, and numbers for internationalized Web sites.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/</rdfs:seeAlso>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_BUNDLE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_FORMATDATE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_FORMATNUMBER"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_FORMATTINGPARAM"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_MESSAGE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_PARSEDATE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_PARSENUMBER"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_REQUESTENCODING"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_SETBUNDLE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_SETLOCALE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_SETTIMEZONE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_TIMEZONE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSTLLIBRARY_FUNCTIONSLIBRARY -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSTLLIBRARY_FUNCTIONSLIBRARY">
+        <rdf:type rdf:resource="&mwjava;JSTLLibrary"/>
+        <rdfs:label>JSTL functions library </rdfs:label>
+        <standardSyntax rdf:datatype="&xsd;string">&lt;%@ taglib prefix=&quot;fn&quot; uri=&quot;http://java.sun.com/jsp/jstl/functions&quot; %&gt;</standardSyntax>
+        <shortName rdf:datatype="&xsd;string">fn</shortName>
+        <uri rdf:datatype="&xsd;anyURI">http://java.sun.com/jsp/jstl/functions</uri>
+        <skos:altLabel>JSTL functions</skos:altLabel>
+        <rdfs:comment>http://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSTLLIBRARY_SQLLIBRARY -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSTLLIBRARY_SQLLIBRARY">
+        <rdf:type rdf:resource="&mwjava;JSTLLibrary"/>
+        <rdfs:label>JSTL sql library</rdfs:label>
+        <standardSyntax rdf:datatype="&xsd;string">&lt;%@ taglib prefix=&quot;sql&quot; uri=&quot;http://java.sun.com/jsp/jstl/sql&quot; %&gt;</standardSyntax>
+        <uri rdf:datatype="&xsd;anyURI">http://java.sun.com/jsp/jstl/sql</uri>
+        <shortName rdf:datatype="&xsd;string">sql</shortName>
+        <rdfs:comment>The JSTL SQL tag library provides tags for interacting with relational databases (RDBMSs) such as Oracle, mySQL, or Microsoft SQL Server.</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/</rdfs:seeAlso>
+        <skos:altLabel>JSTL sql</skos:altLabel>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_DATEPARAM"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_QUERY"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_SETDATASOURCE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_SQLPARAM"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_TRANSACTION"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_UPDATE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JSTLLIBRARY_XMLLIBRARY -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_JSTLLIBRARY_XMLLIBRARY">
+        <rdf:type rdf:resource="&mwjava;JSTLLibrary"/>
+        <rdfs:label>JSTL XML library</rdfs:label>
+        <standardSyntax rdf:datatype="&xsd;string">&lt;%@ taglib prefix=&quot;x&quot; uri=&quot;http://java.sun.com/jsp/jstl/xml&quot; %&gt;</standardSyntax>
+        <uri rdf:datatype="&xsd;anyURI">http://java.sun.com/jsp/jstl/xml</uri>
+        <shortName rdf:datatype="&xsd;string">x</shortName>
+        <rdfs:comment>The JSTL XML tags provide a JSP-centric way of creating and manipulating XML documents. The JSTL XML tag library has custom tags for interacting with XML data. This includes parsing XML, transforming XML data, and flow control based on XPath expressions.</rdfs:comment>
+        <skos:altLabel>JSTL XML</skos:altLabel>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/</rdfs:seeAlso>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_PARSE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLCHOOSE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLFOREACH"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLIF"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLOTHERWISE"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLOUT"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLPARAM"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLSET"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLTRANSFORM"/>
+        <definedTag rdf:resource="&mwjava;JAVA_JSPTAG_XMLWHEN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_SEAMFRAMEWORK -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_SEAMFRAMEWORK"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_SERVLET -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_SERVLET">
+        <rdf:type rdf:resource="&mjava;JavaInterface"/>
+        <rdfs:label>Interface servlet</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_SPRING -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_SPRING"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_STANDARDACTION_ACTIONINCLUDE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_STANDARDACTION_ACTIONINCLUDE">
+        <rdf:type rdf:resource="&mwjava;JSPStandardAction"/>
+        <rdfs:label>Java standard action include</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_STANDARDACTION_ACTIONPARAM -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_STANDARDACTION_ACTIONPARAM">
+        <rdf:type rdf:resource="&mwjava;JSPStandardAction"/>
+        <rdfs:label>Java standard action param</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_STANDARDACTION_FORWARD -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_STANDARDACTION_FORWARD">
+        <rdf:type rdf:resource="&mwjava;JSPStandardAction"/>
+        <rdfs:label>Java standard action forward</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_STANDARDACTION_GETPROPERTY -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_STANDARDACTION_GETPROPERTY">
+        <rdf:type rdf:resource="&mwjava;JSPStandardAction"/>
+        <rdfs:label>Java standard action getProperty</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_STANDARDACTION_PLUGIN -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_STANDARDACTION_PLUGIN">
+        <rdf:type rdf:resource="&mwjava;JSPStandardAction"/>
+        <rdfs:label>Java standard action plugin</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_STANDARDACTION_SETPROPERTY -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_STANDARDACTION_SETPROPERTY">
+        <rdf:type rdf:resource="&mwjava;JSPStandardAction"/>
+        <rdfs:label>Java standard action setProperty</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_STANDARDACTION_USEBEAN -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_STANDARDACTION_USEBEAN">
+        <rdf:type rdf:resource="&mwjava;JSPStandardAction"/>
+        <rdfs:label>Java standard action useBean</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_STRUTS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_STRUTS"/>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_EJB -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_EJB">
+        <rdf:type rdf:resource="&mwjava;BusinessTierTechnology"/>
+        <rdfs:label>Enterprise javaBeans technology</rdfs:label>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/javaee/ejb/index.html</rdfs:seeAlso>
+        <rdfs:comment>Enterprise JavaBeans (EJB) technology is the server-side component architecture for Java Platform, Enterprise Edition (Java EE). EJB technology enables rapid and simplified development of distributed, transactional, secure and portable applications based on Java technology.</rdfs:comment>
+        <skos:altLabel>EJB</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_EXPRESSIONLANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_EXPRESSIONLANGUAGE">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>Expression language technology</rdfs:label>
+        <rdfs:comment> A set of standard tags used in JSP and Facelets pages to refer to Java EE components</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAVAEECONNECTORARCHITECTURE -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAVAEECONNECTORARCHITECTURE">
+        <rdf:type rdf:resource="&mwjava;EnterpriseApplicationTechnology"/>
+        <rdfs:label>Java EE connector architecture</rdfs:label>
+        <rdfs:comment>The Connector architecture technology enables Java EE components to interact with enterprise information systems (EISs) and EISs to interact with Java EE components</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAVASERVLET -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAVASERVLET">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>Java servlet technology</rdfs:label>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/overview-137084.html</rdfs:seeAlso>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/tutorial/doc/bnafd.html</rdfs:seeAlso>
+        <rdfs:comment>Servlets are the Java platform technology of choice for extending and enhancing Web servers. Servlets provide a component-based, platform-independent method for building Web-based applications, without the performance limitations of CGI programs. And unlike proprietary server extension mechanisms (such as the Netscape Server API or Apache modules), servlets are server- and platform-independent. This leaves you free to select a &quot;best of breed&quot; strategy for your servers, platforms, and tools.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAX-RPC -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAX-RPC">
+        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
+        <rdfs:label>JAX-RPC</rdfs:label>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/1.4/tutorial/doc/JAXRPC.html</rdfs:seeAlso>
+        <rdfs:comment>JAX-RPC is a technology for building web services and clients that use remote procedure calls (RPC) and XML</rdfs:comment>
+        <skos:altLabel>Java API for XML-Based RPC</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAX-RS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAX-RS">
+        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
+        <rdfs:label>JAX-RS</rdfs:label>
+        <skos:altLabel>Java API for RESTful Web Services</skos:altLabel>
+        <rdfs:comment>A technology for providing for RESTful services capability in a Java EE environment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JAX-WS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JAX-WS">
+        <rdf:type rdf:resource="&mwjava;WebServicesTechnology"/>
+        <rdfs:label>JAX-WS</rdfs:label>
+        <rdfs:comment>A technology that helps to build client server Web Services</rdfs:comment>
+        <skos:altLabel>Java API for XML Web Services</skos:altLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JSF -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JSF">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>JSF technology</rdfs:label>
+        <rdfs:label>JavaServer faces technology</rdfs:label>
+        <rdfs:comment>JavaServer Faces technology is a server-side component framework for building Java technology-based web applications.</rdfs:comment>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/javaee/javaserverfaces-139869.html</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JSFFACELETS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JSFFACELETS">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>JavaServer faces facelets technology</rdfs:label>
+        <rdfs:label>JSF facelets technology</rdfs:label>
+        <rdfs:comment>Facelets is an open source Web template system under the Apache license and the default view handler technology (aka view declaration language) for JavaServer Faces (JSF)</rdfs:comment>
+        <rdfs:seeAlso>http://docs.oracle.com/javaee/6/tutorial/doc/giepx.html</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_TECHNOLOGY_JSP -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_TECHNOLOGY_JSP">
+        <rdf:type rdf:resource="&mwjava;WebApplicationTechnology"/>
+        <rdfs:label>JSP technology</rdfs:label>
+        <rdfs:label>JavaServer pages technology</rdfs:label>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/java/jsp-138432.html</rdfs:seeAlso>
+        <rdfs:comment>JavaServer Pages (JSP) technology enables Web developers and designers to rapidly develop and easily maintain, information-rich, dynamic Web pages based on HTML, XML, or other document types that leverage existing business systems. As part of the Java technology family, JSP technology enables rapid development of Web-based applications that are platform independent. JSP technology separates the user interface from content generation, enabling designers to change the overall page layout without altering the underlying dynamic content.
+
+The main features of JSP technology are as follows:
+
+- A language for developing JSP pages, which are text-based documents that describe how to process a request and construct a response
+- An expression language for accessing server-side objects
+- Mechanisms for defining extensions to the JSP language
+
+JSP technology also contains an API that is used by developers of web containers</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_WEBLOGIC -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_WEBLOGIC">
+        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdfs:label>Oracle WebLogic Server</rdfs:label>
+        <rdfs:comment>Oracle WebLogic Server 12c is the industry&apos;s best application server for building and deploying enterprise Java EE applications with support for new features for lowering cost of operations, improving performance, enhancing scalability and supporting the Oracle Applications portfolio</rdfs:comment>
+        <rdfs:seeAlso>http://www.oracle.com/technetwork/middleware/weblogic/overview/index.html</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_WEBSPHEREAS -->
+
+    <owl:NamedIndividual rdf:about="&mwjava;JAVA_WEBSPHEREAS">
+        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdfs:label>WebSphere Application Server</rdfs:label>
+        <rdfs:comment>WebSphere Application Server (WAS) is a software product that performs the role of a web application server. More specifically, it is a software framework and middleware that hosts Java based web applications.</rdfs:comment>
+        <rdfs:seeAlso>http://www-03.ibm.com/software/products/en/appserv-was</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&mjava;SERVLET">
+        <rdfs:comment>Defines methods that all servlets must implement. A servlet is a small Java program that runs within a Web server. Servlets receive and respond to requests from Web clients, usually across HTTP, the HyperText Transfer Protocol.</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
