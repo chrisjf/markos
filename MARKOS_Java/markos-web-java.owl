@@ -398,17 +398,6 @@ Application clients directly access enterprise beans running in the business tie
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#ApplicationServerFramework -->
-
-    <owl:Class rdf:about="&mwjava;ApplicationServerFramework">
-        <rdfs:label>Application server framework</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/web#ApplicationServer"/>
-        <rdfs:comment>Java EE technologies used in the application server components</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#ApplicationXMLSourceCodeFile -->
 
     <owl:Class rdf:about="&mwjava;ApplicationXMLSourceCodeFile">
@@ -683,10 +672,10 @@ An implementation of an JSP Tag Library is any software entity X (e.g. Package o
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaBeansComponent -->
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaBean -->
 
-    <owl:Class rdf:about="&mwjava;JavaBeansComponent">
-        <rdfs:label>JavaBeans component</rdfs:label>
+    <owl:Class rdf:about="&mwjava;JavaBean">
+        <rdfs:label>Java bean</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JavaClientTier"/>
         <rdfs:subClassOf rdf:resource="&mwjava;JavaWebTier"/>
         <rdfs:comment>The server and client tiers might also include components based on the JavaBeans component architecture (JavaBeans components) to manage the data flow between an application client or applet and components running on the Java EE server, or between server components and a database. JavaBeans components are not considered Java EE components by the Java EE specification.
@@ -785,6 +774,17 @@ The Java client tier consists of application clients that access a Java EE serve
         <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/web#WebApplication"/>
         <rdfs:comment>The Java EE platform uses a distributed multitiered application model for enterprise applications. Application logic is divided into components according to function, and the various application components that make up a Java EE application are installed on different machines depending on the tier in the multitiered Java EE environment to which the application component belongs.</rdfs:comment>
         <rdfs:seeAlso>http://docs.oracle.com/javaee/5/tutorial/doc/bnaay.html#bnabj</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaEEApplicationServerFramework -->
+
+    <owl:Class rdf:about="&mwjava;JavaEEApplicationServerFramework">
+        <rdfs:label>Java EE application server framework</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaEETechnology"/>
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/web#ApplicationServer"/>
+        <rdfs:comment>Java EE technologies used in the application server components</rdfs:comment>
     </owl:Class>
     
 
@@ -1109,7 +1109,7 @@ A web client is sometimes called a thin client. Thin clients usually do not quer
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_APACHETOMCAT -->
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_APACHETOMCAT">
-        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdf:type rdf:resource="&mwjava;JavaEEApplicationServerFramework"/>
         <rdfs:label>Tomcat</rdfs:label>
         <rdfs:comment>Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. The Java Servlet and JavaServer Pages specifications are developed under the Java Community Process</rdfs:comment>
         <rdfs:seeAlso>http://tomcat.apache.org/</rdfs:seeAlso>
@@ -1202,7 +1202,7 @@ A web client is sometimes called a thin client. Thin clients usually do not quer
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_JBOSSAS -->
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_JBOSSAS">
-        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdf:type rdf:resource="&mwjava;JavaEEApplicationServerFramework"/>
         <rdfs:label>JBoss application server</rdfs:label>
         <rdfs:comment>JBOSS AS is an application server authored by JBoss, now developed by Red Hat. WildFly is written in Java, and implements the Java Platform, Enterprise Edition (Java EE) specification. It runs on multiple platformsJBoss Application Server 7, is a fast, powerful, implementation of the Java Enterprise Edition 6 specification</rdfs:comment>
         <rdfs:seeAlso>http://jbossas.jboss.org/</rdfs:seeAlso>
@@ -1961,7 +1961,7 @@ JSP technology also contains an API that is used by developers of web containers
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_WEBLOGIC -->
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_WEBLOGIC">
-        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdf:type rdf:resource="&mwjava;JavaEEApplicationServerFramework"/>
         <rdfs:label>Oracle WebLogic Server</rdfs:label>
         <rdfs:comment>Oracle WebLogic Server 12c is the industry&apos;s best application server for building and deploying enterprise Java EE applications with support for new features for lowering cost of operations, improving performance, enhancing scalability and supporting the Oracle Applications portfolio</rdfs:comment>
         <rdfs:seeAlso>http://www.oracle.com/technetwork/middleware/weblogic/overview/index.html</rdfs:seeAlso>
@@ -1972,7 +1972,7 @@ JSP technology also contains an API that is used by developers of web containers
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#JAVA_WEBSPHEREAS -->
 
     <owl:NamedIndividual rdf:about="&mwjava;JAVA_WEBSPHEREAS">
-        <rdf:type rdf:resource="&mwjava;ApplicationServerFramework"/>
+        <rdf:type rdf:resource="&mwjava;JavaEEApplicationServerFramework"/>
         <rdfs:label>WebSphere Application Server</rdfs:label>
         <rdfs:comment>WebSphere Application Server (WAS) is a software product that performs the role of a web application server. More specifically, it is a software framework and middleware that hosts Java based web applications.</rdfs:comment>
         <rdfs:seeAlso>http://www-03.ibm.com/software/products/en/appserv-was</rdfs:seeAlso>
