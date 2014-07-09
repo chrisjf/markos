@@ -124,12 +124,6 @@ The ontological model has been introduced for representing Java SE software enti
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#valueType -->
-
-    <owl:ObjectProperty rdf:about="&msw;valueType"/>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#visibility -->
 
     <owl:ObjectProperty rdf:about="&msw;visibility"/>
@@ -414,7 +408,7 @@ If two Packages or two Libraries contains the same public interfaces then they c
         <rdfs:subClassOf rdf:resource="&msw;Annotation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;valueType"/>
+                <owl:onProperty rdf:resource="&msw;type"/>
                 <owl:someValuesFrom rdf:resource="&mjava;JavaAnnotationType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -488,7 +482,7 @@ Each item in an array is called an element, and each element is accessed by its 
     <owl:Class rdf:about="&mjava;JavaClassFile">
         <rdfs:label>Java class file</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaExecutableFile"/>
-        <rdfs:subClassOf rdf:resource="&mjava;JavaObjectFile"/>
+        <rdfs:subClassOf rdf:resource="&msw;ObjectFile"/>
         <rdfs:comment>Java class file is a file (with the .class filename extension) containing a Java bytecode which can be executed on the Java Virtual Machine (JVM). Java class file is produced by Java compiler from Java programming language source files (.java files) containing Java classes. If a source file has more than one class, each class is compiled into a separate class file.</rdfs:comment>
         <rdfs:seeAlso>http://en.wikipedia.org/wiki/Java_class_file</rdfs:seeAlso>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/package/managingfiles.html</rdfs:seeAlso>
@@ -638,7 +632,7 @@ Storing deployment configuration properties </rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;valueType"/>
+                <owl:onProperty rdf:resource="&msw;type"/>
                 <owl:someValuesFrom rdf:resource="&mjava;JavaType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -844,7 +838,7 @@ A Java class may implement, and an interface may extend, any number of interface
         <rdfs:subClassOf rdf:resource="&msw;LocalVariable"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;valueType"/>
+                <owl:onProperty rdf:resource="&msw;type"/>
                 <owl:someValuesFrom rdf:resource="&mjava;JavaType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -941,16 +935,6 @@ Local classes are classes that are defined in a block, which is a group of zero 
         <rdfs:label>Java numeric type</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaPrimitiveType"/>
         <rdfs:comment>Types for handling numbers in various representations</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/java#JavaObjectFile -->
-
-    <owl:Class rdf:about="&mjava;JavaObjectFile">
-        <rdfs:label>Java object file</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;ObjectFile"/>
-        <rdfs:comment>An object file format is a computer file format used for the storage of java object code and related data.</rdfs:comment>
     </owl:Class>
     
 
@@ -1246,7 +1230,7 @@ All variables must have a type. You can use primitive types such as int, float, 
         <rdfs:subClassOf rdf:resource="&msw;ClassifierValuedParameter"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;valueType"/>
+                <owl:onProperty rdf:resource="&msw;type"/>
                 <owl:someValuesFrom rdf:resource="&mjava;JavaReferenceType"/>
             </owl:Restriction>
         </rdfs:subClassOf>

@@ -1,3 +1,9 @@
+V0.4-------------------------------------------------------------
+RENAMED
+ApplicationServerFramework to JavaEEApplicationServerFramework
+JavaBeansComponent to JavaBean
+
+
 V0.3--------------------------------------------------------------
 version date: 2014/06/25 
 import version 1.6 of common ontology

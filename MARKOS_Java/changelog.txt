@@ -1,3 +1,14 @@
+V0.7-------------------------------------------------------------
+REMOVED CLASSES
+JavaObjectFile. There is not other java object file than JavaClassFile
+
+CHANGE AXIOMS
+JavaField: typeValue some JavaType --> type some JavaType
+JavaAnnotation: valueType some JavaAnnotationType --> type some JavaAnnotationType
+JavaLocalVariable: valueType some JavaType --> type some JavaType
+JavaTypeParameter: valueType some JavaReferenceType --> type some JavaReferenceType
+
+
 V0.6--------------------------------------------------------------
 version date: 2014/06/25
 import version 1.6 of common ontology
