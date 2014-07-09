@@ -130,12 +130,6 @@ The ontological model has been introduced for representing Java SE software enti
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/top#nestedClassifier -->
-
-    <owl:ObjectProperty rdf:about="&mtop;nestedClassifier"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -626,14 +620,14 @@ Storing deployment configuration properties </rdfs:comment>
         <rdfs:subClassOf rdf:resource="&msw;Attribute"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+                <owl:onProperty rdf:resource="&msw;type"/>
+                <owl:someValuesFrom rdf:resource="&mjava;JavaType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;type"/>
-                <owl:someValuesFrom rdf:resource="&mjava;JavaType"/>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/variables.html</rdfs:seeAlso>
@@ -878,14 +872,14 @@ The manifest is a special file that can contain information about the files pack
         <rdfs:subClassOf rdf:resource="&msw;Method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+                <owl:onProperty rdf:resource="&msw;nestedClassifier"/>
+                <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;nestedClassifier"/>
-                <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html</rdfs:seeAlso>
@@ -1112,7 +1106,7 @@ The type can be any non-primitive type you specify: any class type, any interfac
         <rdfs:subClassOf rdf:resource="&msw;SoftwareClass"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;nestedClassifier"/>
+                <owl:onProperty rdf:resource="&msw;nestedClassifier"/>
                 <owl:someValuesFrom rdf:resource="&mjava;JavaNestedClass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
