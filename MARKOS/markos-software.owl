@@ -296,25 +296,18 @@ Equivalent to &apos;documenter&apos; from ontology DOAP</rdfs:comment>
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#forkSoftware -->
+    <!-- http://www.markosproject.eu/ontologies/software#dynamicallyLinkedEntity -->
 
-    <owl:ObjectProperty rdf:about="&msw;forkSoftware">
-        <rdfs:label xml:lang="en">Fork software</rdfs:label>
-        <rdfs:comment xml:lang="en">Software directly or indirectly derived (see mtop:successiveVersion) from the subject one and released by a project that is distinct from the project of the subject Software. 
-</rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;Software"/>
-        <rdfs:range rdf:resource="&msw;Software"/>
-    </owl:ObjectProperty>
-    
+    <owl:ObjectProperty rdf:about="&msw;dynamicallyLinkedEntity">
+        <rdfs:comment xml:lang="en">A SoftwareEntity that is used by the subject SoftwareEntity and that is determined and loaded by the subject SoftwareEntity or by its containing Program at runtime during one of the possible executions. 
 
+It is not required the DynamicallyLinkedEntity to be used at any exection, but only that it is used in some circumstance. The actual use may depend from the specific I/O of the containing Program and by the specific execution environment.
 
-    <!-- http://www.markosproject.eu/ontologies/software#forkStartedEntity -->
+Note that the identity of a SoftwareEntity depends from the identiy of all its usedSoftwareEntities, including both the StaticallyLinkedEntities and the DynamicallyLinkedEntities. As the DynamicLinkedEntities are determined at runtime by the the specific execution environment, the same source code or object code may define different SoftwareEntities when used in different contexts and in different Programs released by different SoftwareReleases.
 
-    <owl:ObjectProperty rdf:about="&msw;forkStartedEntity">
-        <rdfs:label xml:lang="en">Fork started entity</rdfs:label>
-        <rdfs:comment xml:lang="en">SoftwareEntity which execution is started by the subject SoftwareEntity, but that runs in a process spearated from the one of the subject SoftwareEntity.</rdfs:comment>
-        <rdfs:range rdf:resource="&msw;Program"/>
+Most SoftwareEntities do not belong specifically to any Program (i.e. they can be reused in different Programs) and more in general can be used in different contexts, but implicit conventions and explicit human or machine readable instructions, regarding the intended use of the source code, provided by the provenanceRelease, may impose sufficient constraints on the execution conditions to determine the DynamicallyLinkedEntities independently from any specific containing Program.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
@@ -329,7 +322,7 @@ Equivalent to &apos;documenter&apos; from ontology DOAP</rdfs:comment>
 </rdfs:comment>
         <rdfs:range rdf:resource="&msw;Software"/>
         <rdfs:domain rdf:resource="&msw;Software"/>
-        <owl:inverseOf rdf:resource="&msw;forkSoftware"/>
+        <owl:inverseOf rdf:resource="&msw;softwareFork"/>
     </owl:ObjectProperty>
     
 
@@ -449,20 +442,6 @@ This is different by an invokedMethod, as in the case the executed Behavior is s
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#linkedLibrary -->
-
-    <owl:ObjectProperty rdf:about="&msw;linkedLibrary">
-        <rdfs:label xml:lang="en">Linked library</rdfs:label>
-        <rdfs:comment xml:lang="en">A Library that is linked to the softwareEntity. 
-
-Note that the SoftwareEntities contained in a Library may be linked to some SoftwareEntities without linking them as a Library, therefore the linking of a Library is distinct form the linking of the SoftwareEntities.</rdfs:comment>
-        <rdfs:range rdf:resource="&msw;Library"/>
-        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
-        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.markosproject.eu/ontologies/software#maintainer -->
 
     <owl:ObjectProperty rdf:about="&msw;maintainer">
@@ -480,9 +459,11 @@ Equivalent to &apos;maintainer&apos; from ontology DOAP</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&msw;manifestation">
         <rdfs:label xml:lang="en">Manifestation</rdfs:label>
-        <rdfs:comment xml:lang="en">An object that is the concrete manifestation of the subject SoftwareWork. sourceCode and objectCode are two examples of manifestations, but also other kind of manifestations may exist.
+        <rdfs:comment xml:lang="en">An object that is the concrete manifestation of the subject Software. 
 
-A SoftwareWork may be an abstract entity that may have several distinct manifestations. For instance any copy of the source code of a SoftwareEntity is a manifestation of that entitiy.
+sourceCode and objectCode are two examples of manifestations, but also other kind of manifestations may exist.
+
+A Software may be an abstract entity that may have several distinct manifestations. For instance any copy of the source code of a SoftwareEntity is a manifestation of that entitiy.
 </rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Software"/>
         <rdfs:range rdf:resource="&msw;SoftwareArtifact"/>
@@ -498,7 +479,7 @@ A SoftwareWork may be an abstract entity that may have several distinct manifest
         <rdfs:comment xml:lang="en">Any Type that is owner by the subject Type. In UML2 it is represented by the anonymous property.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;Classifier"/>
         <rdfs:domain rdf:resource="&msw;Classifier"/>
-        <rdfs:subPropertyOf rdf:resource="&msw;ownedMember"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;ownedMember"/>
     </owl:ObjectProperty>
     
 
@@ -566,12 +547,6 @@ Each software entity may have several objectCode files (copies).</rdfs:comment>
         <rdfs:range rdf:resource="&msw;LocalVariable"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#ownedMember -->
-
-    <owl:ObjectProperty rdf:about="&msw;ownedMember"/>
     
 
 
@@ -643,6 +618,16 @@ When the subject is an Object represented by a UML2 InstanceValue, this correspo
 Note that the fact that a project releases a software entity does not necessarly imply that the project is the provenance of the software entity, as the software entity could have been copied from the provenance project and released again in another project.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Software"/>
         <rdfs:range rdf:resource="&msw;SoftwareProject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#provenanceFile -->
+
+    <owl:ObjectProperty rdf:about="&msw;provenanceFile">
+        <rdfs:domain rdf:resource="&msw;File"/>
+        <rdfs:range rdf:resource="&msw;File"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;provenanceManifestation"/>
     </owl:ObjectProperty>
     
 
@@ -789,6 +774,20 @@ This relationship refers to the entire software published by a the project at ce
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#remotelyCalledEntity -->
+
+    <owl:ObjectProperty rdf:about="&msw;remotelyCalledEntity">
+        <rdfs:label xml:lang="en">Remotely called entity</rdfs:label>
+        <rdfs:comment xml:lang="en">A SoftwareEntity that is used by the subjectSoftwareEntity and that runs in a process distinct from the one of the subject SoftwareEntity. 
+
+Typical examples are use relationships implied by the invocation of a web service or by the invocation of an API provided by the hosting Operating System.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#repository -->
 
     <owl:ObjectProperty rdf:about="&msw;repository">
@@ -810,6 +809,18 @@ In UML 2 it is represented by the attribute &quot;required&quot; </rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Component"/>
         <rdfs:range rdf:resource="&msw;Interface"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#softwareFork -->
+
+    <owl:ObjectProperty rdf:about="&msw;softwareFork">
+        <rdfs:label xml:lang="en">Software fork</rdfs:label>
+        <rdfs:comment xml:lang="en">Software directly or indirectly derived (see mtop:successiveVersion) from the subject one and released by a project that is distinct from the project of the subject Software. 
+</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;Software"/>
+        <rdfs:domain rdf:resource="&msw;Software"/>
     </owl:ObjectProperty>
     
 
@@ -848,6 +859,23 @@ Each software entity may have several sourceCode files (copies).</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:range rdf:resource="&msw;SourceCodeFile"/>
         <rdfs:subPropertyOf rdf:resource="&msw;manifestation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#staticallyLinkedEntity -->
+
+    <owl:ObjectProperty rdf:about="&msw;staticallyLinkedEntity">
+        <rdfs:label xml:lang="en">Statically linked entity</rdfs:label>
+        <rdfs:comment xml:lang="en">A SoftwareEntity that is used by the subject SoftwareEntity and that has been included in the object code of the subject SoftwareEntity or in the executable file of the Program of the subject SoftwareEntity at compilation time (of the subject SoftwareEntity). 
+
+A typical use of this property is to relate Programs to used Libraries that are determined at compilation/linking phase. 
+
+Note that most SoftwareEntities do not belong specifically to any Program (i.e. they can be resued in many Programs) therefore their object code must contain any staticallyLinkedSoftwareEntity.
+</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -922,7 +950,7 @@ Depending from the programming language the type may be implicit or explicit,  s
         <rdfs:comment xml:lang="en">SoftwareEntity used by the subject of this property.
 A SoftwareEntity Y is used by a SoftwareEntity X if the execution or compilation process of X implies the execution, compilation or the lookup of Y (this includes the case where a copy of the source code of Y is present in a copy of the source code of X).
 
-Note that an implementation relationship is not necessarly a usage relationship as in some language an API or a Method may be implemented without beeing explicitly used by the compiler or executor. </rdfs:comment>
+Note that an implementation relationship is not necessarly a use relationship as in some language an API or a Method may be implemented without (their code) beeing explicitly used by the compiler or executor. </rdfs:comment>
         <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
@@ -2269,7 +2297,7 @@ The &quot;full source code&quot; of a software entity may be defined also as the
 
 For instance the full source code of a Java class named Person is not just the Java file Person.java (the manifestation) but it is composed also by any other files needed to compile the Person.java file (e.g. if Person inherits from the class Animal also the source code of Animal is needed).
 </provenanceManifestationCriteria>
-        <rdfs:comment xml:lang="en">Any abstract programming entity (e.g. a Java class or a C function or a Corba Component) which is defined or implictly assumed by a piece of source code, according to the semantics of a program as defined by a programming language specification or by another programming standard or convention. A SoftwareEntity is an abstract entity, in the sense that it has no location in space and/or time.
+        <rdfs:comment xml:lang="en">Any abstract programming entity (e.g. a Java class or a C function or a Corba Component) which is defined or implicitly assumed by a piece of source code, according to the semantics of a program as defined by a programming language specification or by another programming standard or convention. A SoftwareEntity is an abstract entity, in the sense that it has no location in space and/or time.
 
 Note that while a SoftwareEntity is defined using a programming language, not all the SoftwareEntities are specified by the semantics of a program as defined by a programming language specification. Other software entities may be defined as higher level abstractions on top of the entities identified by the programming language specification. For instance, a certain component standard for a certain Oject Oriented programming language may define a Component as specific kind of graph of related programming language Objects, therefore introducing a kind of entity (i.e. Component) that was not specified by the original programming language specification but is obtained by abstracting on the entities specified by the original programming language specification.
  

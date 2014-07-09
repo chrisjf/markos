@@ -1,5 +1,22 @@
 MARKOS ontology
 
+V1.6.1
+====
+version date: 2014/06/25
+
+Added msw properties
+- dynamicallyLinkedEntity (SoftwareEntity x SoftwareEntity)
+- staticallyLinkedEntity (SoftwareEntity x SoftwareEntity)
+- provenanceFile (File x File) to represent the original copy of a File
+
+Changed msw properties
+- forkSoftware -> softwareFork 
+- forkStartedEntity -> remotelyCalledEntity
+
+Removed msw properties
+- linkedLibrary
+
+
 V1.6
 ====
 version date: 2014/06/25
