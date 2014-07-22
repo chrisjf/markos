@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 
 
 <!DOCTYPE rdf:RDF [
@@ -32,7 +32,7 @@ Goals: The ontological model has been introduced for representing Java EE softwa
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/java"/>
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/javascript"/>
         <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/web"/>
-        <owl:versionIRI rdf:resource="&mwjava;2014/06/25"/>
+        <owl:versionIRI rdf:resource="&mwjava;2014/07/22"/>
     </owl:Ontology>
     
 

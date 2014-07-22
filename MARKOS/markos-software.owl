@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 
-
+<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
+   - This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+   
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
@@ -30,9 +34,9 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/software">
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">This ontology describes the domain independent concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
-        <owl:imports rdf:resource="&mlic;2014/06/25"/>
-        <owl:versionIRI rdf:resource="&msw;2014/06/25"/>
-        <owl:imports rdf:resource="&mtop;2014/06/25"/>
+        <owl:imports rdf:resource="&mlic;2014/07/22"/>
+        <owl:versionIRI rdf:resource="&msw;2014/07/22"/>
+        <owl:imports rdf:resource="&mtop;2014/07/22"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     </owl:Ontology>
@@ -744,7 +748,9 @@ In UML2 it is represented by the attribute &quot;provided&quot;.</rdfs:comment>
         <rdfs:label xml:lang="en">Released software</rdfs:label>
         <rdfs:comment xml:lang="en">A software (SoftwareRelease) published by a Project and considered sufficiently stable to be used by the final user. 
 
-This relationship refers to the entire software published by a the project at certain time, i.e. a software that is contained in a released software is not a value of the  releasedSoftware property.</rdfs:comment>
+This relationship refers to the entire software published by a the project at certain time, i.e. a software that is contained in a released software is not a value of the releasedSoftware property.
+
+Any releasedSoftware is (implictly) associated to a new Work released by the project, but that Work does not necessarly coincides with the entitre releasedSoftware, as the releasedSoftware could contain (for practical reasons) copies of other distinct Works or of parts of other Works (e.g. testing input data) that are used in a way that does not necessarly creates a derivative Work.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
         <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
@@ -1616,14 +1622,14 @@ This is an abstract OWL class, i.e. identity criteria are defined by OWL subclas
         <rdfs:subClassOf rdf:resource="&msw;Parameter"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;defaultValue"/>
-                <owl:allValuesFrom rdf:resource="&msw;Value"/>
+                <owl:onProperty rdf:resource="&msw;type"/>
+                <owl:allValuesFrom rdf:resource="&msw;ValueType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;type"/>
-                <owl:allValuesFrom rdf:resource="&msw;ValueType"/>
+                <owl:onProperty rdf:resource="&msw;defaultValue"/>
+                <owl:allValuesFrom rdf:resource="&msw;Value"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Parameter owened by a Behavior.
@@ -2219,6 +2225,7 @@ A slot owned by an Object and having an explicit related Atribute may be represe
 
     <owl:Class rdf:about="&msw;Software">
         <rdfs:label xml:lang="en">Software</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&mtop;previousVersion"/>
@@ -2358,7 +2365,7 @@ This definition is intended to model what developers usually mean by the term &q
 
     <owl:Class rdf:about="&msw;SoftwareRelease">
         <rdfs:label xml:lang="en">Software release</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;SoftwareArtifact"/>
+        <rdfs:subClassOf rdf:resource="&msw;Software"/>
         <rdfs:subClassOf rdf:resource="&mtop;VersionedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2366,7 +2373,8 @@ This definition is intended to model what developers usually mean by the term &q
                 <owl:allValuesFrom rdf:resource="&msw;SoftwareRelease"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">One or more  Files published by a Project and considered sufficiently stable to be used by the final user. A SoftwareRelease is the entire set of Files published by a the project at certain time, i.e. a portion of a SoftwareRelease is not a SoftwareRelease.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A software published by a Project and considered sufficiently stable to be used by the final user. A SoftwareRelease is the entire software published by a the project at certain time, i.e. a portion of a SoftwareRelease is not a SoftwareRelease.
+</rdfs:comment>
     </owl:Class>
     
 
@@ -2586,6 +2594,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;ACTION_SCRIPT_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Action Script</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Action Script</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Action_Script</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2596,7 +2605,44 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;ADA_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Ada</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Ada</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Ada_%28programming_language%29</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#APL_LANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&msw;APL_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <rdfs:label rdf:datatype="&xsd;string">APL</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">APL</mtop:name>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/APL_%28programming_language%29</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ASPECTJ_LANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&msw;ASPECTJ_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Aspectj</mtop:name>
+        <rdfs:label rdf:datatype="&xsd;string">Aspectj</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://eclipse.org/aspectj/</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Aspectj</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ASP_LANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&msw;ASP_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">ASP</mtop:name>
+        <rdfs:label rdf:datatype="&xsd;string">ASP</rdfs:label>
+        <rdfs:comment xml:lang="en">The language of ASP (Microsoft® Active Server Pages) files.</rdfs:comment>
+        <rdfs:seeAlso xml:lang="en">http://en.wikipedia.org/wiki/Active_Server_Pages</rdfs:seeAlso>
+        <rdfs:seeAlso xml:lang="en">http://msdn.microsoft.com/en-us/library/aa286483.aspx</rdfs:seeAlso>
     </owl:NamedIndividual>
     
 
@@ -2605,6 +2651,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;ASSEMBLY_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Assembly</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Assembly</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Assembly_language</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2615,6 +2662,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;AUTOCONF_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Autoconf</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Autoconf</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Autoconf</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2625,8 +2673,33 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;AUTOMAKE_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Automake</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Automake</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Automake</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#BASH_LANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&msw;BASH_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Bash</mtop:name>
+        <rdfs:label rdf:datatype="&xsd;string">Bash</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;anyURI">The commnad language of the Unix shell written by Brian Fox.</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://www.gnu.org/software/bash/bash.html</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#CFML_LANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&msw;CFML_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">ColdFusion</mtop:name>
+        <rdfs:label rdf:datatype="&xsd;string">ColdFusion Markup Language</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/ColdFusion_Markup_Language</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.adobe.com/products/coldfusion-family.html</rdfs:seeAlso>
     </owl:NamedIndividual>
     
 
@@ -2635,6 +2708,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;CLOJURE_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Clojure</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Clojure</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Clojure</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2645,6 +2719,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;CMAKE_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">CMake</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">CMake</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Cmake</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2655,6 +2730,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;CPP_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">C++</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">C++</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C%2B%2B_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2665,6 +2741,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;CSHARP_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">C#</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">C#</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2675,6 +2752,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;CSS_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">CSS</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">CSS</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/CSS</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2685,6 +2763,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;C_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">C</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">C</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2695,6 +2774,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;C_OR_CPP_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">C/C++</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">C/C++</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C%2B%2B_%28programming_language%29</rdfs:seeAlso>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/C_%28programming_language%29</rdfs:seeAlso>
@@ -2706,6 +2786,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;D_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">D</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">D</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/D_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2716,6 +2797,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;EIFFEL_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Eiffel</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Eiffel</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Eiffel_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2726,6 +2808,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;EMACS_LISP_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Emacs Lisp</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Emacs Lisp</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/ECMA_Script</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2736,6 +2819,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;ERLANG_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Erlang</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Erlang</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Erlang_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2746,6 +2830,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;FORTRAN_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Fortran</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Fortran</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Fortran_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2756,6 +2841,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;GO_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Go</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Go</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Go_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2766,6 +2852,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;GROOVY_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Groovy</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Groovy</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Groovy_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2776,6 +2863,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;HASKEL_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">Haskel</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">Haskel</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Haskell_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2786,6 +2874,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
 
     <owl:NamedIndividual rdf:about="&msw;HTML_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <mtop:name rdf:datatype="&xsd;string">HTML</mtop:name>
         <rdfs:label rdf:datatype="&xsd;string">HTML</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/HTML</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -2815,6 +2904,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;JAVASCRIPT_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">JavaScript</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">JavaScript</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/JavaScript</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2836,6 +2926,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;JSP_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">JSP</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">JSP</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/JavaServer_Pages</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2846,6 +2937,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;LISP_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Lisp</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Lisp</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Lisp_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2856,6 +2948,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;LUA_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Lua</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Lua</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Lua_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2866,6 +2959,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;MAKE_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Make</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Make</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Make_%28software%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2876,6 +2970,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;MATLAB_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">MATLAB</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">MATLAB</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/MATLAB</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2886,6 +2981,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;METAPOST_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">MetaPost</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">MetaPost</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/MetaPost</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2896,6 +2992,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;MODULA_2_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Modula-2</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Modula-2</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Modula-2</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2906,6 +3003,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;MXML_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">MXML</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">MXML</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/MXML</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2916,6 +3014,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;OBJECTIVE_CAML_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Objective Caml</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Objective Caml</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Objective_Caml</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2926,6 +3025,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;OBJECTIVE_C_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Objective-C</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Objective-C</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Objective_c</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2955,6 +3055,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;PASCAL_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Pascal</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Pascal</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Pascal_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -2965,7 +3066,20 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;PERL_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Perl</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Perl</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Perl</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#PHP_LANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&msw;PHP_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <rdfs:label rdf:datatype="&xsd;string">PHP</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">PHP</mtop:name>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/PHP</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://php.net/</rdfs:seeAlso>
     </owl:NamedIndividual>
     
 
@@ -2985,6 +3099,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;PROLOG_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Prolog</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Prolog</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Prolog</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3015,7 +3130,20 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;PYTHON_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Phyton</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Phyton</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Python_%28programming_language%29</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#REBOL_LANGUAGE -->
+
+    <owl:NamedIndividual rdf:about="&msw;REBOL_LANGUAGE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <rdfs:label rdf:datatype="&xsd;string">Rebol</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Rebol</mtop:name>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/REBOL</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.rebol.com/</rdfs:seeAlso>
     </owl:NamedIndividual>
     
 
@@ -3034,6 +3162,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;RUBY_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Ruby</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Ruby</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Ruby_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3044,6 +3173,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;R_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">R</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">R</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/R_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3054,6 +3184,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;SCALA_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Scala</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Scala</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Scala_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3064,6 +3195,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;SCHEME_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Scheme</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Scheme</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Scheme_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3074,6 +3206,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;SHELL_SCRIPT_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Shell script</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Shell script</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Shell_script</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3084,6 +3217,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;SQL_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">SQL</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">SQL</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/SQL</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3094,6 +3228,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;TCL_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Tcl</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Tcl</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Tcl_%28programming_language%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3104,6 +3239,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;TEX_LATEX_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">TeX/LaTeX</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">TeX/LaTeX</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/LaTeX</rdfs:seeAlso>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/TeX</rdfs:seeAlso>
     </owl:NamedIndividual>
@@ -3115,6 +3251,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;VIM_SCRIPT_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Vim Script</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Vim Script</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">en.wikipedia.org/wiki/Vim_script</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3125,6 +3262,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;VISUAL_BASIC_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">Visual Basic</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Visual Basic</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Visual_Basic</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3135,6 +3273,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;XAML_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">XAML</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">XAML</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/XAML</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3145,6 +3284,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;XML_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">XML</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">XML</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/XML</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3155,6 +3295,7 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;XML_SCHEMA_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">XML Schema</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">XML Schema</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/XML_Schema_%28W3C%29</rdfs:seeAlso>
     </owl:NamedIndividual>
     
@@ -3165,7 +3306,21 @@ This may be represented by a UML2 &quot;ValueSpecification&quot; for a single va
     <owl:NamedIndividual rdf:about="&msw;XSL_TRANSFORMATION_LANGUAGE">
         <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:label rdf:datatype="&xsd;string">XSLT</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">XSLT</mtop:name>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/XSL_Transformations</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#YACC_LANGUACE -->
+
+    <owl:NamedIndividual rdf:about="&msw;YACC_LANGUACE">
+        <rdf:type rdf:resource="&msw;ProgrammingLanguage"/>
+        <rdfs:label rdf:datatype="&xsd;string">Yacc</rdfs:label>
+        <mtop:name rdf:datatype="&xsd;string">Yacc</mtop:name>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://dinosaur.compilertools.net/yacc/</rdfs:seeAlso>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Yacc</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">The language used to define grammars taken as input from the yacc parser generator.</rdfs:comment>
     </owl:NamedIndividual>
     
 
