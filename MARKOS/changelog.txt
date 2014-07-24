@@ -1,5 +1,28 @@
 MARKOS ontology
 
+V1.6.2
+====
+version date: 2014/07/22
+
+Changed mlic properties
+- rdfs:comment of coveringLicense: clarified the relationship with coveringLicense of parts.
+
+Changed mlic classes
+- CopyrightLicense subclassOf top:Entity (for coherence with Entity definition)
+- CopyrightLicenseTemplate subclassOf top:Entity (for coherence with Entity definition)
+- LicenseAssessment subclassOf top:Entity (for coherence with Entity definition)
+- Work subclassOf top:Entity (for coherence with Entity definition)
+
+Changed msw properties
+- SoftwareRelease is again subclass of Software instead than Artifact, because the interpretation as Artifact is considered counterintuitive. This leave the possibility that a software release coincides with a single SoftwareEntity, but it is not allowed to release the same entity twice. 
+
+Changed msw class
+- Software subclassOf top:Entity (for coherence with Entity definition)
+
+Added msw individuals
+- Added the following instances of ProgrammingLanguage: PHP_LANGUAGE, BASH_LANGUAGE, YACC_LANGUAGE, REBOL_LANGUAGE, APL_LANGUAGE, ASP_LANGUAGE, ASPECTJ_LANGUAGE, COLDFUSION_LANGUAGE
+
+
 V1.6.1
 ====
 version date: 2014/06/25
