@@ -2,7 +2,7 @@ V0.4-------------------------------------------------------------
 RENAMED
 ApplicationServerFramework to JavaEEApplicationServerFramework
 JavaBeansComponent to JavaBean
-
+change <owl:versionIRI to 2014/07/22>
 
 V0.3--------------------------------------------------------------
 version date: 2014/06/25 

@@ -1,5 +1,7 @@
 V0.8-------------------------------------------------------------
 isFinal is deleted because exist in the common ontology.
+changed la <owl:versionIRI> to 2014/07/22"
+
 
 V0.7-------------------------------------------------------------
 REMOVED CLASSES
