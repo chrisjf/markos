@@ -1,3 +1,6 @@
+V0.8-------------------------------------------------------------
+isFinal is deleted because exist in the common ontology.
+
 V0.7-------------------------------------------------------------
 REMOVED CLASSES
 JavaObjectFile. There is not other java object file than JavaClassFile

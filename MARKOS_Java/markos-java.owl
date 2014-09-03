@@ -74,6 +74,7 @@ The ontological model has been introduced for representing Java SE software enti
 
     <owl:ObjectProperty rdf:about="&mjava;applyAnnotation">
         <rdfs:label>Apply annotation</rdfs:label>
+        <rdfs:comment>Where Annotations Can Be Used</rdfs:comment>
         <relatedTo>Java Annotation</relatedTo>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
         <rdfs:range>
@@ -138,26 +139,6 @@ The ontological model has been introduced for representing Java SE software enti
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/java#isFinal -->
-
-    <owl:DatatypeProperty rdf:about="&mjava;isFinal">
-        <rdfs:label>Is final</rdfs:label>
-        <rdfs:comment>FInal is used to define entities which cannot later be changed. The final modifier indicates that the value of this field cannot change.
-
-When applied to a class, the class can not be extended. When applied to a method, the method can not be overwritten. When applied to a variable, the variable can not change.</rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;boolean"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&mjava;JavaSoftwareClass"/>
-                    <rdf:Description rdf:about="&msw;Feature"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-    </owl:DatatypeProperty>
     
 
 
@@ -533,12 +514,6 @@ Each item in an array is called an element, and each element is accessed by its 
     <owl:Class rdf:about="&mjava;JavaConstant">
         <rdfs:label>Java constant</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaClassVariable"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&mjava;isFinal"/>
-                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment>Java fields whose values never change.</rdfs:comment>
     </owl:Class>
     
@@ -872,14 +847,14 @@ The manifest is a special file that can contain information about the files pack
         <rdfs:subClassOf rdf:resource="&msw;Method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;nestedClassifier"/>
-                <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+                <owl:onProperty rdf:resource="&msw;nestedClassifier"/>
+                <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html</rdfs:seeAlso>
