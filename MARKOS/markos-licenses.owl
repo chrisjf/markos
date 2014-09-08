@@ -115,7 +115,7 @@
         <rdfs:label xml:lang="en">Assessed license</rdfs:label>
         <rdfs:comment xml:lang="en">The CopyrightLicense that has been assessed (note that a same Entity may be covered by more than one CopyrightLicense).</rdfs:comment>
         <rdfs:range rdf:resource="&mlic;CopyrightLicense"/>
-        <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/top#Entity"/>
+        <rdfs:domain rdf:resource="&mlic;LicenseAssessment"/>
     </owl:ObjectProperty>
     
 

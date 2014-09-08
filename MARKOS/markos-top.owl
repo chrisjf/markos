@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
-   - This Source Code Form is subject to the terms of the Mozilla Public
-   - License, v. 2.0. If a copy of the MPL was not distributed with this
-   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-   
+
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
@@ -218,7 +214,7 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
 
     <owl:ObjectProperty rdf:about="&mtop;subordinateEntity">
         <rdfs:label xml:lang="en">Subordinate entity</rdfs:label>
-        <rdfs:comment xml:lang="en">Entity owned or contained by the subject entity. &quot;owned&quot; here does not necessarly imply legal or intellectual ownership but just that the owned entity is in a sense subordinate/secondary to the first entity, for instance that the existence of the owned entity depends on the existence of the first entity or that the status of the ownedEntity is controlled by the first entity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Entity owned by or contained in the subject entity. &quot;owned&quot; here does not necessarly imply legal or intellectual ownership but just that the owned entity is in a sense subordinate/secondary to the first entity, for instance that the existence of the owned entity depends on the existence of the first entity or that the status of the ownedEntity is controlled by the first entity.</rdfs:comment>
         <rdfs:range rdf:resource="&mtop;Entity"/>
         <rdfs:domain rdf:resource="&mtop;Entity"/>
         <owl:inverseOf rdf:resource="&mtop;superordinateEntity"/>
@@ -249,6 +245,18 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/top#unversionedAbstraction -->
+
+    <owl:ObjectProperty rdf:about="&mtop;unversionedAbstraction">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Unversioned abstraction</rdfs:label>
+        <rdfs:comment xml:lang="en">The more abstract entity the subject entity is a version of.</rdfs:comment>
+        <rdfs:range rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:domain rdf:resource="&mtop;VersionedEntity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/top#usedEntity -->
 
     <owl:ObjectProperty rdf:about="&mtop;usedEntity">
@@ -272,6 +280,43 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/top#creationDate -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;creationDate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Creation date</rdfs:label>
+        <rdfs:comment xml:lang="en">Date of creation of the subject Entity
+
+Generalization of &apos;created&apos; from ontology DOAP</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#description -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;description">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <rdfs:comment xml:lang="en">Plain text description of an entity, of 2-4 sentences in length. 
+
+When applied to a SoftwareProject  is equivalent to property &apos;description&apos; from ontology DOAP</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#fullyQualifiedName -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;fullyQualifiedName">
+        <rdfs:label xml:lang="en">Fully qualified name</rdfs:label>
+        <rdfs:comment xml:lang="en">The name of the subject SoftwareEntity, if the subject Softwareentity has no namespace, or the fullyqualifiedName of the namespace of the subject SoftwareEntity follwed by &apos;.&apos; followed by the name of the SoftwareEntity. </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/top#name -->
 
     <owl:DatatypeProperty rdf:about="&mtop;name">
@@ -279,6 +324,44 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
         <rdfs:label xml:lang="en">Name</rdfs:label>
         <rdfs:comment xml:lang="en">The name of the NamedElement.</rdfs:comment>
         <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#oldWebSiteURL -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;oldWebSiteURL">
+        <rdfs:label xml:lang="en">Old homepage</rdfs:label>
+        <rdfs:comment xml:lang="en">URL of an entity past web site.
+
+Equivalent to &apos;old-homepage&apos; from ontology DOAP</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#shortdescr -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;shortdescr">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Short description</rdfs:label>
+        <rdfs:comment xml:lang="en">Short (8 or 9 words) plain text description of an entity.
+
+Generalization of &apos;shortdesc&apos; from ontology DOAP</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/top#version -->
+
+    <owl:DatatypeProperty rdf:about="&mtop;version">
+        <rdfs:label xml:lang="en">Version</rdfs:label>
+        <rdfs:comment xml:lang="en">Version identitifier assigned by the version control system.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;VersionedEntity"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     

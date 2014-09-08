@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
-   - This Source Code Form is subject to the terms of the Mozilla Public
-   - License, v. 2.0. If a copy of the MPL was not distributed with this
-   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-   
+
 <!DOCTYPE rdf:RDF [
     <!ENTITY schema "http://schema.org/" >
     <!ENTITY admssw "http://purl.org/adms/sw/" >
@@ -173,7 +169,7 @@
     <!-- http://purl.org/dc/terms/description -->
 
     <owl:DatatypeProperty rdf:about="&terms;description">
-        <owl:equivalentProperty rdf:resource="&msw;description"/>
+        <owl:equivalentProperty rdf:resource="&mtop;description"/>
     </owl:DatatypeProperty>
     
 
@@ -184,9 +180,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#description -->
+    <!-- http://www.markosproject.eu/ontologies/top#description -->
 
-    <owl:DatatypeProperty rdf:about="&msw;description"/>
+    <owl:DatatypeProperty rdf:about="&mtop;description"/>
     
 
 

@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
-   - This Source Code Form is subject to the terms of the Mozilla Public
-   - License, v. 2.0. If a copy of the MPL was not distributed with this
-   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-   
+
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
@@ -49,7 +45,9 @@
         <rdfs:label xml:lang="en">Embedded script</rdfs:label>
         <rdfs:comment xml:lang="en">Script program embedded within the subjct HTMLPage.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;Program"/>
-        <rdfs:domain rdf:resource="&mweb;HTMLPage"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;containedEntity"/>
+        <rdfs:domain rdf:resource="&mweb;WebPageComponent"/>
     </owl:ObjectProperty>
     
 
@@ -126,7 +124,7 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&msw;ScriptFile"/>
+                    <rdf:Description rdf:about="&msw;SourceCodeFile"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="&msw;codingLanguage"/>
                         <owl:hasValue rdf:resource="&msw;HTML_LANGUAGE"/>
@@ -134,7 +132,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:comment xml:lang="en">Any ScriptFile written in the HTML language.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Any SourceCodeFile written in the HTML language.</rdfs:comment>
     </owl:Class>
     
 
@@ -154,7 +152,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&mweb;ClientSideWebComponent"/>
+        <rdfs:subClassOf rdf:resource="&mweb;WebPageComponent"/>
         <rdfs:comment xml:lang="en">Any abstract document implemented using the HTML programming language.</rdfs:comment>
     </owl:Class>
     
@@ -287,6 +285,17 @@ Note that an WebPage and an HTMLFile are different kind of manifestations of HTM
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/web#WebPageComponent -->
+
+    <owl:Class rdf:about="&mweb;WebPageComponent">
+        <rdfs:subClassOf rdf:resource="&mweb;ClientSideWebComponent"/>
+        <rdfs:comment xml:lang="en">Any WebComponent that implements a WebPage (i.e. any HTMLPage or any component that produces HTML code).  
+
+A .net ASP or a Java JSP are examples of WebPageComponents.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/web#WebScript -->
 
     <owl:Class rdf:about="&mweb;WebScript">
@@ -305,6 +314,20 @@ Note that an WebPage and an HTMLFile are different kind of manifestations of HTM
         <rdfs:subClassOf rdf:resource="&mweb;ServerProgram"/>
         <rdfs:comment xml:lang="en">Any ServerProgram that stores, processes and delivers web pages to any client performing requests using the Hypertext Transfer Protocol (HTTP).</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&msw;ScriptFile">
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Scripting_language&amp;oldid=622893296</rdfs:seeAlso>
+    </rdf:Description>
 </rdf:RDF>
 
 

@@ -1,5 +1,67 @@
 MARKOS ontology
 
+(next version)
+====
+
+Moved properties from msw ontology to mtop ontology 
+- unversionedAbstraction 
+- creationDate 
+- description 
+- oldWebSiteURL 
+- shortdescr 
+- version 
+
+Changed mlic properties
+- assessedLicense: Entity x CopyrightLicense -> LicenseAssessment x CopyrightLicense (bug correction)
+
+Added msw classes
+- PrimitiveValue (PrimitiveType was the only type without a corresponding value)
+- ValuedEntity (to generalise the concept of Parameter and Variable, both having some value)
+- BehavioredEntity: to represent both Types and Object that may own Methods. 
+
+Added msw properties
+- hostingForge now if Functional
+- parameterValue subpropertyOf usedSoftwareEntity (instead of usedEntity)
+- assignedValue: ValuedEntity x SoftwareEntity (to represent any value assigned to a variable in some part of the code) 
+
+Changed msw properties
+- referredVariable -> referredEntity (renamed, for coherence with the domain)
+- changed labels of ownedAPI, ownedAttribute, ownedBinding, ownedLocalVariable, ownedMethod, ownedParameter, ownedSlot 
+- ownedLocalVaribale -> ownedVariable (generalised to represent variables in any scope)
+- value:Slot x Value -> initValue:ValueReference x SoftwareEntity  (to specify initialisation/default values of any Variable or Parameter)
+- invokedMethod: Behavior x Method -> invokedOperation: Behavior x Operation (again, because now Operation is again an explicit concept)
+- ownedMethod: ObjectType x Method -> BehavioredEntity x Method (generalized because in Javascript Methods are "owned" by Objects)
+- defaultValue (now generalized to represent also initial values of variables) 
+
+Changed msw classes
+- Library subclassOf (provenanceManifestation all ArchiveFile) -> (provenance some ArchiveFile)
+- AnnotationType subclassOf ValueType (for coherence with Annotation that is a Value)
+- Specified the type of any kind of Value.
+- LocalVariable -> Variable (generalised to represent variables in any scope) 
+
+Added mjs properties
+- functionIdentifier (Function x xsd:string)
+- expressionIdentifier (Function x xsd:string)
+- nameAsMethod (Function x xsd:string)
+- nameAsVariable (Object x xsd:string)
+
+Changed mjs classes
+- added formal definitions (equivalence axioms) to all classes
+
+Changed mjs individuals
+- removed Java version individuals (already defined in Java ontology)
+- made all individuals distinct
+
+Added mweb classes
+- WebPageComponent (superclass of HTMLPage and intended superclass of mwjava:JSPPage): any component that implements a WebPage, i.e. produces HTML code
+
+Changed mweb classes
+- HTMLFile no more subclass of ScriptFile, but only subclass of SourceCodeFile 
+
+Changed mweb properties:
+- embeddedScript: HTMLPage x msw:Program -> WebPageComponent x Program  (subclass of msw:usedSoftwareEntity and mtop:containedEntity)
+
+
 V1.6.2
 ====
 version date: 2014/07/22
