@@ -217,6 +217,7 @@
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.0</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.0</templateSource>
+        <mtop:name>Apache</mtop:name>
         <rdfs:comment> For example, the Apache 1.0 license includes this clause:
 
 All advertising materials mentioning features or use of this
@@ -240,6 +241,7 @@ software must display the following acknowledgment:
         <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#AcademicLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.1</templateSource>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.apache.org/licenses/LICENSE-1.1</rdfs:seeAlso>
+        <mtop:name>Apache</mtop:name>
         <mtop:version>1.1</mtop:version>
         <copyright:permits rdf:resource="&copyright;Adaptation"/>
         <copyright:requires rdf:resource="&copyright;Attribution"/>
