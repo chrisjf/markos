@@ -3,6 +3,9 @@ MARKOS ontology
 (next version)
 ====
 
+added to mtop
+- fullyQualifiedName: Entity x xsd:string (the name of the entity prefixed, if the entity has a namespace, from the fully qualified name of the namespace
+ 
 Moved properties from msw ontology to mtop ontology 
 - unversionedAbstraction 
 - creationDate 
