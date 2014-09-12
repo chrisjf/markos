@@ -59,6 +59,12 @@ The ontological model has been introduced for representing Java SE software enti
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#version -->
+
+    <owl:AnnotationProperty rdf:about="&msw;version"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -320,8 +326,8 @@ Static methods, which have the static modifier in their declarations, should be 
         <rdfs:label>IDE tool</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaDevelopmentTool"/>
         <rdfs:seeAlso>http://www.infoworld.com/d/developer-world/infoworld-review-top-java-programming-tools-191</rdfs:seeAlso>
-        <rdfs:seeAlso>http://en.wikipedia.org/wiki/Category:Java_development_tools</rdfs:seeAlso>
         <rdfs:seeAlso>http://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments</rdfs:seeAlso>
+        <rdfs:seeAlso>http://en.wikipedia.org/wiki/Category:Java_development_tools</rdfs:seeAlso>
         <rdfs:seeAlso>http://stackoverflow.com/questions/2625398/critical-tools-that-every-java-developer-should-have-in-his-toolbelt</rdfs:seeAlso>
         <rdfs:comment>Programs to develop Java application</rdfs:comment>
     </owl:Class>
@@ -356,6 +362,7 @@ Static methods, which have the static modifier in their declarations, should be 
 
     <owl:Class rdf:about="&mjava;JavaAPI">
         <rdfs:label>Java API</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;API"/>
         <rdfs:comment>Set of all public interfaces implemented in Java of a Java Package or a Java Library.
 
@@ -380,6 +387,7 @@ If two Packages or two Libraries contains the same public interfaces then they c
 
     <owl:Class rdf:about="&mjava;JavaAnnotation">
         <rdfs:label>Java annotation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Annotation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -413,6 +421,7 @@ If two Packages or two Libraries contains the same public interfaces then they c
 
     <owl:Class rdf:about="&mjava;JavaAnnotationTypeElement">
         <rdfs:label>Java annotation type element</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
         <relatedTo>Java Annotation</relatedTo>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/annotations/declaring.html</rdfs:seeAlso>
@@ -572,6 +581,7 @@ Storing deployment configuration properties </rdfs:comment>
 
     <owl:Class rdf:about="&mjava;JavaExceptionType">
         <rdfs:label>Java exception type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;ExceptionType"/>
         <rdfs:comment>A java exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program&apos;s instructions.</rdfs:comment>
     </owl:Class>
@@ -592,17 +602,18 @@ Storing deployment configuration properties </rdfs:comment>
 
     <owl:Class rdf:about="&mjava;JavaField">
         <rdfs:label>Java field</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Attribute"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;type"/>
-                <owl:someValuesFrom rdf:resource="&mjava;JavaType"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;visibility"/>
                 <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;type"/>
+                <owl:someValuesFrom rdf:resource="&mjava;JavaType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/variables.html</rdfs:seeAlso>
@@ -650,6 +661,7 @@ The Java fields store the state of an java object</rdfs:comment>
 
     <owl:Class rdf:about="&mjava;JavaGenericType">
         <rdfs:label>Java generic type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Template"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -754,6 +766,7 @@ The Java fields store the state of an java object</rdfs:comment>
     <owl:Class rdf:about="&mjava;JavaInterface">
         <rdfs:label>Java interface</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaReferenceType"/>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Interface"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -777,6 +790,7 @@ A Java class may implement, and an interface may extend, any number of interface
 
     <owl:Class rdf:about="&mjava;JavaLibrary">
         <rdfs:label>Java library</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Library"/>
         <rdfs:comment>A library is a software entity, manifested by a single JavaArchiveFile, that aggregates JAVA software entities manifested the files contained in the JavaArchiveFile.</rdfs:comment>
     </owl:Class>
@@ -796,23 +810,6 @@ A Java class may implement, and an interface may extend, any number of interface
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html</rdfs:seeAlso>
         <rdfs:comment>Local classes are classes that are defined in a block, which is a group of zero or more statements between balanced braces. You typically find local classes defined in the body of a method.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/java#JavaLocalVariable -->
-
-    <owl:Class rdf:about="&mjava;JavaLocalVariable">
-        <rdfs:label>Java local variable</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&msw;LocalVariable"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;type"/>
-                <owl:someValuesFrom rdf:resource="&mjava;JavaType"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/variables.html</rdfs:seeAlso>
-        <rdfs:comment>Similar to how an object stores its state in fields, a method will often store its temporary state in local variables</rdfs:comment>
     </owl:Class>
     
 
@@ -844,17 +841,18 @@ The manifest is a special file that can contain information about the files pack
 
     <owl:Class rdf:about="&mjava;JavaMethod">
         <rdfs:label>Java method</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Method"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&msw;nestedClassifier"/>
                 <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html</rdfs:seeAlso>
@@ -912,6 +910,7 @@ Local classes are classes that are defined in a block, which is a group of zero 
 
     <owl:Class rdf:about="&mjava;JavaPackage">
         <rdfs:label>Java package</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Package"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1003,6 +1002,7 @@ The type can be any non-primitive type you specify: any class type, any interfac
 
     <owl:Class rdf:about="&mjava;JavaProgram">
         <rdfs:label>Java program</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Program"/>
         <mtop:canonicalURICriteria>&quot;JAVA_PROGRAM_&quot; + program name</mtop:canonicalURICriteria>
         <rdfs:comment>Java program code consists of instructions which will be executed on your computer system to perform a task as an example say arrange given integers in ascending order</rdfs:comment>
@@ -1078,6 +1078,7 @@ The type can be any non-primitive type you specify: any class type, any interfac
     <owl:Class rdf:about="&mjava;JavaSoftwareClass">
         <rdfs:label>Java class</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaReferenceType"/>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareClass"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1091,6 +1092,22 @@ The type can be any non-primitive type you specify: any class type, any interfac
 
 A Java class is a tyoe of Software Class whose features are fields and methods (An entity is some unit of data that can be classified and have stated relationships to other entities)</rdfs:comment>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/concepts/class.html</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/java#JavaSoftwareEntity -->
+
+    <owl:Class rdf:about="&mjava;JavaSoftwareEntity">
+        <rdfs:label>Java software entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&msw;implementationLanguage"/>
+                <owl:hasValue rdf:resource="&msw;JAVA_LANGUAGE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Any SoftwareEntity implemented in Java languaje</rdfs:comment>
     </owl:Class>
     
 
@@ -1183,6 +1200,7 @@ A Java class is a tyoe of Software Class whose features are fields and methods (
 
     <owl:Class rdf:about="&mjava;JavaType">
         <rdfs:label>Java type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;Type"/>
         <rdfs:seeAlso>http://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html</rdfs:seeAlso>
         <rdfs:comment>A Java type determines the types of values of the Java variables.
@@ -1196,6 +1214,7 @@ All variables must have a type. You can use primitive types such as int, float, 
 
     <owl:Class rdf:about="&mjava;JavaTypeParameter">
         <rdfs:label>Java type parameter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:subClassOf rdf:resource="&msw;ClassifierValuedParameter"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1295,9 +1314,7 @@ Unchecked exceptions do not need to be declared in a method or constructor&apos;
 
     <!-- http://www.markosproject.eu/ontologies/software#ExceptionType -->
 
-    <owl:Class rdf:about="&msw;ExceptionType">
-        <rdfs:subClassOf rdf:resource="&msw;Classifier"/>
-    </owl:Class>
+    <owl:Class rdf:about="&msw;ExceptionType"/>
     
 
 

@@ -10,6 +10,7 @@
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY top "http://www.markosproject.eu/ontologies/top#" >
     <!ENTITY mjava "http://www.markosproject.eu/ontologies/java#" >
+    <!ENTITY software "http://www.markosproject.eu/ontologies/software#" >
     <!ENTITY mwjava "http://www.markosproject.eu/ontologies/markos-web-java#" >
 ]>
 
@@ -18,6 +19,7 @@
      xml:base="http://www.markosproject.eu/ontologies/markos-web-java"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:mwjava="http://www.markosproject.eu/ontologies/markos-web-java#"
+     xmlns:software="http://www.markosproject.eu/ontologies/software#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -54,6 +56,17 @@ Goals: The ontological model has been introduced for representing Java EE softwa
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#versionJSPStandard -->
+
+    <owl:AnnotationProperty rdf:about="&mwjava;versionJSPStandard">
+        <rdfs:label>Version JSP standard</rdfs:label>
+        <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
+        <rdfs:subPropertyOf rdf:resource="&software;version"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -74,7 +87,7 @@ Goals: The ontological model has been introduced for representing Java EE softwa
         <mjava:relatedTo>EJB</mjava:relatedTo>
         <rdfs:range rdf:resource="&mjava;JavaInterface"/>
         <rdfs:domain rdf:resource="&mwjava;EnterpriseJavaBean"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#providedInterface"/>
+        <rdfs:subPropertyOf rdf:resource="&software;providedInterface"/>
     </owl:ObjectProperty>
     
 
@@ -92,6 +105,18 @@ Goals: The ontological model has been introduced for representing Java EE softwa
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#definedScript -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;definedScript">
+        <rdfs:label>Defined script</rdfs:label>
+        <rdfs:comment>To represent the java script code defined in the JSPPage</rdfs:comment>
+        <rdfs:range rdf:resource="&mwjava;JavaScript"/>
+        <rdfs:subPropertyOf rdf:resource="&mwjava;definedJSPElement"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/web#embeddedScript"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/markos-web-java#definedTag -->
 
     <owl:ObjectProperty rdf:about="&mwjava;definedTag">
@@ -100,7 +125,7 @@ Goals: The ontological model has been introduced for representing Java EE softwa
         <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
         <rdfs:range rdf:resource="&mwjava;JSPTag"/>
         <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
-        <rdfs:subPropertyOf rdf:resource="&top;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&top;containedEntity"/>
     </owl:ObjectProperty>
     
 
@@ -113,7 +138,7 @@ Goals: The ontological model has been introduced for representing Java EE softwa
         <mjava:relatedTo>EJB</mjava:relatedTo>
         <rdfs:range rdf:resource="&mjava;JavaInterface"/>
         <rdfs:domain rdf:resource="&mwjava;EnterpriseJavaBean"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#providedInterface"/>
+        <rdfs:subPropertyOf rdf:resource="&software;providedInterface"/>
     </owl:ObjectProperty>
     
 
@@ -138,15 +163,15 @@ Goals: The ontological model has been introduced for representing Java EE softwa
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#importedJSPProgram -->
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#importedJavaScriptProgram -->
 
-    <owl:ObjectProperty rdf:about="&mwjava;importedJSPProgram">
+    <owl:ObjectProperty rdf:about="&mwjava;importedJavaScriptProgram">
         <rdfs:label>Imported JSP program</rdfs:label>
-        <mjava:relatedTo>JSP Page</mjava:relatedTo>
         <rdfs:comment>The javascript file imported by the subject JSP Page</rdfs:comment>
+        <mjava:relatedTo>JSP Page</mjava:relatedTo>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram"/>
         <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&software;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -159,7 +184,7 @@ Goals: The ontological model has been introduced for representing Java EE softwa
         <rdfs:comment>JSP Page impoted by the subject JSP Page</rdfs:comment>
         <rdfs:range rdf:resource="&mwjava;JSPPage"/>
         <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&software;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -185,7 +210,7 @@ Goals: The ontological model has been introduced for representing Java EE softwa
         <mjava:relatedTo>JSP Tag</mjava:relatedTo>
         <rdfs:range rdf:resource="&mjava;JavaSoftwareClass"/>
         <rdfs:domain rdf:resource="&mwjava;JSPTag"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&software;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -198,7 +223,7 @@ Goals: The ontological model has been introduced for representing Java EE softwa
         <mjava:relatedTo>JSP Page</mjava:relatedTo>
         <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
         <rdfs:range rdf:resource="&mwjava;JSPTagLibrary"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#usedSoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&software;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -348,8 +373,6 @@ Example patterns:
     <owl:DatatypeProperty rdf:about="&mwjava;versionJSPStandard">
         <rdfs:label>Version JSP standard</rdfs:label>
         <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
-        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/software#version"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -369,7 +392,7 @@ Example patterns:
     <!-- http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram -->
 
     <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram">
-        <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:subClassOf rdf:resource="&mwjava;JavaScript"/>
     </rdf:Description>
     
 
@@ -533,7 +556,7 @@ A JSP directive affects the overall structure of the servlet class</rdfs:comment
 
     <owl:Class rdf:about="&mwjava;JSPElement">
         <rdfs:label>JSP Element</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Classifier"/>
+        <rdfs:subClassOf rdf:resource="&software;Classifier"/>
         <mjava:relatedTo>JSP Tag</mjava:relatedTo>
         <rdfs:comment>Type of JSP elements which are not static data in a JSP page. JSP element that is written with a start tag and an end tag, with the content in between. Can not be considered a value type because it is not a type.</rdfs:comment>
     </owl:Class>
@@ -627,7 +650,7 @@ A JSP is an HTML page containing a reference to Java servlets, or,  java server 
 
     <owl:Class rdf:about="&mwjava;JSPTagAttribute">
         <rdfs:label>JSP tag attribute</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Attribute"/>
+        <rdfs:subClassOf rdf:resource="&software;Attribute"/>
         <mjava:relatedTo>JSP Tag</mjava:relatedTo>
         <rdfs:comment>JSP Tag Attributes provide additional information about JSP Tag. It can not be considered a Attribute because is not owned by a classifier.</rdfs:comment>
     </owl:Class>
@@ -793,7 +816,7 @@ The Java client tier consists of application clients that access a Java EE serve
 
     <owl:Class rdf:about="&mwjava;JavaEEComponent">
         <rdfs:label>Java EE component</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/software#Component"/>
+        <rdfs:subClassOf rdf:resource="&software;Component"/>
         <rdfs:comment>A Java EE component is a self-contained functional software unit that is assembled into a Java EE application with its related classes and files and that communicates with other components.</rdfs:comment>
     </owl:Class>
     
@@ -829,6 +852,16 @@ EIS Tier Java EE Technologies: The Java Database Connectivity API (JDBC), The Ja
         <rdfs:label>Persistence XML file</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaConfigurationFile"/>
         <rdfs:comment>The persistence.xml file is a standard configuration file in JPA. it has to be included in the META-INF directory inside the JAR file that contains the entity beans. The persistence.xml file must define a persistence-unit with a unique name in the current scoped classloader. The provider attribute specifies the underlying implementation of the JPA EntityManager. One persistence.xml file can include definitions for one or more persistence units.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#JavaScript -->
+
+    <owl:Class rdf:about="&mwjava;JavaScript">
+        <rdfs:label>Java script</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:comment>Any script code using the JavaScript programmin language.</rdfs:comment>
     </owl:Class>
     
 
@@ -876,7 +909,7 @@ Mostly it will be composed of Servlet classes ( used to extend the capabilities 
         <rdfs:subClassOf rdf:resource="&mjava;JavaImplementingClass"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#directImplementedInterface"/>
+                <owl:onProperty rdf:resource="&software;directImplementedInterface"/>
                 <owl:hasValue rdf:resource="&mwjava;JAVA_SERVLET"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -894,11 +927,11 @@ Mostly it will be composed of Servlet classes ( used to extend the capabilities 
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#directExtendedType"/>
+                        <owl:onProperty rdf:resource="&software;directExtendedType"/>
                         <owl:hasValue rdf:resource="&mwjava;JAVA_GENERICSERVLET"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.markosproject.eu/ontologies/software#directExtendedType"/>
+                        <owl:onProperty rdf:resource="&software;directExtendedType"/>
                         <owl:hasValue rdf:resource="&mwjava;JAVA_HTTPSERVLET"/>
                     </owl:Restriction>
                 </owl:unionOf>

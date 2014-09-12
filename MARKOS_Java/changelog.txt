@@ -1,3 +1,31 @@
+V0.9-------------------------------------------------------------
+REMOVED CLASSES
+the class JavaLocalVariable is removed because there is no a LocalVariable and does not included aditional knowledge. For annotating local variable use "Variable"
+
+REMOVED AXIOMS
+ExceptionType subclass of Classifier (it was duplicated by error)
+
+ADDED CLASSES
+JavaSoftwareEntity, a generic class for all the software entities that are implemented in Java language.
+
+ADDED AXIOMS
+implementationLanguage value JAVA_LANGUAGE for JavaSoftwareEntity
+JavaSoftwareEntity subclass of SoftwareEntity.
+JavaExceptionType subclass JavaSoftwareEntity
+JavaTypeParameter subclass JavaSoftwareEntity
+JavaAnnotation subclass JavaSoftwareEntity
+JavaType subclass JavaSoftwareEntity
+JavaProgram subclass JavaSoftwareEntity
+JavaGenericType subclass JavaSoftwareEntity
+JavaMethod subclass JavaSoftwareEntity
+JavaField subclass JavaSoftwareEntity
+JavaSoftwareClass subclass JavaSoftwareEntity
+JavaInterface subclass JavaSoftwareEntity
+JavaPackage subclass JavaSoftwareEntity
+JavaLibrary subclass JavaSoftwareEntity
+JavaAPI subclass JavaSoftwareEntity
+JavaAnnotationTypeElement subclass JavaSoftwareEntity
+
 V0.8-------------------------------------------------------------
 isFinal is deleted because exist in the common ontology.
 changed la <owl:versionIRI> to 2014/07/22"

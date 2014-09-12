@@ -1,3 +1,22 @@
+V0.5-------------------------------------------------------------
+NEW CLASSES
+JavaScript: to represent java script code
+
+NEW PROPERTY
+definedScript: JSPPage x JavaScript: To represent the java script code defined in the JSPPage
+
+NEW AXIOMS
+definedScript subpropertyOf definedJSPElement
+definedScript subpropertyOf embeddedScript
+definedTag subpropertyOf containedEntity
+JavaScriptClientProgram subclassOf JavaScript
+
+REMOVED AXIOM
+JavaScriptClientProgram subclass JSPElement (now is subclass of JavaScript)
+
+RENAMED ENTITIES
+importedJSPProgram renamed to importedJavaScriptProgram
+
 V0.4-------------------------------------------------------------
 RENAMED
 ApplicationServerFramework to JavaEEApplicationServerFramework
