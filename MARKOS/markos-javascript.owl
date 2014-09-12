@@ -286,6 +286,27 @@ Note that also some Function actually intended to be used as normal instance met
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/javascript#JavaScriptFile -->
+
+    <owl:Class rdf:about="&mjs;JavaScriptFile">
+        <rdfs:label xml:lang="en">JavaScript file</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&msw;SourceCodeFile"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&msw;codingLanguage"/>
+                        <owl:hasValue rdf:resource="&msw;JAVASCRIPT_LANGUAGE"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&msw;ScriptFile"/>
+        <rdfs:comment xml:lang="en">Any JavaScript source code file.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/javascript#Method -->
 
     <owl:Class rdf:about="&mjs;Method">
@@ -330,19 +351,19 @@ Note that while the ECMAScript language specification gives a definition of Meth
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&mjs;JavaScriptEntity"/>
-                    <rdf:Description rdf:about="&msw;Object"/>
+                    <rdf:Description rdf:about="&mjs;Value"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&msw;type"/>
+                        <owl:hasValue rdf:resource="&mjs;OBJECT_TYPE"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&mjs;Value"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&msw;type"/>
-                        <owl:hasValue rdf:resource="&mjs;OBJECT_TYPE"/>
-                    </owl:Restriction>
+                    <rdf:Description rdf:about="&mjs;JavaScriptEntity"/>
+                    <rdf:Description rdf:about="&msw;Object"/>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
@@ -364,6 +385,14 @@ Note that while the ECMAScript language specification gives a definition of Meth
         <rdfs:label xml:lang="en">JavaScript primitive type</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&mjs;JavaScriptEntity"/>
+                    <rdf:Description rdf:about="&msw;PrimitiveType"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
                 <owl:oneOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&mjs;UNDEFINED_TYPE"/>
                     <rdf:Description rdf:about="&mjs;STRING_TYPE"/>
@@ -373,15 +402,8 @@ Note that while the ECMAScript language specification gives a definition of Meth
                 </owl:oneOf>
             </owl:Class>
         </owl:equivalentClass>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&mjs;JavaScriptEntity"/>
-                    <rdf:Description rdf:about="&msw;PrimitiveType"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&mjs;Type"/>
+        <rdfs:subClassOf rdf:resource="&msw;NativeSoftwareEntity"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">Any JavaScript primitive type.</rdfs:comment>
     </owl:Class>
@@ -411,6 +433,7 @@ Note that while the ECMAScript language specification gives a definition of Meth
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&msw;NativeSoftwareEntity"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">https://developer.mozilla.org/en-US/docs/Web/JavaScript</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">Any JavaScript primitive value.</rdfs:comment>
     </owl:Class>
@@ -607,6 +630,7 @@ Depending from the way an Object is created it may have a further internal class
 
     <owl:NamedIndividual rdf:about="&mjs;OBJECT_TYPE">
         <rdf:type rdf:resource="&mjs;JavaScriptEntity"/>
+        <rdf:type rdf:resource="&msw;NativeSoftwareEntity"/>
         <rdfs:label xml:lang="en">Object type</rdfs:label>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf</rdfs:seeAlso>
         <rdfs:comment xml:lang="en">The type of any JavaScript object.</rdfs:comment>

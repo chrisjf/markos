@@ -312,7 +312,7 @@ When applied to a SoftwareProject  is equivalent to property &apos;description&a
 
     <owl:DatatypeProperty rdf:about="&mtop;fullyQualifiedName">
         <rdfs:label xml:lang="en">Fully qualified name</rdfs:label>
-        <rdfs:comment xml:lang="en">The name of the subject SoftwareEntity, if the subject Softwareentity has no namespace, or the fullyqualifiedName of the namespace of the subject SoftwareEntity follwed by &apos;.&apos; followed by the name of the SoftwareEntity. </rdfs:comment>
+        <rdfs:comment xml:lang="en">The name of the subject Entity, if the subject Entity has no namespace, or the fullyqualifiedName of the namespace of the subject Entity follwed by &apos;.&apos; followed by the name of the Entity. </rdfs:comment>
     </owl:DatatypeProperty>
     
 

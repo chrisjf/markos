@@ -3,9 +3,9 @@ MARKOS ontology
 (next version)
 ====
 
-added to mtop
-- fullyQualifiedName: Entity x xsd:string (the name of the entity prefixed, if the entity has a namespace, from the fully qualified name of the namespace
- 
+added to mtop 
+- fullyQualifiedName: Entity x xsd:string (the name of the entity prefixed, if the entity has a namespace, from the fully qualified name of the namespace 
+
 Moved properties from msw ontology to mtop ontology 
 - unversionedAbstraction 
 - creationDate 
@@ -21,11 +21,17 @@ Added msw classes
 - PrimitiveValue (PrimitiveType was the only type without a corresponding value)
 - ValuedEntity (to generalise the concept of Parameter and Variable, both having some value)
 - BehavioredEntity: to represent both Types and Object that may own Methods. 
+- BuiltinSoftwareEntity: SoftwareEntity that is pre-built, i.e. supplied by a programming language implementation or by a programming language execution environment.
+- NativeSoftwareEntity: SoftwareEntity which is fully defined by a programming language specification and is prebuilt in the programming language implementation.
+- HostSoftwareEntity: SoftwareEntity supplied by the a specific (host) execution environment.
 
 Added msw properties
 - hostingForge now if Functional
 - parameterValue subpropertyOf usedSoftwareEntity (instead of usedEntity)
 - assignedValue: ValuedEntity x SoftwareEntity (to represent any value assigned to a variable in some part of the code) 
+- declaredMethod: BehavioredEntity x Method (generalisation of ownedMethod, used in Javascript where Methods are associated directly to Objects)
+- ownedSoftwareEntity: super-property of all owned* properties in msw
+- ownerSoftwareEntity: inverse of ownedSoftwareEntity
 
 Changed msw properties
 - referredVariable -> referredEntity (renamed, for coherence with the domain)
@@ -33,8 +39,8 @@ Changed msw properties
 - ownedLocalVaribale -> ownedVariable (generalised to represent variables in any scope)
 - value:Slot x Value -> initValue:ValueReference x SoftwareEntity  (to specify initialisation/default values of any Variable or Parameter)
 - invokedMethod: Behavior x Method -> invokedOperation: Behavior x Operation (again, because now Operation is again an explicit concept)
-- ownedMethod: ObjectType x Method -> BehavioredEntity x Method (generalized because in Javascript Methods are "owned" by Objects)
 - defaultValue (now generalized to represent also initial values of variables) 
+- referredEntity -> accessedEntity (renamed to make more explicit that refers to read/write operations)
 
 Changed msw classes
 - Library subclassOf (provenanceManifestation all ArchiveFile) -> (provenance some ArchiveFile)
@@ -57,12 +63,17 @@ Changed mjs individuals
 
 Added mweb classes
 - WebPageComponent (superclass of HTMLPage and intended superclass of mwjava:JSPPage): any component that implements a WebPage, i.e. produces HTML code
+- WebPageSourceCodeFile (Source code file of a Web page)
+
+Added mweb properties
+- externalUsedScript: WebPageComponent x WebScript (any script program used by the subject web page component but not embedded i it)
+- referredScriptFile: WebPageSourceCodeFile x ScriptFile (relates the manifestation of an WebPageComponent to the manifestation of its externalUsedScript) 
 
 Changed mweb classes
 - HTMLFile no more subclass of ScriptFile, but only subclass of SourceCodeFile 
 
 Changed mweb properties:
-- embeddedScript: HTMLPage x msw:Program -> WebPageComponent x Program  (subclass of msw:usedSoftwareEntity and mtop:containedEntity)
+- embeddedScript: HTMLPage x msw:Program -> WebPageComponent x WebScript  (subclass of msw:usedSoftwareEntity and mtop:containedEntity)
 
 
 V1.6.2

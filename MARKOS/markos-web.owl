@@ -44,10 +44,43 @@
     <owl:ObjectProperty rdf:about="&mweb;embeddedScript">
         <rdfs:label xml:lang="en">Embedded script</rdfs:label>
         <rdfs:comment xml:lang="en">Script program embedded within the subjct HTMLPage.</rdfs:comment>
-        <rdfs:range rdf:resource="&msw;Program"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;containedEntity"/>
         <rdfs:domain rdf:resource="&mweb;WebPageComponent"/>
+        <rdfs:range rdf:resource="&mweb;WebScript"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#externalUsedScript -->
+
+    <owl:ObjectProperty rdf:about="&mweb;externalUsedScript">
+        <rdfs:label xml:lang="en">External used Script</rdfs:label>
+        <rdfs:comment xml:lang="en">Any WebScript program that is used by the subject WebPageComponent but is not embedded in it.
+
+If an HTMLFile has a referredScriptFile then the referredScriptFile is the manifestation of a usedScript of the HTMLPAge manifested by the HTMLFile (and viceversa). </rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+        <rdfs:domain rdf:resource="&mweb;WebPageComponent"/>
+        <rdfs:range rdf:resource="&mweb;WebScript"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/web#referredScriptFile -->
+
+    <owl:ObjectProperty rdf:about="&mweb;referredScriptFile">
+        <rdfs:label xml:lang="en">Referred Script file</rdfs:label>
+        <rdfs:comment xml:lang="en">Any Script file that is referred by the subject HTML page (e.g. through the &quot;src&quot; attribute of a SCRIPT element).</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;ScriptFile"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
+        <rdfs:domain rdf:resource="&mweb;WebPageSourceCodeFile"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&msw;manifestation"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="&mweb;externalUsedScript"/>
+            <rdf:Description rdf:about="&msw;manifestation"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -132,6 +165,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&mweb;WebPageSourceCodeFile"/>
         <rdfs:comment xml:lang="en">Any SourceCodeFile written in the HTML language.</rdfs:comment>
     </owl:Class>
     
@@ -296,6 +330,16 @@ A .net ASP or a Java JSP are examples of WebPageComponents.</rdfs:comment>
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/web#WebPageSourceCodeFile -->
+
+    <owl:Class rdf:about="&mweb;WebPageSourceCodeFile">
+        <rdfs:label xml:lang="en">Web Page source code file</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SourceCodeFile"/>
+        <rdfs:comment xml:lang="en">Any source code file of a WebPageComponent </rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/web#WebScript -->
 
     <owl:Class rdf:about="&mweb;WebScript">
@@ -314,20 +358,6 @@ A .net ASP or a Java JSP are examples of WebPageComponents.</rdfs:comment>
         <rdfs:subClassOf rdf:resource="&mweb;ServerProgram"/>
         <rdfs:comment xml:lang="en">Any ServerProgram that stores, processes and delivers web pages to any client performing requests using the Hypertext Transfer Protocol (HTTP).</rdfs:comment>
     </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotations
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description rdf:about="&msw;ScriptFile">
-        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Scripting_language&amp;oldid=622893296</rdfs:seeAlso>
-    </rdf:Description>
 </rdf:RDF>
 
 

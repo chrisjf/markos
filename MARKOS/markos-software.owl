@@ -100,6 +100,18 @@ An heuristical algorithm could calculate uncorrect provenance in some circumstan
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#accessedEntity -->
+
+    <owl:ObjectProperty rdf:about="&msw;accessedEntity">
+        <rdfs:label xml:lang="en">Referred entity</rdfs:label>
+        <rdfs:comment xml:lang="en">TypedEntity that is read or written by the subject SoftwareEntity </rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;Behavior"/>
+        <rdfs:range rdf:resource="&msw;TypedEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#assignedValue -->
 
     <owl:ObjectProperty rdf:about="&msw;assignedValue">
@@ -202,6 +214,22 @@ When applied to the Parameter of a Template, this corresponds to UML2 associatio
         <rdfs:comment xml:lang="en">Programming language that is declared (i.e. claimed on the web site of the project) to be used for the implementation of the released software.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;ProgrammingLanguage"/>
         <rdfs:domain rdf:resource="&msw;SoftwareProject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#declaredMethod -->
+
+    <owl:ObjectProperty rdf:about="&msw;declaredMethod">
+        <rdfs:label xml:lang="en">Declared method</rdfs:label>
+        <rdfs:comment xml:lang="en">Method directly associated to (i.e. declared within) the subject SoftwareEntity.
+
+A Method may be directly associated to more than one SoftwareEntity.  
+
+</rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;BehavioredEntity"/>
+        <rdfs:range rdf:resource="&msw;Method"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
 
@@ -531,7 +559,7 @@ Each software entity may have several objectCode files (copies).</rdfs:comment>
         <rdfs:range rdf:resource="&msw;API"/>
         <rdfs:domain rdf:resource="&msw;APIContainer"/>
         <rdfs:subPropertyOf rdf:resource="&msw;includedAPI"/>
-        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;ownedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -557,7 +585,7 @@ Each software entity may have several objectCode files (copies).</rdfs:comment>
         <rdfs:comment xml:lang="en">ParameterBinding used to generate the subject ParametrizedEntityBinding. </rdfs:comment>
         <rdfs:range rdf:resource="&msw;ParameterBinding"/>
         <rdfs:domain rdf:resource="&msw;ParameterizedEntityBinding"/>
-        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;ownedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -565,17 +593,15 @@ Each software entity may have several objectCode files (copies).</rdfs:comment>
     <!-- http://www.markosproject.eu/ontologies/software#ownedMethod -->
 
     <owl:ObjectProperty rdf:about="&msw;ownedMethod">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Method(s)</rdfs:label>
-        <owl:backwardCompatibleWith xml:lang="en">Methods owned (i.e.directly declared) by the subject entity.
+        <owl:backwardCompatibleWith xml:lang="en">Methods owned (i.e.directly declared) by the subject ObjectType.
 
-When the subject is a Classifier, this corresponds to the UML2 role &quot;ownedBehavior&quot;. 
-
-Not to be confused with a legal ownership relatioship.
-
-Here the term &quot;owned&quot; is used in a non exclusive way: a Method may be owned by only maximum one ObjectType, but may be owned by several objects.</owl:backwardCompatibleWith>
-        <rdfs:domain rdf:resource="&msw;BehavioredEntity"/>
+When the subject is a Classifier, this corresponds to the UML2 role &quot;ownedBehavior&quot;. </owl:backwardCompatibleWith>
         <rdfs:range rdf:resource="&msw;Method"/>
-        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:domain rdf:resource="&msw;ObjectType"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;declaredMethod"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;ownedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -590,7 +616,7 @@ Here the term &quot;owned&quot; is used in a non exclusive way: a Method may be 
 This generalize the UML2 associations called &quot;ownedParameter&quot;.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;Parameter"/>
         <rdfs:domain rdf:resource="&msw;ParameterizedEntity"/>
-        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;ownedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -610,6 +636,23 @@ When the subject is an Object represented by a UML2 InstanceValue, this correspo
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#ownedSoftwareEntity -->
+
+    <owl:ObjectProperty rdf:about="&msw;ownedSoftwareEntity">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">Owned software entity</rdfs:label>
+        <rdfs:comment xml:lang="en">SoftwareEntity that is indivisible from the subject SoftwareEntity.
+
+A SoftwareEntity may be &quot;owned&quot; by only one SoftwareType. 
+
+Not to be confused with a legal ownership relatioship.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#ownedVariable -->
 
     <owl:ObjectProperty rdf:about="&msw;ownedVariable">
@@ -618,7 +661,21 @@ When the subject is an Object represented by a UML2 InstanceValue, this correspo
         <rdfs:comment xml:lang="en">Any Variable defined within the code of the owned SoftwareEntity and accessible in the scope of that code.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:range rdf:resource="&msw;Variable"/>
-        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;ownedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#ownerSoftwareEntity -->
+
+    <owl:ObjectProperty rdf:about="&msw;ownerSoftwareEntity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Owner software entity</rdfs:label>
+        <rdfs:comment xml:lang="en">Inverse of onwnedSoftwareEntity</rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+        <owl:inverseOf rdf:resource="&msw;ownedSoftwareEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&mtop;superordinateEntity"/>
     </owl:ObjectProperty>
     
 
@@ -748,18 +805,6 @@ In UML2 it is represented by the attribute &quot;provided&quot;.</rdfs:comment>
         <rdfs:comment xml:lang="en">Any SoftwareEntity that is redefined by the subject one in the context of a generalization (e.g. superclass) relationship. It may be represented by the UML2 association redefinedElement.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
-        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#referredEntity -->
-
-    <owl:ObjectProperty rdf:about="&msw;referredEntity">
-        <rdfs:label xml:lang="en">Referred entity</rdfs:label>
-        <rdfs:comment xml:lang="en">TypedEntity that is read or written by the subject SoftwareEntity </rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;Behavior"/>
-        <rdfs:range rdf:resource="&msw;TypedEntity"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
@@ -1585,6 +1630,16 @@ This corresponds to the UML2 class &quot;Parameter&quot;.</rdfs:comment>
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#BuiltinSoftwareEntity -->
+
+    <owl:Class rdf:about="&msw;BuiltinSoftwareEntity">
+        <rdfs:label xml:lang="en">Built-in software entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:comment xml:lang="en">SoftwareEntity that is pre-built, i.e. supplied by a programming language implementation or by a programming language execution environment (as opposite to  SoftwareEntities defined by the programmer that uses the programming language implementation).</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#CVSRepository -->
 
     <owl:Class rdf:about="&msw;CVSRepository">
@@ -1872,6 +1927,16 @@ The location (e.g. the URL) of a File is determined by the location of its FileC
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/software#HostSoftwareEntity -->
+
+    <owl:Class rdf:about="&msw;HostSoftwareEntity">
+        <rdfs:label xml:lang="en">Host software entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;BuiltinSoftwareEntity"/>
+        <rdfs:comment xml:lang="en">SoftwareEntity supplied by the a specific (host) execution environment.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.markosproject.eu/ontologies/software#Interface -->
 
     <owl:Class rdf:about="&msw;Interface">
@@ -1938,6 +2003,16 @@ A Method in this ontology corresponds to both a UML2 Operation and an UML2 Metho
 Depending from the programming language, the (type of) Object or SoftwareClass that the Method is, or may be, associated to is dynamically or statically determined. Similarly, depending from the programming language a Method must be defined within an ObjectType or must be defined within a SoftwareClass or must be defined within an Object or may be defined independently from the Objects or SoftwareClasses it may act on.
 
 </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#NativeSoftwareEntity -->
+
+    <owl:Class rdf:about="&msw;NativeSoftwareEntity">
+        <rdfs:label xml:lang="en">Native software entity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&msw;BuiltinSoftwareEntity"/>
+        <rdfs:comment xml:lang="en">SoftwareEntity which is fully defined by a programming language specification. </rdfs:comment>
     </owl:Class>
     
 
@@ -2110,14 +2185,14 @@ ParameterizedEntity is an acbstract OWL class. Any ParametrizedEntity correspond
         <rdfs:subClassOf rdf:resource="&msw;DataValue"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;type"/>
-                <owl:allValuesFrom rdf:resource="&msw;PrimitiveType"/>
+                <owl:onProperty rdf:resource="&mtop;name"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;name"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:onProperty rdf:resource="&msw;type"/>
+                <owl:allValuesFrom rdf:resource="&msw;PrimitiveType"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A predefined DataValue.</rdfs:comment>
@@ -2171,7 +2246,8 @@ A Program may contain other software entities.</rdfs:comment>
     <owl:Class rdf:about="&msw;ScriptFile">
         <rdfs:label xml:lang="en">Script file</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;SourceCodeFile"/>
-        <rdfs:comment xml:lang="en">Any file written in a Sripting language, i.e. an interpreted language expecially useful to automate the execution of tasks that could alternatively be executed one-by-one by a human operator.
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/w/index.php?title=Scripting_language&amp;oldid=622893296</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">Any file written in a Sripting language, i.e. an interpreted language expecially useful to automate the execution of tasks that could alternatively be executed one-by-one by a human operator or to write programs that are executed in specific environments.
 
 It may be represented by a UML2 Artifact with standard stereotype &lt;&lt;Script&gt;&gt;.</rdfs:comment>
     </owl:Class>
@@ -2203,13 +2279,13 @@ A slot owned by an Object and having an explicit related Atribute may be represe
         <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
                 <owl:allValuesFrom rdf:resource="&msw;Software"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
                 <owl:allValuesFrom rdf:resource="&msw;Software"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2303,13 +2379,13 @@ the namespace.</mtop:identityCriteria>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;name"/>
+                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
+                <owl:onProperty rdf:resource="&mtop;name"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>

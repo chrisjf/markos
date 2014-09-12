@@ -64,7 +64,7 @@
     <!-- http://se-on.org/ontologies/general/2012/2/main.owl#hasChild -->
 
     <owl:ObjectProperty rdf:about="&seonmain2;hasChild">
-        <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;ownedSoftwareEntity"/>
     </owl:ObjectProperty>
     
 
@@ -72,14 +72,8 @@
     <!-- http://se-on.org/ontologies/general/2012/2/main.owl#hasParent -->
 
     <owl:ObjectProperty rdf:about="&seonmain2;hasParent">
-        <rdfs:subPropertyOf rdf:resource="&msw;owner"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;ownerSoftwareEntity"/>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.markosproject.eu/ontologies/software#owner -->
-
-    <owl:ObjectProperty rdf:about="&msw;owner"/>
     
 
 
