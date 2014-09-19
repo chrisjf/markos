@@ -82,6 +82,7 @@ The ontological model has been introduced for representing Java SE software enti
         <rdfs:label>Apply annotation</rdfs:label>
         <rdfs:comment>Where Annotations Can Be Used</rdfs:comment>
         <relatedTo>Java Annotation</relatedTo>
+        <rdfs:domain rdf:resource="&mjava;JavaAnnotation"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
         <rdfs:range>
             <owl:Class>
@@ -845,14 +846,14 @@ The manifest is a special file that can contain information about the files pack
         <rdfs:subClassOf rdf:resource="&msw;Method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;nestedClassifier"/>
-                <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
+                <owl:onProperty rdf:resource="&msw;visibility"/>
+                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&msw;visibility"/>
-                <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
+                <owl:onProperty rdf:resource="&msw;nestedClassifier"/>
+                <owl:someValuesFrom rdf:resource="&mjava;JavaLocalClass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html</rdfs:seeAlso>
@@ -866,6 +867,7 @@ Local classes are classes that are defined in a block, which is a group of zero 
     <!-- http://www.markosproject.eu/ontologies/java#JavaNestedClass -->
 
     <owl:Class rdf:about="&mjava;JavaNestedClass">
+        <rdfs:label>Java nested class</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mjava;JavaSoftwareClass"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -873,7 +875,6 @@ Local classes are classes that are defined in a block, which is a group of zero 
                 <owl:someValuesFrom rdf:resource="&msw;VisibilityKind"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment>Java nested class</rdfs:comment>
         <rdfs:comment>The Java programming language allows you to define a class within another class. Such a class is called a nested class</rdfs:comment>
         <rdfs:seeAlso>http://docs.oracle.com/javase/tutorial/java/javaOO/nested.html</rdfs:seeAlso>
     </owl:Class>

@@ -1,3 +1,20 @@
+V1.0--------------------------------------------------------------
+
+MODIFIED PROPERTIES
+versionJSPStandard is not an annotation property. Just a data property.
+versionJSPStandard is not an suproperty of top:version
+versionJSPStandard: JSPTagLibrary x string (add the domain)
+urlPattern: JavaServlet x string (add domain)
+
+ADDED AXIOMS
+importedJavaScriptProgram subproperty of externalUsedScript
+JSPDirective, JSPStandarAction, JSPTag, JSPScripting, JSPPage: implementationLanguage value JSP_LANGUAGE
+
+ADDED PROPERTIES
+importedJavaSoftwareEntity: JSPPage x JavaSoftwareEntity
+includedJSPElement: JSPPage x JSPElement
+includedJSPTag: JSPPage x JSPTag
+
 V0.5-------------------------------------------------------------
 NEW CLASSES
 JavaScript: to represent java script code

@@ -56,17 +56,6 @@ Goals: The ontological model has been introduced for representing Java EE softwa
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/markos-web-java#versionJSPStandard -->
-
-    <owl:AnnotationProperty rdf:about="&mwjava;versionJSPStandard">
-        <rdfs:label>Version JSP standard</rdfs:label>
-        <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
-        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
-        <rdfs:subPropertyOf rdf:resource="&software;version"/>
-    </owl:AnnotationProperty>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -97,7 +86,7 @@ Goals: The ontological model has been introduced for representing Java EE softwa
     <owl:ObjectProperty rdf:about="&mwjava;definedJSPElement">
         <rdfs:label>Defined JSP element</rdfs:label>
         <mjava:relatedTo>JSP Page</mjava:relatedTo>
-        <rdfs:comment>Define the relationshipt between a JSP scripting element and the subject JSP Page</rdfs:comment>
+        <rdfs:comment>To represent the &quot;definition&quot; relationship of a JSPElement in a subject JSPPage.</rdfs:comment>
         <rdfs:range rdf:resource="&mwjava;JSPElement"/>
         <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
         <rdfs:subPropertyOf rdf:resource="&top;subordinateEntity"/>
@@ -170,8 +159,46 @@ Goals: The ontological model has been introduced for representing Java EE softwa
         <rdfs:comment>The javascript file imported by the subject JSP Page</rdfs:comment>
         <mjava:relatedTo>JSP Page</mjava:relatedTo>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/javascript#JavaScriptClientProgram"/>
+        <rdfs:subPropertyOf rdf:resource="&mwjava;includedJSPElement"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.markosproject.eu/ontologies/web#externalUsedScript"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#importedJavaSoftwareEntity -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;importedJavaSoftwareEntity">
+        <rdfs:label>Imported java software entity</rdfs:label>
+        <rdfs:comment>To represent the import between JSP and Java Class</rdfs:comment>
+        <rdfs:range rdf:resource="&mjava;JavaSoftwareEntity"/>
         <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
         <rdfs:subPropertyOf rdf:resource="&software;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#includedJSPElement -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;includedJSPElement">
+        <rdfs:label>Included JSP element</rdfs:label>
+        <rdfs:comment>To represent the &quot;usage/inclusion&quot; relationship of JSPElement by a subject JSPPage.
+
+</rdfs:comment>
+        <rdfs:range rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
+        <rdfs:subPropertyOf rdf:resource="&software;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#includedJSPFile -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;includedJSPFile">
+        <rdfs:label>Included JSP file</rdfs:label>
+        <rdfs:comment>To represent the inclusion relationship between two JSPFiles. It cannot be a subproperty of usedSoftwareEntity because JSP Files are not software entities.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mwjava;JSPFile"/>
+        <rdfs:range rdf:resource="&mwjava;JSPFile"/>
+        <rdfs:subPropertyOf rdf:resource="&top;usedEntity"/>
     </owl:ObjectProperty>
     
 
@@ -180,11 +207,22 @@ Goals: The ontological model has been introduced for representing Java EE softwa
 
     <owl:ObjectProperty rdf:about="&mwjava;includedJSPPage">
         <rdfs:label>Included JSP page</rdfs:label>
+        <rdfs:comment>JSP Page imported by the subject JSP Page</rdfs:comment>
         <mjava:relatedTo>JSP Page</mjava:relatedTo>
-        <rdfs:comment>JSP Page impoted by the subject JSP Page</rdfs:comment>
         <rdfs:range rdf:resource="&mwjava;JSPPage"/>
         <rdfs:domain rdf:resource="&mwjava;JSPPage"/>
         <rdfs:subPropertyOf rdf:resource="&software;usedSoftwareEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/markos-web-java#includedJSPTag -->
+
+    <owl:ObjectProperty rdf:about="&mwjava;includedJSPTag">
+        <rdfs:label>Included JSP tag</rdfs:label>
+        <rdfs:comment>To represent the JSPTags used in a JSPPage </rdfs:comment>
+        <rdfs:range rdf:resource="&mwjava;JSPTag"/>
+        <rdfs:subPropertyOf rdf:resource="&mwjava;includedJSPElement"/>
     </owl:ObjectProperty>
     
 
@@ -363,6 +401,7 @@ Example patterns:
 /foo/* 
 /contents
 *.foo</rdfs:comment>
+        <rdfs:domain rdf:resource="&mwjava;JavaServlet"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -373,6 +412,8 @@ Example patterns:
     <owl:DatatypeProperty rdf:about="&mwjava;versionJSPStandard">
         <rdfs:label>Version JSP standard</rdfs:label>
         <mjava:relatedTo>JSP Tag Library</mjava:relatedTo>
+        <rdfs:comment>Refers to the version of the JSP standard adopted by the subject JSPTagLibrary</rdfs:comment>
+        <rdfs:domain rdf:resource="&mwjava;JSPTagLibrary"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -543,6 +584,12 @@ restored to the state of the last committed transaction when the entity is next 
     <owl:Class rdf:about="&mwjava;JSPDirective">
         <rdfs:label>JSP directive</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&software;implementationLanguage"/>
+                <owl:hasValue rdf:resource="&software;JSP_LANGUAGE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>JSP directives provide directions and instructions to the container, telling it how to handle certain aspects of JSP processing.
 
 A JSP directive affects the overall structure of the servlet class</rdfs:comment>
@@ -590,6 +637,25 @@ A JSP directive affects the overall structure of the servlet class</rdfs:comment
     <owl:Class rdf:about="&mwjava;JSPPage">
         <rdfs:label>JSP page</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JavaWebTier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&software;implementationLanguage"/>
+                <owl:hasValue rdf:resource="&software;JSP_LANGUAGE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&mwjava;importedJavaSoftwareEntity"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&mjava;JavaPackage"/>
+                            <rdf:Description rdf:about="&mjava;JavaSoftwareClass"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <mjava:relatedTo>HTML/JSP Page</mjava:relatedTo>
         <rdfs:comment>A JSP page consists of HTML tags and JSP tags. The jsp pages are easier to maintain than servlet because we can separate designing and development. It provides some additional features such as Expression Language, Custom Tag etc.
 
@@ -604,6 +670,12 @@ A JSP is an HTML page containing a reference to Java servlets, or,  java server 
     <owl:Class rdf:about="&mwjava;JSPScripting">
         <rdfs:label>JSP scripting</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&software;implementationLanguage"/>
+                <owl:hasValue rdf:resource="&software;JSP_LANGUAGE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>JSP scripting elements allow you to use Java programming language statements in your JSP pages. Scripting elements are typically used to create and access objects, define methods, and manage the flow of control. Many tasks that require the use of scripts can be eliminated by using custom tag libraries, in particular the JSP Standard Tag Library</rdfs:comment>
         <mjava:relatedTo>JSP Page</mjava:relatedTo>
     </owl:Class>
@@ -626,6 +698,12 @@ A JSP is an HTML page containing a reference to Java servlets, or,  java server 
     <owl:Class rdf:about="&mwjava;JSPStandardAction">
         <rdfs:label>JSP Standard action</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&software;implementationLanguage"/>
+                <owl:hasValue rdf:resource="&software;JSP_LANGUAGE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>JSP specification provides Standard(Action) tags for use within your JSP pages. These tags are used to remove or eliminate scriptlet code from your JSP page because scriplet code are technically not recommended nowadays</rdfs:comment>
         <rdfs:seeAlso>http://www.studytonight.com/jsp/jsp-action-element.php</rdfs:seeAlso>
         <top:canonicalURICriteria>&quot;JAVA_STANDARDACTION_&quot; + Standar action name</top:canonicalURICriteria>
@@ -640,6 +718,12 @@ A JSP is an HTML page containing a reference to Java servlets, or,  java server 
         <rdfs:label>JSP tag</rdfs:label>
         <rdfs:label>Custom action</rdfs:label>
         <rdfs:subClassOf rdf:resource="&mwjava;JSPElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&software;implementationLanguage"/>
+                <owl:hasValue rdf:resource="&software;JSP_LANGUAGE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>In addition to the standard actions, the JSP specification includes a Java API a programmer can use to develop custom actions to extend the JSP language</rdfs:comment>
         <top:canonicalURICriteria>&quot;JAVA_JSPTAG_&quot; + JSP tag name</top:canonicalURICriteria>
     </owl:Class>
