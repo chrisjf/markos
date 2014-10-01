@@ -1,7 +1,8 @@
 MARKOS ontology
 
-(next version)
+V2.0
 ====
+version date: 2014/09/30
 
 added to mtop 
 - fullyQualifiedName: Entity x xsd:string (the name of the entity prefixed, if the entity has a namespace, from the fully qualified name of the namespace 

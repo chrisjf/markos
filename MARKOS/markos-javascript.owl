@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 
+<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
+   - This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+   
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
@@ -8,6 +13,7 @@
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY mtop "http://www.markosproject.eu/ontologies/top#" >
     <!ENTITY msw "http://www.markosproject.eu/ontologies/software#" >
+    <!ENTITY mweb "http://www.markosproject.eu/ontologies/web#" >
     <!ENTITY mjs "http://www.markosproject.eu/ontologies/javascript#" >
 ]>
 
@@ -15,6 +21,7 @@
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/javascript#"
      xml:base="http://www.markosproject.eu/ontologies/javascript"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:mweb="http://www.markosproject.eu/ontologies/web#"
      xmlns:mjs="http://www.markosproject.eu/ontologies/javascript#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -22,9 +29,9 @@
      xmlns:msw="http://www.markosproject.eu/ontologies/software#"
      xmlns:mtop="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/javascript">
-        <owl:versionIRI rdf:resource="&mjs;2014/07/22"/>
-        <owl:imports rdf:resource="&msw;2014/07/22"/>
-        <owl:imports rdf:resource="http://www.markosproject.eu/ontologies/web#2014/07/22"/>
+        <owl:versionIRI rdf:resource="&mjs;2014/09/30"/>
+        <owl:imports rdf:resource="&msw;2014/09/30"/>
+        <owl:imports rdf:resource="&mweb;2014/09/30"/>
     </owl:Ontology>
     
 

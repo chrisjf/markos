@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 
 
+<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
+   - This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+   
+
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
@@ -24,7 +30,7 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/top">
         <rdfs:comment xml:lang="en">This ontology describes the top concepts used by all the MARKOS ontologies. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
-        <owl:versionIRI rdf:resource="&mtop;2014/07/22"/>
+        <owl:versionIRI rdf:resource="&mtop;2014/09/30"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     </owl:Ontology>
     
