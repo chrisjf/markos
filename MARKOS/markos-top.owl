@@ -30,7 +30,7 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/top">
         <rdfs:comment xml:lang="en">This ontology describes the top concepts used by all the MARKOS ontologies. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
-        <owl:versionIRI rdf:resource="&mtop;2014/09/30"/>
+        <owl:versionIRI rdf:resource="&mtop;2014/10/07"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     </owl:Ontology>
     
@@ -156,8 +156,8 @@ A same entity may be contained in different Containers. </rdfs:comment>
     <owl:ObjectProperty rdf:about="&mtop;containerEntity">
         <rdfs:label xml:lang="en">Contained entity</rdfs:label>
         <rdfs:comment xml:lang="en">The container (as direct parent) of the subject entity.</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
         <rdfs:range rdf:resource="&mtop;Entity"/>
-        <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;superordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -245,8 +245,8 @@ Any previousVersion of a SoftwareWork is also a usedSoftwareWork of the Software
     <owl:ObjectProperty rdf:about="&mtop;superordinateEntity">
         <rdfs:label xml:lang="en">Superordinate entity</rdfs:label>
         <rdfs:comment xml:lang="en">Inverse of subordinateEntity (see).</rdfs:comment>
+        <rdfs:domain rdf:resource="&mtop;Entity"/>
         <rdfs:range rdf:resource="&mtop;Entity"/>
-        <rdfs:domain rdf:resource="&mtop;NamedEntity"/>
     </owl:ObjectProperty>
     
 

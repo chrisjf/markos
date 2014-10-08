@@ -40,8 +40,8 @@
 
 Goals: 
 The ontological model has been introduced for representing Java SE software entities structure and classification.</rdfs:comment>
-        <owl:imports rdf:resource="&msw;2014/09/30"/>
-        <owl:versionIRI rdf:resource="&mjava;2014/09/30"/>
+        <owl:imports rdf:resource="&msw;2014/10/07"/>
+        <owl:versionIRI rdf:resource="&mjava;2014/10/07"/>
     </owl:Ontology>
     
 

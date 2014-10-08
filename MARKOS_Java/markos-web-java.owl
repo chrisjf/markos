@@ -39,10 +39,10 @@
         <rdfs:comment>This ontology describes the Java Web programing language concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).
 
 Goals: The ontological model has been introduced for representing Java EE software entities structure and classification.</rdfs:comment>
-        <owl:imports rdf:resource="&mjava;2014/09/30"/>
-        <owl:imports rdf:resource="&mjs;2014/09/30"/>
-        <owl:imports rdf:resource="&mweb;2014/09/30"/>
-        <owl:versionIRI rdf:resource="&mwjava;2014/09/30"/>
+        <owl:imports rdf:resource="&mjava;2014/10/07"/>
+        <owl:imports rdf:resource="&mjs;2014/10/07"/>
+        <owl:imports rdf:resource="&mweb;2014/10/07"/>
+        <owl:versionIRI rdf:resource="&mwjava;2014/10/07"/>
     </owl:Ontology>
     
 

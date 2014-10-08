@@ -28,8 +28,8 @@
      xmlns:msw="http://www.markosproject.eu/ontologies/software#"
      xmlns:mtop="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/web">
-        <owl:imports rdf:resource="&msw;2014/09/30"/>
-        <owl:versionIRI rdf:resource="&mweb;2014/09/30"/>
+        <owl:imports rdf:resource="&msw;2014/10/07"/>
+        <owl:versionIRI rdf:resource="&mweb;2014/10/07"/>
     </owl:Ontology>
     
 
@@ -329,7 +329,7 @@ Note that an WebPage and an HTMLFile are different kind of manifestations of HTM
 
     <owl:Class rdf:about="&mweb;WebPageComponent">
         <rdfs:subClassOf rdf:resource="&mweb;ClientSideWebComponent"/>
-        <rdfs:comment xml:lang="en">Any WebComponent that implements a WebPage (i.e. any HTMLPage or any component that produces HTML code).  
+        <rdfs:comment xml:lang="en">Any WebComponent that may implement a WebPage (i.e. any HTMLPage or any component that produces HTML code).  
 
 A .net ASP or a Java JSP are examples of WebPageComponents.</rdfs:comment>
     </owl:Class>

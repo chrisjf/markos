@@ -1,5 +1,22 @@
 MARKOS ontology
 
+V2.1
+====
+version date: 2014/10/07
+
+Changed mtop properties
+containerEntity: NamedEnity x Entity -> Entity x Entity (i.e. containers may be anonymous)
+superordinateEntity: NamedEnity x Entity -> Entity x Entity (because of the change to containerEntity)
+
+
+Changed msw properties
+- codingLanguage: CodeFile x ProgrammingLanguage -> Software x ProgrammingLanguage (this property now generalises implementationLanguage, in order to assign a programming language also to a SoftwareRelease)
+- codingLanguageVersion: CodeFile x ProgrammingLanguageVersion -> Software x ProgrammingLanguageVersion (this property now generalises implementationLanguageVersion, in order to assign a programming language version also to a SoftwareRelease)
+- parameterValue no more subPropertyOf subordinatedEntity (it was an error)
+- softwareImplementationLanguage renamed to softwareCodingLanguage (because software have no implementationLannguage, but codingLanguage)
+- declaredImplementationLanguage renamed to declaredCodingLanguage (because software have no implementationLannguage, but codingLanguage)
+
+
 V2.0
 ====
 version date: 2014/09/30
@@ -38,9 +55,9 @@ Changed msw properties
 - referredVariable -> referredEntity (renamed, for coherence with the domain)
 - changed labels of ownedAPI, ownedAttribute, ownedBinding, ownedLocalVariable, ownedMethod, ownedParameter, ownedSlot 
 - ownedLocalVaribale -> ownedVariable (generalised to represent variables in any scope)
-- value:Slot x Value -> initValue:ValueReference x SoftwareEntity  (to specify initialisation/default values of any Variable or Parameter)
+- value:Slot x Value -> assignedValue
 - invokedMethod: Behavior x Method -> invokedOperation: Behavior x Operation (again, because now Operation is again an explicit concept)
-- defaultValue (now generalized to represent also initial values of variables) 
+- defaultValue (now generalised to represent also initial values of variables) 
 - referredEntity -> accessedEntity (renamed to make more explicit that refers to read/write operations)
 
 Changed msw classes

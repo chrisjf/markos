@@ -5,7 +5,6 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
-
 <!DOCTYPE rdf:RDF [
     <!ENTITY schema "http://schema.org/" >
     <!ENTITY admssw "http://purl.org/adms/sw/" >
@@ -47,8 +46,8 @@
      xmlns:vocab="http://www.w3.org/1999/xhtml/vocab#"
      xmlns:admssw="http://purl.org/adms/sw/">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-adms.sw">
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2014/09/30"/>
-        <owl:imports rdf:resource="&msw;2014/09/30"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2014/10/07"/>
+        <owl:imports rdf:resource="&msw;2014/10/07"/>
     </owl:Ontology>
     
 
@@ -79,7 +78,7 @@
     <!-- http://purl.org/adms/sw/programmingLanguage -->
 
     <owl:ObjectProperty rdf:about="&admssw;programmingLanguage">
-        <owl:equivalentProperty rdf:resource="&msw;declaredImplementationLanguage"/>
+        <owl:equivalentProperty rdf:resource="&msw;declaredCodingLanguage"/>
     </owl:ObjectProperty>
     
 
@@ -110,9 +109,9 @@
     
 
 
-    <!-- http://www.markosproject.eu/ontologies/software#declaredImplementationLanguage -->
+    <!-- http://www.markosproject.eu/ontologies/software#declaredCodingLanguage -->
 
-    <owl:ObjectProperty rdf:about="&msw;declaredImplementationLanguage"/>
+    <owl:ObjectProperty rdf:about="&msw;declaredCodingLanguage"/>
     
 
 
