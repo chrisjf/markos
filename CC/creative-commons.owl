@@ -1,0 +1,1338 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.oegov.org/core/owl/cc"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.oegov.org/core/owl/cc">
+    <Prefix name="cc" IRI="http://creativecommons.org/ns#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="oecc" IRI="http://www.oegov.org/core/owl/cc#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="owl11" IRI="http://www.w3.org/2006/12/owl11#"/>
+    <Annotation>
+        <AnnotationProperty IRI="#revision"/>
+        <Literal datatypeIRI="&xsd;string">$Revision: 1348 $</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:rights"/>
+        <Literal datatypeIRI="&xsd;string">Creative Commons Attribution-Share Alike 3.0 United States License</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="cc:attributionURL"/>
+        <Literal datatypeIRI="&xsd;anyURI">http://www.topquadrant.com</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">$Id: cc.n3 1348 2009-08-20 00:39:32Z RalphHodgson $</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal datatypeIRI="&xsd;string">Creative Commons Ontology, extending RDF file at http://creativecommons.org/schema.rdf</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:source"/>
+        <Literal datatypeIRI="&xsd;string">www.oegov.org</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+        <Literal datatypeIRI="&xsd;string">$Date: 2009-08-20 02:39:32 +0200 (Thu, 20 Aug 2009) $</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal datatypeIRI="&xsd;string">Creative Commons Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal datatypeIRI="&xsd;string">Ralph Hodgson</Literal>
+    </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="cc:Jurisdiction"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="cc:License"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="cc:Permission"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="cc:Prohibition"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="cc:Requirement"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="cc:Work"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AttributedSource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="cc:jurisdiction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="cc:legalcode"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="cc:license"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="cc:morePermissions"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="cc:permits"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="cc:prohibits"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="cc:requires"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#attributedSource"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="cc:attributionName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#licence"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#pointOfContact"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#url"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="cc:deprecatedOn"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="cc:image"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#image"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#revision"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="cc:License"/>
+        <Class IRI="http://web.resource.org/cc/License"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="cc:Permission"/>
+        <Class IRI="http://web.resource.org/cc/Permission"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="cc:Prohibition"/>
+        <Class IRI="http://web.resource.org/cc/Prohibition"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="cc:Requirement"/>
+        <Class IRI="http://web.resource.org/cc/Requirement"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="cc:Work"/>
+        <Class IRI="http://web.resource.org/cc/Work"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class abbreviatedIRI="cc:License"/>
+        <Class IRI="http://org.semanticweb.owlapi/error#Error1"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="cc:License"/>
+        <Class IRI="http://purl.org/dc/terms/LicenseDocument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AttributedSource"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AttributedSource"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="cc:attributionURL"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AttributedSource"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="#pointOfContact"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AttributedSource"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="cc:attributionName"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Ontology"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty abbreviatedIRI="cc:license"/>
+            <Class abbreviatedIRI="cc:License"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Ontology"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#attributedSource"/>
+            <Class IRI="#AttributedSource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Ontology"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="cc:license"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Requirement"/>
+        <NamedIndividual abbreviatedIRI="cc:Attribution"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Prohibition"/>
+        <NamedIndividual abbreviatedIRI="cc:CommercialUse"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Requirement"/>
+        <NamedIndividual abbreviatedIRI="cc:Copyleft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Permission"/>
+        <NamedIndividual abbreviatedIRI="cc:DerivativeWorks"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Permission"/>
+        <NamedIndividual abbreviatedIRI="cc:Distribution"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Prohibition"/>
+        <NamedIndividual abbreviatedIRI="cc:HighIncomeNationUse"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Requirement"/>
+        <NamedIndividual abbreviatedIRI="cc:LesserCopyleft"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Requirement"/>
+        <NamedIndividual abbreviatedIRI="cc:Notice"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Permission"/>
+        <NamedIndividual abbreviatedIRI="cc:Reproduction"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Requirement"/>
+        <NamedIndividual abbreviatedIRI="cc:ShareAlike"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Permission"/>
+        <NamedIndividual abbreviatedIRI="cc:Sharing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:Requirement"/>
+        <NamedIndividual abbreviatedIRI="cc:SourceCode"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="cc:License"/>
+        <NamedIndividual IRI="#CreativeCommonsAttributionShareAlike3.0_UnitedStatesLicense"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttributedSource"/>
+        <NamedIndividual IRI="#TopQuadrantAttribution"/>
+    </ClassAssertion>
+    <SameIndividual>
+        <NamedIndividual abbreviatedIRI="cc:license"/>
+        <NamedIndividual IRI="http://www.w3.org/1999/xhtml/vocab#license"/>
+    </SameIndividual>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="cc:license"/>
+        <NamedIndividual IRI=""/>
+        <NamedIndividual IRI="#CreativeCommonsAttributionShareAlike3.0_UnitedStatesLicense"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#attributedSource"/>
+        <NamedIndividual IRI=""/>
+        <NamedIndividual IRI="#TopQuadrantAttribution"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="cc:permits"/>
+        <NamedIndividual IRI="#CreativeCommonsAttributionShareAlike3.0_UnitedStatesLicense"/>
+        <NamedIndividual abbreviatedIRI="cc:Distribution"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="cc:permits"/>
+        <NamedIndividual IRI="#CreativeCommonsAttributionShareAlike3.0_UnitedStatesLicense"/>
+        <NamedIndividual abbreviatedIRI="cc:DerivativeWorks"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="cc:requires"/>
+        <NamedIndividual IRI="#CreativeCommonsAttributionShareAlike3.0_UnitedStatesLicense"/>
+        <NamedIndividual abbreviatedIRI="cc:Attribution"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="cc:requires"/>
+        <NamedIndividual IRI="#CreativeCommonsAttributionShareAlike3.0_UnitedStatesLicense"/>
+        <NamedIndividual abbreviatedIRI="cc:ShareAlike"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="cc:attributionName"/>
+        <NamedIndividual IRI="#TopQuadrantAttribution"/>
+        <Literal datatypeIRI="&xsd;string">TopQuadrant, Inc.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#pointOfContact"/>
+        <NamedIndividual IRI="#TopQuadrantAttribution"/>
+        <Literal datatypeIRI="&xsd;string">Ralph Hodgson</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:attributionURL"/>
+        <Class abbreviatedIRI="cc:Work"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:deprecatedOn"/>
+        <Class abbreviatedIRI="cc:License"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:jurisdiction"/>
+        <Class abbreviatedIRI="cc:License"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:legalcode"/>
+        <Class abbreviatedIRI="cc:License"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:license"/>
+        <Class abbreviatedIRI="cc:Work"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:morePermissions"/>
+        <Class abbreviatedIRI="cc:Work"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:permits"/>
+        <Class abbreviatedIRI="cc:License"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:prohibits"/>
+        <Class abbreviatedIRI="cc:License"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:requires"/>
+        <Class abbreviatedIRI="cc:License"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="cc:useGuidelines"/>
+        <Class abbreviatedIRI="cc:Work"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:attributionURL"/>
+        <Class abbreviatedIRI="rdfs:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:deprecatedOn"/>
+        <Class IRI="http://www.w3.org/2001/XMLSchema-datatypes#date"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:jurisdiction"/>
+        <Class abbreviatedIRI="cc:Jurisdiction"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:legalcode"/>
+        <Class abbreviatedIRI="rdfs:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:license"/>
+        <Class abbreviatedIRI="cc:License"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:morePermissions"/>
+        <Class abbreviatedIRI="rdfs:Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:permits"/>
+        <Class abbreviatedIRI="cc:Permission"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:prohibits"/>
+        <Class abbreviatedIRI="cc:Prohibition"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:requires"/>
+        <Class abbreviatedIRI="cc:Requirement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="cc:useGuidelines"/>
+        <Class abbreviatedIRI="rdfs:Resource"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="cc:attributionName"/>
+        <Class abbreviatedIRI="cc:Work"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="cc:attributionName"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#licence"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#pointOfContact"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#url"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Attribution</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">credit be given to
+		    copyright holder and/or author</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Attribution</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Attribution</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:CommercialUse</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">exercising rights for
+		    commercial purposes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:CommercialUse</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Commercial Use</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Copyleft</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">derivative and
+		    combined works must be licensed under specified
+		    terms, similar to those on the original
+		    work</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Copyleft</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Copyleft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:DerivativeWorks</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">distribution of
+		    derivative works</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:DerivativeWorks</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Derivative Works</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Distribution</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">distribution, public
+		    display, and publicly performance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Distribution</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Distribution</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:HighIncomeNationUse</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">use in a
+		    non-developing country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:HighIncomeNationUse</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">High Income Nation Use</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Jurisdiction</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">the legal jurisdiction
+		    of a license</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Jurisdiction</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Jurisdiction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:LesserCopyleft</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">derivative works must
+		    be licensed under specified terms, with at least
+		    the same conditions as the original work;
+		    combinations with the work may be licensed under
+		    different terms</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:LesserCopyleft</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Lesser Copyleft</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:License</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">a set of
+		    requests/permissions to users of a Work, e.g. a
+		    copyright license, the public domain, information
+		    for distributors</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:License</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">License</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Notice</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">copyright and license
+		    notices be kept intact</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Notice</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Notice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Permission</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">an action that may or
+		    may not be allowed or desired</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Permission</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Permission</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Prohibition</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">something you may be
+		    asked not to do</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Prohibition</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Prohibition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Reproduction</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">making multiple
+		    copies</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Reproduction</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Reproduction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Requirement</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">an action that may or
+		    may not be requested of you</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Requirement</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Requirement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:ShareAlike</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">derivative works be
+		    licensed under the same terms or compatible terms
+		    as the original work</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:ShareAlike</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Share Alike</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Sharing</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">permits commercial
+		    derivatives, but only non-commercial
+		    distribution</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Sharing</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Sharing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:SourceCode</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">source code (the
+		    preferred form for making modifications) must be
+		    provided when exercising some rights granted by
+		    the license.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:SourceCode</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Source Code</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>cc:Work</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">a potentially
+		    copyrightable work</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:Work</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">Work</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:deprecatedOn</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">deprecated
+		  on</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:jurisdiction</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">jurisdiction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:license</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">has
+		  license</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:permits</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">permits</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:prohibits</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">prohibits</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>cc:requires</AbbreviatedIRI>
+        <Literal xml:lang="en-us" datatypeIRI="&rdf;PlainLiteral">requires</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2012-06-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/publisher"/>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+        <IRI>http://purl.org/dc/aboutdcmi#DCMI</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/title"/>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dublin Core Metadata Element Set, Version 1.1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:contributor</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:contributor</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#contributor-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:contributor</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:contributor</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:contributor</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An entity responsible for making contributions to the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:contributor</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:contributor</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Contributor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:contributor</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:coverage</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:coverage</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#coverage-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:coverage</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:coverage</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:coverage</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:coverage</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:coverage</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Coverage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:coverage</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:creator</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:creator</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#creator-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:creator</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:creator</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:creator</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An entity primarily responsible for making the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:creator</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:creator</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Creator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:creator</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:date</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:date</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#date-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:date</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:date</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:date</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A point or period of time associated with an event in the lifecycle of the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:date</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:date</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:date</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:description</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:description</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#description-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:description</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:description</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:description</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An account of the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:description</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:description</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Description</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:description</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:format</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:format</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#format-007</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:format</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:format</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:format</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The file format, physical medium, or dimensions of the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:format</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:format</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:format</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#identifier-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An unambiguous reference to the resource within a given context.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Identifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:identifier</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#language-007</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A language of the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Language</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <IRI>http://www.ietf.org/rfc/rfc4646.txt</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:language</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:publisher</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:publisher</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#publisher-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:publisher</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:publisher</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:publisher</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An entity responsible for making the resource available.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:publisher</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:publisher</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Publisher</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:publisher</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:relation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:relation</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#relation-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:relation</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:relation</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:relation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A related resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:relation</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:relation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Relation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:relation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:rights</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:rights</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#rights-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:rights</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:rights</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:rights</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Information about rights held in and over the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:rights</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:rights</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Rights</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:rights</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:source</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:source</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#source-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:source</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:source</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:source</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A related resource from which the described resource is derived.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:source</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:source</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Source</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:source</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:subject</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:subject</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#subject-007</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:subject</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:subject</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2012-06-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:subject</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The topic of the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:subject</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:subject</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Subject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:subject</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:title</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#title-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:title</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:title</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:title</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A name given to the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:title</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:title</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Title</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:title</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/description"/>
+        <AbbreviatedIRI>dc:type</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/hasVersion"/>
+        <AbbreviatedIRI>dc:type</AbbreviatedIRI>
+        <IRI>http://dublincore.org/usage/terms/history/#type-006</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/issued"/>
+        <AbbreviatedIRI>dc:type</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">1999-07-02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/modified"/>
+        <AbbreviatedIRI>dc:type</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;date">2008-01-14</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dc:type</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The nature or genre of the resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>dc:type</AbbreviatedIRI>
+        <AbbreviatedIRI>dc:</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dc:type</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#note"/>
+        <AbbreviatedIRI>dc:type</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AttributedSource</IRI>
+        <Literal datatypeIRI="&xsd;string">The name, url and other details of an attribution.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AttributedSource</IRI>
+        <Literal datatypeIRI="&xsd;string">Attributed Source</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="cc:image"/>
+        <IRI>#CreativeCommonsAttributionShareAlike3.0_UnitedStatesLicense</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://i.creativecommons.org/l/by-sa/3.0/us/88x31.png</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CreativeCommonsAttributionShareAlike3.0_UnitedStatesLicense</IRI>
+        <Literal datatypeIRI="&xsd;string">Creative Commons Attribution-Share Alike 3.0 United States License</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="cc:attributionURL"/>
+        <IRI>#TopQuadrantAttribution</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://www.topquadrant.com</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TopQuadrantAttribution</IRI>
+        <Literal datatypeIRI="&xsd;string">TopQuadrant attribution</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#attributedSource</IRI>
+        <Literal datatypeIRI="&xsd;string">attributed source</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#licence</IRI>
+        <Literal datatypeIRI="&xsd;string">licence</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#pointOfContact</IRI>
+        <Literal datatypeIRI="&xsd;string">point of contact</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#url</IRI>
+        <Literal datatypeIRI="&xsd;string">url</Literal>
+    </AnnotationAssertion>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty abbreviatedIRI="cc:license"/>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/license"/>
+    </SubAnnotationPropertyOf>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty abbreviatedIRI="cc:morePermissions"/>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/relation"/>
+    </SubAnnotationPropertyOf>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty abbreviatedIRI="cc:useGuidelines"/>
+        <AnnotationProperty IRI="http://purl.org/dc/terms/relation"/>
+    </SubAnnotationPropertyOf>
+    <AnnotationPropertyRange>
+        <AnnotationProperty abbreviatedIRI="cc:image"/>
+        <AbbreviatedIRI>xsd:anyURI</AbbreviatedIRI>
+    </AnnotationPropertyRange>
+    <AnnotationPropertyRange>
+        <AnnotationProperty IRI="#image"/>
+        <AbbreviatedIRI>xsd:anyURI</AbbreviatedIRI>
+    </AnnotationPropertyRange>
+    <AnnotationPropertyRange>
+        <AnnotationProperty IRI="#revision"/>
+        <AbbreviatedIRI>xsd:string</AbbreviatedIRI>
+    </AnnotationPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
