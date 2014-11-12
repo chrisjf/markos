@@ -61,18 +61,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/tgo/ontologies/2013/6/creative-commons#permits -->
-
-    <owl:AnnotationProperty rdf:about="&cc;permits"/>
-    
-
-
-    <!-- http://www.semanticweb.org/tgo/ontologies/2013/6/creative-commons#requires -->
-
-    <owl:AnnotationProperty rdf:about="&cc;requires"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -188,6 +176,38 @@
     
 
 
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#StrongReciprocalLicense -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#StrongReciprocalLicense">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicense"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#StrongReciprocalLicenseTemplate -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#StrongReciprocalLicenseTemplate">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#WeakReciprocalLicense -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#WeakReciprocalLicense">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicense"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/oss-licenses#WeakReciprocalLicenseTemplate -->
+
+    <owl:Class rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#WeakReciprocalLicenseTemplate">
+        <rdfs:subClassOf rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -202,7 +222,7 @@
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#AGPL-3.0 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#AGPL-3.0">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#StrongReciprocalLicenseTemplate"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/agpl-3.0.html</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/agpl-3.0.html</templateSource>
         <mtop:version>3.0</mtop:version>
@@ -382,7 +402,7 @@ software must display the following acknowledgment:
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#EUPL-1.1 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#EUPL-1.1">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#StrongReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://ec.europa.eu/idabc/eupl.html</templateSource>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://ec.europa.eu/idabc/eupl.html</rdfs:seeAlso>
         <mtop:name>EUPL</mtop:name>
@@ -400,7 +420,7 @@ software must display the following acknowledgment:
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#GPL-2.0 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-2.0">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#StrongReciprocalLicenseTemplate"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl-2.0.html</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl-2.0.html</templateSource>
         <mtop:name>GPL</mtop:name>
@@ -425,7 +445,7 @@ software must display the following acknowledgment:
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#GPL-3.0 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-3.0">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#StrongReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl-3.0.html</templateSource>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/gpl-3.0.html</rdfs:seeAlso>
         <mtop:name>GPL</mtop:name>
@@ -450,7 +470,7 @@ software must display the following acknowledgment:
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#LGPL-2.1 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-2.1">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#WeakReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-2.1.html</templateSource>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-2.1.html</rdfs:seeAlso>
         <mtop:name>LGPL</mtop:name>
@@ -473,7 +493,7 @@ software must display the following acknowledgment:
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#LGPL-3.0 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-3.0">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#WeakReciprocalLicenseTemplate"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-3.0.html</rdfs:seeAlso>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.gnu.org/licenses/lgpl-3.0.html</templateSource>
         <mtop:version>3.0</mtop:version>
@@ -521,7 +541,7 @@ software must display the following acknowledgment:
     <!-- http://www.markosproject.eu/ontologies/oss-licenses#MPL-2.0 -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#MPL-2.0">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#ReciprocalLicenseTemplate"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/oss-licenses#WeakReciprocalLicenseTemplate"/>
         <templateSource rdf:datatype="&xsd;anyURI">http://www.mozilla.org/MPL/2.0/</templateSource>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://www.mozilla.org/MPL/2.0/</rdfs:seeAlso>
         <mtop:version>2.0</mtop:version>
@@ -541,5 +561,5 @@ software must display the following acknowledgment:
 
 
 
-<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
 

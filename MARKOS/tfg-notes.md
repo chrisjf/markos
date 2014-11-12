@@ -46,36 +46,7 @@ The reciprocity clause of the MPL seems to only apply to textual modifications o
 URL: http://eulersharp.sourceforge.net/2003/03swap/countries.html
 License: W3C Software License
 
-# Possible other licenses to include in the ontology
 
-Marcin gathered some statistics:
-
-There are 1479 projects in the current data set. Only 197 of them
-declare license type that is not represented in the ontology. So,
-despite the fact that most of the user declared project license types
-are not represented in the ontology - 25 vs 18, for huge majority of
-the projects a declared license can be found in the ontology. This
-means that the ontology covers all most important license types used
-in practise.
-
-The top hits license types that are not available in ontology are:
-
-45 - ibmcpl,
-34 - mpl11,
-28 - other,
-26 - artistic,
-22 - publicdomain,
-11 - osi,
-
-The number at the beginning denotes number of projects using this license.
-
-# To Do
-
-- Define Class for Weak Copyleft Licenses (LGPL, MPLv2). 
-- Defining which actions invoke the reciprocity conditions (e.g. textual modifications, linking, ...)
-- Write rules to derive the license of a release from the license of
-  its project.
-- Write rules for different views on whether APIs are protected by copyright.
 
 
 
