@@ -1,4 +1,11 @@
 MARKOS ontology
+V2.1.1
+===
+version date: 2014/11/19
+Changed msw properties
+- usedSoftwareEntity: SoftwareEntity x SoftwareEntity -> Software x SoftwareEntity
+- dynamicallyLinkedEntity: SoftwareEntity x SoftwareEntity -> Software x SoftwareEntity
+- staticallyLinkedEntity: SoftwareEntity x SoftwareEntity -> Software x SoftwareEntity
 
 V2.1
 ====

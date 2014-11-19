@@ -362,7 +362,7 @@ It is not required the DynamicallyLinkedEntity to be used at any exection, but o
 Note that the identity of a SoftwareEntity depends from the identiy of all its usedSoftwareEntities, including both the StaticallyLinkedEntities and the DynamicallyLinkedEntities. As the DynamicLinkedEntities are determined at runtime by the the specific execution environment, the same source code or object code may define different SoftwareEntities when used in different contexts and in different Programs released by different SoftwareReleases.
 
 Most SoftwareEntities do not belong specifically to any Program (i.e. they can be reused in different Programs) and more in general can be used in different contexts, but implicit conventions and explicit human or machine readable instructions, regarding the intended use of the source code, provided by the provenanceRelease, may impose sufficient constraints on the execution conditions to determine the DynamicallyLinkedEntities independently from any specific containing Program.</rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;Software"/>
         <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
@@ -951,7 +951,7 @@ A typical use of this property is to relate Programs to used Libraries that are 
 
 Note that most SoftwareEntities do not belong specifically to any Program (i.e. they can be resued in many Programs) therefore their object code must contain any staticallyLinkedSoftwareEntity.
 </rdfs:comment>
-        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;Software"/>
         <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
@@ -1014,10 +1014,10 @@ Depending from the programming language the type may be implicit or explicit,  s
     <owl:ObjectProperty rdf:about="&msw;usedSoftwareEntity">
         <rdfs:label xml:lang="en">Used software entity</rdfs:label>
         <rdfs:comment xml:lang="en">SoftwareEntity used by the subject of this property.
-A SoftwareEntity Y is used by a SoftwareEntity X if the execution or compilation process of X implies the execution, compilation or the lookup of Y (this includes the case where a copy of the source code of Y is present in a copy of the source code of X).
+A SoftwareEntity Y is used by a Software X if the execution or compilation process of X implies the execution, compilation or the lookup of Y (this includes the case where a copy of the source code of Y is present in a copy of the source code of X).
 
 Note that an implementation relationship is not necessarly a use relationship as in some language an API or a Method may be implemented without (their code) beeing explicitly used by the compiler or executor. </rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;Software"/>
         <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
     </owl:ObjectProperty>
