@@ -1,10 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
-   - This Source Code Form is subject to the terms of the Mozilla Public
-   - License, v. 2.0. If a copy of the MPL was not distributed with this
-   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-   
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
@@ -15,26 +10,26 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY mtop "http://www.markosproject.eu/ontologies/top#" >
-    <!ENTITY mlic "http://www.markosproject.eu/ontologies/licenses#" >
     <!ENTITY msw "http://www.markosproject.eu/ontologies/software#" >
+    <!ENTITY mlic "http://www.markosproject.eu/ontologies/licenses#" >
 ]>
 
 
 <rdf:RDF xmlns="http://www.markosproject.eu/ontologies/software#"
      xml:base="http://www.markosproject.eu/ontologies/software"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:msw="http://www.markosproject.eu/ontologies/software#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:msw="http://www.markosproject.eu/ontologies/software#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:mlic="http://www.markosproject.eu/ontologies/licenses#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:mtop="http://www.markosproject.eu/ontologies/top#"
-     xmlns:mlic="http://www.markosproject.eu/ontologies/licenses#">
+     xmlns:foaf="http://xmlns.com/foaf/0.1/">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/software">
-        <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">This ontology describes the domain independent concepts used by the MARKOS service. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
+        <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
         <owl:imports rdf:resource="&mlic;2014/10/07"/>
         <owl:versionIRI rdf:resource="&msw;2014/10/07"/>
         <owl:imports rdf:resource="&mtop;2014/10/07"/>
@@ -74,13 +69,11 @@
 
     <owl:AnnotationProperty rdf:about="&msw;provenanceManifestationCriteria">
         <rdfs:label xml:lang="en">Provenance manifestation</rdfs:label>
-        <rdfs:comment xml:lang="en">Specifies which is the provenance manifestation of the instances of the subject class of SoftwareEntities and how it is (ideally) determined.
+        <rdfs:comment xml:lang="en">Specifies which is (are) the provenanceManifestation(s) of the instances of the subject class and how it is (ideally) determined.
 
-The provenance manifestation is the Artifact released by the provenance project (i.e. by the project that originally authored it).
+The provenance manifestation criteria clarifies in a more precise way the semantics of the provenanceManifestation property when applied to a specific class of entities. The specified criteria is ideal in the sense that it is not requested to be applicable in a practical or efficient way in all circumstances. In other terms the information needed to determine a provenance manifestation of an entity could be difficult or complex to manage or impossible to obtain in an automatic or sure way. Depending from the specific context specific heuristics can be used to guess the provenance manifestation.
 
-The provenance manifestation criteria clarifies in a more precise way the semantics of the provenanceManifestation property when applied to a specific class of entities. The specified criteria is ideal in the sense that it is not requested to be applicable in a practical or efficient way in all circumstances. In other terms the information needed to determine the provenance manifestation of an entity could be difficult or complex to manage or impossible to obtain in an automatic or sure way. Depending from the specific context specific heuristics can be used to guess the provenance manifestation.
-
-The provenance manifestation is described informally as it is not intended to be used by generic OWL resoners but by humans as guideline to implement (heuristical or correct and complete) algorithms that automatically determine the provenance of a SoftwarEntity.
+The provenance manifestation criteria is described informally as it is not intended to be used by generic OWL resoners but by humans as guideline to implement (heuristical or correct and complete) algorithms that automatically determine the provenance of a SoftwarEntity.
 
 An heuristical algorithm could calculate uncorrect provenance in some circumstance or could be not able to determine the provenance of all entities.</rdfs:comment>
         <rdfs:range rdf:resource="&rdf;PlainLiteral"/>
@@ -376,8 +369,8 @@ Most SoftwareEntities do not belong specifically to any Program (i.e. they can b
         <rdfs:comment xml:lang="en">The last Software, in order of derivation history (see mtop:previousVersion), released by a project disctinct from the project of the subject Software and from which the subject Software is directly or indirectly derived.
 
 </rdfs:comment>
-        <rdfs:range rdf:resource="&msw;Software"/>
         <rdfs:domain rdf:resource="&msw;Software"/>
+        <rdfs:range rdf:resource="&msw;Software"/>
         <owl:inverseOf rdf:resource="&msw;softwareFork"/>
     </owl:ObjectProperty>
     
@@ -453,8 +446,8 @@ implementationLanguage = implementationsLanguageVersion.unversionedAbstraction
         <rdfs:comment xml:lang="en">Package that is imported by the subject SoftwareEntity, i.e. all the entities of the importedPackage are also entities of the subject Package.
 
 It represent the same information represented by the homonymous UML2 attribute, but differently by UML2 in this ontology no class PackageImport is defined.</rdfs:comment>
-        <rdfs:range rdf:resource="&msw;Package"/>
         <rdfs:domain rdf:resource="&msw;Package"/>
+        <rdfs:range rdf:resource="&msw;Package"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
@@ -586,7 +579,7 @@ Each software entity may have several objectCode files (copies).</rdfs:comment>
 
     <owl:ObjectProperty rdf:about="&msw;ownedBinding">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
-        <rdfs:label xml:lang="en">Owned binding</rdfs:label>
+        <rdfs:label xml:lang="en">Defined binding</rdfs:label>
         <rdfs:comment xml:lang="en">ParameterBinding used to generate the subject ParametrizedEntityBinding. </rdfs:comment>
         <rdfs:range rdf:resource="&msw;ParameterBinding"/>
         <rdfs:domain rdf:resource="&msw;ParameterizedEntityBinding"/>
@@ -600,9 +593,10 @@ Each software entity may have several objectCode files (copies).</rdfs:comment>
     <owl:ObjectProperty rdf:about="&msw;ownedMethod">
         <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:label xml:lang="en">Method(s)</rdfs:label>
-        <owl:backwardCompatibleWith xml:lang="en">Methods owned (i.e.directly declared) by the subject ObjectType.
+        <mtop:identityCriteria>The owning ObjectType, operation name, parameter names and types.</mtop:identityCriteria>
+        <rdfs:comment xml:lang="en">Methods owned (i.e.directly declared) by the subject ObjectType.
 
-When the subject is a Classifier, this corresponds to the UML2 role &quot;ownedBehavior&quot;. </owl:backwardCompatibleWith>
+When the subject is a Classifier, this corresponds to the UML2 role &quot;ownedBehavior&quot;.</rdfs:comment>
         <rdfs:range rdf:resource="&msw;Method"/>
         <rdfs:domain rdf:resource="&msw;ObjectType"/>
         <rdfs:subPropertyOf rdf:resource="&msw;declaredMethod"/>
@@ -651,8 +645,8 @@ When the subject is an Object represented by a UML2 InstanceValue, this correspo
 A SoftwareEntity may be &quot;owned&quot; by only one SoftwareType. 
 
 Not to be confused with a legal ownership relatioship.</rdfs:comment>
-        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;subordinateEntity"/>
     </owl:ObjectProperty>
     
@@ -677,8 +671,8 @@ Not to be confused with a legal ownership relatioship.</rdfs:comment>
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:label xml:lang="en">Owner software entity</rdfs:label>
         <rdfs:comment xml:lang="en">Inverse of onwnedSoftwareEntity</rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
         <owl:inverseOf rdf:resource="&msw;ownedSoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;superordinateEntity"/>
     </owl:ObjectProperty>
@@ -725,7 +719,7 @@ Note that the fact that a project releases a software entity does not necessarly
 
     <owl:ObjectProperty rdf:about="&msw;provenanceManifestation">
         <rdfs:label xml:lang="en">Provenance manifestation</rdfs:label>
-        <rdfs:comment xml:lang="en">The original Artifact that defined the subject Work, i.e. the source code or the object code files released by the provenance Project of the subject SoftwareEntity. </rdfs:comment>
+        <rdfs:comment xml:lang="en">The original Artifact that defined the subject Work, i.e. the source code or the object code file contained in the provenanceRelease of the subject SoftwareEntity.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Software"/>
         <rdfs:range rdf:resource="&msw;SoftwareArtifact"/>
         <rdfs:subPropertyOf rdf:resource="&msw;manifestation"/>
@@ -752,7 +746,7 @@ Each software entity has exactly one provenanceObjectCode. It is a file released
 
     <owl:ObjectProperty rdf:about="&msw;provenanceRelease">
         <rdfs:label xml:lang="en">Provenance release</rdfs:label>
-        <rdfs:comment xml:lang="en">The SoftwareRelease (if any) that originally released the subject SoftwareWork. Each SoftwareWork has maximum one provenance release.
+        <rdfs:comment xml:lang="en">The SoftwareRelease (if any) that originally released the subject Software. Each SoftwareWork has maximum one provenance release.
 
 Note that the fact that a SoftwareRelease containes a software entity does not necessarly imply that the SoftwareRelease is the provenanceRelease of the software entity, as the software entity could have been copied from the provenanceRelease and released again in another release of the same project or of a different project.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Software"/>
@@ -807,8 +801,8 @@ In UML2 it is represented by the attribute &quot;provided&quot;.</rdfs:comment>
     <owl:ObjectProperty rdf:about="&msw;redefinedEntity">
         <rdfs:label xml:lang="en">Redefined entity</rdfs:label>
         <rdfs:comment xml:lang="en">Any SoftwareEntity that is redefined by the subject one in the context of a generalization (e.g. superclass) relationship. It may be represented by the UML2 association redefinedElement.</rdfs:comment>
-        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
@@ -951,8 +945,8 @@ A typical use of this property is to relate Programs to used Libraries that are 
 
 Note that most SoftwareEntities do not belong specifically to any Program (i.e. they can be resued in many Programs) therefore their object code must contain any staticallyLinkedSoftwareEntity.
 </rdfs:comment>
-        <rdfs:range rdf:resource="&msw;Software"/>
-        <rdfs:domain rdf:resource="&msw;SoftwareEntity"/>
+        <rdfs:domain rdf:resource="&msw;Software"/>
+        <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareEntity"/>
     </owl:ObjectProperty>
     
@@ -1014,9 +1008,9 @@ Depending from the programming language the type may be implicit or explicit,  s
     <owl:ObjectProperty rdf:about="&msw;usedSoftwareEntity">
         <rdfs:label xml:lang="en">Used software entity</rdfs:label>
         <rdfs:comment xml:lang="en">SoftwareEntity used by the subject of this property.
-A SoftwareEntity Y is used by a Software X if the execution or compilation process of X implies the execution, compilation or the lookup of Y (this includes the case where a copy of the source code of Y is present in a copy of the source code of X).
+A SoftwareEntity Y is used by a SoftwareEntity X if the execution or compilation or linking process of X implies the execution, compilation, linking or  lookup of Y (this includes the case where a copy of the source code of Y is present in a copy of the source code of X).
 
-Note that an implementation relationship is not necessarly a use relationship as in some language an API or a Method may be implemented without (their code) beeing explicitly used by the compiler or executor. </rdfs:comment>
+Note that an implementation relationship is not necessarly a use relationship as in some language an API or a Method may be implemented without (their code) beeing explicitly used by the compiler or executor.</rdfs:comment>
         <rdfs:domain rdf:resource="&msw;Software"/>
         <rdfs:range rdf:resource="&msw;SoftwareEntity"/>
         <rdfs:subPropertyOf rdf:resource="&mtop;usedEntity"/>
@@ -1184,11 +1178,18 @@ the string ‘final‘ is present if isLeaf=true
 
 &lt;type&gt; corresponds to the return type of a Behavior or to the type of an Attribute.
 
-Note that this is an extended version of what the leterature calls &quot;signature&quot; that include only the minimum set of information needed to distinguish a Bahavior from another in a determined context of use (for instance to distinguish a method from another in the same class). 
+Note that this is an extended version of what the literature calls &quot;signature&quot;. In literature the “signature” includes only the minimum set of information needed to distinguish a Behaviour from another in a determined context of use (for instance to distinguish a method from another in the same class).
 
-This notation is modelled onto a reduced version of the UML2 notation for Operations. </rdfs:comment>
-        <rdfs:domain rdf:resource="&msw;ParameterizedEntity"/>
+This notation is modelled onto a reduced version of the UML2 notation for Operations.</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&msw;ParameterizedEntity"/>
+                    <rdf:Description rdf:about="&msw;ValuedEntity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1446,16 +1447,16 @@ Equivalent to &apos;wiki&apos; from ontology DOAP</rdfs:comment>
                 <owl:allValuesFrom rdf:resource="&msw;Interface"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <mtop:identityCriteria xml:lang="en">(The set of identities of) all software entities (i.e. Interfaces) in the API.</mtop:identityCriteria>
+        <mtop:identityCriteria xml:lang="en">(The set of identities of) All software entities (i.e. Interfaces) in the API.</mtop:identityCriteria>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;API&apos; + the location of the provenance manifestation + the version of the API.</mtop:canonicalURICriteria>
         <rdfs:comment xml:lang="en">Set of all public interfaces of a Package or a Library.
 
 If two Packages or two Libraries contains the same public interfaces then they contains the same API.
 
 An implementation of an API is any software entity X (e.g. Package or Library) containing, at least, a software entity implementing an interface contained in the API. The percentage of API implemented by X is the percentage of the API interfaces that are implemented by some software entity contained in X.</rdfs:comment>
-        <provenanceManifestationCriteria xml:lang="en">The manifestation of the Package or Library that originally defined (i.e. owns) the API.</provenanceManifestationCriteria>
         <mtop:nameCriteria xml:lang="en">The name of the Package or Library that originally defined (i.e. owns) the API.</mtop:nameCriteria>
         <mtop:namespaceCriteria xml:lang="en">The namespace (if any) of the Package or Library that originally defined (i.e. owns) the API.</mtop:namespaceCriteria>
+        <provenanceManifestationCriteria xml:lang="en">the first (in order of time) manifestation of an APIContainer that includes the API (it coincides with the provenance manifestation of the APIContainer that “owns” the API).</provenanceManifestationCriteria>
     </owl:Class>
     
 
@@ -1545,6 +1546,8 @@ An implementation of an API is any software entity X (e.g. Package or Library) c
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/Member_variable</rdfs:seeAlso>
+        <mtop:identityCriteria xml:lang="en">- owning Classifier,
+- attribute name.</mtop:identityCriteria>
         <rdfs:comment xml:lang="en">A variable owned by a Classifier (a static attribute, also called class variable) or by a certain kind of Objects (a non static attribute, also called instance variable). It can be represented by a UML2 Property. Often it is called also &quot;member variable&quot;.
 
 Note that in UML terminology an attribute is a Property owned by a Classifier, while here Attribute is used to represent also a UML2 Property not owned by any Classifier. 
@@ -1552,12 +1555,9 @@ Note that in UML terminology an attribute is a Property owned by a Classifier, w
 In most languages a static Attribute coincides with the described Slot.</rdfs:comment>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Attribute&apos; + owning class URI  + attribute name</mtop:canonicalURICriteria>
         <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
-        <mtop:identityCriteria xml:lang="en">Owning class,
-attribute name.
-</mtop:identityCriteria>
         <mtop:nameCriteria xml:lang="en">The name of the Attribute as defined by the source code. </mtop:nameCriteria>
         <mtop:namespaceCriteria xml:lang="en">The owner Classifier (a Classifier is also a Namespace).</mtop:namespaceCriteria>
-        <provenanceManifestationCriteria xml:lang="en">The same of its owning class. </provenanceManifestationCriteria>
+        <provenanceManifestationCriteria xml:lang="en">The same of its owning Classifier.</provenanceManifestationCriteria>
     </owl:Class>
     
 
@@ -1819,7 +1819,7 @@ In particular any SoftwareEntity that may be represented by a UML2 LiteralValue 
         <rdfs:comment xml:lang="en">An SoftwareEntity that may be represented by a UML2 Feature: &quot;A feature represents some characteristic for its featuring classifiers; this characteristic may be of the classifier&apos;s instances considered individually (not static), or of the classifier itself (static). A Feature can be a feature of multiple classifiers. 
 The same feature cannot be static in one context but not another.&quot; 
 
-A Feature is ownedMeber of a Classifier.</rdfs:comment>
+A Feature is ownedMember of a Classifier.</rdfs:comment>
     </owl:Class>
     
 
@@ -1845,7 +1845,7 @@ The location (e.g. its URL) of a File is identitified by the location of its dir
         <mtop:nameCriteria xml:lang="en">The (local) name used by the users of the FileRepository to identify and distinguish the subject File from other Files within the same FileContainer. 
 
 Usually it does not include the name or the location of the Container (i.e. it is only the last portion of what , in most File Systems, is called the path of the file).</mtop:nameCriteria>
-        <provenanceManifestationCriteria xml:lang="en">The SoftwareProject that owns the FileRepository containing the file.</provenanceManifestationCriteria>
+        <provenanceManifestationCriteria xml:lang="en">The provenanceManifestation of a File coincides with the File itself (i.e. the provenance of a File is the SoftwareProject that owns the FileRepository containing the File).</provenanceManifestationCriteria>
     </owl:Class>
     
 
@@ -1899,6 +1899,8 @@ Usually it does not include the name or the location of the Container (i.e. it i
         <rdfs:label xml:lang="en">File system element</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;SoftwareArtifact"/>
         <rdfs:seeAlso rdf:datatype="&xsd;anyURI">http://en.wikipedia.org/wiki/File_system</rdfs:seeAlso>
+        <mtop:identityCriteria xml:lang="en">- the location of the FileSystemElement,
+- the FileSystemElement version.</mtop:identityCriteria>
         <rdfs:comment xml:lang="en">A data structure (a file or a directory) managed by a file system or a set (FileSet) of such data structures.
 
 A FileSystemElement may belong to (only one) another FileSystemElement (FileContainer). The container of a FileSystemElement is its namespace.  The name of a File is unique in its FileContainer.
@@ -1906,6 +1908,7 @@ A FileSystemElement may belong to (only one) another FileSystemElement (FileCont
 The location (e.g. the URL) of a File is determined by the location of its FileContainer followed its the name.
 
 </rdfs:comment>
+        <provenanceManifestationCriteria xml:lang="en">The FileSystemElement itself (i.e. the provenance of a FileSystemElement is the SoftwareProject that owns the FileRepository containing the FileSystemElement).</provenanceManifestationCriteria>
     </owl:Class>
     
 
@@ -1966,7 +1969,7 @@ The location (e.g. the URL) of a File is determined by the location of its FileC
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Library&apos; + the location of the provenance manifestation + the version of the Library.</mtop:canonicalURICriteria>
         <mtop:identityCriteria xml:lang="en">The location of the provenance manifestation.</mtop:identityCriteria>
         <mtop:nameCriteria xml:lang="en">The name of the provenance manifestation.</mtop:nameCriteria>
-        <provenanceManifestationCriteria xml:lang="en">The original manifestation (ArchiveFile) of the library, i.e. the copy created for first the time from some Project or people.</provenanceManifestationCriteria>
+        <provenanceManifestationCriteria xml:lang="en">the first (in temporal order) manifestation (ArchiveFile) of the library, i.e. the copy created for the first time from some SoftwareProject or people.</provenanceManifestationCriteria>
     </owl:Class>
     
 
@@ -2006,6 +2009,7 @@ A Method in this ontology corresponds to both a UML2 Operation and an UML2 Metho
 Depending from the programming language, the (type of) Object or SoftwareClass that the Method is, or may be, associated to is dynamically or statically determined. Similarly, depending from the programming language a Method must be defined within an ObjectType or must be defined within a SoftwareClass or must be defined within an Object or may be defined independently from the Objects or SoftwareClasses it may act on.
 
 </rdfs:comment>
+        <mtop:identityCriteria xml:lang="en">The owning class, operation name, parameter names and types.</mtop:identityCriteria>
     </owl:Class>
     
 
@@ -2096,7 +2100,7 @@ It is possible to have different packages with the same fullname. If a SoftwareR
         <mtop:namespaceCriteria xml:lang="en">The namespace of the package is the namespace of the namespace of the contained entities.</mtop:namespaceCriteria>
         <mtop:identityCriteria xml:lang="en">The set of identities of all software entities in the package.</mtop:identityCriteria>
         <mtop:versionCriteria xml:lang="en">The version of the set of manifestation souce code files of the project members (it depends forn the Version Control System if the set have a unique version or each file have an independent version). </mtop:versionCriteria>
-        <provenanceManifestationCriteria xml:lang="en">the first project (in temporal order) that released the package (i.e that released exactly the souce code manifestations of the set of members of the package, not more and not less).</provenanceManifestationCriteria>
+        <provenanceManifestationCriteria xml:lang="en">the first (in temporal order) manifestation, i.e. the manifestation occurring in the first SoftwareRelease containing  the source code manifestations of exactly all the members of the package (not more and not less entities having the same namespace).</provenanceManifestationCriteria>
     </owl:Class>
     
 
@@ -2106,17 +2110,16 @@ It is possible to have different packages with the same fullname. If a SoftwareR
     <owl:Class rdf:about="&msw;Parameter">
         <rdfs:label xml:lang="en">Parameter</rdfs:label>
         <rdfs:subClassOf rdf:resource="&msw;ValuedEntity"/>
+        <mtop:identityCriteria xml:lang="en">- owning ParameterizedEntity,
+- parameter name.</mtop:identityCriteria>
         <rdfs:comment xml:lang="en">A parameter of a ParametrizedEntity.
 
 This generalize the UML2 classes Parameter (specification of an argument used to pass information into or out of a Method invocation) and TemplateParameter (formal parameter of a template).</rdfs:comment>
         <rdfs:comment xml:lang="en">MARKOS prefix + &apos;Parameter&apos; + owning Method URI  + Parameter name</rdfs:comment>
-        <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
         <mtop:namespaceCriteria xml:lang="en">N.A.</mtop:namespaceCriteria>
-        <mtop:identityCriteria xml:lang="en">Owning Method,
-attribute name.
-</mtop:identityCriteria>
+        <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
         <mtop:nameCriteria xml:lang="en">The name of the Parameter as defined by the source code. </mtop:nameCriteria>
-        <provenanceManifestationCriteria xml:lang="en">The same of its owning Method. </provenanceManifestationCriteria>
+        <provenanceManifestationCriteria xml:lang="en">The same of its owning ParameterizedEntity.</provenanceManifestationCriteria>
     </owl:Class>
     
 
@@ -2282,13 +2285,13 @@ A slot owned by an Object and having an explicit related Atribute may be represe
         <rdfs:subClassOf rdf:resource="&mtop;Entity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
+                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
                 <owl:allValuesFrom rdf:resource="&msw;Software"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;containedEntity"/>
+                <owl:onProperty rdf:resource="&mtop;previousVersion"/>
                 <owl:allValuesFrom rdf:resource="&msw;Software"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2305,6 +2308,7 @@ abstract entities, such as a Program that may have different concrete manifestat
         <rdfs:subClassOf rdf:resource="&msw;Software"/>
         <rdfs:subClassOf rdf:resource="&mtop;Artifact"/>
         <rdfs:comment xml:lang="en">Any Software that is also an Artifact, i.e. that have a specific location in (physical or Internet) space and in time.</rdfs:comment>
+        <provenanceManifestationCriteria xml:lang="en">The provenanceManifestation of a SoftwareArtifact coincides with the SoftwareArtifact itself.</provenanceManifestationCriteria>
     </owl:Class>
     
 
@@ -2348,7 +2352,13 @@ the namespace.</mtop:identityCriteria>
             </owl:Restriction>
         </rdfs:subClassOf>
         <mtop:namespaceCriteria xml:lang="en"> the version of the provenanceSourceCode.</mtop:namespaceCriteria>
-        <provenanceManifestationCriteria xml:lang="en">(Deafult) The SourceCode manifestation released by the original author of the &quot;full source code&quot; of the SoftwareEntity. 
+        <rdfs:comment xml:lang="en">Any abstract programming entity (e.g. a Java class or a C function or a Corba Component) which is defined or implicitly assumed by a piece of source code, according to the semantics defined by a programming language specification or by another programming standard or convention. A SoftwareEntity is an abstract entity, in the sense that it has no location in space and/or time.
+
+Note that while a SoftwareEntity is defined using a programming language, not all the SoftwareEntities are specified by the semantics of a program as defined by a programming language specification. Other software entities may be defined as higher level abstractions on top of the entities identified by the programming language specification. For instance, a certain component standard for a certain Oject Oriented programming language may define a Component as specific kind of graph of related programming language Objects, therefore introducing a kind of entity (i.e. Component) that was not specified by the original programming language specification but is obtained by abstracting on the entities specified by the original programming language specification.
+ 
+SoftwareEntity is an abstract OWL class, i.e. identity criteria are defined by OWL subclasses.</rdfs:comment>
+        <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + SoftwareEntity type + name + namespace + incremental number (needed to distinguish SoftwareEntities with the same name and namespace)</mtop:canonicalURICriteria>
+        <provenanceManifestationCriteria xml:lang="en">The SourceCodeManifestation released by the original author of the &quot;full source code&quot; of the software entity. 
 
 (This is a defaullt criteria, i.e. it apply to any OWL subclass of SoftwareEntity, at least that a specific criteria is defined for that Class).
 
@@ -2356,14 +2366,7 @@ The &quot;full source code&quot; of a SoftwareEntity is the minimal self-contain
 
 The &quot;full source code&quot; of a software entity may be defined also as the set of source code manifestations of the software entity and of the software entity it depends on.
 
-For instance the full source code of a Java class named Person is not just the Java file Person.java (the manifestation) but it is composed also by any other files needed to compile the Person.java file (e.g. if Person inherits from the class Animal also the source code of Animal is needed).
-</provenanceManifestationCriteria>
-        <rdfs:comment xml:lang="en">Any abstract programming entity (e.g. a Java class or a C function or a Corba Component) which is defined or implicitly assumed by a piece of source code, according to the semantics defined by a programming language specification or by another programming standard or convention. A SoftwareEntity is an abstract entity, in the sense that it has no location in space and/or time.
-
-Note that while a SoftwareEntity is defined using a programming language, not all the SoftwareEntities are specified by the semantics of a program as defined by a programming language specification. Other software entities may be defined as higher level abstractions on top of the entities identified by the programming language specification. For instance, a certain component standard for a certain Oject Oriented programming language may define a Component as specific kind of graph of related programming language Objects, therefore introducing a kind of entity (i.e. Component) that was not specified by the original programming language specification but is obtained by abstracting on the entities specified by the original programming language specification.
- 
-SoftwareEntity is an abstract OWL class, i.e. identity criteria are defined by OWL subclasses.</rdfs:comment>
-        <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + SoftwareEntity type + name + namespace + incremental number (needed to distinguish SoftwareEntities with the same name and namespace)</mtop:canonicalURICriteria>
+For instance the full source code of a Java class named Person is not just the Java file Person.java (the manifestation) but it is composed also by any other files needed to compile the Person.java file (e.g. if Person inherits from the class Animal also the source code of Animal is needed).</provenanceManifestationCriteria>
         <mtop:versionCriteria xml:lang="en">The version of the provenanceSourceCode.</mtop:versionCriteria>
         <mtop:identityCriteria xml:lang="en">the location of the provenance manifestation,
 the version,
@@ -2382,13 +2385,13 @@ the namespace.</mtop:identityCriteria>
         <rdfs:subClassOf rdf:resource="&mtop;NamedEntity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
+                <owl:onProperty rdf:resource="&mtop;name"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&mtop;name"/>
+                <owl:onProperty rdf:resource="&mtop;webSiteURL"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2406,11 +2409,11 @@ the namespace.</mtop:identityCriteria>
 
 This definition is intended to model what developers usually mean by the term &quot;Project&quot;. Some Project Management standard such as the PMP certification applies the  term &quot;Project&quot; only to temporarly endeavours.</rdfs:comment>
         <mtop:canonicalURICriteria xml:lang="en">MARKOS prefix + &apos;Project&apos; + project name + incremental number (needed to distinguish projects with the same name)</mtop:canonicalURICriteria>
-        <mtop:namespaceCriteria xml:lang="en">N.A.</mtop:namespaceCriteria>
         <mtop:versionCriteria xml:lang="en">N.A.</mtop:versionCriteria>
-        <provenanceManifestationCriteria xml:lang="en">N.A. (A SoftwareProject is not a Work, i.e. a thing protected by Copyright, but it is an activity that produces some SoftwareWork. Therefore, strictly speaking, a SoftwareProject has no manifestation. We can speak instead of the manifestation of all resulting software and such a manifestation is roughly the set of all the SoftwareRepositories of the Project. In a more general sense there are things that are not a manifestation of the SoftwareProject but evidences of its existence such as a DOAP file describing the SoftwareProject).</provenanceManifestationCriteria>
+        <mtop:namespaceCriteria xml:lang="en">N.A.</mtop:namespaceCriteria>
+        <provenanceManifestationCriteria xml:lang="en">N.A. (A SoftwareProject is not a Software, but it is an activity that produces some Software, therefore a SoftwareProject has no manifestation).</provenanceManifestationCriteria>
+        <mtop:identityCriteria xml:lang="en">The name of the SoftwareProject and the URI of any repository of the SoftwareProject (i.e. if two DOAP files refers to project having the same name and have in common a value of the property &apos;repository&apos; then they are actually describing the same project).</mtop:identityCriteria>
         <mtop:nameCriteria xml:lang="en">The name resulting from any DOAP file of the Project. </mtop:nameCriteria>
-        <mtop:identityCriteria xml:lang="en">the name of the SoftwareProject and the URI of any repository of the project (i.e. if two DOAP files refers to Project having the same name and have in common a value of the property &apos;repository&apos; then they are actually describing the same project).</mtop:identityCriteria>
     </owl:Class>
     
 
@@ -3431,5 +3434,5 @@ attribute name.
 
 
 
-<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
 

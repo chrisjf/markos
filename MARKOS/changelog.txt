@@ -1,4 +1,9 @@
 MARKOS ontology
+
+next version
+===
+corrected typos and identity criteria
+
 V2.1.1
 ===
 version date: 2014/11/19
@@ -12,8 +17,8 @@ V2.1
 version date: 2014/10/07
 
 Changed mtop properties
-containerEntity: NamedEnity x Entity -> Entity x Entity (i.e. containers may be anonymous)
-superordinateEntity: NamedEnity x Entity -> Entity x Entity (because of the change to containerEntity)
+- containerEntity: NamedEntity x Entity -> Entity x Entity (i.e. containers may be anonymous)
+- superordinateEntity: NamedEnity x Entity -> Entity x Entity (because of the change to containerEntity)
 
 
 Changed msw properties
@@ -63,7 +68,6 @@ Changed msw properties
 - changed labels of ownedAPI, ownedAttribute, ownedBinding, ownedLocalVariable, ownedMethod, ownedParameter, ownedSlot 
 - ownedLocalVaribale -> ownedVariable (generalised to represent variables in any scope)
 - value:Slot x Value -> assignedValue
-- invokedMethod: Behavior x Method -> invokedOperation: Behavior x Operation (again, because now Operation is again an explicit concept)
 - defaultValue (now generalised to represent also initial values of variables) 
 - referredEntity -> accessedEntity (renamed to make more explicit that refers to read/write operations)
 
