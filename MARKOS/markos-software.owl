@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 
 
+<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
+   - This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+   
+
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
@@ -90,6 +96,72 @@ An heuristical algorithm could calculate uncorrect provenance in some circumstan
      -->
 
     
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#dynamicallyLinkedSoftwareRelease -->
+
+    <owl:ObjectProperty rdf:about="&msw;dynamicallyLinkedSoftwareRelease">
+        <rdfs:label xml:lang="en">Dynamically linked software release</rdfs:label>
+        <rdfs:comment xml:lang="en">Software release that defined a library which is dynamically linked by the subject software release.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareRelease"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.markosproject.eu/ontologies/software#linkedSofwareRelease -->
+
+    <owl:ObjectProperty rdf:about="&msw;linkedSofwareRelease">
+        <rdfs:label xml:lang="en">Linked software release</rdfs:label>
+        <rdfs:comment xml:lang="en">Software release that defined a library which is linked by the subject software release.</rdfs:comment>
+        <rdfs:domain rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareRelease"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.markosproject.eu/ontologies/software#modifiedSoftwareRelease -->
+
+    <owl:ObjectProperty rdf:about="&msw;modifiedSoftwareRelease">
+        <rdfs:label xml:lang="en">Modified software release</rdfs:label>
+        <rdfs:comment xml:lang="en">Software release that is modified by the subject software release.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareRelease"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.markosproject.eu/ontologies/software#provenanceReleaseOfAnImplementedAPI -->
+
+    <owl:ObjectProperty rdf:about="&msw;provenanceReleaseOfAnImplementedAPI">
+        <rdfs:label xml:lang="en">Provenance release of an implemented API</rdfs:label>
+        <rdfs:comment xml:lang="en">SoftwareRelease that defined an API implemented by the subject software release.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareRelease"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.markosproject.eu/ontologies/software#staticallyLinkedSoftwareRelease -->
+
+    <owl:ObjectProperty rdf:about="&msw;staticallyLinkedSoftwareRelease">
+        <rdfs:label xml:lang="en">Statically linked software release</rdfs:label>
+        <rdfs:comment xml:lang="en">Software release that defined a library which is statically linked by the subject software release.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:subPropertyOf rdf:resource="&msw;usedSoftwareRelease"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.markosproject.eu/ontologies/software#usedSoftwareRelease -->
+
+    <owl:ObjectProperty rdf:about="&msw;usedSoftwareRelease">
+        <rdfs:label xml:lang="en">Used software release</rdfs:label>
+        <rdfs:comment xml:lang="en">Software release (also partially) used by the subject software release.</rdfs:comment>
+        <rdfs:range rdf:resource="&msw;SoftwareRelease"/>
+        <rdfs:domain rdf:resource="&msw;SoftwareRelease"/>
+    </owl:ObjectProperty>
 
 
     <!-- http://purl.org/dc/terms/subject -->

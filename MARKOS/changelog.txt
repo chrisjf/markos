@@ -4,6 +4,15 @@ next version
 ===
 corrected typos and identity criteria
 
+Added msw properties
+- usedSoftwareRelease: Software release (also partially) used by the subject software release.
+- provenanceReleaseOfAnImplementedAPI: SoftwareRelease that defined an API implemented by the subject software release. 
+- linkedSofwareRelease: Software release that defined a library which is linked by the subject software release.
+- dynamicallyLinkedSoftwareRelease: Software release that defined a library which is dynamically linked by the subject software release.
+- staticallyLinkedSoftwareRelease: Software release that defined a library which is statically linked by the subject software release.
+- modifiedSoftwareRelease: Software release that is modified by the subject software release.
+
+
 V2.1.1
 ===
 version date: 2014/11/19
