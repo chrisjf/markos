@@ -505,8 +505,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#Adaptation -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#Adaptation">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
-        <rdfs:comment>&quot;Adaptation&quot; means a work based upon the Work, or upon the Work and other pre-existing works, such as a translation, adaptation, derivative work, arrangement of music or other alterations of a literary or artistic work, or phonogram or performance and includes cinematographic adaptations or any other form in which the Work may be recast, transformed, or adapted including in any form recognizably derived from the original, except that a work that constitutes a Collection will not be considered an Adaptation for the purpose of this License. For the avoidance of doubt, where the Work is a musical work, performance or phonogram, the synchronization of the Work in timed-relation with a moving image (&quot;synching&quot;) will be considered an Adaptation for the purpose of this License.</rdfs:comment>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Permission"/>
     </owl:NamedIndividual>
     
 
@@ -523,7 +522,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#Attribution -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#Attribution">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Obligation"/>
     </owl:NamedIndividual>
     
 
@@ -564,7 +563,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#Distribution -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#Distribution">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Permission"/>
         <rdfs:comment>&quot;Distribute&quot; means to make available to the public the original and copies of the Work or Adaptation, as appropriate, through sale or other transfer of ownership.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -590,7 +589,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#HoldLiable -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#HoldLiable">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Prohibition"/>
     </owl:NamedIndividual>
     
 
@@ -614,7 +613,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#Notice -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#Notice">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Obligation"/>
         <rdfs:comment>Indicate signicant changes made to the work</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -631,7 +630,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#PatentGrant -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#PatentGrant">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Permission"/>
         <rdfs:comment>The license provides an express grant of permission to use patents rights.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -665,7 +664,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#Reciprocity -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#Reciprocity">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Obligation"/>
     </owl:NamedIndividual>
     
 
@@ -673,7 +672,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#Reproduction -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#Reproduction">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Permission"/>
         <rdfs:comment>&quot;Reproduce&quot; means to make copies of the Work by any means including without limitation by sound or visual recordings and the right of fixation and reproducing fixations of the Work, including storage of a protected performance or phonogram in digital form or other electronic medium.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -691,7 +690,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#SourceCode -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#SourceCode">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Obligation"/>
     </owl:NamedIndividual>
     
 
@@ -699,7 +698,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#StateChanges -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#StateChanges">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Obligation"/>
     </owl:NamedIndividual>
     
 
@@ -707,7 +706,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#Sublicensing -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#Sublicensing">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Permission"/>
     </owl:NamedIndividual>
     
 
@@ -715,7 +714,7 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#UseTrademark -->
 
     <owl:NamedIndividual rdf:about="http://www.markosproject.eu/ontologies/copyright#UseTrademark">
-        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#LicenseTerm"/>
+        <rdf:type rdf:resource="http://www.markosproject.eu/ontologies/copyright#Prohibition"/>
     </owl:NamedIndividual>
     
 
