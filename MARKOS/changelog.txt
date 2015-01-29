@@ -1,8 +1,10 @@
 MARKOS ontology
 
-next version
+V2.2
 ===
-corrected typos and identity criteria
+version date: 2015/01/29
+
+Corrected typos and identity criteria
 
 Added msw properties
 - usedSoftwareRelease: Software release (also partially) used by the subject software release.

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 
 <!-- Copyright (c) 2014 ATOS Spain SA  
    - This Source Code Form is subject to the terms of the Mozilla Public
@@ -40,8 +40,8 @@
 
 Goals: 
 The ontological model has been introduced for representing Java SE software entities structure and classification.</rdfs:comment>
-        <owl:imports rdf:resource="&msw;2014/10/07"/>
-        <owl:versionIRI rdf:resource="&mjava;2014/10/07"/>
+        <owl:imports rdf:resource="&msw;2015/01/29"/>
+        <owl:versionIRI rdf:resource="&mjava;2015/01/29"/>
     </owl:Ontology>
     
 

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2014 ATOS Spain SA  
+<!-- Copyright (c) 2015 ATOS Spain SA  
    - This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -46,8 +46,8 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:foaf="http://xmlns.com/foaf/0.1/">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-adms.sw">
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2014/10/07"/>
-        <owl:imports rdf:resource="&msw;2014/10/07"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2015/01/29"/>
+        <owl:imports rdf:resource="&msw;2015/01/29"/>
     </owl:Ontology>
     
 

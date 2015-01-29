@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 
-<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
+<!-- Copyright (c) 2015 Engineering Ingegneria Informatica s.p.a. 
    - This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -30,7 +30,7 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/top">
         <rdfs:isDefinedBy>http://www.markosproject.eu/downloads/MARKOSOntology.doc</rdfs:isDefinedBy>
         <rdfs:comment xml:lang="en">This ontology describes the top concepts used by all the MARKOS ontologies. Find more details at the MARKOS website (http://www.markosproject.eu/).</rdfs:comment>
-        <owl:versionIRI rdf:resource="&mtop;2014/10/07"/>
+        <owl:versionIRI rdf:resource="&mtop;2015/01/29"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     </owl:Ontology>
     

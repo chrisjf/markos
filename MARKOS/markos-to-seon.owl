@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 
-<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
+<!-- Copyright (c) 2015 Engineering Ingegneria Informatica s.p.a. 
    - This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -34,8 +34,8 @@
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/markos-to-seon">
         <rdfs:comment xml:lang="en">This ontology describes a partial mapping between the MARKOS ontology and the SEON ontology. </rdfs:comment>
         <owl:imports rdf:resource="http://se-on.org/ontologies/domain-specific/2012/02/code.owl"/>
-        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-seon#2014/10/07"/>
-        <owl:imports rdf:resource="&msw;2014/10/07"/>
+        <owl:versionIRI rdf:resource="http://www.markosproject.eu/ontologies/markos-to-seon#2015/01/29"/>
+        <owl:imports rdf:resource="&msw;2015/01/29"/>
     </owl:Ontology>
     
 
