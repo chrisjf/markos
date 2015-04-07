@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/web" uri="markos-web.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/web#2014/10/07" uri="markos-web.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/web#2015/01/29" uri="markos-web.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/top" uri="markos-top.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/top#2014/10/07" uri="markos-top.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-web-java" uri="../MARKOS_Java/markos-web-java.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-web-java#2014/10/07" uri="../MARKOS_Java/markos-web-java.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-web-java#2015/01/29" uri="../MARKOS_Java/markos-web-java.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/software" uri="markos-software.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/software#2014/10/07" uri="markos-software.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/software#2015/01/29" uri="markos-software.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/java" uri="../MARKOS_Java/markos-java.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/java#2014/10/07" uri="../MARKOS_Java/markos-java.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/java#22015/01/29" uri="../MARKOS_Java/markos-java.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/javascript" uri="markos-javascript.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/javascript#2014/10/07" uri="markos-javascript.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/javascript#2015/01/29" uri="markos-javascript.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-seon" uri="markos-to-seon.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-seon#2014/10/07" uri="markos-to-seon.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-seon#2015/01/29" uri="markos-to-seon.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-doap" uri="markos-to-doap.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-doap#2014/10/07" uri="markos-to-doap.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-doap#2015/01/29" uri="markos-to-doap.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-adms.sw" uri="markos-to-adms%20sw.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2014/10/07" uri="markos-to-adms%20sw.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-to-adms.sw#2015/01/29" uri="markos-to-adms%20sw.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/licenses" uri="markos-licenses.owl"/>
-    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/licenses#2014/10/07" uri="markos-licenses.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/licenses#2015/01/29" uri="markos-licenses.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/oss-licenses" uri="markos-oss-licenses.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/copyright" uri="markos-copyright.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.markosproject.eu/ontologies/markos-event-calculus" uri="markos-event-calculus.owl"/>

@@ -1,4 +1,20 @@
 MARKOS ontology
+
+V2.2
+===
+version date: 2015/01/29
+
+Corrected typos and identity criteria
+
+Added msw properties
+- usedSoftwareRelease: Software release (also partially) used by the subject software release.
+- provenanceReleaseOfAnImplementedAPI: SoftwareRelease that defined an API implemented by the subject software release. 
+- linkedSofwareRelease: Software release that defined a library which is linked by the subject software release.
+- dynamicallyLinkedSoftwareRelease: Software release that defined a library which is dynamically linked by the subject software release.
+- staticallyLinkedSoftwareRelease: Software release that defined a library which is statically linked by the subject software release.
+- modifiedSoftwareRelease: Software release that is modified by the subject software release.
+
+
 V2.1.1
 ===
 version date: 2014/11/19
@@ -12,8 +28,8 @@ V2.1
 version date: 2014/10/07
 
 Changed mtop properties
-containerEntity: NamedEnity x Entity -> Entity x Entity (i.e. containers may be anonymous)
-superordinateEntity: NamedEnity x Entity -> Entity x Entity (because of the change to containerEntity)
+- containerEntity: NamedEntity x Entity -> Entity x Entity (i.e. containers may be anonymous)
+- superordinateEntity: NamedEnity x Entity -> Entity x Entity (because of the change to containerEntity)
 
 
 Changed msw properties
@@ -63,7 +79,6 @@ Changed msw properties
 - changed labels of ownedAPI, ownedAttribute, ownedBinding, ownedLocalVariable, ownedMethod, ownedParameter, ownedSlot 
 - ownedLocalVaribale -> ownedVariable (generalised to represent variables in any scope)
 - value:Slot x Value -> assignedValue
-- invokedMethod: Behavior x Method -> invokedOperation: Behavior x Operation (again, because now Operation is again an explicit concept)
 - defaultValue (now generalised to represent also initial values of variables) 
 - referredEntity -> accessedEntity (renamed to make more explicit that refers to read/write operations)
 

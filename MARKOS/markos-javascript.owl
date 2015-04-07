@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2014 Engineering Ingegneria Informatica s.p.a. 
+<!-- Copyright (c) 2015 Engineering Ingegneria Informatica s.p.a. 
    - This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -29,9 +29,9 @@
      xmlns:msw="http://www.markosproject.eu/ontologies/software#"
      xmlns:mtop="http://www.markosproject.eu/ontologies/top#">
     <owl:Ontology rdf:about="http://www.markosproject.eu/ontologies/javascript">
-        <owl:versionIRI rdf:resource="&mjs;2014/10/07"/>
-        <owl:imports rdf:resource="&msw;2014/10/07"/>
-        <owl:imports rdf:resource="&mweb;2014/10/07"/>
+        <owl:versionIRI rdf:resource="&mjs;2015/01/29"/>
+        <owl:imports rdf:resource="&msw;2015/01/29"/>
+        <owl:imports rdf:resource="&mweb;2015/01/29"/>
     </owl:Ontology>
     
 
