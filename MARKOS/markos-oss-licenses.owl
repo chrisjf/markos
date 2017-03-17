@@ -774,6 +774,41 @@ software must display the following acknowledgment:
         <copyright:permits rdf:resource="http://www.markosproject.eu/ontologies/copyright#Reproduction"/>
         <mtop:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">public domain</mtop:name>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#AGPL-3.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-1.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-1.1"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Apache-2.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#Artistic-2.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#BSD-2-Clause"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#BSD-3-Clause"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#CPL-1.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#EPL-1.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#EUPL-1.1"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-2.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-3.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-LE-2.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#GPL-LE-3.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-2.1"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#LGPL-3.0"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#MIT"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#MPL-1.1"/>
+            <rdf:Description rdf:about="http://www.markosproject.eu/ontologies/oss-licenses#MPL-2.0"/>
+        </owl:distinctMembers>
+    </rdf:Description>
 </rdf:RDF>
 
 
