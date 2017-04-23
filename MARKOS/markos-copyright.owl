@@ -44,7 +44,6 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#compatibleWith -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/copyright#compatibleWith">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
     </owl:ObjectProperty>
@@ -90,7 +89,6 @@
     <!-- http://www.markosproject.eu/ontologies/copyright#incompatibleWith -->
 
     <owl:ObjectProperty rdf:about="http://www.markosproject.eu/ontologies/copyright#incompatibleWith">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
         <rdfs:range rdf:resource="http://www.markosproject.eu/ontologies/licenses#CopyrightLicenseTemplate"/>
     </owl:ObjectProperty>
